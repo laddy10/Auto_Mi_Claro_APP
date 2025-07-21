@@ -1,5 +1,6 @@
 # Ignorar APKs pesados
-src/test/resources/app
+src/test/resources/app/
+build/resources/test/app/
 # Ignorar carpetas temporales de ejecución
 .idea/
 .vscode/
