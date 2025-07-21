@@ -1,0 +1,42 @@
+# Ignorar APKs pesados
+*.apk
+
+# Ignorar carpetas temporales de ejecución
+.idea/
+.vscode/
+out/
+bin/
+build/
+target/
+
+# Ignorar capturas o reportes generados automáticamente
+*.log
+*.tmp
+*.class
+*.iml
+*.docx
+*.xlsx
+Capturas/
+Reporte_Pruebas_Automatizadas.docx
+
+# Ignorar resultados de pruebas
+allure-results/
+test-output/
+
+# Archivos temporales del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Gradle
+.gradle/
+**/build/
+
+# IntelliJ
+*.ipr
+*.iws
+*.bak
+*.swp
+
+# Configuración de usuarios
+*.env
+.env.local
