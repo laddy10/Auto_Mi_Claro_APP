@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Ingresar al modulo pagos y consultas" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-07-21T20:58:18" hostname="AU3PH5CG141BG50" time="142.968">
+  <properties/>
+  <testcase name="Ingresar a Detalle de tu plan" classname="Ingresar al modulo pagos y consultas" time="142.968"/>
+  <system-out><![CDATA[2025-07-21 15:58:18 [Test worker] DEBUG:: Running feature from file:///D:/Mi%20Claro%20APP/Auto_Mi_Claro_APP/src/test/resources/features/pagosyconsultas.feature
+2025-07-21 15:58:18 [Test worker] INFO :: 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Ingresar a Detalle de tu plan(ingresar-al-modulo-pagos-y-consultas;ingresar-a-detalle-de-tu-plan)
+--------------------------------------------------------------------------------
+2025-07-21 15:58:19 [Test worker] INFO :: ?[92m|-- Given EL USUARIO ABRE LA SUPER APP?[0m
+2025-07-21 15:58:31 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:58:35 [Test worker] INFO :: ?[92m|---- Actor?[0m
+2025-07-21 15:58:35 [Test worker] DEBUG:: Opening darkroom
+2025-07-21 15:58:35 [Darkroom Processing Line] DEBUG:: Darkroom processing line starting up
+2025-07-21 15:58:35 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\e1bd5755908dbc9988ba930195a486e8947c6d265d44c910a3f6d67168d6f7b6.png
+2025-07-21 15:58:35 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-8273558227272367571
+2025-07-21 15:58:35 [Test worker] DEBUG:: STARTING STEP: LoginDefinitions.abrirSuperApp - {0}
+2025-07-21 15:58:36 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\e1bd5755908dbc9988ba930195a486e8947c6d265d44c910a3f6d67168d6f7b6.png
+2025-07-21 15:58:38 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\e1bd5755908dbc9988ba930195a486e8947c6d265d44c910a3f6d67168d6f7b6.png
+2025-07-21 15:58:38 [Test worker] DEBUG:: STEP DONE: {0}
+2025-07-21 15:58:38 [Test worker] INFO :: ?[92m|-- When REALIZA EL INGRESO?[0m
+2025-07-21 15:58:38 [Test worker] INFO :: ?[92m|---- Actor ingreso super app?[0m
+2025-07-21 15:58:38 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\e1bd5755908dbc9988ba930195a486e8947c6d265d44c910a3f6d67168d6f7b6.png
+2025-07-21 15:58:38 [Test worker] DEBUG:: STARTING STEP: LoginDefinitions.ingresoSuperApp - performAs
+2025-07-21 15:58:38 [Test worker] DEBUG:: default content already selected for Label Encabezado de usuario
+2025-07-21 15:58:41 [Test worker] DEBUG:: default content already selected for Texto Tu sesión se ha cerrado por seguridad
+2025-07-21 15:58:44 [Test worker] DEBUG:: default content already selected for Texto ¡Nos alegra tenerte de vuelta!
+2025-07-21 15:58:48 [Test worker] DEBUG:: default content already selected for Texto Iniciar sesión
+2025-07-21 15:58:48 [Test worker] INFO :: ?[92m|------ actor clicks on Texto Iniciar sesión?[0m
+2025-07-21 15:58:48 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\e1bd5755908dbc9988ba930195a486e8947c6d265d44c910a3f6d67168d6f7b6.png
+2025-07-21 15:58:48 [Test worker] DEBUG:: STARTING STEP: IngresoSuperApp.performAs - {0} clicks on #target
+2025-07-21 15:58:48 [Test worker] DEBUG:: default content already selected for Texto Iniciar sesión
+2025-07-21 15:58:50 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\db92a91d2c32f46d9b410176a752e083c740ab2104ac971f69bc6ef2dabc1385.png
+2025-07-21 15:58:50 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-17551647363229132551
+2025-07-21 15:58:50 [Test worker] DEBUG:: STEP DONE: {0} clicks on #target
+2025-07-21 15:58:50 [Test worker] INFO :: ?[92m|------ Busca el texto de 'Continuar' y le da click.?[0m
+2025-07-21 15:58:50 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\db92a91d2c32f46d9b410176a752e083c740ab2104ac971f69bc6ef2dabc1385.png
+2025-07-21 15:58:51 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\67c1c5de19770534937dd0b5d8bffdeb57b7d37dcf31259679ca4f6dc977431d.png
+2025-07-21 15:58:51 [Test worker] DEBUG:: STARTING STEP: IngresoSuperApp.iniciarSesion - Busca el texto de '#Text' y le da click.
+2025-07-21 15:58:51 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-3734963873372179337
+2025-07-21 15:58:51 [Test worker] INFO :: ?[92m|-------- Actor?[0m
+2025-07-21 15:58:51 [Test worker] DEBUG:: STARTING STEP: AndroidObject.ClickByText - {0}
+2025-07-21 15:58:51 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\67c1c5de19770534937dd0b5d8bffdeb57b7d37dcf31259679ca4f6dc977431d.png
+2025-07-21 15:58:52 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\f0fb877140d82b1d9d00d281a75e793648a1747763579ba3cf1f8518061b27f4.png
+2025-07-21 15:58:52 [Test worker] DEBUG:: STEP DONE: {0}
+2025-07-21 15:58:52 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-16954176432863865473
+2025-07-21 15:58:53 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\f0fb877140d82b1d9d00d281a75e793648a1747763579ba3cf1f8518061b27f4.png
+2025-07-21 15:58:53 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\e806dccd68f68ac1d9991bef2b4faf991aa69001288b983e9adade781ef7e147.png
+2025-07-21 15:58:53 [Test worker] DEBUG:: STEP DONE: Busca el texto de '#Text' y le da click.
+2025-07-21 15:58:53 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-971833742557290774
+2025-07-21 15:58:53 [Test worker] INFO :: ?[92m|------ actor enters 'ExuS2o2a' into Ingresar Password?[0m
+2025-07-21 15:58:53 [Test worker] DEBUG:: STARTING STEP: IngresoSuperApp.iniciarSesion - {0} enters #theTextAsAString into #target
+2025-07-21 15:58:53 [Test worker] DEBUG:: default content already selected for Ingresar Password
+2025-07-21 15:58:53 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\e806dccd68f68ac1d9991bef2b4faf991aa69001288b983e9adade781ef7e147.png
+2025-07-21 15:58:55 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\de8bffee6d4b2a057a96a5ac75416c24299ff279be8ac28286598633640b2a72.png
+2025-07-21 15:58:55 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-1926218275290975868
+2025-07-21 15:58:55 [Test worker] DEBUG:: STEP DONE: {0} enters #theTextAsAString into #target
+2025-07-21 15:58:55 [Test worker] INFO :: ?[92m|------ Busca el texto de 'Continuar' y le da click.?[0m
+2025-07-21 15:58:55 [Test worker] DEBUG:: STARTING STEP: IngresoSuperApp.iniciarSesion - Busca el texto de '#Text' y le da click.
+2025-07-21 15:58:55 [Test worker] INFO :: ?[92m|-------- Actor?[0m
+2025-07-21 15:58:55 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\de8bffee6d4b2a057a96a5ac75416c24299ff279be8ac28286598633640b2a72.png
+2025-07-21 15:58:56 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\de8bffee6d4b2a057a96a5ac75416c24299ff279be8ac28286598633640b2a72.png
+2025-07-21 15:58:56 [Test worker] DEBUG:: STARTING STEP: AndroidObject.ClickByText - {0}
+2025-07-21 15:58:58 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\de8bffee6d4b2a057a96a5ac75416c24299ff279be8ac28286598633640b2a72.png
+2025-07-21 15:58:58 [Test worker] DEBUG:: STEP DONE: {0}
+2025-07-21 15:58:59 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\2de0ab5b63e16d68b17ae6c013c9a3689c2b0240af35436db7b6cef7ef7cde8f.png
+2025-07-21 15:58:59 [Test worker] DEBUG:: STEP DONE: Busca el texto de '#Text' y le da click.
+2025-07-21 15:58:59 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-9130874656863849663
+2025-07-21 15:58:59 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:58:59 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\2de0ab5b63e16d68b17ae6c013c9a3689c2b0240af35436db7b6cef7ef7cde8f.png
+2025-07-21 15:59:00 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:59:00 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:59:01 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:59:01 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:59:02 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:59:02 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:59:03 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:59:03 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:59:04 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:59:04 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:59:05 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:59:05 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:59:06 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:59:06 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:59:07 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:59:07 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:59:08 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:59:08 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:59:12 [Test worker] DEBUG:: default content already selected for Logo de espera al iniciar la App Mi Claro
+2025-07-21 15:59:15 [Test worker] DEBUG:: default content already selected for Texto términos y condiciones
+2025-07-21 15:59:18 [Test worker] INFO :: ?[92m|------ Actor?[0m
+2025-07-21 15:59:18 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\8bcbf526886225504ae6b6f44c15faf1ef04354ef619b94d69a8fdae743c2053.png
+2025-07-21 15:59:18 [Test worker] DEBUG:: STARTING STEP: IngresoSuperApp.validarLogin - {0}
+2025-07-21 15:59:18 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-15253077746794958326
+2025-07-21 15:59:19 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\8bcbf526886225504ae6b6f44c15faf1ef04354ef619b94d69a8fdae743c2053.png
+2025-07-21 15:59:20 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\e0f867c31b87fed1f7444312e205fadef41bacf5a23af423a15df147dd851f08.png
+2025-07-21 15:59:20 [Test worker] DEBUG:: STEP DONE: {0}
+2025-07-21 15:59:20 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-9278173180472526139
+2025-07-21 15:59:20 [Test worker] DEBUG:: default content already selected for Texto Tienes una sesión abierta en otro dispositivo
+2025-07-21 15:59:20 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\e0f867c31b87fed1f7444312e205fadef41bacf5a23af423a15df147dd851f08.png
+2025-07-21 15:59:20 [Test worker] INFO :: ?[92m|------ Busca el texto de 'Continuar' y le da click.?[0m
+2025-07-21 15:59:21 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\e0f867c31b87fed1f7444312e205fadef41bacf5a23af423a15df147dd851f08.png
+2025-07-21 15:59:21 [Test worker] DEBUG:: STARTING STEP: IngresoSuperApp.validarLogin - Busca el texto de '#Text' y le da click.
+2025-07-21 15:59:21 [Test worker] INFO :: ?[92m|-------- Actor?[0m
+2025-07-21 15:59:21 [Test worker] DEBUG:: STARTING STEP: AndroidObject.ClickByText - {0}
+2025-07-21 15:59:22 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\e0f867c31b87fed1f7444312e205fadef41bacf5a23af423a15df147dd851f08.png
+2025-07-21 15:59:22 [Test worker] DEBUG:: STEP DONE: {0}
+2025-07-21 15:59:24 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\2ec633fd572df95706233064d1f94518b5970202dfd404abd1c7a8ea74cb3f63.png
+2025-07-21 15:59:24 [Test worker] DEBUG:: STEP DONE: Busca el texto de '#Text' y le da click.
+2025-07-21 15:59:24 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-12624685702836302702
+2025-07-21 15:59:24 [Test worker] INFO :: ?[92m|------ Actor?[0m
+2025-07-21 15:59:24 [Test worker] DEBUG:: STARTING STEP: IngresoSuperApp.validarLogin - {0}
+2025-07-21 15:59:24 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\2ec633fd572df95706233064d1f94518b5970202dfd404abd1c7a8ea74cb3f63.png
+2025-07-21 15:59:30 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\8b424edd07e9fc63f88f90157aab96053247bcf8dc178e1e792c583374814647.png
+2025-07-21 15:59:30 [Test worker] DEBUG:: STEP DONE: {0}
+2025-07-21 15:59:30 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-12511457186804045775
+2025-07-21 15:59:30 [Test worker] DEBUG:: default content already selected for Boton Activar ingreso biometrico
+2025-07-21 15:59:31 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\8b424edd07e9fc63f88f90157aab96053247bcf8dc178e1e792c583374814647.png
+2025-07-21 15:59:34 [Test worker] DEBUG:: default content already selected for Mensaje ¿Permitir que Mi Claro te envíe notificaciones? 
+2025-07-21 15:59:37 [Test worker] INFO :: ?[92m|------ Actor?[0m
+2025-07-21 15:59:38 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\8b424edd07e9fc63f88f90157aab96053247bcf8dc178e1e792c583374814647.png
+2025-07-21 15:59:38 [Test worker] DEBUG:: STARTING STEP: IngresoSuperApp.clickSiExiste - {0}
+2025-07-21 15:59:40 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\8b424edd07e9fc63f88f90157aab96053247bcf8dc178e1e792c583374814647.png
+2025-07-21 15:59:40 [Test worker] DEBUG:: STEP DONE: {0}
+2025-07-21 15:59:40 [Test worker] DEBUG:: default content already selected for Texto de Autorización de medición de velocidad
+2025-07-21 15:59:43 [Test worker] DEBUG:: default content already selected for Texto Autorización para Medición de Velocidad
+2025-07-21 15:59:46 [Test worker] INFO :: ?[92m|------ Then validate information text should be 'Hola, Gerencia'?[0m
+2025-07-21 15:59:47 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\8b424edd07e9fc63f88f90157aab96053247bcf8dc178e1e792c583374814647.png
+2025-07-21 15:59:47 [Test worker] INFO :: ?[92m|-------- Actor visible?[0m
+2025-07-21 15:59:47 [Test worker] DEBUG:: STARTING STEP: ValidateInformationText.answeredBy - performAs
+2025-07-21 15:59:47 [Test worker] DEBUG:: default content already selected for Label Encabezado de usuario
+2025-07-21 15:59:49 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\8b424edd07e9fc63f88f90157aab96053247bcf8dc178e1e792c583374814647.png
+2025-07-21 15:59:49 [Test worker] DEBUG:: STEP DONE: performAs
+2025-07-21 15:59:49 [Test worker] DEBUG:: default content already selected for Label Encabezado de usuario
+2025-07-21 15:59:50 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\8b424edd07e9fc63f88f90157aab96053247bcf8dc178e1e792c583374814647.png
+2025-07-21 15:59:52 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\8b424edd07e9fc63f88f90157aab96053247bcf8dc178e1e792c583374814647.png
+2025-07-21 15:59:52 [Test worker] DEBUG:: STEP DONE: performAs
+2025-07-21 15:59:52 [Test worker] INFO :: ?[92m|-- And VERIFICA VERSION DE LA SUPER APP?[0m
+2025-07-21 15:59:52 [Test worker] INFO :: ?[92m|---- Actor version super app?[0m
+2025-07-21 15:59:52 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\8b424edd07e9fc63f88f90157aab96053247bcf8dc178e1e792c583374814647.png
+2025-07-21 15:59:52 [Test worker] DEBUG:: STARTING STEP: LoginDefinitions.verificaVersion - performAs
+2025-07-21 15:59:52 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Perfil' este contenido en otro texto visible.?[0m
+2025-07-21 15:59:52 [Test worker] DEBUG:: STARTING STEP: VersionSuperApp.performAs - Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 15:59:53 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\bda7bdb6cc5d0b0dca3496354ae0580fdb0f82106abdeda6718b8d6b810f19ba.png
+2025-07-21 15:59:53 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 15:59:53 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-18318436156121967481
+2025-07-21 15:59:53 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Hola, Gerencia' este presente en pantalla?[0m
+2025-07-21 15:59:54 [Test worker] DEBUG:: STARTING STEP: VersionSuperApp.performAs - Valida que el texto '#text' este presente en pantalla
+2025-07-21 15:59:54 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\bda7bdb6cc5d0b0dca3496354ae0580fdb0f82106abdeda6718b8d6b810f19ba.png
+2025-07-21 15:59:54 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\bda7bdb6cc5d0b0dca3496354ae0580fdb0f82106abdeda6718b8d6b810f19ba.png
+2025-07-21 15:59:54 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este presente en pantalla
+2025-07-21 15:59:54 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Versión' este contenido en otro texto visible.?[0m
+2025-07-21 15:59:54 [Test worker] DEBUG:: STARTING STEP: VersionSuperApp.performAs - Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 15:59:55 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\bda7bdb6cc5d0b0dca3496354ae0580fdb0f82106abdeda6718b8d6b810f19ba.png
+2025-07-21 15:59:55 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 15:59:56 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Mundo Claro' este contenido en otro texto visible.?[0m
+2025-07-21 15:59:57 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\bda7bdb6cc5d0b0dca3496354ae0580fdb0f82106abdeda6718b8d6b810f19ba.png
+2025-07-21 15:59:57 [Test worker] DEBUG:: STARTING STEP: VersionSuperApp.performAs - Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 15:59:58 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\8b424edd07e9fc63f88f90157aab96053247bcf8dc178e1e792c583374814647.png
+2025-07-21 15:59:58 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 15:59:58 [Test worker] DEBUG:: STEP DONE: performAs
+2025-07-21 15:59:58 [Test worker] INFO :: ?[92m|-- And INGRESA AL MENU PAGOS Y CONSULTAS?[0m
+2025-07-21 15:59:58 [Test worker] INFO :: ?[92m|---- Actor scroll hasta texto?[0m
+2025-07-21 15:59:59 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\8b424edd07e9fc63f88f90157aab96053247bcf8dc178e1e792c583374814647.png
+2025-07-21 15:59:59 [Test worker] DEBUG:: STARTING STEP: PagosYConsultasDefinitions.menuPagosYConsultas - performAs
+2025-07-21 16:00:09 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\2259114d43cfc8087ecec9b8f4539b5e46f558bc370ca6efcc2e03583dca6a18.png
+2025-07-21 16:00:09 [Test worker] DEBUG:: STEP DONE: performAs
+2025-07-21 16:00:09 [Test worker] INFO :: ?[92m|---- Valida que el texto 'Ver más' este contenido en otro texto visible.?[0m
+2025-07-21 16:00:09 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-16972926830054715854
+2025-07-21 16:00:09 [Test worker] DEBUG:: STARTING STEP: PagosYConsultasDefinitions.menuPagosYConsultas - Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 16:00:09 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\2259114d43cfc8087ecec9b8f4539b5e46f558bc370ca6efcc2e03583dca6a18.png
+2025-07-21 16:00:10 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\2259114d43cfc8087ecec9b8f4539b5e46f558bc370ca6efcc2e03583dca6a18.png
+2025-07-21 16:00:10 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 16:00:12 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\e474aa80562aa4a26f463c6a4f9e813f5f01b91512851f3bd87addd4679f7e87.png
+2025-07-21 16:00:12 [Test worker] INFO :: ?[92m|-- Then VALIDA DETALLE DE TU PLAN?[0m
+2025-07-21 16:00:12 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-4823816814495617961
+2025-07-21 16:00:12 [Test worker] INFO :: ?[92m|---- Actor detalle tu plan?[0m
+2025-07-21 16:00:12 [Test worker] DEBUG:: STARTING STEP: PagosYConsultasDefinitions.validaDetalleTuPlan - performAs
+2025-07-21 16:00:12 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\e474aa80562aa4a26f463c6a4f9e813f5f01b91512851f3bd87addd4679f7e87.png
+2025-07-21 16:00:12 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Detalle de tu plan' este contenido en otro texto visible.?[0m
+2025-07-21 16:00:13 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\e474aa80562aa4a26f463c6a4f9e813f5f01b91512851f3bd87addd4679f7e87.png
+2025-07-21 16:00:13 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 16:00:13 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\e474aa80562aa4a26f463c6a4f9e813f5f01b91512851f3bd87addd4679f7e87.png
+2025-07-21 16:00:13 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este contenido en otro texto visible.
+? Texto visible sin scroll: Línea 310 263 2840 Ver detalle
+2025-07-21 16:00:16 [Test worker] INFO :: ?[92m|------ Valida que el texto '310 263 2840' este contenido en otro texto visible.?[0m
+2025-07-21 16:00:17 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\1d2e9c7f35a5ff09874a834878528335e36bf6cd4a6f074a331f051618a005a0.png
+2025-07-21 16:00:17 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 16:00:17 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-5821228408762327864
+2025-07-21 16:00:17 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\1d2e9c7f35a5ff09874a834878528335e36bf6cd4a6f074a331f051618a005a0.png
+2025-07-21 16:00:17 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\1d2e9c7f35a5ff09874a834878528335e36bf6cd4a6f074a331f051618a005a0.png
+2025-07-21 16:00:17 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 16:00:18 [Test worker] INFO :: ?[92m|------ actor clicks on Boton de los 3 punticos para validar la mini versión?[0m
+2025-07-21 16:00:19 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\af6bedcc9350837f268acf67c3c0c65c24b9d3fda7ebdcfe2a26bd31a1738495.png
+2025-07-21 16:00:19 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - {0} clicks on #target
+2025-07-21 16:00:19 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-12539375362102480481
+2025-07-21 16:00:19 [Test worker] DEBUG:: default content already selected for Boton de los 3 punticos para validar la mini versión
+2025-07-21 16:00:19 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\af6bedcc9350837f268acf67c3c0c65c24b9d3fda7ebdcfe2a26bd31a1738495.png
+2025-07-21 16:00:19 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\02d387ac4ac4aa8d55a92527fa47e5c947a097b0a7bc98c18090cbfa67749591.png
+2025-07-21 16:00:19 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-18194582941346696455
+2025-07-21 16:00:19 [Test worker] DEBUG:: STEP DONE: {0} clicks on #target
+2025-07-21 16:00:19 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Acerca de' este contenido en otro texto visible.?[0m
+2025-07-21 16:00:19 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 16:00:20 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\02d387ac4ac4aa8d55a92527fa47e5c947a097b0a7bc98c18090cbfa67749591.png
+2025-07-21 16:00:20 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\5f5bf4ee4e4deef4519d689e567714a03a1527528223239a6a96f030d6c06fa4.png
+2025-07-21 16:00:20 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 16:00:20 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-4947506717414154787
+2025-07-21 16:00:20 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\5f5bf4ee4e4deef4519d689e567714a03a1527528223239a6a96f030d6c06fa4.png
+2025-07-21 16:00:21 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Detalle de tu plan postpago' este presente en pantalla?[0m
+2025-07-21 16:00:22 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\a419f4c9312291d4288043396656acc9a33e3994d007a162d9a9be9e65f7b766.png
+2025-07-21 16:00:22 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:22 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-10271922435900428621
+2025-07-21 16:00:22 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\a419f4c9312291d4288043396656acc9a33e3994d007a162d9a9be9e65f7b766.png
+2025-07-21 16:00:22 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\a419f4c9312291d4288043396656acc9a33e3994d007a162d9a9be9e65f7b766.png
+2025-07-21 16:00:22 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:22 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Declaración de Servicio' este presente en pantalla?[0m
+2025-07-21 16:00:22 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:23 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\a419f4c9312291d4288043396656acc9a33e3994d007a162d9a9be9e65f7b766.png
+2025-07-21 16:00:23 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:23 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Ver' este contenido en otro texto visible.?[0m
+2025-07-21 16:00:23 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 16:00:23 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\a419f4c9312291d4288043396656acc9a33e3994d007a162d9a9be9e65f7b766.png
+2025-07-21 16:00:23 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 16:00:23 [Test worker] INFO :: ?[92m|------ Regresa atrás en la aplicacion.?[0m
+2025-07-21 16:00:24 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\a419f4c9312291d4288043396656acc9a33e3994d007a162d9a9be9e65f7b766.png
+2025-07-21 16:00:24 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Regresa atrás en la aplicacion.
+2025-07-21 16:00:25 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\da5fa066c34a07d1dc92faff001a94804e1f4a0d8465f2cbe7030cb69996ec8e.png
+2025-07-21 16:00:25 [Test worker] DEBUG:: STEP DONE: Regresa atrás en la aplicacion.
+2025-07-21 16:00:25 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Consulta la factura de tu plan postpago' este presente en pantalla?[0m
+2025-07-21 16:00:25 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-6337850989957005119
+2025-07-21 16:00:25 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:25 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\da5fa066c34a07d1dc92faff001a94804e1f4a0d8465f2cbe7030cb69996ec8e.png
+2025-07-21 16:00:26 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\4c8c81263e11668500fea28daf39d23599b511e1f046bc7f68ff381581d007db.png
+2025-07-21 16:00:26 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:26 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Ver factura' este presente en pantalla?[0m
+2025-07-21 16:00:26 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-2179317574257720439
+2025-07-21 16:00:26 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:26 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\4c8c81263e11668500fea28daf39d23599b511e1f046bc7f68ff381581d007db.png
+2025-07-21 16:00:26 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\6baeb561d6293b121e1ea468df973d1347c78f3afb3c470bedaaf6d9a8c06506.png
+2025-07-21 16:00:26 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:26 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-12504903654928290295
+2025-07-21 16:00:26 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Tu Plan' este presente en pantalla?[0m
+2025-07-21 16:00:26 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:26 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\6baeb561d6293b121e1ea468df973d1347c78f3afb3c470bedaaf6d9a8c06506.png
+2025-07-21 16:00:27 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\bf434c5aabb179a64f070d885426d3d7763d8e683c8a2c5901e81b7b52d51028.png
+2025-07-21 16:00:27 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:27 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Cargo fijo mensual (IVA incluido)' este contenido en otro texto visible.?[0m
+2025-07-21 16:00:27 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-7304849917720042253
+2025-07-21 16:00:27 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 16:00:27 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\bf434c5aabb179a64f070d885426d3d7763d8e683c8a2c5901e81b7b52d51028.png
+2025-07-21 16:00:28 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\bf434c5aabb179a64f070d885426d3d7763d8e683c8a2c5901e81b7b52d51028.png
+2025-07-21 16:00:28 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 16:00:28 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Datos' este presente en pantalla?[0m
+2025-07-21 16:00:28 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:28 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\bf434c5aabb179a64f070d885426d3d7763d8e683c8a2c5901e81b7b52d51028.png
+2025-07-21 16:00:28 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:28 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Tu plan incluye' este contenido en otro texto visible.?[0m
+2025-07-21 16:00:28 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 16:00:29 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\bf434c5aabb179a64f070d885426d3d7763d8e683c8a2c5901e81b7b52d51028.png
+2025-07-21 16:00:29 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 16:00:29 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Ver detalle de redes' este contenido en otro texto visible.?[0m
+2025-07-21 16:00:29 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 16:00:29 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\bf434c5aabb179a64f070d885426d3d7763d8e683c8a2c5901e81b7b52d51028.png
+2025-07-21 16:00:29 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 16:00:29 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Voz' este presente en pantalla?[0m
+2025-07-21 16:00:29 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:30 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\bf434c5aabb179a64f070d885426d3d7763d8e683c8a2c5901e81b7b52d51028.png
+2025-07-21 16:00:30 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:30 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Segundos para llamar a cualquier operador móvil o fijo nacional.' este contenido en otro texto visible.?[0m
+2025-07-21 16:00:30 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 16:00:31 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\bf434c5aabb179a64f070d885426d3d7763d8e683c8a2c5901e81b7b52d51028.png
+2025-07-21 16:00:31 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este contenido en otro texto visible.
+2025-07-21 16:00:31 [Test worker] INFO :: ?[92m|------ Valida que el texto 'SMS' este presente en pantalla?[0m
+2025-07-21 16:00:32 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\bf434c5aabb179a64f070d885426d3d7763d8e683c8a2c5901e81b7b52d51028.png
+2025-07-21 16:00:32 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:32 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\bf434c5aabb179a64f070d885426d3d7763d8e683c8a2c5901e81b7b52d51028.png
+2025-07-21 16:00:32 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:32 [Test worker] INFO :: ?[92m|------ Realiza Scroll una vez hacia abajo?[0m
+2025-07-21 16:00:32 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Realiza Scroll una vez hacia abajo
+2025-07-21 16:00:34 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\aeecace857c157ba06d446373b801466eb68f73d3bc0784ec97c62518291b68a.png
+2025-07-21 16:00:34 [Test worker] DEBUG:: STEP DONE: Realiza Scroll una vez hacia abajo
+2025-07-21 16:00:34 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Larga Distancia Internacional' este presente en pantalla?[0m
+2025-07-21 16:00:34 [Darkroom Processing Line] DEBUG:: Processing screenshot image in /var/screenshots/screenshot-3427085340475766575
+2025-07-21 16:00:34 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:35 [Darkroom Processing Line] DEBUG:: Saving screenshot to D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\aeecace857c157ba06d446373b801466eb68f73d3bc0784ec97c62518291b68a.png
+2025-07-21 16:00:35 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\aeecace857c157ba06d446373b801466eb68f73d3bc0784ec97c62518291b68a.png
+2025-07-21 16:00:35 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:35 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Descripción del plan' este presente en pantalla?[0m
+2025-07-21 16:00:35 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:35 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\aeecace857c157ba06d446373b801466eb68f73d3bc0784ec97c62518291b68a.png
+2025-07-21 16:00:35 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:35 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Familia y amigos' este presente en pantalla?[0m
+2025-07-21 16:00:35 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:36 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\aeecace857c157ba06d446373b801466eb68f73d3bc0784ec97c62518291b68a.png
+2025-07-21 16:00:36 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:36 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Aplicaciones elegibles' este presente en pantalla?[0m
+2025-07-21 16:00:36 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:36 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\aeecace857c157ba06d446373b801466eb68f73d3bc0784ec97c62518291b68a.png
+2025-07-21 16:00:36 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:36 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Mejorar plan' este presente en pantalla?[0m
+2025-07-21 16:00:36 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:37 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\aeecace857c157ba06d446373b801466eb68f73d3bc0784ec97c62518291b68a.png
+2025-07-21 16:00:37 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:37 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Paquetes adicionales' este presente en pantalla?[0m
+2025-07-21 16:00:37 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:38 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\aeecace857c157ba06d446373b801466eb68f73d3bc0784ec97c62518291b68a.png
+2025-07-21 16:00:38 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:38 [Test worker] INFO :: ?[92m|------ Valida que el texto 'Administrar roaming' este presente en pantalla?[0m
+2025-07-21 16:00:38 [Test worker] DEBUG:: STARTING STEP: DetalleTuPlan.performAs - Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:38 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\aeecace857c157ba06d446373b801466eb68f73d3bc0784ec97c62518291b68a.png
+2025-07-21 16:00:38 [Test worker] DEBUG:: STEP DONE: Valida que el texto '#text' este presente en pantalla
+2025-07-21 16:00:39 [Test worker] DEBUG:: Send negative for processing for D:\Mi Claro APP\Auto_Mi_Claro_APP\target\site\serenity\aeecace857c157ba06d446373b801466eb68f73d3bc0784ec97c62518291b68a.png
+2025-07-21 16:00:39 [Test worker] DEBUG:: STEP DONE: performAs
+2025-07-21 16:00:40 [Test worker] INFO :: ?[92m
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Ingresar a Detalle de tu plan
+----------------------------------------------------------------------?[0m
+]]></system-out>
+  <system-err><![CDATA[jul. 21, 2025 3:58:19 P. M. utils.WordAppium <clinit>
+INFO: messages.properties cargado correctamente.
+jul. 21, 2025 3:58:19 P. M. utils.WordAppium inicializarPlantillaReporte
+INFO: Plantilla copiada correctamente.
+jul. 21, 2025 3:59:51 P. M. utils.CapturaDePantallaMovil tomarCapturaPantalla
+INFO: Captura de pantalla guardada con borde rojo: Capturas/login_exitoso_a_la_super_app_20250721_155950.png
+jul. 21, 2025 3:59:56 P. M. utils.CapturaDePantallaMovil tomarCapturaPantalla
+INFO: Captura de pantalla guardada con borde rojo: Capturas/1__informaci_n_inicial_a__validar_versi_n_app___20250721_155955.png
+jul. 21, 2025 4:00:11 P. M. utils.CapturaDePantallaMovil tomarCapturaPantalla
+INFO: Captura de pantalla guardada con borde rojo: Capturas/menu_pagos_y_consultas_20250721_160010.png
+jul. 21, 2025 4:00:12 P. M. utils.CapturaDePantallaMovil tomarCapturaPantalla
+INFO: Captura de pantalla guardada con borde rojo: Capturas/seleccionar_detalle_de_tu_plan_20250721_160012.png
+jul. 21, 2025 4:00:16 P. M. utils.CapturaDePantallaMovil tomarCapturaPantalla
+INFO: Captura de pantalla guardada con borde rojo: Capturas/seleccionar_l_nea_postpago310_263_2840_20250721_160015.png
+jul. 21, 2025 4:00:23 P. M. utils.CapturaDePantallaMovil tomarCapturaPantalla
+INFO: Captura de pantalla guardada con borde rojo: Capturas/validar_versi_n_de_miniprograma_20250721_160023.png
+jul. 21, 2025 4:00:31 P. M. utils.CapturaDePantallaMovil tomarCapturaPantalla
+INFO: Captura de pantalla guardada con borde rojo: Capturas/validar_informaci_n_detalle_del_plan_20250721_160031.png
+jul. 21, 2025 4:00:39 P. M. utils.CapturaDePantallaMovil tomarCapturaPantalla
+INFO: Captura de pantalla guardada con borde rojo: Capturas/validar_opciones_disponibles_20250721_160038.png
+ERROR StatusLogger Log4j2 could not find a logging implementation. Please add log4j-core to the classpath. Using SimpleLogger to log to the console...
+jul. 21, 2025 4:00:40 P. M. utils.WordAppium generarReporte
+INFO: Reporte generado correctamente: D:\Mi Claro APP\Auto_Mi_Claro_APP\reportes\Prueba_Ingresar_a_Detalle_de_tu_plan_20250721_160039.docx
+]]></system-err>
+</testsuite>

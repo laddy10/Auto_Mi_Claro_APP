@@ -1,0 +1,88 @@
+repositories {
+    jcenter()
+    mavenLocal()
+}
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.70")
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.0"
+        classpath "gradle.plugin.com.github.sherter.google-java-format:google-java-format-gradle-plugin:0.9"
+
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'net.serenity-bdd.aggregator'
+apply plugin: 'com.github.sherter.google-java-format'
+apply plugin: 'org.sonarqube'
+
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+    verifyGoogleJavaFormat.dependsOn(tasks.googleJavaFormat)
+}
+
+test {
+    systemProperties = System.properties
+    systemProperty "cucumber.options", System.getProperty("cucumber.options")
+}
+
+tasks.withType(Test) {
+    systemProperty "file.encoding", "UTF-8"
+    systemProperties = System.properties
+    maxParallelForks = Runtime.runtime.availableProcessors()
+
+}
+
+ext {
+    serenityVersion = '4.1.13'
+    serenityCucumberVersion = '4.1.13'
+}
+
+
+dependencies {
+    // Testing y utilidades modernas
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1' // Reemplaza JUnit 4.12
+    testImplementation 'org.assertj:assertj-core:3.25.3'
+    testImplementation 'org.slf4j:slf4j-api:2.0.12'
+    testImplementation 'org.slf4j:slf4j-log4j12:2.0.12'
+
+    // Serenity BDD (asegúrate de tener estas versiones definidas en ext)
+    implementation "net.serenity-bdd:serenity-core:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-junit:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay-webdriver:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-cucumber:$rootProject.ext.serenityCucumberVersion"
+    implementation "net.serenity-bdd:serenity-ensure:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-rest-assured:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay-rest:$rootProject.ext.serenityVersion"
+
+    // Appium
+    implementation 'io.appium:java-client:8.3.0'
+
+    // Apache POI
+    implementation 'org.apache.poi:poi-ooxml:5.2.5'
+
+    // JSON
+    implementation 'org.json:json:20240303'
+
+    // WebDriverManager
+    implementation 'io.github.bonigarcia:webdrivermanager:5.7.0'
+
+    // Librerías locales
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+
+gradle.startParameter.continueOnFailure = true
+test.finalizedBy(aggregate)
