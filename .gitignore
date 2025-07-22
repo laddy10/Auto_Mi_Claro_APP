@@ -1,5 +1,5 @@
 # Ignorar APKs pesados
-src/test/resources/app/
+src/test/resources/app/mi-claro.apk
 build/resources/test/app/
 # Ignorar archivos APK
 build/resources/test/app/mi-claro.apk
