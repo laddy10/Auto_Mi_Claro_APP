@@ -1,6 +1,9 @@
 # Ignorar APKs pesados
 src/test/resources/app/
 build/resources/test/app/
+# Ignorar archivos APK
+build/resources/test/app/mi-claro.apk
+
 # Ignorar carpetas temporales de ejecución
 .idea/
 .vscode/
