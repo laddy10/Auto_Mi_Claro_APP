@@ -136,8 +136,128 @@ public class Constants {
     public static final String ADMINISTRAR_ROAMING = "Administrar roaming";
 
 
+    // Gestiona tu equipo - Módulo principal
+    public static final String GESTIONA_TU_EQUIPO = "Gestiona tu equipo";
+    public static final String ELIGE_NUMERO_CUENTA_LINEA = "Elige el número de cuenta o línea";
 
 
+    // Opciones del menú Gestiona tu equipo
+    public static final String REGISTRAR_EQUIPO = "Registrar equipo";
+    public static final String REPORTAR_POR_ROBO_PERDIDA = "Reportar por robo o pérdida";
+    public static final String SOLUCIONAR_EQUIPO_IMEI_DUPLICADO = "Solucionar equipo con IMEI Duplicado";
+    public static final String RECONECTAR_POR_ROBO_PERDIDA = "Reconectar por robo o pérdida";
+    public static final String CONSULTAR_EQUIPO = "Consultar equipo";
+    public static final String ACTUALIZAR_DATOS_EQUIPO = "Actualizar datos de tu equipo";
+
+    // Registrar equipo
+    public static final String RECUERDA_TENER_SIM_CARD = "Recuerda tener la SIM Card puesta en el equipo que vas a registrar y tener conexión a internet.";
+    public static final String REGISTRAR = "Registrar";
+    public static final String CANCELAR = "Cancelar";
+    public static final String EQUIPO_REGISTRADO = "El equipo ya se encuentra registrado.";
+
+    // Reportar por robo o pérdida
+    public static final String REPORTAR_POR_ROBO_PERDIDA_TITULO = "Reportar por robo o pérdida";
+    public static final String CONFIRMA_NUMERO_LINEA_DATOS = "Confirma el número de línea y datos\n" +
+            "del equipo que quieres reportar";
+    public static final String NUMERO_LABEL = "Número:";
+    public static final String IMEI_LABEL = "IMEI:";
+    public static final String MARCA_LABEL = "Marca:";
+    public static final String MODELO_LABEL = "Modelo:";
+    public static final String REPORTAR = "Reportar";
+
+    // Solucionar equipo con IMEI Duplicado
+    public static final String SOLUCIONAR_EQUIPO_IMEI_DUPLICADO_TITULO = "Solucionar equipo con IMEI Duplicado";
+    public static final String REGISTRAR_LINEA_IMEI = "Registrar la línea de tu IMEI";
+    public static final String GESTIONAR_LINEAS_IMEI = "Gestionar las líneas de tu IMEI";
+
+    // Reconectar por robo o pérdida
+    public static final String RECONECTAR_POR_ROBO_PERDIDA_TITULO = "Reconectar por robo o pérdida";
+    public static final String LINEA_IMEI_NO_REPORTADOS = "La línea {0} y el imei {1} no están reportados por robo o pérdida";
+
+    // Consultar equipo
+    public static final String CONSULTAR_EQUIPO_TITULO = "Consultar equipo";
+    public static final String TU_EQUIPO_ACTUAL = "Tu equipo actual";
+    public static final String ESTADO_LABEL = "Estado:";
+    public static final String CELULAR_REGISTRADO_EXITOSAMENTE = "Este celular ya fue registrado exitosamente";
+
+    // Actualizar datos de tu equipo
+    public static final String ACTUALIZAR_DATOS_EQUIPO_TITULO = "Actualizar datos de tu equipo";
+
+
+    // Elementos comunes
+    public static final String ESPERA_UN_MOMENTO = "Espera un momento";
+    public static final String GESTIONA_TU_EQUIPO_NUMERO = "Gestiona tu equipo";
+    public static final String REGISTRA_CONSULTA_ESTADO_IMEI = "Registra y consulta el estado del IMEI de tu equipo";
+
+    //Constantes consulta de consumos
+    // Consultar Consumos - Módulo principal
+    public static final String CONSULTAR_CONSUMOS = "Consultar consumos";
+    public static final String DETALLE_DE_CONSUMOS = "Detalle de consumos";
+    public static final String LINEA_310_263_2840 = "310 263 2840";
+
+    // Tu plan - Información principal
+    public static final String TU_PLAN_INF = "Tu plan";
+    public static final String CONECTADOS_25_V_73_SALUD = "Conectados 25 V 7.3 SALUD";
+    public static final String GB_PLAN_160 = "160,00 GB plan";
+    public static final String FECHA_INICIO = "Fecha inicio: 14/07/2025";
+    public static final String FECHA_CARGA = "Fecha carga: 13/08/2025";
+
+    // Opciones del menú de consumos
+    public static final String CONSUMO_DE_DATOS = "Consumo de datos";
+    public static final String APPS_SIN_LIMITE_CONSUMO = "Apps sin límite de consumo";
+    public static final String CONSUMO_DE_VOZ = "Consumo de voz";
+    public static final String CONSUMO_DE_SMS = "Consumo de SMS";
+    public static final String CONSUMO_PAQUETES_Y_RECARGAS = "Consumo paquetes y recargas";
+
+    // Consumo de datos - Detalles
+    public static final String GB_PLAN_160_DETALLE = "160,00 GB plan";
+    public static final String CONSUMIDO_DEL_PLAN = "Consumido del plan";
+    public static final String CONSUMIDO_1_40_GB = "1,40 GB";
+    public static final String PAQUETES_COMPLEMENTARIOS = "Paquetes complementarios";
+    public static final String PAQUETES_0_00_GB = "0,00 GB";
+    public static final String HAS_CONSUMIDO_1_40_GB = "Has consumido 1,40 GB";
+
+    // Roaming Internacional
+    public static final String ROAMING_INTERNACIONAL = "Roaming Internacional";
+    public static final String PASAPORTE_AMERICA = "Pasaporte América";
+    public static final String PAQUETES_ROAMING_INTERNACIONAL = "Paquetes Roaming Internacional";
+    public static final String PAISES_AMERICA_EUROPA_41 = "41 Países de América y Europa:";
+    public static final String RESTO_DEL_MUNDO = "Resto del Mundo:";
+    public static final String CONSUMOS_ADICIONALES_ROAMING = "Consumos adicionales Roaming Internacional";
+    public static final String CONSUMOS_POR_DEMANDA_INTERNACIONAL = "Consumos por demanda Internacional";
+    public static final String DATOS_CONSUMIDOS = "Datos Consumidos:";
+    public static final String CONSUMO_0_00_GB = "0,00 GB";
+
+    // Apps sin límite de consumo
+    public static final String FACEBOOK = "Facebook";
+    public static final String FACEBOOK_CONSUMIDO = "Has consumido 0,00 GB";
+
+    // Mensajes de no consumo
+    public static final String AUN_NO_REGISTRAS_CONSUMOS_CUENTA = "Aún no registras consumos en tu cuenta";
+    public static final String AUN_NO_HAS_ADQUIRIDO_PAQUETES = "Aún no has adquirido paquetes";
+    public static final String AUN_NO_HAS_HECHO_RECARGAS = "Aún no has hecho recargas";
+    public static final String EN_ESTE_MES_NO_REGISTRAS_CONSUMOS = "En este mes no registras consumos";
+
+    // Consumo paquetes y recargas - Detalles
+    public static final String SALDO_DISPONIBLE = "Saldo disponible";
+    public static final String SALDO_0_PESOS = "$ 0";
+    public static final String FECHA_VENCIMIENTO = "Fecha de vencimiento";
+    public static final String FECHA_2025_03_03 = "2025/03/03";
+    public static final String CONSULTA_PAQUETES_RECARGAS_ACTIVOS = "Consulta los paquetes y recargas activos";
+
+    // Tabs en consumo paquetes y recargas
+    public static final String PAQUETES1 = "Paquetes";
+    public static final String RECARGAS1 = "Recargas";
+    public static final String CONSUMO_DEL_MES = "Consumo del mes";
+
+    // Información adicional de paquetes y recargas
+    public static final String HAZ_RECARGA_RENOVAR_VIGENCIA = "Haz una recarga para renovar la vigencia del saldo disponible";
+    public static final String SALDO_MES_ANTERIOR = "Saldo del mes anterior";
+    public static final String JUNIO_2025 = "Junio 2025";
+    public static final String OTROS = "Otros";
+
+    // Botón de compras
+    public static final String COMPRAR_PAQUETES_Y_RECARGAS = "Comprar paquetes y recargas";
 
 
 

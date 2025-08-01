@@ -56,5 +56,8 @@ log/
 #Capturas de pantalla
 Capturas/
 
-#APK
+# Ignorar archivos APK
 *.apk
+
+# Ignorar archivos DOCX
+*.docx
