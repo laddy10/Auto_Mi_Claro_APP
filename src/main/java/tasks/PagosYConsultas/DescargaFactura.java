@@ -2,7 +2,6 @@ package tasks.PagosYConsultas;
 
 import interactions.Click.ClickElementByText;
 import interactions.Click.ClickTextoQueContengaX;
-import interactions.input.IngresarMontoConTecladoNumerico;
 import interactions.validations.ValidarCantidadFacturas;
 import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;

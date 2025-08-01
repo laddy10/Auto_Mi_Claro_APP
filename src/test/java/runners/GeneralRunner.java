@@ -13,7 +13,8 @@ import java.io.IOException;
         features = "src/test/resources/features",
         glue = {"stepDefinitions", "utils", "hooks"},
         snippets = SnippetType.CAMELCASE,
-        tags = "@SA0015"
+        tags = ""
+
 )
 
 

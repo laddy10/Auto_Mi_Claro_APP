@@ -1,4 +1,7 @@
 # Ignorar APKs pesados
+echo "build/resources/test/app/mi-claro.apk" >> .gitignore
+echo "src/test/resources/app/mi-claro.apk" >> .gitignore
+
 src/test/resources/app/mi-claro.apk
 build/resources/test/app/
 # Ignorar archivos APK
