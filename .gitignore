@@ -1,48 +1,60 @@
-# Ignorar APKs pesados
-echo "build/resources/test/app/mi-claro.apk" >> .gitignore
-echo "src/test/resources/app/mi-claro.apk" >> .gitignore
-
-src/test/resources/app/mi-claro.apk
-build/resources/test/app/
-# Ignorar archivos APK
-build/resources/test/app/mi-claro.apk
-
-# Ignorar carpetas temporales de ejecución
-.idea/
-.vscode/
-out/
+# Generated files
 bin/
+gen/
+out/
+null/
+
+# Gradle files
+.gradle
 build/
-target/
-
-# Ignorar capturas o reportes generados automáticamente
-*.log
-*.tmp
+gradlew.bat
+# Compiled class file
 *.class
-*.iml
-*.docx
-*.xlsx
-Capturas/
-Reporte_Pruebas_Automatizadas.docx
 
-# Ignorar resultados de pruebas
-allure-results/
-test-output/
-
-# Archivos temporales del sistema operativo
-.DS_Store
-Thumbs.db
-
-# Gradle
-.gradle/
-**/build/
+# Log Files
+*.log
+.log
 
 # IntelliJ
-*.ipr
+*.iml
 *.iws
-*.bak
-*.swp
+.idea/
+!/gradle/wrapper/gradle-wrapper.jar
 
-# Configuración de usuarios
-*.env
-.env.local
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Sonarlint plugin
+.idea/sonarlint
+
+# Package Files #
+*.jar
+*.nar
+*.zip
+*.tar.gz
+*.rar
+*.war
+*.ear
+
+# ignore files target
+target/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+
+#Capturas de pantalla
+Capturas/
+
+#APK
+*.apk
