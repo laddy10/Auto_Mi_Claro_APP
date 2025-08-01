@@ -2,6 +2,7 @@ package userinterfaces;
 
 import io.appium.java_client.AppiumBy;
 import net.serenitybdd.screenplay.targets.Target;
+import org.openqa.selenium.By;
 
 public class PagosYConsultasPage {
 
@@ -14,6 +15,9 @@ public class PagosYConsultasPage {
     public static final Target BTN_PSE=
             Target.the("Boton PSE")
                     .located(AppiumBy.xpath("//android.view.View[@resource-id=\"__react-content\"]/android.view.View/android.widget.TextView[6]"));
+    public static final Target BTN_PSE_RECARGAS=
+            Target.the("Boton PSE")
+                    .located(AppiumBy.xpath("//android.view.View[@resource-id=\"__react-content\"]/android.view.View/android.widget.TextView[4]"));
     public static final Target CBX_TIPO_PAQUETE =
             Target.the("Combo seleccion tipo de paquetes")
                     .located(AppiumBy.xpath(
@@ -47,5 +51,81 @@ public class PagosYConsultasPage {
     public static final Target LBL_CARGO_FACTURA_CLARO =
             Target.the("Texto Con cargo a la factura Claro")
                     .located(AppiumBy.xpath("//*[@text='Con cargo a la factura Claro']"));
+    public static final Target BTN_FAMILIA_Y_AMIGOS =
+            Target.the("Boton Familia y amigos")
+                    .located(AppiumBy.xpath("(//android.widget.TextView[@text=\"Familia y amigos\"])[2]"));
+    public static final Target BTN_ELEGIDOS_TODO_DESTINO =
+            Target.the("Boton Elegidos todo destino")
+                    .located(AppiumBy.xpath("//android.widget.TextView[@text=\"Elegidos todo destino\"]"));
+    public static final Target LBL_APP_GRATIS =
+            Target.the("Texto Aplicaciones gratis ya instaladas")
+                    .located(AppiumBy.xpath("//android.widget.TextView[@text=\"Aplicaciones gratis ya instaladas\"]"));
+
+    public static final Target LBL_SIN_APP_DISPONIBLES =
+            Target.the("Texto No tienes aplicaciones disponibles para administrar")
+                    .located(AppiumBy.xpath("//android.widget.TextView[@text=\"No tienes aplicaciones disponibles para administrar\"]"));
+    public static final Target POPUP_SIN_PQ_ADICIONALES =
+            Target.the("Popup Actualmente no cuenta con paquetes adicionales")
+                    .located(AppiumBy.xpath("//android.widget.TextView[@text=\"Actualmente no cuenta con paquetes adicionales\"]"));
+    public static final Target LBL_FECHA_EXPIRACION =
+            Target.the("Texto fecha expiración")
+                    .located(AppiumBy.xpath("//android.widget.TextView[@text=\"Fecha de expiración:\"]"));
+    public static final Target POPUP_EQUIPO_REGISTRADO =
+            Target.the("Texto fecha expiración")
+                    .located(AppiumBy.xpath("//android.widget.TextView[@text=\"El equipo ya se encuentra registrado.\"]"));
+    public static final Target ICON_MAS_FAMILIA_Y_AMIGOS =
+            Target.the("Icono de + familia y amigos")
+                    .located(AppiumBy.xpath("//android.widget.Image"));
+    public static final Target TXT_NUMERO_FAMILIA =
+            Target.the("Caja de texto agregar numero familia y amigos")
+                    .located(AppiumBy.xpath("//android.widget.TextView[@text=\"Agrega una nueva línea a Familia y Amigos\"]"));
+    public static final Target ICON_ELIMINAR=
+            Target.the("Icono ce eliminar")
+                    .located(AppiumBy.xpath("//android.view.View[@resource-id=\"__react-content\"]/android.view.View/android.widget.Image[2]"));
+    public static final Target IMAG_CONSTANCIA_AL_DIA=
+            Target.the("Constancia de cuenta al dia")
+                    .located(AppiumBy.id("com.clarocolombia.miclaro:id/page"));
+    public static final Target LBL_INFORMACION_IMPORTANTE =
+            Target.the("Texto Información Importante")
+                    .located(AppiumBy.xpath("//android.widget.TextView[@text=\"Información Importante\"]"));
+    public static final Target CHECK_ACEPTAR_TERMINOS_CONDICIONES2 =
+            Target.the("Texto Acepto términos y condiciones")
+                    .located(
+                            AppiumBy.xpath(
+                                    "//android.view.View[@resource-id=\"__react-content\"]/android.view.View[2]/android.widget.CheckBox/android.widget.CheckBox\n"));
+    public static final Target BTN_PAGAR =
+            Target.the("Boton Pagar")
+                    .located(
+                            AppiumBy.xpath("//*[@text='Pagar' and @class='android.widget.Button']"));
+    public static final Target CHECK_TIKTOK =
+            Target.the("Check Tiktok")
+                    .located(
+                            AppiumBy.xpath("//android.view.View[@resource-id=\"__react-content\"]/android.view.View/android.view.View[2]/android.widget.ToggleButton/android.widget.CheckBox"));
+    public static final Target TXT_ESCRIBIR_PAIS =
+            Target.the("Caja de texto Escribe el país de destino")
+                    .located(
+                            AppiumBy.xpath("//android.widget.TextView[@text=\"Escribe el país de destino\"]"));
+
+    public static final Target LBL_PAQUETE_ACTIVO = Target.the("Label paquete activo")
+            .located(By.xpath("//android.widget.TextView[@text='PAQUETE ACTIVO']"));
+
+    public static final Target BTN_VER_DETALLE_PAQUETE_ACTIVO = Target.the("Botón ver detalle paquete activo")
+            .located(By.xpath("//android.widget.TextView[@text='PAQUETE ACTIVO']/following::android.widget.TextView[@text='Ver detalle del paquete'][1]"));
+
+    public static final Target BTN_VER_DETALLE_PAQUETES = Target.the("Botones ver detalle de paquetes")
+            .located(By.xpath("//android.widget.TextView[@text='Ver detalle del paquete']"));
+    // Target para el botón de regresar a inicio
+    public static final Target BTN_BACK_TO_HOME =
+            Target.the("Botón regresar a inicio")
+            .locatedBy("//android.widget.TextView[@resource-id='com.clarocolombia.miclaro:id/h5_tv_nav_back_to_home']");
+
+    public static final Target BTN_VER_DETALLE_PRIMER_PAQUETE = Target.the("Primer botón ver detalle")
+            .located(By.xpath("(//android.widget.Button[@text='Ver detalle del paquete'])[1]"));
+
+    public static final Target BTN_VER_DETALLE_SEGUNDO_PAQUETE = Target.the("Segundo botón ver detalle")
+            .located(By.xpath("(//android.widget.Button[@text='Ver detalle del paquete'])[2]"));
+
+    public static final Target BTN_VER_DETALLE_TERCER_PAQUETE = Target.the("Tercer botón ver detalle")
+            .located(By.xpath("(//android.widget.Button[@text='Ver detalle del paquete'])[3]"));
 
 }

@@ -1,6 +1,7 @@
 package userinterfaces;
 
 import io.appium.java_client.AppiumBy;
+import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.screenplay.targets.Target;
 
 import static utils.Constants.MIENTRAS_APP_ESTA_EN_USO;
@@ -103,6 +104,10 @@ public class LoginPage {
     public static final Target BTN_INGRESAR_OTRA_CUENTA =
             Target.the("Botón para ingresar con otra cuenta")
                     .located(AppiumBy.id("relogin_use_change_account"));
+
+    public static final Target TXT_NO_PERMITIR =
+            Target.the("Texto No permitir")
+                    .located(AppiumBy.xpath("//*[contains(text(),'No permitir')]"));
 
 
 }

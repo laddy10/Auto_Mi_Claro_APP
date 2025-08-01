@@ -11,6 +11,7 @@ public class User {
     private String contrasena;
     private String tipoPaquete;
     private String valorRecarga;
+    private String numeroFamiliayAmigos;
 
 
 
@@ -85,6 +86,14 @@ public class User {
 
     public void setValorRecarga(String valorRecarga) {
         this.valorRecarga = valorRecarga;
+    }
+
+    public String getNumeroFamiliayAmigos() {
+        return numeroFamiliayAmigos;
+    }
+
+    public void setNumeroFamiliayAmigos(String numeroFamiliayAmigos) {
+        this.numeroFamiliayAmigos = numeroFamiliayAmigos;
     }
 
 

@@ -29,7 +29,7 @@ public class Constants {
     public static final String FECHA_DE_CARGA = "Próxima carga Voz/Datos:";
     public static final String VALOR_A_PAGAR = "Valor a pagar";
     public static final String FECHA_PAGO_OPORTUNO = "Fecha de pago oportuno:";
-    public static final String ELEGIR_OTRO_MEDIO_PAGO= "Elegir otro medio de pago";
+    public static final String ELEGIR_OTRO_MEDIO_PAGO = "Elegir otro medio de pago";
     public static final String TARJETA_C_D = "Tarjeta de crédito/débito";
     public static final String BOTON_BANCOLOMBIA = "Bancolombia";
     public static final String CODENSA = "Codensa";
@@ -49,6 +49,7 @@ public class Constants {
     public static final String CARGO_FACTURA_CLARO = "Con cargo a la factura Claro";
     public static final String PORTAL_PAGOS_CLARO = "Portal Pagos Claro";
     public static final String NUMERO_FACTURA = "Número Factura:";
+    public static final String NUMERO_FACTURA_RECARGAS = "Número de Factura:";
     public static final String DESCRIPCION_COMPRA = "Descripción de la compra:";
     public static final String PAGO_TOTAL = "Pago total:";
     public static final String SUCURSAL_VIRTUAL_PERSONAS = "Sucursal Virtual Personas.";
@@ -122,18 +123,15 @@ public class Constants {
     public static final String SMS = "SMS";
 
 
-
-
-
     // Constantes para validaciones del plan móvil
     public static final String LARGA_DISTANCIA_INTERNACIONAL = "Larga Distancia Internacional";
-    public static final String ILIMITADO = "Ilimitado";
     public static final String DESCRIPCION_DEL_PLAN = "Descripción del plan";
     public static final String FAMILIA_Y_AMIGOS = "Familia y amigos";
     public static final String APLICACIONES_ELEGIBLES = "Aplicaciones elegibles";
     public static final String MEJORAR_PLAN = "Mejorar plan";
     public static final String PAQUETES_ADICIONALES = "Paquetes adicionales";
     public static final String ADMINISTRAR_ROAMING = "Administrar roaming";
+
 
 
     // Gestiona tu equipo - Módulo principal
@@ -193,7 +191,7 @@ public class Constants {
     // Consultar Consumos - Módulo principal
     public static final String CONSULTAR_CONSUMOS = "Consultar consumos";
     public static final String DETALLE_DE_CONSUMOS = "Detalle de consumos";
-    public static final String LINEA_310_263_2840 = "310 263 2840";
+    public static final String LINEA_POST = "310 263 2840";
 
     // Tu plan - Información principal
     public static final String TU_PLAN_INF = "Tu plan";
@@ -259,16 +257,288 @@ public class Constants {
     // Botón de compras
     public static final String COMPRAR_PAQUETES_Y_RECARGAS = "Comprar paquetes y recargas";
 
+    // Constantes para Pagar Factura
+
+    public static final String PAGAR_FACTURA_BTN = "Pagar factura";
+    public static final String PAGA_Y_CONOCE_TUS_SERVICIOS = "Paga y conoce tus servicios";
+
+    // Constantes para Descripción del Plan (elementos comunes)
+    public static final String CARGO_FIJO_MENSUAL_TEXTO = "Cargo Fijo Mensual:";
+    public static final String INCLUYE_TEXTO = "Incluye:";
+    public static final String SMS_ILIMITADO_TEXTO = "SMS Ilimitado";
+    public static final String LLAMADAS_TEXTO = "Llamadas";
+    public static final String NO_INCLUYE_TEXTO = "No Incluye:";
+    public static final String ROAMING_TEXTO = "Roaming";
+    public static final String INFO_WWW_CLARO = "www.claro.com.co";
+
+
+    // Constantes para Familia y Amigos
+    public static final String ELIGE_EL_NUMERO_DE_CUENTA = "Elige el número de cuenta o línea";
+    public static final String FAMILIA_Y_AMIGOS_OPCION = "Familia y amigos";
+    public static final String ELEGIDOS_TODO_DESTINO = "Elegidos todo destino";
+    public static final String NUMERO_DE_CUENTA = "Número de cuenta";
+    public static final String CREA_TU_GRUPO_MAXIMO_5 = "Crea tu grupo de máximo 5 líneas móviles, incluida la tuya";
+    public static final String AGREGA_HASTA_4_LINEAS = "Agrega hasta 4 líneas móviles de Claro u otro operador y hasta 1 línea fija Claro";
+    public static final String NUMEROS_AGREGADOS = "Números Agregados";
+    public static final String NUMEROS_POR_AGREGAR = "Números por agregar";
+    public static final String LIMITE_DE_NUMEROS = "Límite de números";
+    public static final String VER_TERMINOS_Y_CONDICIONES = "Ver términos y condiciones";
+    public static final String AGREGAR_ELEGIDO = "Agregar elegido";
+    public static final String TERMINOS_Y_CONDICIONES_CLARO = "Términos y Condiciones - Mi Claro";
+    public static final String ELEGIDOS_TODO_DESTINO_TITULO = "ELEGIDOS TODO DESTINO";
+
+
+    // Constantes para Aplicaciones Elegibles
+    public static final String COMPRAR_APLICACIONES = "Comprar aplicaciones";
+    public static final String ADMINISTRA_LAS_APLICACIONES_INCLUIDAS = "Administra las aplicaciones incluidas";
+    public static final String APLICACIONES_ADICIONALES = "Aplicaciones adicionales";
+    public static final String GUARDAR = "Guardar";
+    public static final String NO_TIENES_APLICACIONES_DISPONIBLES = "No tienes aplicaciones disponibles para administrar";
+    public static final String APLICACIONES_GRATIS_YA_INSTALADAS = "Aplicaciones gratis ya instaladas";
+    public static final String APLICACIONES_QUE_PUEDES_INSCRIBIR = "Aplicaciones que puedes inscribir";
+
+
+    // Constantes para Mejorar Plan
+    public static final String MEJORA_TU_PLAN = "Mejora tu plan";
+    public static final String PLAN_LABEL = "PLAN";
+    public static final String PRECIO_LABEL = "Precio";
+    public static final String VER_MAS_PLANES = "Ver más planes";
+    public static final String VER_PLANES_ESPECIALES = "Ver planes especiales";
+
+
+    // Constantes para Paquetes Adicionales
+    public static final String ACTUALMENTE_NO_CUENTA_PAQUETES = "Actualmente no cuenta con paquetes adicionales";
+    public static final String CONOCE_LOS_DETALLES_DEL_PAQUETE = "Conoce los detalles del paquete";
+
+
+    // Constantes para Administrar Roaming
+    public static final String ACTIVA_ROAMING = "Activa Roaming";
+    public static final String ACTIVAR_ROAMING = "Activar Roaming";
+    public static final String LINEA_TEXTO = "Línea";
+    public static final String ADMINISTRAR = "Administrar";
+    public static final String SIGUE_CONECTADO_DURANTE_VIAJE = "Sigue conectado durante tu viaje internacional con nuestro servicio de Roaming";
+    public static final String SERVICIO_ROAMING = "Servicio Roaming:";
+
+    // Constantes para roaming activado
+    public static final String FECHA_DE_EXPIRACION = "Fecha de expiración:";
+    public static final String MODIFICAR = "Modificar";
+    public static final String VER_PAQUETES = "Ver paquetes";
+
+
+    // Constantes para Adelanta tu saldo
+    public static final String ADELANTA_TU_SALDO = "Adelanta tu saldo";
+    public static final String ADELANTA_SALDO_LABEL = "ADELANTA SALDO";
+    public static final String ADQUIRIR = "Adquirir";
+    public static final String RESUMEN_DEL_ADELANTO = "Resumen del adelanto";
+    public static final String VIGENCIA_LABEL = "Vigencia:";
+    public static final String VALOR_DEL_SERVICIO = "Valor del servicio:";
+    public static final String VALOR_TOTAL = "Valor total";
+    public static final String TERMINOS_Y_CONDICIONES = "Términos y condiciones";
+    public static final String TERMINOS_Y_CONDICIONES_RECARGAS = "términos y condiciones";
+    public static final String TERMINOS_CONDICIONES_MI_CLARO = "Términos y Condiciones - Mi Claro";
+    public static final String COMPRA_DE_PAQUETES_Y_RECARGAS = "COMPRA DE PAQUETES Y RECARGAS";
+
+
+    // Constantes para Agendar Turnos
+    public static final String AGENDAR_TURNOS = "Agendar turnos";
+    public static final String BIENVENIDO_SISTEMA_AGENDAMIENTO = "Bienvenido al Sistema de Agendamiento Virtual";
+    public static final String SOLICITUD_CONSULTA_MODIFICACION = "(Solicitud, consulta o modificación de citas)";
+
+    // Tipos de cita y trámites
+    public static final String CITA_PRESENCIAL = "Cita Presencial";
+
+    public static final String CITA_VIRTUAL = "Cita Virtual";
+
+    // Botones principales
+    public static final String SOLICITAR_CITA = "Solicitar Cita";
+    public static final String CANCELAR_O_MODIFICAR_CITA = "Cancelar o Modificar Cita";
+    public static final String CONSULTAR_CITAS = "Consultar Citas";
+
+    // Pantalla de Solicitar Cita
+    public static final String AGENDAMIENTO_WEB = "Agendamiento Web";
+    public static final String INGRESE_DATOS_SOLICITADOS_AGENDAR = "Ingrese los datos solicitados a continuación para agendar su cita:";
+    public static final String TIPO_DOCUMENTO = "Tipo documento";
+    public static final String NUMERO_DOCUMENTO = "Número documento";
+    public static final String NOMBRE = "Nombre";
+    public static final String APELLIDOS = "Apellidos";
+    public static final String TELEFONO_CELULAR = "Teléfono celular";
+
+    // Pantalla de Cancelar o Modificar Cita
+    public static final String INGRESE_DATOS_SOLICITADOS_CANCELAR = "Ingrese los datos solicitados a continuación para cancelar o modificar su cita.";
+    public static final String NUMERO_DE_CITA = "Número de cita";
+
+    // Pantalla de Consultar Citas
+    public static final String INGRESE_DATOS_SOLICITADOS_CONSULTAR = "Ingrese los datos solicitados a continuación para consultar sus citas.";
+    public static final String ESTADO_DE_LA_CITA = "Estado de la cita";
+    public static final String VOLVER = "Volver";
+
+
+    // Constantes para agregar/eliminar números
+    public static final String LINEA_AGREGADA_EXITO = "La línea ha sido agregada con éxito";
+    public static final String CONFIRMAR_AGREGAR = "Confirmar";
+    public static final String DESACTIVAR = "Desactivar";
+    public static final String AL_DESACTIVARLOS_SE_ELIMINARAN = "Al desactivarlos se eliminarán los integrantes del grupo";
+    public static final String AGREGAR = "Agregar";
+    public static final String SI_ELIMINAR = "Sí, eliminar";
+    public static final String SMS_ELIMINADO_EXITOSO = "Has eliminado exitosamente la línea ";
+
+
+    // Constantes para Portabilidad
+    public static final String PORTABILIDAD = "Portabilidad";
+    public static final String ESTADO_DE_PORTABILIDAD = "Estado de portabilidad";
+    public static final String ENVIO_DE_SIM_CARD = "Envío de SIM Card";
+    public static final String PORTABILIDAD_PREPAGO = "Portabilidad prepago";
+    public static final String PORTABILIDAD_POSTPAGO = "Portabilidad postpago";
+
+    // Constantes para el formulario
+    public static final String CONSULTA_EL_ESTADO_TU_PORTACION = "Consulta el estado de tu portación";
+    public static final String NUMERO_CELULAR_QUE_SOLICITASTE = "Número celular que solicitaste pasar a Claro";
+    public static final String NUMERO_DE_DOCUMENTO_REGISTRADO = "Número de documento registrado";
+    public static final String CONSULTAR = "Consultar";
+
+    // Constantes para Envío de SIM Card
+    public static final String CONSULTA_EL_ESTADO_TU_PEDIDO = "Consulta el estado de tu pedido";
+    public static final String NUMERO_DE_PEDIDO = "Número de pedido:";
+    public static final String SELECCIONA_LA_IMAGEN_ETIQUETA = "Selecciona la imagen de: Etiqueta";
+
+
+    // Constantes para formulario Portabilidad prepago
+    public static final String DATOS_PERSONALES = "Datos personales";
+    public static final String TODOS_LOS_CAMPOS_OBLIGATORIOS = "Todos los campos son obligatorios";
+
+    // Constantes para Portabilidad postpago (página de planes)
+    public static final String LLAMAME_AHORA = "Llámame Ahora";
+    public static final String AUTORIZO_EL_TRATAMIENTO_DATOS = "Autorizo el tratamiento de mis datos personales de acuerdo con la política de Claro Colombia";
+    public static final String SELECCIONA_EL_PLAN_PORTACION = "Selecciona el plan para tu portación a Claro:";
+
+
+    // Constantes para Adquirir productos
+    public static final String ADQUIRIR_PRODUCTOS = "Adquirir Productos";
+    public static final String RENUEVA_TU_HOGAR = "Renueva tu equipo";
+    public static final String SERVICIOS_HOGAR = "Servicios Hogar";
+    public static final String PASATE_A_POSTPAGO = "Pásate a Postpago";
+    public static final String NUESTROS_SERVICIOS = "Nuestros servicios";
+    public static final String COMPRA_POR_CATEGORIA = "Compra por categoría";
+    public static final String CLARO_COLOMBIA = "Claro Colombia | Ofertas de celulares y planes";
+
+
+    // Constantes para eSIM Claro
+    public static final String ESIM_CLARO = "eSIM Claro";
+    public static final String SELECCIONAR = "Seleccionar";
+    public static final String AQUI_PUEDES_CAMBIARTE_ESIM = "Aquí puedes cambiarte a eSIM Claro";
+    public static final String SIGUIENTE = "Siguiente";
+    public static final String CAMBIATE_A_ESIM_DISFRUTA = "¡Cámbiate a eSIM y disfruta de más tecnología!";
+    public static final String RECOMENDACIONES_PARA_INSTALAR_ESIM = "Recomendaciones para instalar eSIM";
+    public static final String ELIGE_EL_CELULAR_DONDE_VAS = "Elige el celular donde vas a instalar tu eSIM*";
+    public static final String SELECCIONA_LA_MARCA_CELULAR = "Selecciona la marca de tu celular";
+    public static final String SELECCIONA_EL_MODELO_CELULAR = "Selecciona el modelo de tu celular";
+    public static final String CAMBIARME_A_ESIM = "Cambiarme a eSIM";
+    public static final String QUE_ES_LA_ESIM_CLARO = "¿Qué es la eSIM Claro?";
+
+
+    // Constantes para Certificación cuenta al día
+    public static final String CERTIFICACION_CUENTA_AL_DIA = "Certificación cuenta al día";
+    public static final String GERENCIA_GERENCIA = "Sr.(a). GERENCIA GERENCIA";
+    public static final String ELIGE_LA_CUENTA_DE_LA_QUE_NECESITAS = "Elige la cuenta de la que necesitas obtener tu certificación";
+    public static final String CUENTA_HOGAR = "Cuenta Hogar";
+    public static final String LINEAS_POSTPAGO = "Líneas Postpago";
+    public static final String LINEAS_ACTIVAS = "Líneas activas";
+    public static final String CUENTA_AL_DIA = "Cuenta al día";
+    public static final String DOCUMENTO_SELECCIONADO_1 = "1 documento seleccionado";
+    public static final String DESCARGAR = "Descargar";
+    public static final String ENVIAR = "Enviar";
+
+    // Constantes para documento descargado
+    public static final String ABRIR_DOCUMENTO = "Abrir documento";
+    public static final String TU_SOLICITUD_FUE_GENERADA = "Tu solicitud fue generada con éxito";
+    public static final String ENVIAREMOS_TU_CERTIFICACION = "Enviaremos tu certificación al correo electrónico";
+
+
+    // Constantes para Vehículo conectado
+    public static final String VEHICULO_CONECTADO = "Vehículo conectado";
+    public static final String SE_EL_PRIMERO_EN_TENER = "Sé el primero en tener tu carro conectado";
+    public static final String REGISTRATE_Y_RECIBE_INFORMACION = "Regístrate y recibe toda la información del servicio";
+    public static final String ENTENDIDO = "Entendido";
+    public static final String PERSONAS = "Personas";
+    public static final String CARRO_CONECTADO = "Carro Conectado, Seguimiento";
+
+
+    // Constantes para Pagos
+    public static final String PAGOS = "Pagos";
+    public static final String QUE_QUIERES_PAGAR = "¿Qué quieres pagar?";
+    public static final String SELECCIONA_EL_TIPO_DE_SERVICIO = "Selecciona el tipo de servicio";
+    public static final String LINEA_POSTPAGO = "Línea postpago";
+    public static final String EQUIPOS_FINANCIADOS = "Equipos financiados";
+    public static final String DEUDAS_EN_MORA = "Deudas en mora";
+
+    // Portal de pagos y recargas
+    public static final String SELECCIONA_TU_SERVICIO = "Selecciona tu servicio";
+    public static final String PAGO_DE_FACTURAS = "Pago de Facturas";
+
+    // Equipos financiados
+    public static final String PARA_CONTINUAR_DILIGENCIA = "Para continuar diligencia las siguientes datos";
+    public static final String TIPO_DE_DOCUMENTO = "Tipo de documento";
+    public static final String DOCUMENTO = "Documento";
+
+    // Deudas en mora
+    public static final String PAGA_TUS_DEUDAS_ANTIGUAS = "Paga tus deudas antiguas en mora";
+    public static final String REALIZA_EL_PAGO_DE_TUS_DEUDAS = "Realiza el pago de tus deudas";
+    public static final String CUENTA_HOGAR_PAGOS = "Cuenta hogar";
+
+
+    // Constantes para Legalización de líneas
+    public static final String LEGALIZACION_DE_LINEAS = "Legalización de líneas";
+    public static final String LEGALIZA_TU_CUENTA_PREPAGO = "Legaliza tu cuenta prepago";
+    public static final String VERIFICA_Y_ACTUALIZA_TUS_DATOS = "Verifica y actualiza tus datos";
+    public static final String NUMERO_DE_TU_LINEA_PREPAGO = "Número de tu línea prepago";
+    public static final String NUMERO_DE_DOCUMENTO = "Número de documento";
+
+    // Constantes para Beneficios
+    public static final String BENEFICIOS = "Beneficios";
+    public static final String BENEFICIOS_CLARO = "Beneficios Claro";
+    public static final String DESCUBRE_BENEFICIOS = "¡Descubre los beneficios Claro que tenemos para ti!";
+
+    public static final String LOGO_CLARO = "Logo Claro";
+    public static final String RESUMEN_COMPRA = "Resumen de la compra";
+    public static final String ACTIVA_APPS_ADICIONALES = "Activa aplicaciones";
+    public static final String LABEL_COSTO_ADICIONAL = "Al activar el uso de apps adicionales, se generará un costo mensual de:";
+    public static final String LABEL_CARGO_FACTURA = "Se cargará a tu factura postpago Claro";
+    public static final String NO_TIENES_APLICACIONES_DISPONIBLES_ADMINISTRAR = "No tienes aplicaciones disponibles para administrar";
+    public static final String ACTIVO = "activo";
+
+
+    //Sesión Explora y compra
+    public static final String EXPLORA_Y_COMPRA = "Explora y compra";
+    public static final String CLARO_PAY = "Claro Pay";
+    public static final String REGISTRARME = "Registrarme";
+
+    public static final String INTENTALO_MAS_TARDE = "Inténtalo más tarde";
+    public static final String ALGO_SALIO_MAL_PROCESAR = "Algo salió mal al procesar tu solicitud";
+    public static final String ILIMITADO = "Ilimitado";
+
+
+    public static final String ELIGE_VIGENCIA_NECESITES = "Elige la vigencia que necesites";
+    public static final String ACTIVAR_POR_TIEMPO_INDEFINIDO = "Activar por tiempo indefinido";
+    public static final String ACTIVAR_CON_FECHA_LIMITE = "Activar con fecha límite";
+    public static final String ACTIVAR_PAQUETES = "Activar paquetes";
+    public static final String INGRESA_MAXIMO_5_PAISES = "Ingresa máximo 5 países de destino";
+    public static final String AGREGAR_PAIS = "Agregar país";
+    public static final String ELIGE_PAQUETE_PREFIERAS = "Elige el paquete que prefieras";
+    public static final String VOZ_Y_DATOS = "Voz y datos";
+    public static final String PAISES_DESTINO_BELGICA = "Países de destino";
+    public static final String TIPO_PAQUETE_DATOS = "Tipo de paquete";
+    public static final String PAQUETE_ROAMING = "PAQUETE ROAMING";
 
 
 
-
-
-
-
-
-
-
+    public static final String LINEA_310_263_2840 = "Línea 310 263 2840";
+    public static final String SI_TE_QUEDASTE_SIN_DATOS = "Si te quedaste sin datos";
+    public static final String PAQUETE_ACTIVO = "PAQUETE ACTIVO";
+    public static final String CINCO_GB = "5GB";
+    public static final String DIEZ_GB = "10GB";
+    public static final String VEINTE_GB = "20GB";
+    public static final String CAMBIAR_PAQUETE = "Cambiar paquete";
+    public static final String COMPLEMENTARIO_RECURRENTE = "Complementario Recurrente";
 
 
 }

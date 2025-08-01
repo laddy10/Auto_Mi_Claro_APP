@@ -22,7 +22,7 @@ public class SeleccionarLineaYVerDetalle implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                ScrollHastaTexto.conTexto(LINEA_310_263_2840),
+                ScrollHastaTexto.conTexto(LINEA_POST),
                 ClickTextoQueContengaX.elTextoContiene(VER_DETALLE),
                 WaitUntil.the(LBL_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds(),
                 WaitFor.aTime(3000)

@@ -52,7 +52,6 @@ public class RedireccionMedioPago implements Task {
         // Bancolombia
         actor.attemptsTo(
                 ClickTextoQueContengaX.elTextoContiene(BOTON_BANCOLOMBIA),
-                WaitForResponse.withText(AUTENTICACION_BANCOLOMBIA),
                 WaitForResponse.withText(SUCURSAL_VIRTUAL_PERSONAS),
                 ValidarTexto.validarTexto(BIENVENIDA),
                 ValidarTexto.validarTexto(USUARIO));
@@ -69,12 +68,13 @@ public class RedireccionMedioPago implements Task {
         cerrarPopupYRegresar(actor);
 
         // Otros medios de pago
+        String numeroLimpio = user.getNumero().replaceAll("\\s", "");
         actor.attemptsTo(
                 ClickTextoQueContengaX.elTextoContiene(OTROS_MEDIOS),
                 WaitForResponse.withText(PORTAL_PAGOS_CLARO),
                 ValidarTexto.validarTexto(PAGO_FACTURA_MOVIL_POST),
                 ValidarTexto.validarTexto(ESCOGE_MEDIO_PAGO),
-                ValidarTextoQueContengaX.elTextoContiene(user.getNumero()));
+                ValidarTextoQueContengaX.elTextoContiene(numeroLimpio));
         EvidenciaUtils.registrarCaptura(pasoNequi);
     }
 

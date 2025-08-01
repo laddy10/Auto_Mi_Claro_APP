@@ -25,7 +25,7 @@ public class ValidarConsumoPaquetesRecargas implements Task {
                 ClickTextoQueContengaX.elTextoContiene(CONSUMO_PAQUETES_Y_RECARGAS),
                 WaitFor.aTime(3000),
                 ValidarTexto.validarTexto(CONSUMO_PAQUETES_Y_RECARGAS),
-                ValidarTexto.validarTexto(LINEA_310_263_2840),
+                ValidarTexto.validarTexto(LINEA_POST),
                 ValidarTexto.validarTexto(SALDO_DISPONIBLE),
                 ValidarTexto.validarTexto(SALDO_0_PESOS),
                 ValidarTexto.validarTexto(FECHA_VENCIMIENTO),
