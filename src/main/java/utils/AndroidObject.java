@@ -1,12 +1,16 @@
 package utils;
 
+import exceptions.Excepciones;
 import interactions.Click.ClickElementByText;
 import interactions.wait.WaitFor;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Click;
@@ -21,11 +25,12 @@ import java.time.Duration;
 import java.util.List;
 
 
-public class AndroidObject {
+public class AndroidObject extends Excepciones {
 
     public void HideKeyboard(Actor actor) {
         androidDriver(actor).hideKeyboard();
     }
+
 
 
     //SCROLL
@@ -110,7 +115,7 @@ public class AndroidObject {
 
 
     public static void scrollCorto2(Actor actor, String textoOpcional) {
-        int intentosMaximos = 6;
+        int intentosMaximos = 7;
 
         try {
             AndroidDriver driver
@@ -209,17 +214,61 @@ public class AndroidObject {
 
 
     public void ClickElTextoContiene(Actor actor, String text) {
-        androidDriver(actor).findElement(
-                        AppiumBy.androidUIAutomator("new UiSelector().textContains(\"" + text + "\")"))
-                .click();
-
+        try {
+            androidDriver(actor).findElement(
+                            AppiumBy.androidUIAutomator("new UiSelector().textContains(\"" + text + "\")"))
+                    .click();
+        } catch (Exception e) {
+            ExClickElTextoContiene(actor, text);
+        }
     }
-
-
 
     public void Atras(Actor actor) {
         androidDriver(actor).navigate().back();
     }
+
+
+    public static void digitarDesdeTeclado(String numeros) {
+        AndroidDriver driver = (AndroidDriver) Serenity.getDriver();
+
+        for (char numero : numeros.toCharArray()) {
+            switch (numero) {
+                case '0':
+                    driver.pressKey(new KeyEvent(AndroidKey.DIGIT_0));
+                    break;
+                case '1':
+                    driver.pressKey(new KeyEvent(AndroidKey.DIGIT_1));
+                    break;
+                case '2':
+                    driver.pressKey(new KeyEvent(AndroidKey.DIGIT_2));
+                    break;
+                case '3':
+                    driver.pressKey(new KeyEvent(AndroidKey.DIGIT_3));
+                    break;
+                case '4':
+                    driver.pressKey(new KeyEvent(AndroidKey.DIGIT_4));
+                    break;
+                case '5':
+                    driver.pressKey(new KeyEvent(AndroidKey.DIGIT_5));
+                    break;
+                case '6':
+                    driver.pressKey(new KeyEvent(AndroidKey.DIGIT_6));
+                    break;
+                case '7':
+                    driver.pressKey(new KeyEvent(AndroidKey.DIGIT_7));
+                    break;
+                case '8':
+                    driver.pressKey(new KeyEvent(AndroidKey.DIGIT_8));
+                    break;
+                case '9':
+                    driver.pressKey(new KeyEvent(AndroidKey.DIGIT_9));
+                    break;
+                default:
+                    throw new IllegalArgumentException("Caracter no válido: " + numero);
+            }
+        }
+    }
+
 
 
     public AndroidDriver getAndroidDriver(Actor actor) {

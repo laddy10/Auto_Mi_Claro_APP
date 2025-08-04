@@ -78,7 +78,7 @@ public class WordAppium {
             XWPFParagraph p = doc.createParagraph();
             p.setSpacingBefore(200);
             XWPFRun run = p.createRun();
-            run.setText("✅" + paso);
+            run.setText(paso);
             run.setFontSize(12);
 
             // 👉 Paso 2: Insertar un párrafo vacío como espacio entre texto e imagen

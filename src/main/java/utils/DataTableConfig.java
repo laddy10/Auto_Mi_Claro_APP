@@ -20,6 +20,7 @@ public class DataTableConfig {
         user.setContrasena(entry.getOrDefault("contrasena", ""));
         user.setTipoPaquete(entry.getOrDefault("tipoPaquete", ""));
         user.setValorRecarga(entry.getOrDefault("valorRecarga", ""));
+        user.setNumeroFamiliayAmigos(entry.getOrDefault("numeroFamiliayAmigos", ""));
 
         return user;
     }

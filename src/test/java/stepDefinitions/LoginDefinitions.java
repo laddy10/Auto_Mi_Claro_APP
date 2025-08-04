@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import interactions.wait.WaitFor;
+import interactions.wait.WaitForResponse;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
@@ -13,6 +14,7 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import tasks.Login.IngresoSuperApp;
 import tasks.Login.LoginConCedula;
 import tasks.Login.VersionSuperApp;
+import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 import utils.WordAppium;
 
@@ -20,6 +22,7 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotPresent;
 import static userinterfaces.LoginPage.LOADING_SPLASH;
+import static utils.Constants.*;
 
 public class LoginDefinitions {
 
@@ -30,15 +33,17 @@ public class LoginDefinitions {
     public void initScenario(Scenario scenario) {
         OnStage.setTheStage(new OnlineCast());
         WordAppium.inicializarPlantillaReporte();
-
+        EvidenciaUtils.reiniciarContador(); // Reinicia el conteo de pasos para este escenario
     }
+
 
     @Given("EL USUARIO ABRE LA SUPER APP")
     public void abrirSuperApp() {
         theActorCalled("actor")
                 .attemptsTo(
                         WaitUntil.the(LOADING_SPLASH, isNotPresent()),
-                        WaitFor.aTime(2000));
+                        WaitFor.aTime(2000)
+                );
     }
 
     @When("^REALIZA EL INGRESO$")

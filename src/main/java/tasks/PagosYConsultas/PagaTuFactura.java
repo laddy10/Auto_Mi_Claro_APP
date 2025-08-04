@@ -57,6 +57,7 @@ public class PagaTuFactura implements Task {
 
         actor.attemptsTo(
                 Atras.irAtras(),
+                WaitForResponse.withText(PAGAR_FACTURA),
                 ValidarTextoQueContengaX.elTextoContiene(REFERENCIA_PAGO),
                 ValidarTextoQueContengaX.elTextoContiene(FECHA_DE_CARGA),
                 ValidarTextoQueContengaX.elTextoContiene(VALOR_A_PAGAR),

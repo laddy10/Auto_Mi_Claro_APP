@@ -16,7 +16,7 @@ import static utils.Constants.*;
 
 public class VersionSuperApp implements Task {
     private final User user = TestDataProvider.getRealUser();
-    private static final String paso = "1. Información Inicial\n" +
+    private static final String paso = "Información Inicial\n" +
             "a. Validar versión APP.\n";
 
 
