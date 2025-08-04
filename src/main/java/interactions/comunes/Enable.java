@@ -17,6 +17,6 @@ public class Enable implements Interaction {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(WaitUntil.the(element, isEnabled()).forNoMoreThan(20).seconds());
+        actor.attemptsTo(WaitUntil.the(element, isEnabled()).forNoMoreThan(10).seconds());
     }
 }

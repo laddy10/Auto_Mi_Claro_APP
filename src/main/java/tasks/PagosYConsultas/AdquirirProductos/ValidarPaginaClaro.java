@@ -22,7 +22,7 @@ public class ValidarPaginaClaro implements Task {
         EvidenciaUtils.registrarCaptura(paso1);
 
         actor.attemptsTo(
-                ValidarTextoQueContengaX.elTextoContiene(CLARO_COLOMBIA),
+                ValidarTextoQueContengaX.elTextoContiene(CLARO_COLOMBIA_PQR),
                 ValidarTexto.validarTexto(COMPRA_POR_CATEGORIA),
                 ScrollHastaTexto.conTexto(NUESTROS_SERVICIOS)
         );

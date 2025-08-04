@@ -12,7 +12,7 @@ public class User {
     private String tipoPaquete;
     private String valorRecarga;
     private String numeroFamiliayAmigos;
-
+    private String imei;
 
 
 
@@ -101,5 +101,12 @@ public class User {
     public User() {
     }
 
+    public String getImei() {
+        return imei;
+    }
+
+    public void setImei(String imei) {
+        this.imei = imei;
+    }
 
 }

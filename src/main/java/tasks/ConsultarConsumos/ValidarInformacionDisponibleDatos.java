@@ -17,9 +17,14 @@ public class ValidarInformacionDisponibleDatos implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
+                ValidarTexto.validarTexto(CONSUMO_DE_DATOS),
+                ValidarTexto.validarTexto(TU_PLAN_INF),
+                ValidarTexto.validarTexto(CONSUMIDO_DEL_PLAN),
+                ValidarTextoQueContengaX.elTextoContiene("Has consumido"),
+                ValidarTexto.validarTexto(ROAMING_INTERNACIONAL),
+                ValidarTexto.validarTexto(PASAPORTE_AMERICA),
                 ValidarTexto.validarTexto(PAQUETES_ROAMING_INTERNACIONAL),
                 ValidarTextoQueContengaX.elTextoContiene("41 Países de América y Europa:"),
-                ValidarTexto.validarTexto(CONSUMO_0_00_GB),
                 ValidarTextoQueContengaX.elTextoContiene("Resto del Mundo:"),
                 ValidarTextoQueContengaX.elTextoContiene("Consumos adicionales Roaming Internacional"),
                 ValidarTextoQueContengaX.elTextoContiene("Consumos por demanda Internacional"),

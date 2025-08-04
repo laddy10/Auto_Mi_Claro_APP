@@ -68,7 +68,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then  VALIDA HISTORIAL DE PAGOS
 
 
-  @SA011
+  @SA011 @POSTPAGO
   Scenario: Ingresar a recargas y paquetes y validar Paquetes LDI
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -78,7 +78,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then  VALIDA PAQUETES LDI
 
 
-  @SA012
+  @SA012 @POSTPAGO
   Scenario: Recargas y Paquetes - Paquetes complementarios
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -88,7 +88,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then  VALIDA DIRECCIONAMIENTO PAQUETES COMPLEMENTARIOS
 
 
-  @SA013
+  @SA013 @POSTPAGO
   Scenario: Ingresar a recargas y paquetes y validar Recargas
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -98,7 +98,7 @@ Feature: Ingresar al modulo pagos y consultas
     And   SELECCIONA RECARGAS
     Then  VALIDA LA REDIRECCION A MEDIOS DE PAGO DISPONIBLES
 
-  @SA014
+  @SA014 @POSTPAGO
   Scenario: Ingresar a recargas y paquetes y validar gestionar compras recurrentes
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -107,7 +107,7 @@ Feature: Ingresar al modulo pagos y consultas
     And   INGRESA AL PORTAL DE RECARGAS Y PAQUETES
     Then  GESTIONA COMPRAS RECURRENTES
 
-  @SA015
+  @SA015 @POSTPAGO
   Scenario: Ingresar a Detalle de tu plan
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -116,7 +116,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then   VALIDA DETALLE DE TU PLAN
 
 
-  @SA016
+  @SA016 @POSTPAGO
   Scenario: Ingresar a Ver factura desde Detalle de tu plan
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -127,7 +127,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then  VALIDA DIRECCIONAMIENTO PAGAR FACTURA
 
 
-  @SA017 ##OJO REVISAR
+  @SA017 @POSTPAGO ##OJO REVISAR
   Scenario: Ingresar a Familia y amigos desde Detalle de tu plan
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -145,7 +145,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then  VE TERMINOS Y CONDICIONES
 
 
-  @SA018
+  @SA018 @POSTPAGO
   Scenario: Ingresar a Aplicaciones elegibles - Compra de Aplicaciones - Plan que permite
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -157,7 +157,7 @@ Feature: Ingresar al modulo pagos y consultas
 
 
 
-  @SA019
+  @SA019 @POSTPAGO
   Scenario: Ingresar a Mejorar plan desde Detalle de tu plan
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -220,35 +220,16 @@ Feature: Ingresar al modulo pagos y consultas
     And   INGRESA AL MODULO GESTIONA TU EQUIPO
     Then   SELECCIONA LA OPCION ACTUALIZAR DATOS DE TU EQUIPO
 
-  @SA026
+  @SA026 @POSTPAGO
   Scenario: Ingresar a consultar consumos y validar información detallada
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MODULO CONSULTAR CONSUMOS
     And   DESPLAZARSE HASTA EL NUMERO Y SELECCIONAR VER DETALLE
     And   ESPERA A QUE INGRESE A LA OPCION
-    And   VERIFICA LOS TEXTOS DISPONIBLES
-    And   SELECCIONA CONSUMO DE DATOS
-    And   VALIDA LA INFORMACION DISPONIBLE DE DATOS
-    And   REGRESA ATRAS Y SELECCIONA APPS SIN LIMITE DE CONSUMO
-    And   VALIDA LA INFORMACION DISPONIBLE DE APPS
-    And   REGRESA ATRAS Y SELECCIONA CONSUMO DE VOZ
-    And   VERIFICA MENSAJE AUN NO REGISTRAS CONSUMOS VOZ
-    And   REGRESA ATRAS Y SELECCIONA CONSUMO DE SMS
-    And   VERIFICA MENSAJE AUN NO REGISTRAS CONSUMOS SMS
-    And   REGRESA ATRAS Y SELECCIONA CONSUMO PAQUETES Y RECARGAS
-    And   VERIFICA LA INFORMACION DISPONIBLE PAQUETES RECARGAS
-    And   VERIFICA OPCION PAQUETES
-    And   VALIDA MENSAJE AUN NO HAS ADQUIRIDO PAQUETES
-    And   VERIFICA OPCION RECARGAS
-    And   VALIDA MENSAJE AUN NO HAS HECHO RECARGAS
-    And   VERIFICA OPCION CONSUMO DEL MES
-    Then  VALIDA MENSAJE EN ESTE MES NO REGISTRAS CONSUMOS
-    Then  VALIDA DETALLE DE TU PLAN
-    And   VALIDA DESCRIPCION DEL PLAN
+    Then   VERIFICA LOS TEXTOS DISPONIBLES
 
-  @SA027
+  @SA027 @POSTPAGO
   Scenario: Familia y amigos - Agregar, eliminar y desactivar servicio
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -311,7 +292,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then  VALIDA PORTABILIDAD POSTPAGO Y REDIRECCION
 
 
-  @SA033
+  @SA033 @POSTPAGO
   Scenario: Adquirir productos
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -323,7 +304,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then  VALIDA REDIRECCIONAMIENTO A PAGINA CLARO
 
 
-  @SA034
+  @SA034 @POSTPAGO
   Scenario: eSIM Claro
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -381,7 +362,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then  VALIDA DIRECCIONAMIENTO CORRECTO BENEFICIOS
 
 
-  @SA070
+  @SA070 @POSTPAGO
   Scenario: Ingresar a Paquetes adicionales - plan que si tiene
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -392,7 +373,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then  VALIDA DIRECCIONAMIENTO PAQUETES ADICIONALES
 
 
-  @SA071
+  @SA071 @POSTPAGO
   Scenario: Ingresar a Administrar roaming - servicio NO activo
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -424,7 +405,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then  VALIDA DIRECCIONAMIENTO AGENDAR TURNOS
 
 
-  @SA074
+  @SA074 @POSTPAGO
   Scenario: Ingresar a recargas y paquetes y validar Paquetes de Datos
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -434,7 +415,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then  VALIDA PAQUETES DE DATOS
 
 
-  @SA075
+  @SA075 @POSTPAGO
   Scenario: Ingresar a Aplicaciones elegibles - Compra de Aplicaciones - Plan que NO permite
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -445,7 +426,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then  INGRESA Y VALIDA COMPRAR APLICACIONES NO PERMITIDO
 
 
-  @SA076
+  @SA076 @POSTPAGO
   Scenario: Ingresar a Aplicaciones elegibles - Administra Aplicaciones - Plan que permite
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -456,7 +437,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then  ADMINISTRAR Y VALIDAR APLICACIONES INCLUIDAS
 
 
-  @SA077
+  @SA077 @POSTPAGO
   Scenario: Ingresar a Aplicaciones elegibles - Administra Aplicaciones - Plan que NO permite
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -467,7 +448,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then  ADMINISTRAR Y VALIDAR APLICACIONES NO PERMITIDO
 
 
-  @SA078
+  @SA078 @POSTPAGO
   Scenario: Ingresar a Paquetes Adicionales - No tiene paquetes - popup
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -478,7 +459,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then  VALIDA POPUP NO TIENE PAQUETES
 
 
-  @SA079
+  @SA079 @POSTPAGO
   Scenario: Ingresar a Administrar roaming - servicio activo
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO

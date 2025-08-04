@@ -206,7 +206,10 @@ public class Constants {
     public static final String CONSUMO_DE_VOZ = "Consumo de voz";
     public static final String CONSUMO_DE_SMS = "Consumo de SMS";
     public static final String CONSUMO_PAQUETES_Y_RECARGAS = "Consumo paquetes y recargas";
-
+    public static final String MOVILES_CLARO = "Móviles Claro";
+    public static final String A_OTROS_OPERADORES = "A otros operadores";
+    public static final String A_FIJOS = "A fijos";
+    public static final String ROAMING_INTERNACIONAL_TEXTO = "Roaming internacional";
     // Consumo de datos - Detalles
     public static final String GB_PLAN_160_DETALLE = "160,00 GB plan";
     public static final String CONSUMIDO_DEL_PLAN = "Consumido del plan";
@@ -235,7 +238,7 @@ public class Constants {
     public static final String AUN_NO_HAS_ADQUIRIDO_PAQUETES = "Aún no has adquirido paquetes";
     public static final String AUN_NO_HAS_HECHO_RECARGAS = "Aún no has hecho recargas";
     public static final String EN_ESTE_MES_NO_REGISTRAS_CONSUMOS = "En este mes no registras consumos";
-
+    public static final String AUN_NO_REGISTRAS_CONSUMOS_CUENTA_SMS = "Consumo de SMS Aún no registras consumos en tu cuenta";
     // Consumo paquetes y recargas - Detalles
     public static final String SALDO_DISPONIBLE = "Saldo disponible";
     public static final String SALDO_0_PESOS = "$ 0";
@@ -419,7 +422,7 @@ public class Constants {
     public static final String PASATE_A_POSTPAGO = "Pásate a Postpago";
     public static final String NUESTROS_SERVICIOS = "Nuestros servicios";
     public static final String COMPRA_POR_CATEGORIA = "Compra por categoría";
-    public static final String CLARO_COLOMBIA = "Claro Colombia | Ofertas de celulares y planes";
+    public static final String CLARO_COLOMBIA_PQR = "Claro te escucha";
 
 
     // Constantes para eSIM Claro
@@ -540,5 +543,47 @@ public class Constants {
     public static final String CAMBIAR_PAQUETE = "Cambiar paquete";
     public static final String COMPLEMENTARIO_RECURRENTE = "Complementario Recurrente";
 
+    // Agregar al archivo src/main/java/utils/Constants.java
 
+    // Constantes para Atención al cliente y soporte
+    public static final String ATENCION_AL_CLIENTE = "Atención al cliente";
+    public static final String MEDICION_DE_RED = "Medición de red";
+    public static final String AUTORIZO_MEDICION_CALIDAD_RED = "Autorizo la medición de calidad de la red móvil de datos.";
+    public static final String REALIZAR_TEST_VELOCIDAD = "Realizar test de velocidad";
+    public static final String ESTAMOS_LISTOS_INICIAR_MEDICION = "Estamos listos para iniciar la medición";
+    public static final String INICIAR_TEST = "INICIAR TEST";
+    public static final String CONECTATE_TU_PLAN_DATOS = "Conéctate a tu plan de datos";
+    public static final String NO_PUEDES_REALIZAR_MEDICION = "No puedes realizar la medición de red, si estas conectado a una red WiFi";
+    public static final String TEST_FINALIZADO = "¡Test finalizado!";
+    public static final String VELOCIDAD_SUBIDA = "Velocidad de subida";
+    public static final String VELOCIDAD_DESCARGA = "Velocidad de descarga";
+    public static final String LATENCIA = "Latencia";
+    public static final String FLUCTUACION_FASE = "Fluctuación de fase";
+
+    // Soporte Hogar
+    public static final String SOPORTE_HOGAR = "Soporte Hogar";
+    public static final String WHATSAPP = "WhatsApp";
+    public static final String SELECCIONAR_APLICACION = "Seleccionar aplicación";
+
+    // Consultar PQR
+    public static final String CONSULTAR_PQR = "Consultar PQR";
+
+    // Puntos de atención
+    public static final String PUNTOS_DE_ATENCION = "Puntos de atención";
+    public static final String QUEREMOS_CONOCER_UBICACION = "Queremos conocer tu ubicación para mejorar tu experiencia";
+    public static final String SI_PERMITIR = "Sí, permitir";
+
+    // ¿Necesitas ayuda?
+    public static final String NECESITAS_AYUDA = "¿Necesitas ayuda?";
+
+    // Estado servicios técnicos
+    public static final String ESTADO_SERVICIOS_TECNICOS = "Estado Servicios Técnicos";
+    public static final String ORDENES_DE_SERVICIO = "Órdenes de servicio";
+    public static final String NUMERO_DE_CELULAR = "Número de celular";
+    public static final String IMEI = "IMEI";
+    public static final String NO_SE_ENCONTRO_INFORMACION = "No se encontro información asociada.";
+
+    // ClaroBot
+    public static final String CLAROBOT = "ClaroBot";
+    public static final String LO_MAS_CONSULTADO = "Lo más consultado";
 }

@@ -38,6 +38,9 @@ public class ConsultarConsumosPage {
     public static final Target LBL_FECHA_CARGA =
             Target.the("Fecha carga")
                     .located(AppiumBy.xpath("//*[contains(@text,'Fecha carga:')]"));
+    public static final Target OCULTAR_OPCIONES =
+            Target.the("Ocultar opciones en consumos")
+                    .located(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[2]/android.widget.TextView[1]"));
 
     // Opciones del menú principal
     public static final Target BTN_CONSUMO_DATOS =
@@ -231,4 +234,5 @@ public class ConsultarConsumosPage {
     public static final Target LBL_ESPERA_UN_MOMENTO =
             Target.the("Mensaje Espera un momento")
                     .located(AppiumBy.xpath("//*[@text='Espera un momento']"));
+
 }
