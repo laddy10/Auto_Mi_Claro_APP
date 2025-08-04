@@ -13,11 +13,7 @@ gradlew.bat
 
 # Log Files
 *.log
-<<<<<<< HEAD
-*.log*
-=======
 .log
->>>>>>> origin/main
 
 # IntelliJ
 *.iml
@@ -60,13 +56,5 @@ log/
 #Capturas de pantalla
 Capturas/
 
-<<<<<<< HEAD
-# Ignorar archivos APK
-*.apk
-
-# Ignorar archivos DOCX
-*.docx
-=======
 #APK
 *.apk
->>>>>>> origin/main
