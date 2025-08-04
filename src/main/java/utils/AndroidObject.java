@@ -293,4 +293,149 @@ public class AndroidObject extends Excepciones {
     public void SwitchtoFrame(Actor actor, int id) {
         androidDriver(actor).switchTo().frame(id);
     }
+
+    // Agregar estos métodos a la clase AndroidObject existente
+
+    /**
+     * Realiza scroll horizontal para buscar un texto específico
+     * Implementa la misma lógica robusta que scrollCorto2 pero para dirección horizontal
+     *
+     * @param actor Actor que ejecuta la acción
+     * @param textoOpcional Texto a buscar durante el scroll
+     */
+    public static void scrollHorizontalHastaTexto(Actor actor, String textoOpcional) {
+        int intentosMaximos = 8; // Más intentos para scroll horizontal
+
+        try {
+            AndroidDriver driver = androidDriver(actor);
+
+            /*// 1️⃣ Primera verificación sin hacer scroll
+            if (textoOpcional != null && !textoOpcional.isEmpty()) {
+                List<WebElement> elementos = driver.findElements(AppiumBy.androidUIAutomator(
+                        "new UiSelector().textContains(\"" + textoOpcional + "\")"));
+
+                for (WebElement elemento : elementos) {
+                    if (elemento.isDisplayed()) {
+                        System.out.println("✅ Texto visible sin scroll horizontal: " + textoOpcional);
+                        return;
+                    }
+                }
+            }*/
+
+            // 2️⃣ Scroll horizontal progresivo hasta encontrar el texto
+            for (int intento = 1; intento <= intentosMaximos; intento++) {
+                List<WebElement> elementos = driver.findElements(AppiumBy.androidUIAutomator(
+                        "new UiSelector().textContains(\"" + textoOpcional + "\")"));
+
+                for (WebElement elemento : elementos) {
+                    if (elemento.isDisplayed()) {
+                        if (estaCercaDelCentroHorizontal(driver, elemento)) {
+                            System.out.println("✅ Texto ya centrado horizontalmente: " + textoOpcional);
+                            return;
+                        }
+
+                        centrarElementoHorizontalmente(actor, elemento);
+                        System.out.println("✅ Texto encontrado y centrado horizontalmente: " + textoOpcional);
+                        return;
+                    }
+                }
+
+                // 3️⃣ Scroll horizontal corto si no se encuentra aún
+                System.out.println("🔄 Scroll horizontal intento #" + intento);
+                swipeHorizontal(actor, 0.7, 0.3, 0.4); // De derecha a izquierda
+                Thread.sleep(800); // Pausa ligeramente mayor para scroll horizontal
+            }
+
+            System.out.println("❌ Texto no encontrado tras " + intentosMaximos + " intentos de scroll horizontal: " + textoOpcional);
+
+        } catch (Exception e) {
+            System.out.println("⛔ Error en scrollHorizontalHastaTexto: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Realiza swipe horizontal entre dos puntos
+     *
+     * @param actor Actor que ejecuta la acción
+     * @param inicioRatio Punto de inicio horizontal (0.0 = izquierda, 1.0 = derecha)
+     * @param finRatio Punto final horizontal (0.0 = izquierda, 1.0 = derecha)
+     * @param duracionSegs Duración del swipe en segundos
+     */
+    public static void swipeHorizontal(Actor actor, double inicioRatio, double finRatio, double duracionSegs) {
+        Dimension dimension = androidDriver(actor).manage().window().getSize();
+        int alto = dimension.height / 2; // La altura siempre será el centro de la pantalla
+        int inicioX = (int) (dimension.width * inicioRatio);
+        int finX = (int) (dimension.width * finRatio);
+
+        new TouchAction<>(androidDriver(actor))
+                .press(PointOption.point(inicioX, alto))
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds((long) duracionSegs)))
+                .moveTo(PointOption.point(finX, alto))
+                .release()
+                .perform();
+    }
+
+    /**
+     * Verifica si un elemento está cerca del centro horizontal de la pantalla
+     *
+     * @param driver Driver de Android
+     * @param elemento Elemento a verificar
+     * @return true si está centrado horizontalmente
+     */
+    protected static boolean estaCercaDelCentroHorizontal(AndroidDriver driver, WebElement elemento) {
+        int screenWidth = driver.manage().window().getSize().getWidth();
+        int elementoX = elemento.getLocation().getX();
+
+        int margenIzquierdo = (int) (screenWidth * 0.2);
+        int margenDerecho = (int) (screenWidth * 0.8);
+
+        return elementoX > margenIzquierdo && elementoX < margenDerecho;
+    }
+
+    /**
+     * Centra un elemento horizontalmente en la pantalla mediante scroll suave
+     *
+     * @param actor Actor que ejecuta la acción
+     * @param elemento Elemento a centrar
+     */
+    public static void centrarElementoHorizontalmente(Actor actor, WebElement elemento) {
+        int screenWidth = androidDriver(actor).manage().window().getSize().getWidth();
+        int elementoX = elemento.getLocation().getX();
+
+        int movimiento = (screenWidth / 2) - elementoX;
+
+        System.out.println("📌 Ajustando texto horizontalmente: " + movimiento + " píxeles");
+
+        if (Math.abs(movimiento) > 30) { // Umbral mayor para movimientos horizontales
+            double ratioMovimiento = movimiento / (double) screenWidth;
+            swipeHorizontal(actor, 0.5, 0.5 + ratioMovimiento, 0.4);
+        }
+    }
+
+    /**
+     * Scroll horizontal simple hacia la derecha
+     *
+     * @param actor Actor que ejecuta la acción
+     */
+    public void scrollHorizontalDerecha(Actor actor) {
+        try {
+            swipeHorizontal(actor, 0.2, 0.8, 0.5);
+        } catch (Exception e) {
+            System.out.println("Error en scroll horizontal derecha: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Scroll horizontal simple hacia la izquierda
+     *
+     * @param actor Actor que ejecuta la acción
+     */
+    public void scrollHorizontalIzquierda(Actor actor) {
+        try {
+            swipeHorizontal(actor, 0.8, 0.2, 0.5);
+        } catch (Exception e) {
+            System.out.println("Error en scroll horizontal izquierda: " + e.getMessage());
+        }
+    }
 }
