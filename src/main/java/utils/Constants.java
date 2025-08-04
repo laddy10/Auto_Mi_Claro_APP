@@ -18,6 +18,7 @@ public class Constants {
     public static final String MUNDO_CLARO = "Mundo Claro";
     public static final String PAGA_TU_FACTURA = "Paga tu factura";
     public static final String POSTPAGO = "Postpago";
+    public static final String PREPAGO = "Prepago";
     public static final String VER_DETALLE = "Ver detalle";
     public static final String ELEGIR = "Elegir";
     public static final String LINEA = "Línea";
@@ -193,6 +194,7 @@ public class Constants {
     public static final String CODIGO_VENDEDOR = "Código del vendedor";
     public static final String ESCRIBIR_CODIGO_VENDEDOR = "Escribe el código del vendedor";
     public static final String ACEPTAR_TERMINOS_CONDICIONES = "Aceptar Términos y Condiciones";
+    public static final String ACEPTAR_TERMINOS_CONDICIONES_DISNEY = "Aceptar términos y condiciones";
     public static final String CANCELAR_NETFLIX = "Cancelar";
 
     // Amazon Prime - Detalles y planes

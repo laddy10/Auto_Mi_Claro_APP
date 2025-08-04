@@ -6,6 +6,7 @@ import interactions.Scroll.ScrollHorizontalHastaTexto;
 import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
+import interactions.wait.WaitForResponse;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -24,9 +25,9 @@ public class SeleccionarPlanPremiumDisney implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        WaitFor.aTime(2000);
-        ScrollHorizontalHastaTexto.conTexto("Disney+ Premium");
+        WaitForResponse.withText("Disney+ Premium");
         actor.attemptsTo(
+                WaitFor.aTime(3000),
                 ValidarTextoQueContengaX.elTextoContiene("Disney+ Premium")
         );
         EvidenciaUtils.registrarCaptura(paso);

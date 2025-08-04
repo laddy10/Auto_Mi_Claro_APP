@@ -23,19 +23,22 @@ import static utils.Constants.*;
  */
 public class SeleccionarDisneyPlus implements Task {
 
-    private static final String paso = "Seleccionar Disney+";
+    private static final String paso = "Scrool hasta tus plataformas favoritas y seleccionar ver mas";
+    private static final String paso2 = "Seleccionar Disney+";
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                ScrollHastaTexto.conTexto(TUS_PLATAFORMAS_FAVORITAS),
-                ClickTextoQueContengaX.elTextoContiene(VER_MAS),
-                WaitFor.aTime(2000),
-                ClickTextoQueContengaX.elTextoContiene(DISNEY_PLUS),
-                WaitFor.aTime(3000)
+                ScrollHastaTexto.conTexto(TUS_PLATAFORMAS_FAVORITAS)
         );
-
         EvidenciaUtils.registrarCaptura(paso);
+        actor.attemptsTo(
+                ClickTextoQueContengaX.elTextoContiene(VER_MAS)
+        );
+        EvidenciaUtils.registrarCaptura(paso2);
+        actor.attemptsTo(
+                ClickTextoQueContengaX.elTextoContiene(DISNEY_PLUS)
+        );
     }
 
     public static Performable seleccionar() {

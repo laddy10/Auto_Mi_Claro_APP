@@ -26,17 +26,18 @@ import static utils.Constants.*;
  */
 public class SeleccionarAmazonPrime implements Task {
 
-    private static final String paso = "Seleccionar Amazon Prime";
+    private static final String paso = "Scroll hasta tus plataformas favoritas y Seleccionar Amazon Prime";
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                ScrollHastaTexto.conTexto(TUS_PLATAFORMAS_FAVORITAS),
+                ScrollHastaTexto.conTexto(TUS_PLATAFORMAS_FAVORITAS)
+        );
+        EvidenciaUtils.registrarCaptura(paso);
+        actor.attemptsTo(
                 ClickTextoQueContengaX.elTextoContiene(AMAZON_PRIME),
                 WaitFor.aTime(3000)
         );
-
-        EvidenciaUtils.registrarCaptura(paso);
     }
 
     public static Performable seleccionar() {

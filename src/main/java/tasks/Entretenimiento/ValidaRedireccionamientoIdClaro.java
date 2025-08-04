@@ -2,6 +2,7 @@ package tasks.Entretenimiento;
 
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
+import interactions.wait.WaitForResponse;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -16,7 +17,8 @@ public class ValidaRedireccionamientoIdClaro implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitFor.aTime(6000), // Espera breve para asegurar carga
+                // Espera breve para asegurar carga
+                WaitForResponse.withText("Identificación de Cliente"),
                 ValidarTextoQueContengaX.elTextoContiene("Identificación de Cliente")
         );
         EvidenciaUtils.registrarCaptura(paso);

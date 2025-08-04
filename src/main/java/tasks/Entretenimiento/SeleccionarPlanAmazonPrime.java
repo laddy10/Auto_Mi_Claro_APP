@@ -27,7 +27,7 @@ public class SeleccionarPlanAmazonPrime implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitFor.aTime(2000),
+                WaitFor.aTime(5000),
                 ValidarTextoQueContengaX.elTextoContiene("Amazon Prime")
         );
         EvidenciaUtils.registrarCaptura(paso);

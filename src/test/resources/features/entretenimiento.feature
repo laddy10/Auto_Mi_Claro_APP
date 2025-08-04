@@ -1,5 +1,6 @@
 Feature: Ingresar al módulo de entretenimiento
 
+  ############################################################## pospago
   @SA059
   Scenario: Ingresar a entretenimiento y validar Claro Video
     Given EL USUARIO ABRE LA SUPER APP
@@ -41,7 +42,7 @@ Feature: Ingresar al módulo de entretenimiento
     And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
     #And   VALIDA REDIRECCION A ENTRETENIMIENTO
     And   SELECCIONA BOTON NETFLIX
-    And   VALIDA REDIRECCIONAMIENTO NETFLIX
+    And   VALIDA VERSION DE MINIPROGRAMA NETFLIX
     And   VALIDA TERMINOS Y CONDICIONES NETFLIX
     Then  VALIDA REDIRECCIONAMIENTO ID ClARO
 
@@ -91,8 +92,39 @@ Feature: Ingresar al módulo de entretenimiento
     Then  VALIDA REDIRECCIONAMIENTO ID ClARO
 
 
+  ############################################ Prepago prioridad
 
+  @PRE066
+  Scenario: Ingresar a entretenimiento y validar Claro Video
+    Given EL USUARIO ABRE LA SUPER APP
+    When  REALIZA EL INGRESO
+    And   VERIFICA VERSION DE LA SUPER APP
+    And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
+    #And   VALIDA REDIRECCION A ENTRETENIMIENTO
+    And   SELECCIONA EL BOTON CLARO VIDEO
+    And   VALIDA VERSION DE MINIPROGRAMA PRE
+    Then  VALIDA REDIRECCION APP STORE CLARO VIDEO
 
+  @PRE101
+  Scenario: Ingresar a entretenimiento y validar Claro Club
+    Given EL USUARIO ABRE LA SUPER APP
+    When  REALIZA EL INGRESO
+    And   VERIFICA VERSION DE LA SUPER APP
+    #And   VALIDA REDIRECCION A ENTRETENIMIENTO
+    And   SELECCIONA EL BOTON CLARO CLUB
+    And   VALIDA VERSION DE MINIPROGRAMA PRE
+    Then  VALIDA REDIRECCION CLARO CLUB
+
+  @PRE069
+  Scenario: Ingresar a entretenimiento y validar Claro Música
+    Given EL USUARIO ABRE LA SUPER APP
+    When  REALIZA EL INGRESO
+    And   VERIFICA VERSION DE LA SUPER APP
+    And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
+    #And   VALIDA REDIRECCION A ENTRETENIMIENTO
+    And   SELECCIONA EL BOTON CLARO MUSICA
+    And   VALIDA VERSION DE MINIPROGRAMA PRE
+    Then  VALIDA REDIRECCION CLARO MUSICA APP
 
 
 

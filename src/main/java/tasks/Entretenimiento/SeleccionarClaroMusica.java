@@ -30,12 +30,11 @@ public class SeleccionarClaroMusica implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
+        EvidenciaUtils.registrarCaptura(paso);
         actor.attemptsTo(
                 ClickTextoQueContengaX.elTextoContiene(CLARO_MUSICA),
                 WaitFor.aTime(3000)
         );
-
-        EvidenciaUtils.registrarCaptura(paso);
     }
 
     public static Performable seleccionar() {

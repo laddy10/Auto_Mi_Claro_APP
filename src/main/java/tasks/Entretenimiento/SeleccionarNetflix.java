@@ -31,11 +31,12 @@ public class SeleccionarNetflix implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                ScrollHastaTexto.conTexto(TUS_PLATAFORMAS_FAVORITAS),
-                ClickTextoQueContengaX.elTextoContiene(NETFLIX),
-                WaitFor.aTime(3000)
+                ScrollHastaTexto.conTexto(TUS_PLATAFORMAS_FAVORITAS)
         );
         EvidenciaUtils.registrarCaptura(paso);
+        actor.attemptsTo(
+                ClickTextoQueContengaX.elTextoContiene(NETFLIX)
+        );
     }
 
     public static Performable seleccionar() {

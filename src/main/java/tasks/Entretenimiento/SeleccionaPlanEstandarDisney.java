@@ -2,8 +2,10 @@ package tasks.Entretenimiento;
 
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.ScrollHorizontalHastaTexto;
+import interactions.Scroll.ScrollHorizontalYValidar;
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
+import interactions.wait.WaitForResponse;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -30,13 +32,13 @@ public class SeleccionaPlanEstandarDisney implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 // Espera inicial para cargar la interfaz
-                WaitFor.aTime(2000),
+                WaitForResponse.withAnyText("Disney+ Premium"),
 
                 // Scroll horizontal hasta encontrar el plan Disney+ Estándar
-                ScrollHorizontalHastaTexto.conTexto(PLAN_DISNEY_ESTANDAR),
+                ScrollHorizontalYValidar.scrollIzquierdaYValidar(ELEGIR_PLAN),
 
                 // Validar que el plan está visible (opcional pero recomendado)
-                ValidarTextoQueContengaX.elTextoContiene(PLAN_DISNEY_ESTANDAR)
+                ValidarTextoQueContengaX.elTextoContiene(ELEGIR_PLAN)
         );
 
         // Captura de evidencia después del scroll

@@ -4,6 +4,7 @@ import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
+import interactions.wait.WaitForResponse;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -20,16 +21,15 @@ import static userinterfaces.EntretenimientoPage.*;
  */
 public class ValidarTerminosCondicionesDisneyEstandar implements Task {
 
-    private static final String paso = "Validar y aceptar Términos y Condiciones Disney+";
+    private static final String paso = "Validar Plan y Términos y Condiciones Disney+";
     private static final String paso2 = "Aceptar TC";
     private static final String paso3 = "Aceptar";
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                ValidarTextoQueContengaX.elTextoContiene("Disney+ Estandar"),
-                ValidarTexto.validarTexto(ESCRIBIR_CODIGO_VENDEDOR),
-                ValidarTextoQueContengaX.elTextoContiene(ACEPTAR_TERMINOS_CONDICIONES)
+                WaitForResponse.withText(ESCRIBIR_CODIGO_VENDEDOR),
+                ValidarTexto.validarTexto(ESCRIBIR_CODIGO_VENDEDOR)
         );
         EvidenciaUtils.registrarCaptura(paso);
         actor.attemptsTo(

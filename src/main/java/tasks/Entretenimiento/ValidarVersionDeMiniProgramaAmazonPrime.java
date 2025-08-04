@@ -3,6 +3,7 @@ package tasks.Entretenimiento;
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
+import interactions.wait.WaitForResponse;
 import models.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -28,7 +29,7 @@ public class ValidarVersionDeMiniProgramaAmazonPrime implements Task {
     private static final String LINEA_NUMERO = "310 262 8443";
     private static final String paso = "Esperar desaparición del texto 'Espera un momento'";
     private static final String paso2 = "Ingresar al menú de tres puntos y seleccionar 'Acerca de'";
-    private static final String paso3 = "Validar versión de mini app AmazonPrime";
+    private static final String paso3 = "Validar versión de mini app";
     private static final String paso4 = "Seleccionar la línea postpago y Hacer scroll a la línea del usuario y ver detalle";
 
 
@@ -43,14 +44,13 @@ public class ValidarVersionDeMiniProgramaAmazonPrime implements Task {
         actor.attemptsTo(
                 Click.on(BTN_TRES_PUNTOS_MAS)
         );
-        actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene("Acerca de"),
-                WaitFor.aTime(7000)
-        );
         EvidenciaUtils.registrarCaptura(paso2);
+        actor.attemptsTo(
+                ClickTextoQueContengaX.elTextoContiene("Acerca de")
+        );
         //**********************************************************************************
         actor.attemptsTo(
-
+                WaitForResponse.withText("Ver"),
                 ValidarTextoQueContengaX.elTextoContiene("Ver")
         );
         EvidenciaUtils.registrarCaptura(paso3);
@@ -59,6 +59,7 @@ public class ValidarVersionDeMiniProgramaAmazonPrime implements Task {
                 Click.on(BTN_VOLVER)
         );
         //**********************************************************************************
+        EvidenciaUtils.registrarCaptura(paso4);
         actor.attemptsTo(
                 ClickTextoQueContengaX.elTextoContiene(POSTPAGO)
         );
@@ -66,7 +67,6 @@ public class ValidarVersionDeMiniProgramaAmazonPrime implements Task {
         actor.attemptsTo(
                 ClickTextoQueContengaX.elTextoContiene(LINEA_NUMERO)
         );
-        EvidenciaUtils.registrarCaptura(paso4);
     }
 
     public static Performable validar() {

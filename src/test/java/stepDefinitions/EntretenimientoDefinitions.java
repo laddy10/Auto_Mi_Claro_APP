@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import tasks.Entretenimiento.*;
+import tasks.Entretenimiento.Prepago.ValidarVersionDeMiniAppPrepago;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
@@ -32,6 +33,12 @@ public class EntretenimientoDefinitions {
         );
     }
 
+    @And("^VALIDA VERSION DE MINIPROGRAMA PRE$")
+    public void validaVersionMiniProgramaClaroPre() {
+        theActorInTheSpotlight().attemptsTo(
+                ValidarVersionDeMiniAppPrepago.validar()
+        );
+    }
 
     /*@And("^VALIDA REDIRECCION A ENTRETENIMIENTO$")
     public void validaRedireccionEntretenimiento() {
@@ -105,7 +112,7 @@ public class EntretenimientoDefinitions {
     @And("^VALIDA VERSION DE MINIPROGRAMA CLARO MUSICA$")
     public void validaVersionMiniProgramaClaroMusica() {
         theActorInTheSpotlight().attemptsTo(
-                ValidaVersionMiniProgramaClaroMusica.validar()
+                ValidarVersionMiniPrograma.validar()
         );
     }
 
@@ -127,10 +134,10 @@ public class EntretenimientoDefinitions {
         );
     }
 
-    @And("VALIDA REDIRECCIONAMIENTO NETFLIX")
+    @And("VALIDA VERSION DE MINIPROGRAMA NETFLIX")
     public void validaRedireccionamientoNetflix() {
         theActorInTheSpotlight().attemptsTo(
-                ValidarRedireccionamientoNetflix.validar()
+                ValidarVersionMiniPrograma.validar()
         );
     }
 

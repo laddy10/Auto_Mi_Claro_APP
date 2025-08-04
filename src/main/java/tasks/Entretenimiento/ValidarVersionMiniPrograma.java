@@ -3,6 +3,7 @@ package tasks.Entretenimiento;
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
+import interactions.wait.WaitForResponse;
 import models.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -44,7 +45,7 @@ public class ValidarVersionMiniPrograma implements Task {
         );
         //**********************************************************************************
         actor.attemptsTo(
-                WaitFor.aTime(4000),
+                WaitForResponse.withText("Ver"),
                 ValidarTextoQueContengaX.elTextoContiene("Ver")
         );
         EvidenciaUtils.registrarCaptura(paso3);
