@@ -13,7 +13,7 @@ gradlew.bat
 
 # Log Files
 *.log
-*.log*
+.log
 
 # IntelliJ
 *.iml

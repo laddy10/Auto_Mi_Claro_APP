@@ -33,12 +33,17 @@ public class IngresoSuperApp implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
 
+        // 1. Si ya está logueado, valida y termina el flujo
         if (isVisible(actor, LBL_ENCABEZADO_USUARIO)) {
-            actor.should(seeThat(ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
-                    equalTo(user.getNombreUsuario())));
-            EvidenciaUtils.registrarCaptura(paso);
-            return;
+            String textoVisible = ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO).answeredBy(actor);
+            if (!"¡Hola!".equals(textoVisible)) {
+                actor.should(seeThat(ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
+                        equalTo(user.getNombreUsuario())));
+                EvidenciaUtils.registrarCaptura(paso);
+                return;
+            }
         }
+
 
         if (isVisible(actor, LBL_SESION_CERRADA_POR_SEGURIDAD)) {
             clickAceptarSesion(actor);
@@ -110,16 +115,32 @@ public class IngresoSuperApp implements Task {
     }
 
     private <T extends Actor> void aceptarPermisosIniciales(T actor) {
+        if (isVisible(actor, LBL_ENCABEZADO_USUARIO)) {
+            String textoVisible = ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO).answeredBy(actor);
+            if (!"¡Hola!".equals(textoVisible)) {
+                actor.should(seeThat(ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
+                        equalTo(user.getNombreUsuario())));
+                EvidenciaUtils.registrarCaptura(paso);
+                return;
+            }
+        }
         clickSiExiste(actor, BTN_PERMISO_UBICACION, MIENTRAS_APP_ESTA_EN_USO);
         clickSiExiste(actor, BTN_ACEPTAR_PERMISO, ACEPTAR_2);
         clickSiExiste(actor, SMS_PERMISO_LLAMADAS, NO_PERMITIR);
         clickSiExiste(actor, SMS_PERMISO_NOTIFICACIONES, NO_PERMITIR);
+        clickSiExiste(actor, SMS_PERMISO_NOTIFICACIONES2, NO_PERMITIR);
         clickSiExiste(actor, BTN_OMITIR, OMITIR);
         clickSiExisteCheckboxYContinuar(actor, LBL_BIENVENIDA, CHECK_TC, CONTINUAR);
         clickSiExiste(actor, TXT_AUTORIZACION_VELOCIDAD, ACEPTAR_2);
     }
 
     private <T extends Actor> void loginDesdeCero(T actor) {
+
+        // Solo ejecuta loginDesdeCero si el botón INICIAR_SESION está visible
+        if (!isVisible(actor, LBL_INICIAR_SESION)) {
+            return;
+        }
+
         actor.attemptsTo(ClickElementByText.clickElementByText(INICIAR_SESION));
         ValidarTextoQueContengaX.elTextoContiene(VERSION);
 
@@ -146,6 +167,15 @@ public class IngresoSuperApp implements Task {
     }
 
     private <T extends Actor> void validarLogin(T actor) {
+        if (isVisible(actor, LBL_ENCABEZADO_USUARIO)) {
+            String textoVisible = ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO).answeredBy(actor);
+            if (!"¡Hola!".equals(textoVisible)) {
+                actor.should(seeThat(ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
+                        equalTo(user.getNombreUsuario())));
+                EvidenciaUtils.registrarCaptura(paso);
+                return;
+            }
+        }
         if (isVisible(actor, LBL_TERMINOS_Y_CONDICIONES)) {
             actor.attemptsTo(
                     Click.on(CHECK_TERMINOS_Y_CONDICIONES),
@@ -164,6 +194,7 @@ public class IngresoSuperApp implements Task {
         }
 
         clickSiExiste(actor, SMS_PERMISO_NOTIFICACIONES, NO_PERMITIR);
+        clickSiExiste(actor, SMS_PERMISO_NOTIFICACIONES2, NO_PERMITIR);
 
         if (isVisible(actor, TXT_AUTORIZACION_VELOCIDAD)) {
             actor.attemptsTo(WaitFor.aTime(1000), ClickElementByText.clickElementByText(ACEPTAR));

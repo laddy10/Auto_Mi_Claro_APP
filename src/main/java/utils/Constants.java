@@ -21,6 +21,7 @@ public class Constants {
     public static final String VER_DETALLE = "Ver detalle";
     public static final String ELEGIR = "Elegir";
     public static final String LINEA = "Línea";
+    public static final String CUENTA = "Cuenta";
     public static final String PAGAR_FACTURA = "Pagar factura";
     public static final String ACERCA_DE = "Acerca de";
     public static final String DECLARACION_SERVICIO = "Declaración de Servicio";
@@ -137,7 +138,105 @@ public class Constants {
 
 
 
+    // Entretenimiento - Navegación principal
+    public static final String ENTRETENIMIENTO = "Entretenimiento";
+    public static final String HECHO_PARA_TI = "Hecho para ti";
+    public static final String CONTENIDO_EXCLUSIVO_PARA_TI = "Contenido exclusivo para ti";
 
+    // Plataformas principales - Hecho para ti
+    public static final String CLARO_TV_PLUS = "Claro tv +";
+    public static final String RED_TV_EN_VIVO = "Red + TV en vivo";
+    public static final String CLARO_VIDEO = "Claro Video";
+    public static final String CLARO_MUSICA = "Claro Música";
+
+    // Tus plataformas favoritas
+    public static final String TUS_PLATAFORMAS_FAVORITAS = "Tus plataformas favoritas";
+    public static final String EL_MEJOR_CONTENIDO_UN_SOLO_LUGAR = "El mejor contenido en un solo lugar";
+    public static final String NETFLIX = "Netflix";
+    public static final String HBOMAX = "HBOmax";
+    public static final String AMAZON_PRIME = "Amazon Prime";
+
+    // Series, películas, en un solo lugar
+    public static final String SERIES_PELICULAS_UN_SOLO_LUGAR = "Series, películas, en un solo lugar";
+
+    // Plataformas adicionales (Ver más opciones)
+    public static final String WIN_PLAY = "Win Play";
+    public static final String DISNEY_PLUS = "Disney+";
+    public static final String HOTGO = "HotGo";
+    public static final String RED_NOTICIAS = "RED + NOTICIAS";
+
+    // Claro Música - Detalles
+    public static final String CLARO_MUSICA_TITULO = "Claro Música";
+    public static final String ELIGE_NUMERO_CUENTA_LINEA_MUSICA = "Elige el número de cuenta o línea";
+    /*public static final String POSTPAGO_MUSICA = "Postpago";
+    public static final String PREPAGO_MUSICA = "Prepago";
+    public static final String LINEA_310_262_8443 = "Línea 310 262 8443";
+    public static final String LINEA_310_263_5941 = "Línea 310 263 5941";
+    public static final String LINEA_322_278_6448 = "Línea 322 278 6448";
+    public static final String LINEA_310_262_9612 = "Línea 310 262 9612";
+    public static final String LINEA_310_263_3858 = "Línea 310 263 3858";
+    public static final String LINEA_310_263_2840 = "Línea 310 263 2840";
+    public static final String LINEA_310_263_8099 = "Línea 310 263 8099";
+    public static final String LINEA_310_263_8180 = "Línea 310 263 8180";
+    */
+
+    // Netflix - Detalles y activación
+    public static final String CLARO_CLUB = "Claro Club";
+    public static final String NETFLIX_TITULO = "Netflix";
+    public static final String LINEA_NUMERO = "Línea";
+    public static final String NUMERO_3102628443 = "3102628443";
+    public static final String NETFLIX_LOGO = "NETFLIX";
+    public static final String VARIEDAD_SERIES_PELICULAS = "Variedad de series, películas, documentales y mucho más, para ver desde donde quieras";
+    public static final String ACTIVA_NETFLIX_SERVICIO_MOVIL = "Activa Netflix con tu servicio móvil";
+    public static final String RECUERDA_PLAN_INCLUYE_NETFLIX = "Recuerda que tu plan incluye Netflix, para activar o recuperar tu cuenta, haz click en aceptar términos y condiciones y haz click en";
+    public static final String CONTINUAR_NETFLIX = "Continuar";
+    public static final String CODIGO_VENDEDOR = "Código del vendedor";
+    public static final String ESCRIBIR_CODIGO_VENDEDOR = "Escribe el código del vendedor";
+    public static final String ACEPTAR_TERMINOS_CONDICIONES = "Aceptar Términos y Condiciones";
+    public static final String CANCELAR_NETFLIX = "Cancelar";
+
+    // Amazon Prime - Detalles y planes
+    public static final String AMAZON_PRIME_TITULO = "Amazon Prime";
+    public static final String DISFRUTA_TODO_CONTENIDO_LINEA = "Disfruta de todo el contenido en línea y beneficios exclusivos en Amazon";
+    public static final String AMAZON_PRIME_LOGO = "amazon prime";
+    public static final String TE_DAMOS_UN_MES_CORTESIA = "Te damos 1 mes de cortesía";
+    public static final String AL_TERMINAR_CORTESIA_CARGARA_VALOR = "Al terminar la cortesía, se cargará el valor del servicio a tu factura mensual";
+    public static final String PRECIO_24900_MES = "$ 24.900/mes";
+    public static final String IVA_INCLUIDO = "IVA incluido";
+    public static final String ENVIOS_RAPIDOS_SIN_COSTO = "Envíos rápidos y sin costo en tus compras";
+    public static final String MILLONES_PRODUCTOS_ENVIO_GRATIS = "Millones de productos con envío gratis y descuentos exclusivos por tener Amazon Prime.";
+    public static final String ENTRETENIMIENTO_SIN_LIMITES_PRIME_VIDEO = "Entretenimiento sin límites en Prime video";
+    public static final String DISFRUTA_MILES_SERIES_PELICULAS = "Disfruta miles de series y películas en HD, hasta en 3 pantallas al tiempo.";
+    public static final String PRIME_GAMING = "Prime Gaming";
+    public static final String ACCEDE_JUEGOS_COMPLETOS = "Accede a juegos completos, suscríbete a un canal de Twitch y mucho más.";
+    public static final String ELEGIR_PLAN = "Elegir plan";
+    public static final String VALOR_SUSCRIPCION_CARGARA_FACTURA = "El valor de la suscripción se cargará en la factura mensual de tu servicio Claro:";
+    public static final String LINEA_POSTPAGO = "Línea postpago";
+    public static final String CODIGO_VENDEDOR_OPCIONAL = "Código del vendedor (opcional)";
+    public static final String ACTIVAR = "Activar";
+    public static final String VALOR = "Valor";
+
+    // Estados de carga y navegación
+    public static final String ESPERA_UN_MOMENTO = "Espera un momento";
+    public static final String SAVE_MY_PLACE_APP = "Save my place in the app. A link will be copied to continue to this page.";
+    public static final String OPEN = "OPEN";
+
+    // Claro música con radio
+    public static final String CLARO_MUSICA_CON_RADIO = "Claro música con radio sin consumir de tu plan";
+
+    // Términos y condiciones generales
+    public static final String TERMINOS_Y_CONDICIONES = "Términos y Condiciones";
+    public static final String ACEPTO_TERMINOS_CONDICIONES = "Acepto los términos y condiciones";
+
+    // Disney+ (para futuras implementaciones)
+    public static final String DISNEY_PLUS_TITULO = "Disney+";
+    public static final String PLAN_ESTANDAR = "Plan Estándar";
+    public static final String PLAN_PREMIUM = "Plan Premium";
+
+    // WIN Play, HotGo, etc. (para futuras implementaciones)
+    public static final String WIN_PLAY_TITULO = "Win Play";
+    public static final String HOTGO_TITULO = "HotGo";
+    public static final String RED_NOTICIAS_TITULO = "RED + NOTICIAS";
 
 
 

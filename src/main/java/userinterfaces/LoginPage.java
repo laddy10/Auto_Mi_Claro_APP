@@ -49,6 +49,9 @@ public class LoginPage {
     public static final Target SMS_PERMISO_NOTIFICACIONES =
             Target.the("Mensaje ¿Permitir que Mi Claro te envíe notificaciones? ")
                     .located(AppiumBy.xpath("//*[@text='¿Permitir que Mi Claro te envíe notificaciones?']"));
+    public static final Target SMS_PERMISO_NOTIFICACIONES2 =
+            Target.the("Mensaje ¿Permitir que Mi Claro te envíe notificaciones? ")
+                    .located(AppiumBy.xpath("//*[@text='¿Quieres permitir que Mi Claro te envíe notificaciones?']"));
     public static final Target BTN_OMITIR =
             Target.the("Boton de Omitir")
                     .located(AppiumBy.xpath("//*[@text='Omitir']"));
