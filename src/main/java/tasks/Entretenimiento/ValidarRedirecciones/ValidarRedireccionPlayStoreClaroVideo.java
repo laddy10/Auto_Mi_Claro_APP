@@ -1,4 +1,4 @@
-package tasks.Entretenimiento;
+package tasks.Entretenimiento.ValidarRedirecciones;
 
 import io.appium.java_client.android.AndroidDriver;
 import interactions.validations.ValidarTexto;
@@ -11,7 +11,7 @@ import utils.EvidenciaUtils;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-public class ValidarRedireccionLinkExterno implements Task {
+public class ValidarRedireccionPlayStoreClaroVideo implements Task {
 
     private static final String paso = "Validar redirección a la Play Store";
 
@@ -43,6 +43,6 @@ public class ValidarRedireccionLinkExterno implements Task {
     }
 
     public static Performable validar() {
-        return instrumented(ValidarRedireccionLinkExterno.class);
+        return instrumented(ValidarRedireccionPlayStoreClaroVideo.class);
     }
 }

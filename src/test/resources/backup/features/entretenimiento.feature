@@ -117,7 +117,7 @@ Feature: Ingresar al módulo de entretenimiento
     And   VALIDA VERSION DE MINIPROGRAMA CLARO CLUB
     Then  VALIDA REDIRECCION CLARO CLUB
 
-  ############################################ Entretenimiento Prepago prioridad
+  ############################################ Prepago prioridad
   @PRE079
   Scenario: Ingresar a entretenimiento y validar Claro Video Prepago
     Given EL USUARIO ABRE LA SUPER APP

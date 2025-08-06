@@ -1,8 +1,7 @@
-package tasks.Entretenimiento;
+package tasks.Entretenimiento.RutasDeAcceso;
 
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.ScrollHastaTexto;
-import interactions.wait.WaitFor;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;

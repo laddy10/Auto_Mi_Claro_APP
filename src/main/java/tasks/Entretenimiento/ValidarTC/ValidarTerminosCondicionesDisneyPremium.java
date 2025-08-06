@@ -1,9 +1,8 @@
-package tasks.Entretenimiento;
+package tasks.Entretenimiento.ValidarTC;
 
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;
-import interactions.wait.WaitFor;
 import interactions.wait.WaitForResponse;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -12,15 +11,11 @@ import net.serenitybdd.screenplay.actions.Click;
 import utils.EvidenciaUtils;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static userinterfaces.LoginPage.BTN_ACEPTAR;
+import static userinterfaces.EntretenimientoPage.CHECK_TERMINOS;
+import static userinterfaces.LoginPage.*;
 import static utils.Constants.*;
-import static userinterfaces.EntretenimientoPage.*;
 
-/**
- * Task para validar y aceptar términos y condiciones de Disney+
- */
-public class ValidarTerminosCondicionesDisneyEstandar implements Task {
-
+public class ValidarTerminosCondicionesDisneyPremium implements Task {
     private static final String paso = "Validar Plan y Términos y Condiciones Disney+";
     private static final String paso2 = "Aceptar TC";
     private static final String paso3 = "Aceptar";
@@ -28,8 +23,8 @@ public class ValidarTerminosCondicionesDisneyEstandar implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitForResponse.withText(ESCRIBIR_CODIGO_VENDEDOR),
-                ValidarTexto.validarTexto(ESCRIBIR_CODIGO_VENDEDOR)
+                WaitForResponse.withText("Disney+ Premium"),
+                ValidarTextoQueContengaX.elTextoContiene("Disney+ Premium")
         );
         EvidenciaUtils.registrarCaptura(paso);
         actor.attemptsTo(
@@ -45,10 +40,9 @@ public class ValidarTerminosCondicionesDisneyEstandar implements Task {
                 ValidarTexto.validarTexto(ACEPTAR_2),
                 Click.on(BTN_ACEPTAR)
         );
-
     }
 
     public static Performable validar() {
-        return instrumented(ValidarTerminosCondicionesDisneyEstandar.class);
+        return instrumented(ValidarTerminosCondicionesDisneyPremium.class);
     }
 }

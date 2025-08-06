@@ -1,8 +1,9 @@
-package tasks.Entretenimiento;
+package tasks.Entretenimiento.ValidarMiniVersionesEntretenimientoPospago;
 
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
+import interactions.wait.WaitForResponse;
 import models.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -15,16 +16,20 @@ import utils.TestDataProvider;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotPresent;
-import static userinterfaces.EntretenimientoPage.BTN_VOLVER;
-import static userinterfaces.EntretenimientoPage.LBL_ESPERA_UN_MOMENTO;
+import static userinterfaces.EntretenimientoPage.*;
 import static userinterfaces.PagosYConsultasPage.BTN_TRES_PUNTOS_MAS;
 import static utils.Constants.*;
+import static utils.ConstantsMiniVersiones.Versiones.*;
 
-public class ValidaVersionMiniProgramaClaroClub implements Task {
+/**
+ * Task para seleccionar Plan Estándar Disney+
+ */
+public class ValidarVersionMiniprogramaDisney implements Task {
+
     private static final User user = TestDataProvider.getRealUser();
     private static final String paso = "Esperar desaparición del texto 'Espera un momento'";
     private static final String paso2 = "Ingresar al menú de tres puntos y seleccionar 'Acerca de'";
-    private static final String paso3 = "Validar versión de mini app Claro Club";
+    private static final String paso3 = "Validar versión de mini app Disney+";
     private static final String paso4 = "Seleccionar la línea postpago y Hacer scroll a la línea del usuario y ver detalle";
 
 
@@ -32,22 +37,22 @@ public class ValidaVersionMiniProgramaClaroClub implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 WaitUntil.the(LBL_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds(),
-                WaitFor.aTime(2000)
+                WaitFor.aTime(1000)
         );
         EvidenciaUtils.registrarCaptura(paso);
         //**********************************************************************************
         actor.attemptsTo(
                 Click.on(BTN_TRES_PUNTOS_MAS)
         );
-        actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene("Acerca de"),
-                WaitFor.aTime(2000)
-        );
         EvidenciaUtils.registrarCaptura(paso2);
+        actor.attemptsTo(
+                ClickTextoQueContengaX.elTextoContiene("Acerca de")
+        );
         //**********************************************************************************
         actor.attemptsTo(
-
-                ValidarTextoQueContengaX.elTextoContiene("Ver")
+                WaitForResponse.withText("Ver"),
+                ValidarTextoQueContengaX.elTextoContiene(DISNEY_PLUS),
+                ValidarTextoQueContengaX.elTextoContiene(MINI_VERSION_DISNEY_CONSTANT)
         );
         EvidenciaUtils.registrarCaptura(paso3);
         //**********************************************************************************
@@ -55,17 +60,18 @@ public class ValidaVersionMiniProgramaClaroClub implements Task {
                 Click.on(BTN_VOLVER)
         );
         //**********************************************************************************
+        EvidenciaUtils.registrarCaptura(paso4);
         actor.attemptsTo(
                 ClickTextoQueContengaX.elTextoContiene(POSTPAGO)
         );
-        AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumero() + " " + VER_DETALLE);
+        AndroidObject.scrollCorto2(actor, CUENTA + " " + user.getNumero() + " " + VER_DETALLE);
         actor.attemptsTo(
                 ClickTextoQueContengaX.elTextoContiene(user.getNumero())
         );
-        EvidenciaUtils.registrarCaptura(paso4);
     }
 
     public static Performable validar() {
-        return instrumented(ValidaVersionMiniProgramaClaroClub.class);
+        return instrumented(ValidarVersionMiniprogramaDisney.class);
     }
 }
+

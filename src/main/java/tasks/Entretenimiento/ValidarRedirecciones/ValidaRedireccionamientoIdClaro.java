@@ -1,7 +1,6 @@
-package tasks.Entretenimiento;
+package tasks.Entretenimiento.ValidarRedirecciones;
 
 import interactions.validations.ValidarTextoQueContengaX;
-import interactions.wait.WaitFor;
 import interactions.wait.WaitForResponse;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;

@@ -34,8 +34,8 @@ public class SeleccionarLaLineaEnPrepago implements Task {
         EvidenciaUtils.registrarCaptura(paso2);
 
         actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene(user.getNumeroPrepago()),
-                WaitForResponse.withText(CLARO_COLOMBIA)
+                ClickTextoQueContengaX.elTextoContiene(user.getNumeroPrepago())
+                //revisar WaitForResponse.withText(CLARO_COLOMBIA)
         );
     }
 

@@ -5,6 +5,7 @@ import interactions.Scroll.ScrollHastaTexto;
 import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
+import interactions.wait.WaitForResponse;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -27,7 +28,7 @@ public class SeleccionarPlanAmazonPrime implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitFor.aTime(5000),
+                WaitForResponse.withText(ELEGIR_PLAN),
                 ValidarTextoQueContengaX.elTextoContiene("Amazon Prime")
         );
         EvidenciaUtils.registrarCaptura(paso);

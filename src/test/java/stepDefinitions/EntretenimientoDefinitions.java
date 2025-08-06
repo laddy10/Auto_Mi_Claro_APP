@@ -4,7 +4,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import tasks.Entretenimiento.*;
-import tasks.Entretenimiento.Prepago.ValidarVersionDeMiniAppPrepago;
+import tasks.Entretenimiento.ValidarRedirecciones.*;
+import tasks.Entretenimiento.ValidarTC.*;
+import tasks.Entretenimiento.ValidarMiniVersionesEntretenimientoPrepago.*;
+import tasks.Entretenimiento.RutasDeAcceso.*;
+import tasks.Entretenimiento.ValidarMiniVersionesEntretenimientoPospago.*;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
@@ -40,10 +44,24 @@ public class EntretenimientoDefinitions {
         );
     }
 
-    @And("^VALIDA VERSION DE MINIPROGRAMA PRE$")
-    public void validaVersionMiniProgramaClaroPre() {
+    @And("^VALIDA VERSION DE MINIPROGRAMA PRE CLARO VIDEO$")
+    public void validaVersionMiniProgramaClaroVideoPre() {
         theActorInTheSpotlight().attemptsTo(
-                ValidarVersionDeMiniAppPrepago.validar()
+                ValidarVersionMiniProgramaClaroVideoPre.validar()
+        );
+    }
+
+    @And("^VALIDA VERSION DE MINIPROGRAMA PRE CLARO MUSICA$")
+    public void validaVersionMiniProgramaClaroMusicaPre() {
+        theActorInTheSpotlight().attemptsTo(
+                ValidarVersionMiniProgramaClaroMusicaPre.validar()
+        );
+    }
+
+    @And("^VALIDA VERSION DE MINIPROGRAMA PRE CLARO CLUB$")
+    public void validaVersionMiniProgramaClaroClubPre() {
+        theActorInTheSpotlight().attemptsTo(
+                ValidarVersionMiniProgramaClaroClubPre.validar()
         );
     }
 
@@ -68,14 +86,14 @@ public class EntretenimientoDefinitions {
     @And("^VALIDA VERSION DE MINIPROGRAMA CLARO VIDEO$")
     public void validaVersionMiniProgramaClaroVideo() {
         theActorInTheSpotlight().attemptsTo(
-                ValidarVersionMiniPrograma.validar()
+                ValidarVersionMiniProgramaClaroVideo.validar()
         );
     }
 
     @Then("^VALIDA REDIRECCION APP STORE CLARO VIDEO$")
     public void ValidarRedireccionAppStoreClaroVideo() {
         theActorInTheSpotlight().attemptsTo(
-                ValidarRedireccionLinkExterno.validar()
+                ValidarRedireccionPlayStoreClaroVideo.validar()
         );
     }
 
@@ -101,7 +119,7 @@ public class EntretenimientoDefinitions {
     @And("^VALIDA VERSION DE MINIPROGRAMA CLARO CLUB$")
     public void validaVersionMiniProgramaClaroClub() {
         theActorInTheSpotlight().attemptsTo(
-                ValidarVersionMiniPrograma.validar()
+                ValidarVersionMiniProgramaClaroClub.validar()
         );
     }
 
@@ -126,7 +144,7 @@ public class EntretenimientoDefinitions {
     @And("^VALIDA VERSION DE MINIPROGRAMA CLARO MUSICA$")
     public void validaVersionMiniProgramaClaroMusica() {
         theActorInTheSpotlight().attemptsTo(
-                ValidarVersionMiniPrograma.validar()
+                ValidarVersionMiniProgramaClaroMusica.validar()
         );
     }
 
@@ -151,7 +169,7 @@ public class EntretenimientoDefinitions {
     @And("VALIDA VERSION DE MINIPROGRAMA NETFLIX")
     public void validaRedireccionamientoNetflix() {
         theActorInTheSpotlight().attemptsTo(
-                ValidarVersionMiniPrograma.validar()
+                ValidarVersionMiniProgramaNetflix.validar()
         );
     }
 
@@ -176,7 +194,7 @@ public class EntretenimientoDefinitions {
     @And("^VALIDAR VERSION DE MINIPROGRAMA DISNEY$")
     public void validarVersionDeMiniprogramaDisney() {
         theActorInTheSpotlight().attemptsTo(
-                ValidarVersionDeMiniprogramaDisney.validar()
+                ValidarVersionMiniprogramaDisney.validar()
         );
     }
 
@@ -222,7 +240,7 @@ public class EntretenimientoDefinitions {
     @And("^VALIDAR VERSION DE MINIPROGRAMA AMAZONPRIME$")
     public void validarVersionDeMiniProgramaAmazonPrime() {
         theActorInTheSpotlight().attemptsTo(
-                ValidarVersionDeMiniProgramaAmazonPrime.validar()
+                ValidarVersionMiniProgramaAmazonPrime.validar()
         );
     }
 
