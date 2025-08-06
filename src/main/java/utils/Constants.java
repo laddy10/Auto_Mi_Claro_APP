@@ -710,5 +710,7 @@ public class Constants {
     public static final String CLAROBOT = "ClaroBot";
     public static final String LO_MAS_CONSULTADO = "Lo más consultado";
 
+    public static final String CLARO_COLOMBIA = "Claro Colombia | Ofertas de celulares y planes";
+
 
 }
