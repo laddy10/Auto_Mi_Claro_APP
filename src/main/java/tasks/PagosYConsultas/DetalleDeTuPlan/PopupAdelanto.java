@@ -26,7 +26,7 @@ public class PopupAdelanto implements Task {
                 ValidarTexto.validarTexto(PRECIO_LABEL),
                 ValidarTexto.validarTexto(VALOR_DEL_SERVICIO),
                 ValidarTexto.validarTexto(VALOR_TOTAL),
-                ValidarTexto.validarTexto(TERMINOS_Y_CONDICIONES),
+                ValidarTexto.validarTexto(TERMINOS_Y_CONDICIONES_2),
                 ValidarTexto.validarTexto(CONTINUAR),
                 ClickTextoQueContengaX.elTextoContiene(CERRAR)
         );

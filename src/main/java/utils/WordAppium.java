@@ -51,7 +51,7 @@ public class WordAppium {
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
         String nombreArchivo = "Prueba_" + nombreEscenario.replaceAll("\\s+", "_") + "_" + timestamp + ".docx";
         String rutaDestino = REPORTES_DIR + File.separator + nombreArchivo;
-
+        System.out.println("📄 Guardando en: " + rutaDestino);
         try (FileInputStream fis = new FileInputStream(TEMPLATE_PATH);
              XWPFDocument doc = new XWPFDocument(fis);
              FileOutputStream fos = new FileOutputStream(rutaDestino)) {

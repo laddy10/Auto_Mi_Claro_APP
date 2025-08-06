@@ -17,6 +17,6 @@ public class Visible implements Interaction {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(WaitUntil.the(element, isVisible()).forNoMoreThan(30).seconds());
+        actor.attemptsTo(WaitUntil.the(element, isVisible()).forNoMoreThan(15).seconds());
     }
 }
