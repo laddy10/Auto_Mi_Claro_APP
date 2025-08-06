@@ -27,7 +27,7 @@ public class AccederVerMasTusServiciosFavoritos implements Task {
                 ClickTextoQueContengaX.elTextoContiene(VER_MAS)
         );
         actor.attemptsTo(
-                ScrollHastaTexto.conTexto(CLARO_VIDEO)
+                ScrollHastaTexto.conTexto(CLARO_MUSICA)
         );
         EvidenciaUtils.registrarCaptura(paso3);
     }
