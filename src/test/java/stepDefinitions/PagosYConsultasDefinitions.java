@@ -20,6 +20,7 @@ import tasks.PagosYConsultas.RecargasyPaquetes.*;
 import tasks.PagosYConsultas.eSIM.MiniprogramaEsim;
 import tasks.PagosYConsultas.eSIM.SeleccionarLineaPostEsim;
 import tasks.PagosYConsultas.eSIM.ValidarOpcionesEsim;
+import tasks.Prepago.RecargasyPaquetes.SeleccionLineaPrepago;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
@@ -58,6 +59,14 @@ public class PagosYConsultasDefinitions {
     public void ingresaPortalRecargas() {
         theActorInTheSpotlight().attemptsTo(
                 AccesoRecargasYPaquetes.accederRecargasYPaquetes(),
+                ValidarInfoRecargas.validarInfoRecargas()
+        );
+    }
+
+    @And("INGRESA AL PORTAL DE RECARGAS Y PAQUETES EN PREPAGO")
+    public void ingresaPortalRecargasPrepago() {
+        theActorInTheSpotlight().attemptsTo(
+                SeleccionLineaPrepago.seleccionar(),
                 ValidarInfoRecargas.validarInfoRecargas()
         );
     }

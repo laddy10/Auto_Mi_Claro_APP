@@ -22,6 +22,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -268,6 +269,53 @@ public class AndroidObject extends Excepciones {
             }
         }
     }
+
+
+    String texto = "";
+
+    public ArrayList<Character> LeerMensaje(Actor actor) {
+        // Abrir notificaciones
+        androidDriver(actor).openNotifications();
+        actor.attemptsTo(WaitFor.aTime(3000));  // Esperar más tiempo por si el mensaje demora
+
+        // Posibles textos que pueden venir en el SMS
+        String[] posiblesTextos = {
+                "Codigo", "Código", "verificacion"
+        };
+
+        // Buscar el texto en las notificaciones
+        for (String clave : posiblesTextos) {
+            try {
+                texto = androidDriver(actor).findElement(
+                        AppiumBy.androidUIAutomator("new UiSelector().textContains(\"" + clave + "\")"))
+                        .getText();
+                if (texto != null && !texto.isEmpty()) {
+                    System.out.println("📩 Mensaje encontrado: " + texto);
+                    break;
+                }
+            } catch (Exception e) {
+                // Continuar con el siguiente término si no encuentra este
+            }
+        }
+
+        // Extraer solo los dígitos del mensaje
+        ArrayList<Character> lista = new ArrayList<>();
+        if (texto != null && !texto.isEmpty()) {
+            for (int i = 0; i < texto.length(); i++) {
+                if (Character.isDigit(texto.charAt(i))) {
+                    lista.add(texto.charAt(i));
+                }
+            }
+            System.out.println("🔐 Código detectado: " + lista.toString());
+        } else {
+            System.out.println("⚠️ No se encontró ningún mensaje con código.");
+        }
+
+        return lista;
+    }
+
+
+
 
 
 

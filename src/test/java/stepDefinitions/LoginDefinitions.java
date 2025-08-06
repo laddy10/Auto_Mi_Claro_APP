@@ -21,7 +21,7 @@ import utils.WordAppium;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotPresent;
-import static userinterfaces.LoginPage.LOADING_SPLASH;
+import static userinterfaces.LoginPage.*;
 import static utils.Constants.*;
 
 public class LoginDefinitions {
@@ -42,6 +42,7 @@ public class LoginDefinitions {
         theActorCalled("actor")
                 .attemptsTo(
                         WaitUntil.the(LOADING_SPLASH, isNotPresent()),
+                        WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds(),
                         WaitFor.aTime(2000)
                 );
     }

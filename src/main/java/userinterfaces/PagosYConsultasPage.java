@@ -22,6 +22,11 @@ public class PagosYConsultasPage {
             Target.the("Combo seleccion tipo de paquetes")
                     .located(AppiumBy.xpath(
                                     "//*[@text='Paquetes de datos']"));
+    public static final Target CBX_TIPO_PAQUETE_RECARGAS =
+            Target.the("Combo seleccion tipo de paquetes")
+                    .located(
+                            AppiumBy.xpath(
+                                    "//android.widget.Button[@text=\"Paquetes todo incluido con redes\"]"));
     public static final Target ICON_HOME =
             Target.the("Icono Home")
                     .located(AppiumBy.id("h5_tv_nav_back_to_home"));
@@ -128,4 +133,7 @@ public class PagosYConsultasPage {
     public static final Target BTN_VER_DETALLE_TERCER_PAQUETE = Target.the("Tercer botón ver detalle")
             .located(By.xpath("(//android.widget.Button[@text='Ver detalle del paquete'])[3]"));
 
+    public static final Target TXT_CLARO =
+            Target.the("Mensaje CLARO")
+                    .located(By.xpath("//*[@text='CLARO']"));
 }

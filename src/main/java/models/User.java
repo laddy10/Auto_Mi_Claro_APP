@@ -12,8 +12,9 @@ public class User {
     private String tipoPaquete;
     private String valorRecarga;
     private String numeroFamiliayAmigos;
-
-
+    private String numeroPrepago;
+    private String duracionPaqueteArmar;
+    private String cantidadDatosArmar;
 
 
     public String getEmail() {
@@ -96,6 +97,29 @@ public class User {
         this.numeroFamiliayAmigos = numeroFamiliayAmigos;
     }
 
+    public String getNumeroPrepago() {
+        return numeroPrepago;
+    }
+
+    public void setNumeroPrepago(String numeroPrepago) {
+        this.numeroPrepago = numeroPrepago;
+    }
+
+    public String getDuracionPaqueteArmar() {
+        return duracionPaqueteArmar;
+    }
+
+    public void setDuracionPaqueteArmar(String duracionPaqueteArmar) {
+        this.duracionPaqueteArmar = duracionPaqueteArmar;
+    }
+
+    public String getCantidadDatosArmar() {
+        return cantidadDatosArmar;
+    }
+
+    public void setCantidadDatosArmar(String cantidadDatosArmar) {
+        this.cantidadDatosArmar = cantidadDatosArmar;
+    }
 
 
     public User() {

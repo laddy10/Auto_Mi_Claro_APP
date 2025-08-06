@@ -21,6 +21,9 @@ public class DataTableConfig {
         user.setTipoPaquete(entry.getOrDefault("tipoPaquete", ""));
         user.setValorRecarga(entry.getOrDefault("valorRecarga", ""));
         user.setNumeroFamiliayAmigos(entry.getOrDefault("numeroFamiliayAmigos", ""));
+        user.setNumeroPrepago(entry.getOrDefault("numeroPrepago", ""));
+        user.setDuracionPaqueteArmar(entry.getOrDefault("duracionPaqueteArmar", ""));
+        user.setCantidadDatosArmar(entry.getOrDefault("cantidadDatosArmar", ""));
 
         return user;
     }

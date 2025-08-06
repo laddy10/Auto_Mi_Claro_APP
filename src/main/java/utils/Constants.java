@@ -407,14 +407,86 @@ public class Constants {
 
 
     public static final String PAQUETES_COMPLEMENTARIOS = "Paquetes complementarios";
-    public static final String LINEA_310_263_2840 = "Línea 310 263 2840";
-    public static final String SI_TE_QUEDASTE_SIN_DATOS = "Si te quedaste sin datos";
     public static final String PAQUETE_ACTIVO = "PAQUETE ACTIVO";
-    public static final String CINCO_GB = "5GB";
-    public static final String DIEZ_GB = "10GB";
-    public static final String VEINTE_GB = "20GB";
     public static final String CAMBIAR_PAQUETE = "Cambiar paquete";
     public static final String COMPLEMENTARIO_RECURRENTE = "Complementario Recurrente";
+
+
+    //SEGMENTO PREPAGO//
+
+    public static final String PREPAGO = "Prepago";
+    public static final String ARMA_TU_PAQUETE = "Arma tu paquete";
+    public static final String SELECCIONA_LA_DURACION = "Selecciona la duración";
+    public static final String SELECCIONA_LA_CANTIDAD_DATOS = "Selecciona la cantidad de datos";
+    public static final String ELIGE_DURACION_PAQUETE = "Elige la duración del paquete";
+    public static final String ELIGE_GIGAS_NECESITAS = "Elige las gigas que necesitas";
+    public static final String APLICACIONES_INCLUIDAS = "Aplicaciones incluidas";
+    public static final String MIN_ILIMITADOS = "Min ILIMITADOS";
+    public static final String VER_RESUMEN = "Ver resumen";
+    public static final String ARMAR_PAQUETE = "Armar paquete";
+    public static final String PAQUETE_ARMADO_PARA_LINEA = "Paquete armado para la línea";
+    public static final String TODOS_PAQUETES_INCLUYEN = "Todos los paquetes incluyen:";
+    public static final String APPS_INCLUIDAS = "Apps incluidas";
+    public static final String LABEL_PAQUETES = "PAQUETES";
+    public static final String IR_A_PAGAR = "Ir a pagar";
+    public static final String EDITAR = "Editar";
+    public static final String RESUMEN_DEL_PAQUETE = "Resumen del paquete";
+    public static final String LABEL_RECARGAS = "RECARGAS";
+
+    public static final String CEDULA_CIUDADANIA = "Cédula de Ciudadanía";
+    public static final String CEDULA_EXTRANJERIA = "Cédula de Extranjería";
+    public static final String PASAPORTE = "Pasaporte";
+    public static final String NUMERO_IDENTIFICACION_TRIBUTARIA = "Número de Identificación Tributaria";
+    public static final String GUARDAR_DATOS_TARJETA = "Guardar los datos de mi tarjeta";
+    public static final String PAGAR = "Pagar";
+
+
+    public static final String REALIZA_EL_PAGO_EN_LINEA = "Realiza el pago en línea";
+    public static final String COMPRA_DE_PAQUETES = "Compra de paquetes";
+    public static final String DESCRIPCION_DE_LA_COMPRA = "Descripción de la compra:";
+    public static final String BANCO = "Banco:";
+    public static final String TIPO_DE_CLIENTE = "Tipo de cliente:";
+    public static final String SELECCIONA_TU_BANCO = "Selecciona tu Banco:";
+    public static final String ALIANZA_FIDUCIARIA = "ALIANZA FIDUCIARIA";
+    public static final String BAN100 = "BAN100";
+    public static final String BANCAMIA_SA = "BANCAMIA S.A.";
+    public static final String BANCO_AGRARIO = "BANCO AGRARIO";
+    public static final String BANCO_AV_VILLAS = "BANCO AV VILLAS";
+    public static final String BANCO_BBVA_COLOMBIA = "BANCO BBVA COLOMBIA S.A.";
+    public static final String BANCO_DE_BOGOTA = "BANCO DE BOGOTA";
+    public static final String BANCO_POPULAR = "BANCO POPULAR";
+    public static final String BANCO_SANTANDER_COLOMBIA = "BANCO SANTANDER COLOMBIA";
+    public static final String PERSONA_NATURAL = "Persona Natural";
+    public static final String PERSONA_JURIDICA = "Persona Jurídica";
+    public static final String PAGAR_CON_MI_SALDO = "Pagar con mi saldo";
+    public static final String OPERACION_EXITOSA = "Operación exitosa.";
+    public static final String CLARO_2 = "CLARO";
+    public static final String INSTALACION = "fue instalado.";
+    public static final String COMPRASTE_PAQUETE = "Compraste paquete Claro";
+
+
+    public static final String SALIR = "Salir";
+    public static final String TE_DAMOS_LA_BIENVENIDA = "Te damos la bienvenida";
+    public static final String OLVIDASTE_TU_USUARIO = "¿Olvidaste tu usuario?";
+
+
+    public static final String INGRESA_DOCUMENTO_ASOCIADO = "Ingresa el documento asociado a tu cuenta y te enviaremos un";
+    public static final String CODIGO_SEGURIDAD_SMS = "código de seguridad a través de SMS";
+    public static final String CEDULA_DE_CIUDADANIA = "Cédula de ciudadanía";
+    public static final String CEDULA_DE_EXTRANJERIA = "Cedula de extranjería";
+    public static final String TIPO_PAQUETE = "Tipos de paquetes";
+
+
+    // Paquetes - Navegación y tipos
+    public static final String ELIGE_TU_PAQUETE_IDEAL = "Elige tu paquete ideal";
+    public static final String PAQUETES_TODO_INCLUIDO_CON_REDES = "Paquetes todo incluido con redes";
+    public static final String PAQUETES_TODO_INCLUIDO = "Paquetes todo incluido";
+    public static final String PAQUETES_DE_DATOS = "Paquetes de datos";
+    public static final String PAQUETES_APPS = "Paquetes apps";
+    public static final String PAQUETES_DE_VOZ = "Paquetes de voz";
+    public static final String ULTIMO = "Último";
+    public static final String PAQUETES_RELEVO_COMUNIDAD_SORDA = "Paquetes Relevo comunidad sorda";
+
 
 
 }

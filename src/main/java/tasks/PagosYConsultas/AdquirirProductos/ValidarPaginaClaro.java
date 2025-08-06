@@ -1,14 +1,20 @@
 package tasks.PagosYConsultas.AdquirirProductos;
 
+import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.ScrollHastaTexto;
 import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;
+import interactions.wait.WaitFor;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import utils.EvidenciaUtils;
 
+import java.util.List;
+
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static userinterfaces.PagosyConsultasPrePage.LBL_MENSAJE_COOKIES;
 import static utils.Constants.*;
 
 public class ValidarPaginaClaro implements Task {
@@ -18,6 +24,15 @@ public class ValidarPaginaClaro implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
+
+
+        List<WebElementFacade> smscookies = LBL_MENSAJE_COOKIES.resolveAllFor(actor);
+        if (!smscookies.isEmpty()) {
+            actor.attemptsTo(
+                    ClickTextoQueContengaX.elTextoContiene(ENTENDIDO),
+                    WaitFor.aTime(2000)
+            );
+        }
 
         EvidenciaUtils.registrarCaptura(paso1);
 
