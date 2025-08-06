@@ -122,10 +122,6 @@ public class User {
         this.cantidadDatosArmar = cantidadDatosArmar;
     }
 
-
-    public User() {
-    }
-
     public String getImei() {
         return imei;
     }
@@ -133,5 +129,10 @@ public class User {
     public void setImei(String imei) {
         this.imei = imei;
     }
+
+    public User() {
+    }
+
+
 
 }
