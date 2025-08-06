@@ -1,4 +1,4 @@
-package tasks.Entretenimiento;
+package tasks.Entretenimiento.ValidarMiniVersionesEntretenimientoPospago;
 
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarTextoQueContengaX;
@@ -19,24 +19,25 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotP
 import static userinterfaces.EntretenimientoPage.*;
 import static userinterfaces.PagosYConsultasPage.BTN_TRES_PUNTOS_MAS;
 import static utils.Constants.*;
+import static utils.ConstantsMiniVersiones.Versiones.*;
 
 /**
- * Task para seleccionar Plan Estándar Disney+
+ * Task para seleccionar Ver detalle Amazon Prime
  */
-public class ValidarVersionDeMiniprogramaDisney implements Task {
+public class ValidarVersionMiniProgramaAmazonPrime implements Task {
 
     private static final User user = TestDataProvider.getRealUser();
+    private static final String LINEA_NUMERO = "310 262 8443";
     private static final String paso = "Esperar desaparición del texto 'Espera un momento'";
     private static final String paso2 = "Ingresar al menú de tres puntos y seleccionar 'Acerca de'";
-    private static final String paso3 = "Validar versión de mini app";
+    private static final String paso3 = "Validar versión de mini app Amazon Prime";
     private static final String paso4 = "Seleccionar la línea postpago y Hacer scroll a la línea del usuario y ver detalle";
-
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 WaitUntil.the(LBL_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds(),
-                WaitFor.aTime(1000)
+                WaitFor.aTime(2000)
         );
         EvidenciaUtils.registrarCaptura(paso);
         //**********************************************************************************
@@ -50,7 +51,8 @@ public class ValidarVersionDeMiniprogramaDisney implements Task {
         //**********************************************************************************
         actor.attemptsTo(
                 WaitForResponse.withText("Ver"),
-                ValidarTextoQueContengaX.elTextoContiene("Ver")
+                ValidarTextoQueContengaX.elTextoContiene(AMAZON_PRIME),
+                ValidarTextoQueContengaX.elTextoContiene(MINI_VERSION_AMAZON_PRIME_CONSTANT)
         );
         EvidenciaUtils.registrarCaptura(paso3);
         //**********************************************************************************
@@ -58,18 +60,17 @@ public class ValidarVersionDeMiniprogramaDisney implements Task {
                 Click.on(BTN_VOLVER)
         );
         //**********************************************************************************
-        EvidenciaUtils.registrarCaptura(paso4);
         actor.attemptsTo(
                 ClickTextoQueContengaX.elTextoContiene(POSTPAGO)
         );
-        AndroidObject.scrollCorto2(actor, CUENTA + " " + user.getNumero() + " " + VER_DETALLE);
+        AndroidObject.scrollCorto2(actor, LINEA + " " + LINEA_NUMERO);
+        EvidenciaUtils.registrarCaptura(paso4);
         actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene(user.getNumero())
+                ClickTextoQueContengaX.elTextoContiene(LINEA_NUMERO)
         );
     }
 
     public static Performable validar() {
-        return instrumented(ValidarVersionDeMiniprogramaDisney.class);
+        return instrumented(ValidarVersionMiniProgramaAmazonPrime.class);
     }
 }
-

@@ -1,26 +1,18 @@
-package tasks.Entretenimiento;
+package tasks.Entretenimiento.ValidarTC;
 
-import interactions.Click.ClickElementByText;
-import interactions.Click.ClickTextoQueContengaX;
-import interactions.Scroll.ScrollHastaTexto;
 import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;
-import interactions.wait.WaitFor;
 import interactions.wait.WaitForResponse;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.waits.WaitUntil;
 import utils.AdbUtils;
 import utils.EvidenciaUtils;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotPresent;
 import static userinterfaces.EntretenimientoPage.*;
-import static userinterfaces.LoginPage.BTN_ACEPTAR;
 import static utils.Constants.*;
-import userinterfaces.*;
 
 /**
  * Task para validar términos y condiciones Netflix

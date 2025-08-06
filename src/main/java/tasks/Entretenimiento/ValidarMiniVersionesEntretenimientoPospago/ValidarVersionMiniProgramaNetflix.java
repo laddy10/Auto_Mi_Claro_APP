@@ -1,4 +1,4 @@
-package tasks.Entretenimiento;
+package tasks.Entretenimiento.ValidarMiniVersionesEntretenimientoPospago;
 
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarTextoQueContengaX;
@@ -20,19 +20,21 @@ import static userinterfaces.EntretenimientoPage.BTN_VOLVER;
 import static userinterfaces.EntretenimientoPage.LBL_ESPERA_UN_MOMENTO;
 import static userinterfaces.PagosYConsultasPage.BTN_TRES_PUNTOS_MAS;
 import static utils.Constants.*;
+import static utils.ConstantsMiniVersiones.Versiones.*;
 
-public class ValidarVersionMiniPrograma implements Task {
+public class ValidarVersionMiniProgramaNetflix implements Task {
     private static final User user = TestDataProvider.getRealUser();
     private static final String paso = "Esperar desaparición del texto 'Espera un momento'";
     private static final String paso2 = "Ingresar al menú de tres puntos y seleccionar 'Acerca de'";
-    private static final String paso3 = "Validar versión de mini app";
+    private static final String paso3 = "Validar versión de mini app Netflix";
     private static final String paso4 = "Seleccionar la línea postpago y Hacer scroll a la línea del usuario y ver detalle";
 
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(LBL_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds()
+                WaitUntil.the(LBL_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds(),
+                WaitFor.aTime(2000)
         );
         EvidenciaUtils.registrarCaptura(paso);
         //**********************************************************************************
@@ -46,7 +48,8 @@ public class ValidarVersionMiniPrograma implements Task {
         //**********************************************************************************
         actor.attemptsTo(
                 WaitForResponse.withText("Ver"),
-                ValidarTextoQueContengaX.elTextoContiene("Ver")
+                ValidarTextoQueContengaX.elTextoContiene(NETFLIX),
+                ValidarTextoQueContengaX.elTextoContiene(MINI_VERSION_NETFLIX_CONSTANT)
         );
         EvidenciaUtils.registrarCaptura(paso3);
         //**********************************************************************************
@@ -62,10 +65,9 @@ public class ValidarVersionMiniPrograma implements Task {
         actor.attemptsTo(
                 ClickTextoQueContengaX.elTextoContiene(user.getNumero())
         );
-
     }
 
     public static Performable validar() {
-        return instrumented(ValidarVersionMiniPrograma.class);
+        return instrumented(ValidarVersionMiniProgramaNetflix.class);
     }
 }

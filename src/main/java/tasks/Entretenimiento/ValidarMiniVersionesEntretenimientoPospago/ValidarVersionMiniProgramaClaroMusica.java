@@ -1,8 +1,8 @@
-package tasks.Entretenimiento;
+package tasks.Entretenimiento.ValidarMiniVersionesEntretenimientoPospago;
 
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarTextoQueContengaX;
-import interactions.wait.WaitFor;
+import interactions.wait.WaitForResponse;
 import models.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -16,38 +16,37 @@ import utils.TestDataProvider;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotPresent;
 import static userinterfaces.EntretenimientoPage.*;
-import static userinterfaces.PagosYConsultasPage.BTN_TRES_PUNTOS_MAS;
+import static userinterfaces.PagosYConsultasPage.*;
 import static utils.Constants.*;
+import static utils.ConstantsMiniVersiones.Versiones.*;
 
-public class ValidaVersionMiniProgramaClaroVideo implements Task {
-
+public class ValidarVersionMiniProgramaClaroMusica implements Task {
     private static final User user = TestDataProvider.getRealUser();
     private static final String paso = "Esperar desaparición del texto 'Espera un momento'";
     private static final String paso2 = "Ingresar al menú de tres puntos y seleccionar 'Acerca de'";
-    private static final String paso3 = "Validar versión de mini app Claro Música";
-    private static final String paso4 = "Seleccionar la línea postpago y Hacer scroll a la línea del usuario y ver detalle";
-
+    private static final String paso3 = "Validar versión de mini app Claro Musica";
+    private static final String paso4 = "Seleccionar la línea postpago y Hacer scroll a la línea del usuario y ver detalle ";
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(LBL_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds(),
-                WaitFor.aTime(2000)
+                WaitUntil.the(LBL_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds()
+
         );
         EvidenciaUtils.registrarCaptura(paso);
         //**********************************************************************************
         actor.attemptsTo(
                 Click.on(BTN_TRES_PUNTOS_MAS)
         );
-        actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene("Acerca de"),
-                WaitFor.aTime(4000)
-        );
         EvidenciaUtils.registrarCaptura(paso2);
+        actor.attemptsTo(
+                ClickTextoQueContengaX.elTextoContiene("Acerca de")
+        );
         //**********************************************************************************
         actor.attemptsTo(
-
-                ValidarTextoQueContengaX.elTextoContiene("Ver")
+                WaitForResponse.withText("Ver"),
+                ValidarTextoQueContengaX.elTextoContiene(CLARO_MUSICA),
+                ValidarTextoQueContengaX.elTextoContiene(MINI_VERSION_CLARO_MUSICA_CONSTANT)
         );
         EvidenciaUtils.registrarCaptura(paso3);
         //**********************************************************************************
@@ -59,13 +58,14 @@ public class ValidaVersionMiniProgramaClaroVideo implements Task {
                 ClickTextoQueContengaX.elTextoContiene(POSTPAGO)
         );
         AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumero() + " " + VER_DETALLE);
+        EvidenciaUtils.registrarCaptura(paso4);
         actor.attemptsTo(
                 ClickTextoQueContengaX.elTextoContiene(user.getNumero())
         );
-        EvidenciaUtils.registrarCaptura(paso4);
+        ;
     }
 
     public static Performable validar() {
-        return instrumented(ValidaVersionMiniProgramaClaroVideo.class);
+        return instrumented(ValidarVersionMiniProgramaClaroMusica.class);
     }
 }

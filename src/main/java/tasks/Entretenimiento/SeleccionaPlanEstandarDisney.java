@@ -48,9 +48,6 @@ public class SeleccionaPlanEstandarDisney implements Task {
                 // Click en el botón Elegir Plan
                 ClickTextoQueContengaX.elTextoContiene(ELEGIR_PLAN)
         );
-
-        // Captura final de evidencia
-        EvidenciaUtils.registrarCaptura(paso + " - Completado");
     }
 
     /**

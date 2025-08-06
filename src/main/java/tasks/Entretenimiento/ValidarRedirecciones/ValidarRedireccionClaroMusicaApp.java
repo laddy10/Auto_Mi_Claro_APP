@@ -1,8 +1,5 @@
-package tasks.Entretenimiento;
+package tasks.Entretenimiento.ValidarRedirecciones;
 
-import interactions.Click.ClickElementByText;
-import interactions.Click.ClickTextoQueContengaX;
-import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
 import io.appium.java_client.android.AndroidDriver;
 import interactions.validations.ValidarTexto;
@@ -15,13 +12,9 @@ import net.serenitybdd.screenplay.questions.Presence;
 import net.serenitybdd.screenplay.targets.Target;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import utils.EvidenciaUtils;
-import userinterfaces.*;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static userinterfaces.EntretenimientoPage.*;
-import static userinterfaces.LoginPage.CHECK_TERMINOS_Y_CONDICIONES;
-import static userinterfaces.LoginPage.LBL_TERMINOS_Y_CONDICIONES;
-import static utils.Constants.CONTINUAR;
 
 public class ValidarRedireccionClaroMusicaApp implements Task {
 

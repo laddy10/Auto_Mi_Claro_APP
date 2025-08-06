@@ -1,20 +1,16 @@
-package tasks.Entretenimiento;
+package tasks.Entretenimiento.ValidarRedirecciones;
 
-import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
-import interactions.wait.WaitForResponse;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.targets.Target;
-import net.serenitybdd.screenplay.waits.Wait;
 import utils.EvidenciaUtils;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static userinterfaces.EntretenimientoPage.*;
-import static utils.Constants.*;
 
 public class ValidarRedireccionClaroClub implements Task {
     private static final String paso1 = "Validar texto 'Categorías' en pantalla inicial";

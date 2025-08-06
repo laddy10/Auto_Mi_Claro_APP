@@ -1,33 +1,35 @@
-package tasks.Entretenimiento;
+package tasks.Entretenimiento.ValidarMiniVersionesEntretenimientoPrepago;
 
 import interactions.Click.ClickTextoQueContengaX;
-import interactions.Scroll.ScrollHastaTexto;
 import interactions.validations.ValidarTextoQueContengaX;
-import interactions.wait.WaitFor;
+import interactions.wait.WaitForResponse;
 import models.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import tasks.Entretenimiento.ValidarMiniVersionesEntretenimientoPospago.ValidarVersionMiniProgramaClaroMusica;
 import utils.AndroidObject;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotPresent;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
-import static userinterfaces.EntretenimientoPage.*;
+import static userinterfaces.EntretenimientoPage.BTN_VOLVER;
+import static userinterfaces.EntretenimientoPage.LBL_ESPERA_UN_MOMENTO;
 import static userinterfaces.PagosYConsultasPage.BTN_TRES_PUNTOS_MAS;
 import static utils.Constants.*;
+import static utils.Constants.VER_DETALLE;
+import static utils.ConstantsMiniVersiones.Versiones.MINI_VERSION_CLARO_MUSICA_CONSTANT;
+import static tasks.Entretenimiento.ValidarMiniVersionesEntretenimientoPrepago.ValidarVersionMiniProgramaClaroVideoPre.LINEA_PREPAGO;
 
-public class ValidarRedireccionamientoNetflix implements Task {
-
+public class ValidarVersionMiniProgramaClaroMusicaPre implements Task {
     private static final User user = TestDataProvider.getRealUser();
     private static final String paso = "Esperar desaparición del texto 'Espera un momento'";
     private static final String paso2 = "Ingresar al menú de tres puntos y seleccionar 'Acerca de'";
-    private static final String paso3 = "Validar versión de mini app Netflix";
-    private static final String paso4 = "Seleccionar la línea postpago Y Hacer scroll a la línea del usuario y ver detalle";
+    private static final String paso3 = "Validar versión de mini app Amazon Prime";
+    private static final String paso4 = "Seleccionar la línea postpago y Hacer scroll a la línea del usuario y ver detalle ";
 
     @Override
     public <T extends Actor> void performAs(T actor) {
@@ -40,14 +42,15 @@ public class ValidarRedireccionamientoNetflix implements Task {
         actor.attemptsTo(
                 Click.on(BTN_TRES_PUNTOS_MAS)
         );
-        actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene("Acerca de"),
-                WaitFor.aTime(5000)
-        );
         EvidenciaUtils.registrarCaptura(paso2);
+        actor.attemptsTo(
+                ClickTextoQueContengaX.elTextoContiene("Acerca de")
+        );
         //**********************************************************************************
         actor.attemptsTo(
-                ValidarTextoQueContengaX.elTextoContiene("Ver")
+                WaitForResponse.withText("Ver"),
+                ValidarTextoQueContengaX.elTextoContiene(CLARO_MUSICA),
+                ValidarTextoQueContengaX.elTextoContiene(MINI_VERSION_CLARO_MUSICA_CONSTANT)
         );
         EvidenciaUtils.registrarCaptura(paso3);
         //**********************************************************************************
@@ -56,16 +59,17 @@ public class ValidarRedireccionamientoNetflix implements Task {
         );
         //**********************************************************************************
         actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene(POSTPAGO)
+                ClickTextoQueContengaX.elTextoContiene(PREPAGO)
         );
-        AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumero() + " " + VER_DETALLE);
-        actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene(user.getNumero())
-        );
+        AndroidObject.scrollCorto2(actor, LINEA + " " + LINEA_PREPAGO + " " + VER_DETALLE);
         EvidenciaUtils.registrarCaptura(paso4);
+        actor.attemptsTo(
+                ClickTextoQueContengaX.elTextoContiene(LINEA_PREPAGO)
+        );
+        ;
     }
 
     public static Performable validar() {
-        return instrumented(ValidarRedireccionamientoNetflix.class);
+        return instrumented(ValidarVersionMiniProgramaClaroMusica.class);
     }
 }
