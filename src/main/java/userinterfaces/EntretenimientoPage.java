@@ -285,4 +285,37 @@ public class EntretenimientoPage {
 
     public static final Target DISNEY_ESTANDAR_EN_CONTENT = Target.the("Texto Disney+ Estándar dentro del content_id")
             .located(AppiumBy.xpath("//android.widget.RelativeLayout[@resource-id='com.clarocolombia.miclaro:id/content_id']//*[contains(@text, 'Disney+ Estándar')]"));
+
+    public static final Target BTN_ALERT_CONFIRM = Target.the("Botón confirmar alerta")
+            .located(AppiumBy.xpath("//android.widget.Button[@resource-id='com.claro.claromusica.latam:id/btn_alert_confirm']"));
+
+    public static final Target LBL_MENSAJE_ALERT = Target.the("mensaje de alerta")
+            .located(AppiumBy.xpath("//android.widget.TextView[@resource-id='com.claro.claromusica.latam:id/tv_message']"));
+
+    public static final Target MENU_CATEGORIAS = Target.the("Menú de categorías")
+            .located(AppiumBy.xpath("//android.view.View[@resource-id='categoriesmenu']"));
+
+    public static final Target MAS_DESCARGADOS = Target.the("Botón 'Más Descargados'")
+            .located(AppiumBy.xpath("//android.view.View[contains(@content-desc, 'Más Descargados')]"));
+
+    public static final Target COMIDAS = Target.the("Botón 'Comidas'")
+            .located(AppiumBy.xpath("//android.view.View[contains(@content-desc, 'Comidas')]"));
+
+    public static final Target PRODUCTOS_CLARO = Target.the("Botón 'Productos Claro'")
+            .located(AppiumBy.xpath("//android.view.View[contains(@content-desc, 'Productos Claro')]"));
+
+    public static final Target VIAJES = Target.the("Botón 'Viajes'")
+            .located(AppiumBy.xpath("//android.view.View[contains(@content-desc, 'Viajes')]"));
+
+    public static final Target ENTRETENIMIENTO_CLAROCLUB = Target.the("Botón 'Entretenimiento'")
+            .located(AppiumBy.xpath("//android.view.View[contains(@content-desc, 'Entretenimiento')]"));
+
+    public static final Target MASCOTAS = Target.the("Botón 'Mascotas'")
+            .located(AppiumBy.xpath("//android.view.View[contains(@content-desc, 'Mascotas')]"));
+
+    public static final Target VARIEDADES = Target.the("Botón 'Variedades'")
+            .located(AppiumBy.xpath("//android.view.View[contains(@content-desc, 'Variedades')]"));
+
+    public static final Target EDUCACION = Target.the("Botón 'Educación'")
+            .located(AppiumBy.xpath("//android.view.View[contains(@content-desc, 'Educación')]"));
 }

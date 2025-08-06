@@ -25,6 +25,13 @@ public class EntretenimientoDefinitions {
         );
     }
 
+    @When("^SELECCIONA EL BOTON VER MAS EN SECCION TUS SERVCICOS FAVORITOS$")
+    public void seleccionaVerMasEnTusServiciosFavoritos() {
+        theActorInTheSpotlight().attemptsTo(
+                AccederVerMasTusServiciosFavoritos.acceder()
+        );
+    }
+
 
     @Then("^VALIDA REDIRECCIONAMIENTO ID ClARO$")
     public void validaRedireccionamientoIdClaro() {
@@ -77,6 +84,13 @@ public class EntretenimientoDefinitions {
     // ===========================================
     // SA070 - Claro Club
     // ===========================================
+    @And("^SELECCIONA EL BOTON CLARO CLUB EN EXPLORA Y COMPRA$")
+    public void seleccionaBotonClaroClubEnExploraYCompra() {
+        theActorInTheSpotlight().attemptsTo(
+                SeleccionarClaroClubEnExploraYCompra.seleccionar()
+        );
+    }
+
     @And("^SELECCIONA EL BOTON CLARO CLUB$")
     public void seleccionaBotonClaroClub() {
         theActorInTheSpotlight().attemptsTo(
