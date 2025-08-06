@@ -39,6 +39,16 @@ public class IngresoSuperApp implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
 
+        if (isVisible(actor, LBL_ENCABEZADO_USUARIO)) {
+            String textoVisible = ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO).answeredBy(actor);
+            if (!"¡Hola!".equals(textoVisible)) {
+                actor.should(seeThat(ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
+                        equalTo(user.getNombreUsuario())));
+                EvidenciaUtils.registrarCaptura(paso);
+                return;
+            }
+        }
+
         // PRIMERA VALIDACIÓN: Usuario ya logueado
         if (isVisible(actor, LBL_ENCABEZADO_USUARIO)) {
             actor.should(seeThat(ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),

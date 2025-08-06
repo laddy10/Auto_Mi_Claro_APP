@@ -33,11 +33,19 @@ public class LoginConCedula implements Task {
     public <T extends Actor> void performAs(T actor) {
 
         if (isVisible(actor, LBL_ENCABEZADO_USUARIO)) {
-            actor.should(seeThat(ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
-                    equalTo(user.getNombreUsuario())));
-            EvidenciaUtils.registrarCaptura(paso);
-            return;
+            String textoVisible = ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO).answeredBy(actor);
+
+            if ("¡Hola!".equals(textoVisible)) {
+                // Texto es "Hola" => NO hay sesión iniciada, sigue con el flujo normal (no retornes)
+            } else {
+                // Texto diferente a "Hola" => sesión iniciada, valida y termina el flujo
+                actor.should(seeThat(ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
+                        equalTo(user.getNombreUsuario())));
+                EvidenciaUtils.registrarCaptura(paso);
+                return;
+            }
         }
+
 
         if (isVisible(actor, LBL_SESION_CERRADA_POR_SEGURIDAD)) {
             clickAceptarSesion(actor);
@@ -101,9 +109,10 @@ public class LoginConCedula implements Task {
         clickSiExiste(actor, BTN_PERMISO_UBICACION, MIENTRAS_APP_ESTA_EN_USO);
         clickSiExiste(actor, BTN_ACEPTAR_PERMISO, ACEPTAR_2);
         clickSiExiste(actor, SMS_PERMISO_LLAMADAS, NO_PERMITIR);
-        clickSiExiste(actor, SMS_PERMISO_NOTIFICACIONES, NO_PERMITIR);
+        clickSiExiste(actor, SMS_PERMISO_NOTIFICACIONES2, NO_PERMITIR);
         clickSiExiste(actor, BTN_OMITIR, OMITIR);
         clickSiExisteCheckboxYContinuar(actor, LBL_BIENVENIDA, CHECK_TC, CONTINUAR);
+        clickSiExiste(actor, SMS_PERMISO_NOTIFICACIONES2, NO_PERMITIR);
         clickSiExiste(actor, TXT_AUTORIZACION_VELOCIDAD, ACEPTAR_2);
     }
 
@@ -138,7 +147,7 @@ public class LoginConCedula implements Task {
             actor.attemptsTo(ClickElementByText.clickElementByText("En otro momento"));
         }
 
-        clickSiExiste(actor, SMS_PERMISO_NOTIFICACIONES, NO_PERMITIR);
+        clickSiExiste(actor, SMS_PERMISO_NOTIFICACIONES2, NO_PERMITIR);
 
         if (isVisible(actor, TXT_AUTORIZACION_VELOCIDAD)) {
             actor.attemptsTo(WaitFor.aTime(1000), ClickElementByText.clickElementByText(ACEPTAR));
