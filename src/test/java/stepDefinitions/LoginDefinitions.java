@@ -42,7 +42,6 @@ public class LoginDefinitions {
         theActorCalled("actor")
                 .attemptsTo(
                         WaitUntil.the(LOADING_SPLASH, isNotPresent()),
-                        WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds(),
                         WaitFor.aTime(2000)
                 );
     }
