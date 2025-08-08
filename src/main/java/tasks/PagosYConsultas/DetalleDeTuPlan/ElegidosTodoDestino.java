@@ -1,34 +1,30 @@
 package tasks.PagosYConsultas.DetalleDeTuPlan;
 
-import interactions.Click.ClickTextoQueContengaX;
+import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static userinterfaces.PagosYConsultasPage.BTN_ELEGIDOS_TODO_DESTINO;
+import static utils.Constants.*;
+
 import interactions.wait.WaitForResponse;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
-import org.checkerframework.checker.units.qual.C;
 import utils.EvidenciaUtils;
-
-import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static userinterfaces.PagosYConsultasPage.BTN_ELEGIDOS_TODO_DESTINO;
-import static utils.Constants.*;
 
 public class ElegidosTodoDestino implements Task {
 
-    private static final String paso1 = "Ingresar opción Elegidos todo destino";
+  private static final String paso1 = "Ingresar opción Elegidos todo destino";
 
-    @Override
-    public <T extends Actor> void performAs(T actor) {
+  @Override
+  public <T extends Actor> void performAs(T actor) {
 
-        EvidenciaUtils.registrarCaptura(paso1);
+    EvidenciaUtils.registrarCaptura(paso1);
 
-        actor.attemptsTo(
-                Click.on(BTN_ELEGIDOS_TODO_DESTINO),
-                WaitForResponse.withText(ELEGIDOS_TODO_DESTINO)
-        );
-    }
+    actor.attemptsTo(
+        Click.on(BTN_ELEGIDOS_TODO_DESTINO), WaitForResponse.withText(ELEGIDOS_TODO_DESTINO));
+  }
 
-    public static Performable ingresarOpcion() {
-        return instrumented(ElegidosTodoDestino.class);
-    }
+  public static Performable ingresarOpcion() {
+    return instrumented(ElegidosTodoDestino.class);
+  }
 }

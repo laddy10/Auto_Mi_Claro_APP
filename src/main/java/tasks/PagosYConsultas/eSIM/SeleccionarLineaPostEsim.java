@@ -1,5 +1,8 @@
 package tasks.PagosYConsultas.eSIM;
 
+import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static utils.Constants.*;
+
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.wait.WaitFor;
 import interactions.wait.WaitForResponse;
@@ -11,29 +14,25 @@ import utils.AndroidObject;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
-import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static utils.Constants.*;
-
 public class SeleccionarLineaPostEsim implements Task {
 
-    private static final User user = TestDataProvider.getRealUser();
-    private static final String paso1 = "Seleccionar línea eSIM " + user.getNumero();
+  private static final User user = TestDataProvider.getRealUser();
+  private static final String paso1 = "Seleccionar línea eSIM " + user.getNumero();
 
-    @Override
-    public <T extends Actor> void performAs(T actor) {
+  @Override
+  public <T extends Actor> void performAs(T actor) {
 
-        AndroidObject.scrollCorto2(actor, user.getNumero() + " " + SELECCIONAR);
+    AndroidObject.scrollCorto2(actor, user.getNumero() + " " + SELECCIONAR);
 
-        EvidenciaUtils.registrarCaptura(paso1);
+    EvidenciaUtils.registrarCaptura(paso1);
 
-        actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
-                WaitForResponse.withText(SIGUIENTE),
-                WaitFor.aTime(2000)
-        );
-    }
+    actor.attemptsTo(
+        ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
+        WaitForResponse.withText(SIGUIENTE),
+        WaitFor.aTime(2000));
+  }
 
-    public static Performable seleccionarLinea() {
-        return instrumented(SeleccionarLineaPostEsim.class);
-    }
+  public static Performable seleccionarLinea() {
+    return instrumented(SeleccionarLineaPostEsim.class);
+  }
 }

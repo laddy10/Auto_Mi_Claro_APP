@@ -1,5 +1,8 @@
 package tasks.PagosYConsultas.DetalleDeTuPlan;
 
+import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static utils.Constants.*;
+
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.Scroll;
 import interactions.validations.ValidarTextoQueContengaX;
@@ -11,42 +14,36 @@ import net.serenitybdd.screenplay.Task;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
-import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static utils.Constants.*;
-
 public class MejorarPlan implements Task {
 
-    private static final User user = TestDataProvider.getRealUser();
-    private static final String paso1 = "Validar direccionamiento Mejorar plan";
-    private static final String paso2 = "Direccionamiento correcto";
+  private static final User user = TestDataProvider.getRealUser();
+  private static final String paso1 = "Validar direccionamiento Mejorar plan";
+  private static final String paso2 = "Direccionamiento correcto";
 
-    @Override
-    public <T extends Actor> void performAs(T actor) {
+  @Override
+  public <T extends Actor> void performAs(T actor) {
 
-        actor.attemptsTo(
-                // Validar elementos principales
-                ValidarTextoQueContengaX.elTextoContiene(MEJORA_TU_PLAN),
-                ValidarTextoQueContengaX.elTextoContiene(user.getNumero()),
-                ValidarTextoQueContengaX.elTextoContiene(PLAN_LABEL),
-                ValidarTextoQueContengaX.elTextoContiene(PRECIO_LABEL),
-                ValidarTextoQueContengaX.elTextoContiene(COMPRAR),
-                ValidarTextoQueContengaX.elTextoContiene(VER_PLANES_ESPECIALES)
-        );
+    actor.attemptsTo(
+        // Validar elementos principales
+        ValidarTextoQueContengaX.elTextoContiene(MEJORA_TU_PLAN),
+        ValidarTextoQueContengaX.elTextoContiene(user.getNumero()),
+        ValidarTextoQueContengaX.elTextoContiene(PLAN_LABEL),
+        ValidarTextoQueContengaX.elTextoContiene(PRECIO_LABEL),
+        ValidarTextoQueContengaX.elTextoContiene(COMPRAR),
+        ValidarTextoQueContengaX.elTextoContiene(VER_PLANES_ESPECIALES));
 
-        EvidenciaUtils.registrarCaptura(paso1);
+    EvidenciaUtils.registrarCaptura(paso1);
 
-        actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene(VER_MAS_PLANES),
-                WaitFor.aTime(3000),
-                Scroll.scrollUnaVista(),
-                Scroll.scrollUnaVista()
-        );
+    actor.attemptsTo(
+        ClickTextoQueContengaX.elTextoContiene(VER_MAS_PLANES),
+        WaitFor.aTime(3000),
+        Scroll.scrollUnaVista(),
+        Scroll.scrollUnaVista());
 
-        EvidenciaUtils.registrarCaptura(paso2);
+    EvidenciaUtils.registrarCaptura(paso2);
+  }
 
-    }
-
-    public static Performable validarDireccionamiento() {
-        return instrumented(MejorarPlan.class);
-    }
+  public static Performable validarDireccionamiento() {
+    return instrumented(MejorarPlan.class);
+  }
 }

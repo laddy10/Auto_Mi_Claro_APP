@@ -8,20 +8,20 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class ValidateInformationText implements Question<String> {
 
-    Target element;
+  Target element;
 
-    public ValidateInformationText(Target element) {
-        this.element = element;
-    }
+  public ValidateInformationText(Target element) {
+    this.element = element;
+  }
 
-    public static ValidateInformationText validateInformationText(Target element) {
-        return new ValidateInformationText(element);
-    }
+  public static ValidateInformationText validateInformationText(Target element) {
+    return new ValidateInformationText(element);
+  }
 
-    @Override
-    public String answeredBy(Actor actor) {
-        actor.attemptsTo(WaitElement.isVisible(element));
-        String labelField = Text.of(element).answeredBy(actor);
-        return labelField;
-    }
+  @Override
+  public String answeredBy(Actor actor) {
+    actor.attemptsTo(WaitElement.isVisible(element));
+    String labelField = Text.of(element).answeredBy(actor);
+    return labelField;
+  }
 }

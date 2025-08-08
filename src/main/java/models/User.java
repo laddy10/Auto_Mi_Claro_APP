@@ -2,111 +2,105 @@ package models;
 
 public class User {
 
-    private String nombreUsuario;
-    private String password;
-    private String email;
-    private String cedula;
-    private String numero;
-    private String montoPagoParcial;
-    private String contrasena;
-    private String tipoPaquete;
-    private String valorRecarga;
-    private String numeroFamiliayAmigos;
-    private String imei;
+  private String nombreUsuario;
+  private String password;
+  private String email;
+  private String cedula;
+  private String numero;
+  private String montoPagoParcial;
+  private String contrasena;
+  private String tipoPaquete;
+  private String valorRecarga;
+  private String numeroFamiliayAmigos;
+  private String imei;
 
+  public String getEmail() {
+    return email;
+  }
 
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public String getEmail() {
-        return email;
-    }
+  public String getNombreUsuario() {
+    return nombreUsuario;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public void setNombreUsuario(String nombreUsuario) {
+    this.nombreUsuario = nombreUsuario;
+  }
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
-    }
+  public String getPassword() {
+    return password;
+  }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
-    }
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
-    public String getPassword() {
-        return password;
-    }
+  public String getCedula() {
+    return cedula;
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  public void setCedula(String cedula) {
+    this.cedula = cedula;
+  }
 
-    public String getCedula() {
-        return cedula;
-    }
+  public String getNumero() {
+    return numero;
+  }
 
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
-    }
+  public void setNumero(String numero) {
+    this.numero = numero;
+  }
 
-    public String getNumero() {
-        return numero;
-    }
+  public String getMontoPagoParcial() {
+    return montoPagoParcial;
+  }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
+  public void setMontoPagoParcial(String montoPagoParcial) {
+    this.montoPagoParcial = montoPagoParcial;
+  }
 
-    public String getMontoPagoParcial() {
-        return montoPagoParcial;
-    }
+  public String getContrasena() {
+    return contrasena;
+  }
 
-    public void setMontoPagoParcial(String montoPagoParcial) {
-        this.montoPagoParcial = montoPagoParcial;
-    }
+  public void setContrasena(String contrasena) {
+    this.contrasena = contrasena;
+  }
 
-    public String getContrasena() {
-        return contrasena;
-    }
+  public String getTipoPaquete() {
+    return tipoPaquete;
+  }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
+  public void setTipoPaquete(String tipoPaquete) {
+    this.tipoPaquete = tipoPaquete;
+  }
 
-    public String getTipoPaquete() {
-        return tipoPaquete;
-    }
+  public String getValorRecarga() {
+    return valorRecarga;
+  }
 
-    public void setTipoPaquete(String tipoPaquete) {
-        this.tipoPaquete = tipoPaquete;
-    }
+  public void setValorRecarga(String valorRecarga) {
+    this.valorRecarga = valorRecarga;
+  }
 
-    public String getValorRecarga() {
-        return valorRecarga;
-    }
+  public String getNumeroFamiliayAmigos() {
+    return numeroFamiliayAmigos;
+  }
 
-    public void setValorRecarga(String valorRecarga) {
-        this.valorRecarga = valorRecarga;
-    }
+  public void setNumeroFamiliayAmigos(String numeroFamiliayAmigos) {
+    this.numeroFamiliayAmigos = numeroFamiliayAmigos;
+  }
 
-    public String getNumeroFamiliayAmigos() {
-        return numeroFamiliayAmigos;
-    }
+  public User() {}
 
-    public void setNumeroFamiliayAmigos(String numeroFamiliayAmigos) {
-        this.numeroFamiliayAmigos = numeroFamiliayAmigos;
-    }
+  public String getImei() {
+    return imei;
+  }
 
-
-
-    public User() {
-    }
-
-    public String getImei() {
-        return imei;
-    }
-
-    public void setImei(String imei) {
-        this.imei = imei;
-    }
-
+  public void setImei(String imei) {
+    this.imei = imei;
+  }
 }

@@ -1,4 +1,3 @@
 package userinterfaces;
 
-public class ExplorayCompraPage {
-}
+public class ExplorayCompraPage {}

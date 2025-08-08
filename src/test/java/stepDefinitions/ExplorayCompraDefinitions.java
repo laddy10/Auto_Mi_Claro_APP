@@ -1,5 +1,8 @@
 package stepDefinitions;
 
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static utils.Constants.*;
+
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.ScrollHastaTexto;
 import io.cucumber.java.en.And;
@@ -9,29 +12,21 @@ import tasks.ExplorayCompra.ClaroPay;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
-import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
-import static utils.Constants.*;
-
 public class ExplorayCompraDefinitions {
 
-    private final User user = TestDataProvider.getRealUser();
+  private final User user = TestDataProvider.getRealUser();
 
+  @And("^INGRESA AL MENU EXPLORA Y COMPRA$")
+  public void ingresaAlMenuExploraYCompra() {
+    theActorInTheSpotlight()
+        .attemptsTo(
+            ScrollHastaTexto.conTexto(CLARO_PAY), ClickTextoQueContengaX.elTextoContiene(VER_MAS));
 
-    @And("^INGRESA AL MENU EXPLORA Y COMPRA$")
-    public void ingresaAlMenuExploraYCompra() {
-        theActorInTheSpotlight().attemptsTo(
-                ScrollHastaTexto.conTexto(CLARO_PAY),
-                ClickTextoQueContengaX.elTextoContiene(VER_MAS)
-        );
+    EvidenciaUtils.registrarCaptura("Menu Explora y compra");
+  }
 
-        EvidenciaUtils.registrarCaptura("Menu Explora y compra");
-
-    }
-
-    @Then("^DIRECCIONAMIENTO A CLARO PAY$")
-    public void direccionamientoAClaroPay() {
-        theActorInTheSpotlight().attemptsTo(
-                ClaroPay.validarDireccionamiento()
-        );
-    }
+  @Then("^DIRECCIONAMIENTO A CLARO PAY$")
+  public void direccionamientoAClaroPay() {
+    theActorInTheSpotlight().attemptsTo(ClaroPay.validarDireccionamiento());
+  }
 }

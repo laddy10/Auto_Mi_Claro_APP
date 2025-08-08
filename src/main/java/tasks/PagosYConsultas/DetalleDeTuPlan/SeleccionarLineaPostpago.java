@@ -1,5 +1,8 @@
 package tasks.PagosYConsultas.DetalleDeTuPlan;
 
+import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static utils.Constants.*;
+
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.wait.WaitForResponse;
 import models.User;
@@ -10,28 +13,25 @@ import utils.AndroidObject;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
-import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static utils.Constants.*;
-
 public class SeleccionarLineaPostpago implements Task {
 
-    private static final User user = TestDataProvider.getRealUser();
-    private static final String paso1 = "Seleccionar línea postpago " + user.getNumero();
+  private static final User user = TestDataProvider.getRealUser();
+  private static final String paso1 = "Seleccionar línea postpago " + user.getNumero();
 
-    @Override
-    public <T extends Actor> void performAs(T actor) {
+  @Override
+  public <T extends Actor> void performAs(T actor) {
 
-        AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumero() + " " + VER_DETALLE);
+    AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumero() + " " + VER_DETALLE);
 
-        EvidenciaUtils.registrarCaptura(paso1);
+    EvidenciaUtils.registrarCaptura(paso1);
 
-        actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
-                WaitForResponse.withAnyText(FAMILIA_Y_AMIGOS_OPCION, ADELANTA_SALDO_LABEL, COMPRA_POR_CATEGORIA)
-        );
-    }
+    actor.attemptsTo(
+        ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
+        WaitForResponse.withAnyText(
+            FAMILIA_Y_AMIGOS_OPCION, ADELANTA_SALDO_LABEL, COMPRA_POR_CATEGORIA));
+  }
 
-    public static Performable seleccionarLinea() {
-        return instrumented(SeleccionarLineaPostpago.class);
-    }
+  public static Performable seleccionarLinea() {
+    return instrumented(SeleccionarLineaPostpago.class);
+  }
 }

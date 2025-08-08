@@ -49,7 +49,7 @@ Feature: Ingresar al módulo de Atención al cliente y soporte
     And   DESPLAZA HASTA LINEA Y SELECCIONA VER DETALLE NECESITAS AYUDA
     Then  VERIFICA REDIRECCION A CLAROBOT
 
-  @SA080
+  @SA080 @POSTPAGO
   Scenario: Estado de servicios técnicos Comcel
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO

@@ -13,15 +13,15 @@ import java.io.IOException;
         features = "src/test/resources/features",
         glue = {"stepDefinitions", "utils", "hooks"},
         snippets = SnippetType.CAMELCASE,
-        tags = "@PRE069"
+        tags = "@SA001"
 
 )
 
 
 @RunWith(CustomRunner.class)
 public class GeneralRunner {
-    @BeforeSuite
-    public static void test() throws InvalidFormatException, IOException {
-        DataToFeature.overrideFeatureFiles("src/test/resources/features");
-    }
+  @BeforeSuite
+  public static void test() throws InvalidFormatException, IOException {
+    DataToFeature.overrideFeatureFiles("src/test/resources/features");
+  }
 }

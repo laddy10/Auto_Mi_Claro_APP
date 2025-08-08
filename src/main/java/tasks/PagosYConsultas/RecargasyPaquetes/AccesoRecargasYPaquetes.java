@@ -1,5 +1,8 @@
 package tasks.PagosYConsultas.RecargasyPaquetes;
 
+import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static utils.Constants.*;
+
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.wait.WaitForResponse;
 import models.User;
@@ -10,32 +13,29 @@ import utils.AndroidObject;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
-import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static utils.Constants.*;
-
 public class AccesoRecargasYPaquetes implements Task {
-    private static final User user = TestDataProvider.getRealUser();
-    private static final String paso = "Acceso al portal de Recargas y Paquetes";
-    private static final String paso2 = "Seleccionar la línea " + user.getNumero();
+  private static final User user = TestDataProvider.getRealUser();
+  private static final String paso = "Acceso al portal de Recargas y Paquetes";
+  private static final String paso2 = "Seleccionar la línea " + user.getNumero();
 
-    @Override
-    public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene(RECARGAS_Y_PAQUETES),
-                WaitForResponse.withText(POSTPAGO));
+  @Override
+  public <T extends Actor> void performAs(T actor) {
+    actor.attemptsTo(
+        ClickTextoQueContengaX.elTextoContiene(RECARGAS_Y_PAQUETES),
+        WaitForResponse.withText(POSTPAGO));
 
-        EvidenciaUtils.registrarCaptura(paso);
+    EvidenciaUtils.registrarCaptura(paso);
 
-        AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumero() + " " + ELEGIR);
+    AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumero() + " " + ELEGIR);
 
-        EvidenciaUtils.registrarCaptura(paso2);
+    EvidenciaUtils.registrarCaptura(paso2);
 
-        actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
-                WaitForResponse.withText(COMPRA_PAQUETES_Y_RECARGAS));
-    }
+    actor.attemptsTo(
+        ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
+        WaitForResponse.withText(COMPRA_PAQUETES_Y_RECARGAS));
+  }
 
-    public static Performable accederRecargasYPaquetes() {
-        return instrumented(AccesoRecargasYPaquetes.class);
-    }
+  public static Performable accederRecargasYPaquetes() {
+    return instrumented(AccesoRecargasYPaquetes.class);
+  }
 }
