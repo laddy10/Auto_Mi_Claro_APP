@@ -34,16 +34,16 @@ public class LoginConCedula implements Task {
 
     if (isVisible(actor, LBL_ENCABEZADO_USUARIO)) {
       String textoVisible =
-          ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO).answeredBy(actor);
+              ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO).answeredBy(actor);
 
       if ("¡Hola!".equals(textoVisible)) {
         // Texto es "Hola" => NO hay sesión iniciada, sigue con el flujo normal (no retornes)
       } else {
         // Texto diferente a "Hola" => sesión iniciada, valida y termina el flujo
         actor.should(
-            seeThat(
-                ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
-                equalTo(user.getNombreUsuario())));
+                seeThat(
+                        ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
+                        equalTo(user.getNombreUsuario())));
         EvidenciaUtils.registrarCaptura(paso);
         return;
       }
@@ -74,11 +74,11 @@ public class LoginConCedula implements Task {
 
     if (isVisible(actor, TXT_USERNAME)) {
       actor.attemptsTo(
-          Enter.theValue(user.getCedula()).into(TXT_USERNAME),
-          ClickElementByText.clickElementByText(CONTINUAR),
-          Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
-          ClickElementByText.clickElementByText(CONTINUAR),
-          WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
+              Enter.theValue(user.getCedula()).into(TXT_USERNAME),
+              ClickElementByText.clickElementByText(CONTINUAR),
+              Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
+              ClickElementByText.clickElementByText(CONTINUAR),
+              WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
     }
 
     aceptarPermisosIniciales(actor);
@@ -89,10 +89,10 @@ public class LoginConCedula implements Task {
 
   private <T extends Actor> void iniciarSesion(T actor) {
     actor.attemptsTo(
-        ClickElementByText.clickElementByText(CONTINUAR),
-        Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
-        ClickElementByText.clickElementByText(CONTINUAR),
-        WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
+            ClickElementByText.clickElementByText(CONTINUAR),
+            Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
+            ClickElementByText.clickElementByText(CONTINUAR),
+            WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
   }
 
   private <T extends Actor> void clickAceptarSesion(T actor) {
@@ -116,19 +116,19 @@ public class LoginConCedula implements Task {
 
   private <T extends Actor> void loginDesdeCero(T actor) {
     actor.attemptsTo(
-        ClickElementByText.clickElementByText(INICIAR_SESION),
-        ValidarTextoQueContengaX.elTextoContiene(VERSION),
-        Enter.theValue(user.getCedula()).into(TXT_USERNAME),
-        ClickElementByText.clickElementByText(CONTINUAR),
-        Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
-        ClickElementByText.clickElementByText(CONTINUAR),
-        WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
+            ClickElementByText.clickElementByText(INICIAR_SESION),
+            ValidarTextoQueContengaX.elTextoContiene(VERSION),
+            Enter.theValue(user.getCedula()).into(TXT_USERNAME),
+            ClickElementByText.clickElementByText(CONTINUAR),
+            Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
+            ClickElementByText.clickElementByText(CONTINUAR),
+            WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
   }
 
   private <T extends Actor> void validarLogin(T actor) {
     if (isVisible(actor, LBL_TERMINOS_Y_CONDICIONES)) {
       actor.attemptsTo(
-          Click.on(CHECK_TERMINOS_Y_CONDICIONES), ClickElementByText.clickElementByText(CONTINUAR));
+              Click.on(CHECK_TERMINOS_Y_CONDICIONES), ClickElementByText.clickElementByText(CONTINUAR));
     } else {
       actor.attemptsTo(WaitFor.aTime(1000));
     }
@@ -149,13 +149,13 @@ public class LoginConCedula implements Task {
 
     if (isVisible(actor, TXT_AUTORIZACION_VELOCIDAD_2)) {
       actor.attemptsTo(
-          WaitFor.aTime(1000), ClickElementByText.clickElementByText(ACEPTAR), Atras.irAtras());
+              WaitFor.aTime(1000), ClickElementByText.clickElementByText(ACEPTAR), Atras.irAtras());
     }
 
     actor.should(
-        seeThat(
-            ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
-            equalTo(user.getNombreUsuario())));
+            seeThat(
+                    ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
+                    equalTo(user.getNombreUsuario())));
   }
 
   private <T extends Actor> boolean isVisible(T actor, Target element) {
@@ -171,7 +171,7 @@ public class LoginConCedula implements Task {
   }
 
   private <T extends Actor> void clickSiExisteCheckboxYContinuar(
-      T actor, Target condicion, Target checkbox, String botonTexto) {
+          T actor, Target condicion, Target checkbox, String botonTexto) {
     if (isVisible(actor, condicion)) {
       actor.attemptsTo(Click.on(checkbox), ClickElementByText.clickElementByText(botonTexto));
     }

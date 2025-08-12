@@ -66,9 +66,9 @@ public class ScrollHorizontalHastaTexto implements Interaction {
    * @return Nueva instancia configurada de ScrollHorizontalHastaTexto
    */
   public static ScrollHorizontalHastaTexto conTextoAvanzado(
-      String texto, int intentosMaximos, double velocidadScroll) {
+          String texto, int intentosMaximos, double velocidadScroll) {
     return Tasks.instrumented(
-        ScrollHorizontalHastaTexto.class, texto, intentosMaximos, velocidadScroll);
+            ScrollHorizontalHastaTexto.class, texto, intentosMaximos, velocidadScroll);
   }
 
   /**
@@ -97,10 +97,10 @@ public class ScrollHorizontalHastaTexto implements Interaction {
     try {
       System.out.println("🔄 Iniciando scroll horizontal para buscar: " + texto);
       System.out.println(
-          "📋 Configuración - Intentos máximos: "
-              + intentosMaximos
-              + ", Velocidad: "
-              + velocidadScroll);
+              "📋 Configuración - Intentos máximos: "
+                      + intentosMaximos
+                      + ", Velocidad: "
+                      + velocidadScroll);
 
       // Validación de entrada
       if (texto == null || texto.trim().isEmpty()) {
@@ -114,7 +114,7 @@ public class ScrollHorizontalHastaTexto implements Interaction {
 
     } catch (Exception e) {
       System.err.println(
-          "❌ Error durante scroll horizontal para texto '" + texto + "': " + e.getMessage());
+              "❌ Error durante scroll horizontal para texto '" + texto + "': " + e.getMessage());
       throw new RuntimeException("Fallo en scroll horizontal: " + e.getMessage(), e);
     }
   }
@@ -143,7 +143,7 @@ public class ScrollHorizontalHastaTexto implements Interaction {
    * lógica de AndroidObject pero con configuración específica
    */
   private <T extends Actor> void scrollHorizontalConParametros(
-      T actor, String texto, int intentos, double velocidad) {
+          T actor, String texto, int intentos, double velocidad) {
     // Implementación que delega a AndroidObject con parámetros personalizados
     // Se puede extender para casos más específicos
     AndroidObject.scrollHorizontalHastaTexto(actor, texto);

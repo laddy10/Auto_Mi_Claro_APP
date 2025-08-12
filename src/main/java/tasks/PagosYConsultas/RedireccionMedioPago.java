@@ -87,22 +87,22 @@ public class RedireccionMedioPago implements Task {
         }
     }
 
-        private <T extends Actor > void cerrarPopupYRegresar (T actor){
-            actor.attemptsTo(
-                    Click.on(ICON_HOME),
-                    WaitForResponse.withText(MSM_EXPERIENCIA),
-                    ClickTextoQueContengaX.elTextoContiene(OMITIR),
-                    WaitForResponse.withText(POSTPAGO),
-                    ClickTextoQueContengaX.elTextoContiene(POSTPAGO));
+    private <T extends Actor > void cerrarPopupYRegresar (T actor){
+        actor.attemptsTo(
+                Click.on(ICON_HOME),
+                WaitForResponse.withText(MSM_EXPERIENCIA),
+                ClickTextoQueContengaX.elTextoContiene(OMITIR),
+                WaitForResponse.withText(POSTPAGO),
+                ClickTextoQueContengaX.elTextoContiene(POSTPAGO));
 
-            AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumero() + " " + VER_DETALLE);
+        AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumero() + " " + VER_DETALLE);
 
-            actor.attemptsTo(
-                    ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
-                    WaitForResponse.withText(PAGAR_FACTURA),
-                    Click.on(BTN_PAGAR_FACTURA),
-                    WaitForResponse.withText(ELEGIR_OTRO_MEDIO_PAGO));
-        }
+        actor.attemptsTo(
+                ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
+                WaitForResponse.withText(PAGAR_FACTURA),
+                Click.on(BTN_PAGAR_FACTURA),
+                WaitForResponse.withText(ELEGIR_OTRO_MEDIO_PAGO));
+    }
 
     public static Performable redireccionarMediosDePago() {
         return instrumented(RedireccionMedioPago.class);

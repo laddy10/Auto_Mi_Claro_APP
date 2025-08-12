@@ -45,7 +45,7 @@ public class AtencionClienteSoporteDefinitions {
   @And("^REALIZA TEST DE VELOCIDAD$")
   public void realizaTestVelocidad() {
     theActorInTheSpotlight()
-        .attemptsTo(ClickTextoQueContengaX.elTextoContiene(REALIZAR_TEST_VELOCIDAD));
+            .attemptsTo(ClickTextoQueContengaX.elTextoContiene(REALIZAR_TEST_VELOCIDAD));
   }
 
   @Then("^VERIFICA LA INFORMACION EN PANTALLA Y MANEJA CONDICIONALES$")
@@ -82,7 +82,7 @@ public class AtencionClienteSoporteDefinitions {
   @Then("^VERIFICA REDIRECCION CORRECTA A PAGINA CLARO$")
   public void verificaRedireccionAPaginaClaro() {
     theActorInTheSpotlight()
-        .attemptsTo(ValidarTextoQueContengaX.elTextoContiene(CLARO_COLOMBIA_PQR));
+            .attemptsTo(ValidarTextoQueContengaX.elTextoContiene(CLARO_COLOMBIA_PQR));
     EvidenciaUtils.registrarCaptura("Verificar redirección a página Claro");
   }
 

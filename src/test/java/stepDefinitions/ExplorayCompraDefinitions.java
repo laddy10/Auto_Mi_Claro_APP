@@ -19,8 +19,8 @@ public class ExplorayCompraDefinitions {
   @And("^INGRESA AL MENU EXPLORA Y COMPRA$")
   public void ingresaAlMenuExploraYCompra() {
     theActorInTheSpotlight()
-        .attemptsTo(
-            ScrollHastaTexto.conTexto(CLARO_PAY), ClickTextoQueContengaX.elTextoContiene(VER_MAS));
+            .attemptsTo(
+                    ScrollHastaTexto.conTexto(CLARO_PAY), ClickTextoQueContengaX.elTextoContiene(VER_MAS));
 
     EvidenciaUtils.registrarCaptura("Menu Explora y compra");
   }

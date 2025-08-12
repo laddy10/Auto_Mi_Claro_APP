@@ -20,7 +20,7 @@ public class PagosYConsultasPage {
     public static final Target CBX_TIPO_PAQUETE =
             Target.the("Combo seleccion tipo de paquetes")
                     .located(By.xpath(
-                                    "//*[@text='Paquetes de datos']"));
+                            "//*[@text='Paquetes de datos']"));
     public static final Target CBX_TIPO_PAQUETE_RECARGAS =
             Target.the("Combo seleccion tipo de paquetes")
                     .located(
@@ -122,7 +122,7 @@ public class PagosYConsultasPage {
     // Target para el botón de regresar a inicio
     public static final Target BTN_BACK_TO_HOME =
             Target.the("Botón regresar a inicio")
-            .locatedBy("//android.widget.TextView[@resource-id='com.clarocolombia.miclaro:id/h5_tv_nav_back_to_home']");
+                    .locatedBy("//android.widget.TextView[@resource-id='com.clarocolombia.miclaro:id/h5_tv_nav_back_to_home']");
 
     public static final Target BTN_VER_DETALLE_PRIMER_PAQUETE = Target.the("Primer botón ver detalle")
             .located(By.xpath("(//android.widget.Button[@text='Ver detalle del paquete'])[1]"));

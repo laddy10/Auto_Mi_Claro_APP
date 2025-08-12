@@ -53,12 +53,12 @@ public class ReportHooks {
     String pasoFallido = EstadoPrueba.fallo ? EstadoPrueba.pasoFallido : null;
 
     WordAppium.generarReporte(
-        scenario.getName(),
-        pasosEjecutados.toArray(new String[0]),
-        lineaUsada,
-        duracionFormato,
-        pasoFallido,
-        estadoFinal);
+            scenario.getName(),
+            pasosEjecutados.toArray(new String[0]),
+            lineaUsada,
+            duracionFormato,
+            pasoFallido,
+            estadoFinal);
 
     // Limpiar estado para el siguiente escenario
     pasosEjecutados.clear();
