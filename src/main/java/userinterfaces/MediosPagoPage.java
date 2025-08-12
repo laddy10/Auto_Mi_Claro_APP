@@ -59,11 +59,11 @@ public class MediosPagoPage {
 
     public static final Target BTN_TIPO_DOCUMENTO_DAVIPLATA =
             Target.the("Botón tipo documento Daviplata")
-            .located(By.xpath("//android.widget.Button[@text='Cédula de ciudadanía']"));
+                    .located(By.xpath("//android.widget.Button[@text='Cédula de ciudadanía']"));
 
     public static final Target BTN_TIPO_DOCUMENTO_DAVIPLATA_2 =
             Target.the("Botón tipo documento Daviplata")
-            .located(By.xpath("//android.widget.Button[@text=\"Cedula de extranjería\"]"));
+                    .located(By.xpath("//android.widget.Button[@text=\"Cedula de extranjería\"]"));
 
     public static final Target DROPDOWN_MEDIO_PAGO =
             Target.the("Flecha desplegar medios de pago")

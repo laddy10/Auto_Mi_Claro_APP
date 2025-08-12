@@ -288,7 +288,7 @@ public class AndroidObject extends Excepciones {
         for (String clave : posiblesTextos) {
             try {
                 texto = androidDriver(actor).findElement(
-                        new MobileBy.ByAndroidUIAutomator(("new UiSelector().textContains(\"" + clave + "\")")))
+                                new MobileBy.ByAndroidUIAutomator(("new UiSelector().textContains(\"" + clave + "\")")))
                         .getText();
                 if (texto != null && !texto.isEmpty()) {
                     System.out.println("📩 Mensaje encontrado: " + texto);
