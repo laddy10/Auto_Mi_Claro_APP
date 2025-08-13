@@ -13,6 +13,9 @@ import io.cucumber.java.en.Then;
 import models.User;
 import net.serenitybdd.screenplay.actions.Click;
 import tasks.AtencionClienteSoporte.*;
+import tasks.AtencionClienteSoporte.ValidarMiniprogramaAtencionAlClienteYsoporte.ValidarVersionMiniprogramaConsultarPQR;
+import tasks.AtencionClienteSoporte.ValidarMiniprogramaAtencionAlClienteYsoporte.ValidarVersionMiniprogramaEstadoServiciosTecnicos;
+import tasks.AtencionClienteSoporte.ValidarMiniprogramaAtencionAlClienteYsoporte.ValidarVersionMiniprogramaNecesitasAyuda;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
@@ -145,5 +148,41 @@ public class AtencionClienteSoporteDefinitions {
   @Then("^CONSULTA POR IMEI$")
   public void consultaPorImei() {
     theActorInTheSpotlight().attemptsTo(EstadoServiciosTecnicos.consultarPorImei());
+  }
+
+  @And("^VALIDA VERSION DE MINIPROGRAMA NECESITAS AYUDA$")
+  public void validaVersionMiniprogramaNecesitasAyuda() {
+    theActorInTheSpotlight().attemptsTo(
+            ValidarVersionMiniprogramaNecesitasAyuda.validar()
+    );
+  }
+
+  @And("^VALIDA VERSION DE MINIPROGRAMA ESTADO SERVICIOS TECNICOS$")
+  public void ValidarVersionMiniprogramaEstadoServiciosTecnicos() {
+    theActorInTheSpotlight().attemptsTo(
+            ValidarVersionMiniprogramaEstadoServiciosTecnicos.validar()
+    );
+  }
+
+  @And("^VALIDA VERSION DE MINIPROGRAMA CONSULTAR PQR$")
+  public void ValidarVersionMiniprogramaConsultarPQR() {
+    theActorInTheSpotlight().attemptsTo(
+            ValidarVersionMiniprogramaConsultarPQR.validar()
+    );
+  }
+
+  @And("^DESPLAZA HASTA LINEA Y SELECCIONA VER DETALLE NECESITAS AYUDA PRE$")
+  public void desplazaHastaLineaYSeleccionaVerDetalleNecesitasAyudaPre() {
+    theActorInTheSpotlight().attemptsTo(NecesitasAyudaPRE.seleccionarLineaYVerDetalle());
+  }
+
+  @And("^DESPLAZA HASTA LINEA Y SELECCIONA VER DETALLE SERVICIOS TECNICOS PRE$")
+  public void desplazaHastaLineaYSeleccionaVerDetalleServiciosTecnicosPre() {
+    theActorInTheSpotlight().attemptsTo(EstadoServiciosTecnicosPRE.seleccionarLineaYVerDetalle());
+  }
+
+  @And("^DESPLAZA HASTA LINEA Y SELECCIONA VER DETALLE CONSULTA PQR PRE$")
+  public void desplazaHastaLineaYSeleccionaVerDetalleConsultaPQRPre() {
+    theActorInTheSpotlight().attemptsTo(ConsultarPQRPre.seleccionarLineaYVerDetalle());
   }
 }

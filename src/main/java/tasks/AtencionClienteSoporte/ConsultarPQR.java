@@ -22,7 +22,7 @@ public class ConsultarPQR implements Task {
     EvidenciaUtils.registrarCaptura(paso1);
 
     actor.attemptsTo(
-        ClickTextoQueContengaX.elTextoContiene(CONSULTAR_PQR), WaitForResponse.withText(POSTPAGO));
+            ClickTextoQueContengaX.elTextoContiene(CONSULTAR_PQR), WaitForResponse.withText(POSTPAGO));
   }
 
   public static Performable ingresar() {
@@ -39,8 +39,8 @@ public class ConsultarPQR implements Task {
       AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumero() + " " + VER_DETALLE);
 
       actor.attemptsTo(
-          ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
-          WaitForResponse.withText(CLARO_COLOMBIA_PQR));
+              ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
+              WaitForResponse.withText(CLARO_COLOMBIA_PQR));
     }
 
     public static Performable ejecutar() {

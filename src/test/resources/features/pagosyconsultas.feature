@@ -229,7 +229,6 @@ Feature: Ingresar al modulo pagos y consultas
     And   ESPERA A QUE INGRESE A LA OPCION
     Then   VERIFICA LOS TEXTOS DISPONIBLES
 
-
   @SA027 @POSTPAGO
   Scenario: Familia y amigos - Agregar, eliminar y desactivar servicio
     Given EL USUARIO ABRE LA SUPER APP

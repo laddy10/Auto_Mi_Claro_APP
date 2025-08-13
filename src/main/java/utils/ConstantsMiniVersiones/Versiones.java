@@ -22,7 +22,7 @@ public class Versiones {
 
     public static final String MINI_VERSION_ESTADO_SERVICIOS_TECNICOS_CONSTANT = "Ver 1.4.6 (2025-06-17)";
 
-    public static final String MINI_VERSION_CONSULTAR_PQR_CONSTANT = "Ver 1.4.3 (2025-07-14)";
+    public static final String MINI_VERSION_CONSULTAR_PQR_CONSTANT = "Ver 1.4.3 (2025-08-11)";
 
     public static final String MINI_VERSION_DETALLE_DE_TU_PLAN_CONSTANT = "Ver 1.0.267 (2025-08-06)";
 
