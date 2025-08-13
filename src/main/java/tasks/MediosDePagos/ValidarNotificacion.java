@@ -42,7 +42,7 @@ public class ValidarNotificacion extends AndroidObject implements Task {
 
         LeerMensaje(actor);
 
-        if (!Presence.of(TXT_CLARO).answeredBy(actor)) {
+        if (!Presence.of(TXT_CLARO).viewedBy(actor).resolveAll().isEmpty()) {
             actor.attemptsTo(
                     WaitForResponse.withText(CLARO_2),
                     ClickElementByText.clickElementByText(CLARO_2));

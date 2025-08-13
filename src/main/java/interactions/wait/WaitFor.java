@@ -2,10 +2,10 @@ package interactions.wait;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-import net.serenitybdd.annotations.Step;
-import net.serenitybdd.model.time.InternalSystemClock;
+import net.serenitybdd.core.time.InternalSystemClock;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
+import net.thucydides.core.annotations.Step;
 
 public class WaitFor implements Interaction {
 

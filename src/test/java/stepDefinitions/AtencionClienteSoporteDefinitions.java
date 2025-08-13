@@ -4,12 +4,12 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static userinterfaces.AtencionClienteSoportePage.CHK_AUTORIZAR_MEDICION;
 import static utils.Constants.*;
 
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.ScrollHastaTexto;
 import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
 import models.User;
 import net.serenitybdd.screenplay.actions.Click;
 import tasks.AtencionClienteSoporte.*;
@@ -48,7 +48,7 @@ public class AtencionClienteSoporteDefinitions {
   @And("^REALIZA TEST DE VELOCIDAD$")
   public void realizaTestVelocidad() {
     theActorInTheSpotlight()
-        .attemptsTo(ClickTextoQueContengaX.elTextoContiene(REALIZAR_TEST_VELOCIDAD));
+            .attemptsTo(ClickTextoQueContengaX.elTextoContiene(REALIZAR_TEST_VELOCIDAD));
   }
 
   @Then("^VERIFICA LA INFORMACION EN PANTALLA Y MANEJA CONDICIONALES$")
@@ -85,7 +85,7 @@ public class AtencionClienteSoporteDefinitions {
   @Then("^VERIFICA REDIRECCION CORRECTA A PAGINA CLARO$")
   public void verificaRedireccionAPaginaClaro() {
     theActorInTheSpotlight()
-        .attemptsTo(ValidarTextoQueContengaX.elTextoContiene(CLARO_COLOMBIA_PQR));
+            .attemptsTo(ValidarTextoQueContengaX.elTextoContiene(CLARO_COLOMBIA_PQR));
     EvidenciaUtils.registrarCaptura("Verificar redirección a página Claro");
   }
 

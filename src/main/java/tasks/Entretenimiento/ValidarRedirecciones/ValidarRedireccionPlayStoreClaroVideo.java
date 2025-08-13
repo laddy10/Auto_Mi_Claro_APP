@@ -20,7 +20,7 @@ public class ValidarRedireccionPlayStoreClaroVideo implements Task {
 
         // Obtener el driver original de Appium desde el facade de Serenity
         WebDriverFacade facade = (WebDriverFacade) BrowseTheWeb.as(actor).getDriver();
-        AndroidDriver driver = (AndroidDriver) facade.getProxiedDriver();
+        AndroidDriver driver = (AndroidDriver) BrowseTheWeb.as(actor).getDriver();
 
         // Activar la app Play Store
         driver.activateApp("com.android.vending");

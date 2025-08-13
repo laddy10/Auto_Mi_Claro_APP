@@ -1,11 +1,11 @@
 package interactions.Click;
 
-import static net.serenitybdd.screenplay.Tasks.instrumented;
-
-import net.serenitybdd.annotations.Step;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
+import net.thucydides.core.annotations.Step;
 import utils.AndroidObject;
+
+import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class ClickElementByText extends AndroidObject implements Interaction {
 

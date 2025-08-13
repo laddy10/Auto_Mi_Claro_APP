@@ -248,7 +248,7 @@ public class IngresoSuperApp implements Task {
     // Método ultra rápido para verificar visibilidad (sin waits)
     private <T extends Actor> boolean isVisibleFast(T actor, Target element) {
         try {
-            return element.resolveFor(actor).withTimeoutOf(Duration.ofMillis(500)).isPresent();
+            return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
         } catch (Exception e) {
             return false;
         }
@@ -263,7 +263,7 @@ public class IngresoSuperApp implements Task {
     }
 
     private <T extends Actor> boolean isVisible(T actor, Target element) {
-        return Presence.of(element).answeredBy(actor);
+        return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
     }
 
     private <T extends Actor> void clickSiExiste(T actor, Target elemento, String texto) {

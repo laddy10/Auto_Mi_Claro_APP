@@ -25,7 +25,8 @@ public class ValidarRedireccionClaroMusicaApp implements Task {
 
         // Obtener el driver Appium
         WebDriverFacade facade = (WebDriverFacade) BrowseTheWeb.as(actor).getDriver();
-        AndroidDriver driver = (AndroidDriver) facade.getProxiedDriver();
+        AndroidDriver driver = (AndroidDriver) BrowseTheWeb.as(actor).getDriver();
+
 
         // Activar la app Claro Música
         driver.activateApp("com.claro.claromusica.latam");
@@ -55,7 +56,7 @@ public class ValidarRedireccionClaroMusicaApp implements Task {
     }
 
     private <T extends Actor> boolean isVisible(T actor, Target element) {
-        return Presence.of(element).answeredBy(actor);
+        return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
     }
 
     public static Performable validar() {

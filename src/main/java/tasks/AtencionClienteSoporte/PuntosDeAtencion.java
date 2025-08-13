@@ -35,11 +35,11 @@ public class PuntosDeAtencion implements Task {
       EvidenciaUtils.registrarCaptura("Manejar permisos de ubicación");
 
       // Primera condicional: verificar mensaje de ubicación
-      if (Presence.of(BTN_SI_PERMITIR).answeredBy(actor)) {
+      if (!Presence.of(BTN_SI_PERMITIR).viewedBy(actor).resolveAll().isEmpty()) {
         actor.attemptsTo(Click.on(BTN_SI_PERMITIR));
 
         // Segunda condicional: verificar si aparece nuevamente el mensaje
-        if (Presence.of(BTN_SI_PERMITIR).answeredBy(actor)) {
+        if (!Presence.of(BTN_SI_PERMITIR).viewedBy(actor).resolveAll().isEmpty()) {
           actor.attemptsTo(Click.on(BTN_SI_PERMITIR));
         }
       }

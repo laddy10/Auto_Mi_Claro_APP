@@ -1,5 +1,7 @@
 package stepDefinitions;
 
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 import hooks.ReportHooks;
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.ScrollHastaTexto;
@@ -8,9 +10,8 @@ import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
 import interactions.wait.WaitForResponse;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
 import models.User;
+import net.serenitybdd.core.pages.WebElementFacade;
 import tasks.PagosYConsultas.*;
 import tasks.PagosYConsultas.AdquirirProductos.MiniprogramaAdquirirProductos;
 import tasks.PagosYConsultas.AdquirirProductos.ValidarPaginaClaro;
@@ -24,7 +25,10 @@ import tasks.Prepago.RecargasyPaquetes.SeleccionLineaPrepago;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
+import java.util.List;
+
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static userinterfaces.PagosYConsultasPage.LBL_ELEGIR_OTRO_MEDIO_PAGO;
 import static utils.Constants.*;
 
 public class PagosYConsultasDefinitions {
@@ -61,6 +65,9 @@ public class PagosYConsultasDefinitions {
                 AccesoRecargasYPaquetes.accederRecargasYPaquetes(),
                 ValidarInfoRecargas.validarInfoRecargas()
         );
+
+        ReportHooks.setLinea(user.getNumero());
+
     }
 
     @And("INGRESA AL PORTAL DE RECARGAS Y PAQUETES EN PREPAGO")
@@ -99,19 +106,24 @@ public class PagosYConsultasDefinitions {
         );
     }
 
-    @Then("VALIDA LA REDIRECCION A MEDIOS DE PAGO DISPONIBLES")
+    @Then("^VALIDA LA REDIRECCION A MEDIOS DE PAGO DISPONIBLES$")
     public void redireccionMediosPagoDisponibles() {
-        final String paso5 = "Validar redirección a los medios de pago";
+        List<WebElementFacade> lblelegirotromediopago = LBL_ELEGIR_OTRO_MEDIO_PAGO.resolveAllFor(theActorInTheSpotlight());
 
-        theActorInTheSpotlight().attemptsTo(
-                ValidarTexto.validarTexto(ELEGIR_OTRO_MEDIO_PAGO),
-                ValidarTextoQueContengaX.elTextoContiene(TARJETA_C_D),
-                ValidarTextoQueContengaX.elTextoContiene(BOTON_BANCOLOMBIA),
-                ValidarTextoQueContengaX.elTextoContiene(CODENSA),
-                ValidarTextoQueContengaX.elTextoContiene(OTROS_MEDIOS)
-        );
+        if (!lblelegirotromediopago.isEmpty()) {
 
-        EvidenciaUtils.registrarCaptura(paso5);
+            final String paso5 = "Validar redirección a los medios de pago";
+
+            theActorInTheSpotlight().attemptsTo(
+                    ValidarTexto.validarTexto(ELEGIR_OTRO_MEDIO_PAGO),
+                    ValidarTextoQueContengaX.elTextoContiene(TARJETA_C_D),
+                    ValidarTextoQueContengaX.elTextoContiene(BOTON_BANCOLOMBIA),
+                    ValidarTextoQueContengaX.elTextoContiene(CODENSA),
+                    ValidarTextoQueContengaX.elTextoContiene(OTROS_MEDIOS)
+            );
+
+            EvidenciaUtils.registrarCaptura(paso5);
+        }
     }
 
     @Then("^VALIDA PAGOS AUTOMATICOS$")

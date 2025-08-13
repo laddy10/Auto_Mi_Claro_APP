@@ -2,10 +2,10 @@ package interactions.Scroll;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-import net.serenitybdd.annotations.Step;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
 import net.serenitybdd.screenplay.Performable;
+import net.thucydides.core.annotations.Step;
 import utils.AndroidObject;
 
 /**
@@ -50,7 +50,7 @@ public class ScrollHorizontal extends AndroidObject implements Interaction {
   public <T extends Actor> void performAs(T actor) {
     try {
       System.out.println(
-          "🔄 Ejecutando scroll horizontal hacia: " + direccion + " con velocidad: " + velocidad);
+              "🔄 Ejecutando scroll horizontal hacia: " + direccion + " con velocidad: " + velocidad);
 
       switch (direccion) {
         case IZQUIERDA:
@@ -99,7 +99,7 @@ public class ScrollHorizontal extends AndroidObject implements Interaction {
    * @return Interaction configurada
    */
   public static Interaction scrollHorizontalPersonalizado(
-      DireccionHorizontal direccion, double velocidad) {
+          DireccionHorizontal direccion, double velocidad) {
     // Validar velocidad
     if (velocidad < 0.1 || velocidad > 1.0) {
       throw new IllegalArgumentException("La velocidad debe estar entre 0.1 y 1.0");

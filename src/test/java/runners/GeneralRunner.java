@@ -1,7 +1,7 @@
 package runners;
 
-import io.cucumber.junit.CucumberOptions;
-import io.cucumber.junit.CucumberOptions.SnippetType;
+import cucumber.api.CucumberOptions;
+import cucumber.api.SnippetType;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.runner.RunWith;
 import utils.BeforeSuite;
@@ -13,7 +13,7 @@ import java.io.IOException;
         features = "src/test/resources/features",
         glue = {"stepDefinitions", "utils", "hooks"},
         snippets = SnippetType.CAMELCASE,
-        tags = "@PRE063"
+        tags = ""
 
 )
 
