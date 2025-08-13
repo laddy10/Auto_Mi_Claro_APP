@@ -17,7 +17,7 @@ public class WaitForResponse implements Interaction {
   private final int timeout;
 
   // ⏱️ Tiempo por defecto en segundos
-  private static final int DEFAULT_TIMEOUT = 30;
+  private static final int DEFAULT_TIMEOUT = 40;
 
   public WaitForResponse(List<String> expectedTexts, int timeout) {
     this.expectedTexts = expectedTexts;
