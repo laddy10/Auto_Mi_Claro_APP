@@ -1,21 +1,19 @@
 repositories {
+    mavenCentral()
     jcenter()
     mavenLocal()
 }
+
 buildscript {
     repositories {
         jcenter()
         mavenCentral()
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
+        gradlePluginPortal()
     }
-
     dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.70")
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.71")  // Cambiar a 2.0.71
         classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.0"
         classpath "gradle.plugin.com.github.sherter.google-java-format:google-java-format-gradle-plugin:0.9"
-
     }
 }
 
@@ -26,6 +24,10 @@ apply plugin: 'net.serenity-bdd.aggregator'
 apply plugin: 'com.github.sherter.google-java-format'
 apply plugin: 'org.sonarqube'
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
 
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
@@ -41,48 +43,69 @@ tasks.withType(Test) {
     systemProperty "file.encoding", "UTF-8"
     systemProperties = System.properties
     maxParallelForks = Runtime.runtime.availableProcessors()
-
 }
 
 ext {
-    serenityVersion = '4.1.13'
-    serenityCucumberVersion = '4.1.13'
+    serenityVersion = '2.0.71'
+    serenityCucumberVersion = '1.9.51'
 }
 
-
 dependencies {
-    // Testing y utilidades modernas
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1' // Reemplaza JUnit 4.12
-    testImplementation 'org.assertj:assertj-core:3.25.3'
-    testImplementation 'org.slf4j:slf4j-api:2.0.12'
-    testImplementation 'org.slf4j:slf4j-log4j12:2.0.12'
+    // JUnit 4 compatible
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.assertj:assertj-core:3.13.2'
+    testImplementation 'org.slf4j:slf4j-api:1.7.2'
+    testImplementation 'org.slf4j:slf4j-log4j12:1.7.2'
 
-    // Serenity BDD (asegúrate de tener estas versiones definidas en ext)
-    implementation "net.serenity-bdd:serenity-core:$rootProject.ext.serenityVersion"
-    implementation "net.serenity-bdd:serenity-junit:$rootProject.ext.serenityVersion"
-    implementation "net.serenity-bdd:serenity-screenplay:$rootProject.ext.serenityVersion"
-    implementation "net.serenity-bdd:serenity-screenplay-webdriver:$rootProject.ext.serenityVersion"
-    implementation "net.serenity-bdd:serenity-cucumber:$rootProject.ext.serenityCucumberVersion"
-    implementation "net.serenity-bdd:serenity-ensure:$rootProject.ext.serenityVersion"
-    implementation "net.serenity-bdd:serenity-rest-assured:$rootProject.ext.serenityVersion"
-    implementation "net.serenity-bdd:serenity-screenplay-rest:$rootProject.ext.serenityVersion"
+    // Selenium compatible con Serenity 2.0.71
+    implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
+    implementation 'org.seleniumhq.selenium:selenium-support:3.141.59'
+    implementation 'org.seleniumhq.selenium:selenium-api:3.141.59'
 
-    // Appium
-    implementation 'io.appium:java-client:8.3.0'
+    // Serenity BDD 2.0.71
+    implementation "net.serenity-bdd:serenity-core:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-junit:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-cucumber:${serenityCucumberVersion}"
+    implementation "net.serenity-bdd:serenity-ensure:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-rest-assured:${serenityVersion}"
+    implementation 'net.serenity-bdd:serenity-screenplay-rest:2.0.0'
 
-    // Apache POI
-    implementation 'org.apache.poi:poi-ooxml:5.2.5'
-
-    // JSON
-    implementation 'org.json:json:20240303'
+    // Appium compatible
+    implementation 'io.appium:java-client:7.3.0'
 
     // WebDriverManager
-    implementation 'io.github.bonigarcia:webdrivermanager:5.7.0'
+    implementation 'io.github.bonigarcia:webdrivermanager:5.0.3'
 
-    // Librerías locales
+    // JSON
+    implementation 'org.json:json:20210307'
+
+    // Apache POI
+    implementation 'org.apache.poi:poi-ooxml:5.2.3'
+
+    implementation 'org.seleniumhq.selenium:selenium-remote-driver:3.141.59'
+
+    // Log4j
+    implementation group: 'log4j', name: 'log4j', version: '1.2.17', {
+        exclude group: 'com.sun.jmx', module: 'jmxri'
+        exclude group: 'com.sun.jdmk', module: 'jmxtools'
+        exclude group: 'javax.jms', module: 'jms'
+    }
+
+    // Local libraries
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
+// Forzar versiones específicas
+configurations.all {
+    resolutionStrategy {
+        force 'org.seleniumhq.selenium:selenium-java:3.141.59'
+        force 'org.seleniumhq.selenium:selenium-api:3.141.59'
+        force 'org.seleniumhq.selenium:selenium-support:3.141.59'
+        force 'org.seleniumhq.selenium:selenium-remote-driver:3.141.59'
+    }
+}
 
 gradle.startParameter.continueOnFailure = true
-test.finalizedBy(aggregate)
+test.finalizedBy('aggregate')

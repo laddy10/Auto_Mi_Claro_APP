@@ -1,13 +1,12 @@
 package utils;
 
-import io.cucumber.java.DataTableType;
 import models.User;
 
 import java.util.Map;
 
 public class DataTableConfig {
 
-    @DataTableType
+    //   @DataTableType
     public User userEntry(Map<String, String> entry) {
         User user = new User();
 

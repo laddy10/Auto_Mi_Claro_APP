@@ -1,12 +1,13 @@
 package stepDefinitions;
 
+import cucumber.api.Scenario;
+import cucumber.api.java.Before;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import interactions.wait.WaitFor;
 import interactions.wait.WaitForResponse;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+
 import models.User;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
@@ -42,6 +43,7 @@ public class LoginDefinitions {
         theActorCalled("actor")
                 .attemptsTo(
                         WaitUntil.the(LOADING_SPLASH, isNotPresent()),
+                        WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(40).seconds(),
                         WaitFor.aTime(2000)
                 );
     }

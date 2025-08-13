@@ -107,6 +107,7 @@ Feature: Ingresar al modulo pagos y consultas
     And   INGRESA AL PORTAL DE RECARGAS Y PAQUETES
     Then  GESTIONA COMPRAS RECURRENTES
 
+
   @SA015 @POSTPAGO
   Scenario: Ingresar a Detalle de tu plan
     Given EL USUARIO ABRE LA SUPER APP

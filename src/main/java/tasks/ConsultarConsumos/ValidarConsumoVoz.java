@@ -25,10 +25,10 @@ public class ValidarConsumoVoz implements Task {
   public <T extends Actor> void performAs(T actor) {
     // Navegación inicial común
     actor.attemptsTo(
-        Click.on(OCULTAR_OPCIONES),
-        WaitFor.aTime(2000),
-        ClickTextoQueContengaX.elTextoContiene(CONSUMO_DE_VOZ),
-        WaitFor.aTime(3000));
+            Click.on(OCULTAR_OPCIONES),
+            WaitFor.aTime(2000),
+            ClickTextoQueContengaX.elTextoContiene(CONSUMO_DE_VOZ),
+            WaitFor.aTime(3000));
 
     // Verificar qué escenario tenemos
     if (isVisible(actor, LBL_AUN_NO_REGISTRAS_CONSUMOS)) {
@@ -56,25 +56,25 @@ public class ValidarConsumoVoz implements Task {
     System.out.println("✅ Escenario detectado: Información de consumo de voz disponible");
 
     actor.attemptsTo(
-        // Validar título principal
-        ValidarTexto.validarTexto(CONSUMO_DE_VOZ),
+            // Validar título principal
+            ValidarTexto.validarTexto(CONSUMO_DE_VOZ),
 
-        // Validar sección Móviles Claro
-        ValidarTexto.validarTexto(MOVILES_CLARO),
+            // Validar sección Móviles Claro
+            ValidarTexto.validarTexto(MOVILES_CLARO),
 
-        // Validar sección A otros operadores
-        ValidarTexto.validarTexto(A_OTROS_OPERADORES),
+            // Validar sección A otros operadores
+            ValidarTexto.validarTexto(A_OTROS_OPERADORES),
 
-        // Validar sección a fijos
-        ValidarTexto.validarTexto(A_FIJOS),
+            // Validar sección a fijos
+            ValidarTexto.validarTexto(A_FIJOS),
 
-        // Validar sección Roaming Internacional
-        ValidarTexto.validarTexto(ROAMING_INTERNACIONAL_TEXTO),
-        ValidarTextoQueContengaX.elTextoContiene("Entrante por paquete:"),
-        ValidarTextoQueContengaX.elTextoContiene("Larga distancia Internacional por paquete:"),
-        ValidarTextoQueContengaX.elTextoContiene("Local por paquete:"),
-        ValidarTextoQueContengaX.elTextoContiene("Entrante por demanda:"),
-        ValidarTextoQueContengaX.elTextoContiene("Local por demanda:"));
+            // Validar sección Roaming Internacional
+            ValidarTexto.validarTexto(ROAMING_INTERNACIONAL_TEXTO),
+            ValidarTextoQueContengaX.elTextoContiene("Entrante por paquete:"),
+            ValidarTextoQueContengaX.elTextoContiene("Larga distancia Internacional por paquete:"),
+            ValidarTextoQueContengaX.elTextoContiene("Local por paquete:"),
+            ValidarTextoQueContengaX.elTextoContiene("Entrante por demanda:"),
+            ValidarTextoQueContengaX.elTextoContiene("Local por demanda:"));
 
     EvidenciaUtils.registrarCaptura(paso);
   }
@@ -82,7 +82,7 @@ public class ValidarConsumoVoz implements Task {
   /** Método de utilidad para verificar si un elemento está visible */
   private <T extends Actor> boolean isVisible(T actor, Target element) {
     try {
-      return Presence.of(element).answeredBy(actor);
+      return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
     } catch (Exception e) {
       return false;
     }

@@ -16,7 +16,7 @@ public class Versiones {
 
     public static final String MINI_VERSION_PAGA_TU_FACTURA_CONSTANT = "Ver 1.0.563 (2025-08-06)";
 
-    public static final String MINI_VERSION_RECARGAS_Y_PAQUETES_CONSTANT = "Ver 1.0.394 (2025-08-05)";
+    public static final String MINI_VERSION_RECARGAS_Y_PAQUETES_CONSTANT = "Ver 1.0.394 (2025-08-08)";
 
     public static final String MINI_VERSION_NECESITAS_AYUDA_CONSTANT = "Ver 1.0.41 (2025-06-25)";
 
@@ -24,7 +24,7 @@ public class Versiones {
 
     public static final String MINI_VERSION_CONSULTAR_PQR_CONSTANT = "Ver 1.4.3 (2025-08-11)";
 
-    public static final String MINI_VERSION_DETALLE_DE_TU_PLAN_CONSTANT = "Ver 1.0.267 (2025-08-06)";
+    public static final String MINI_VERSION_DETALLE_DE_TU_PLAN_CONSTANT = "Ver 1.1.71 (2025-08-11)";
 
     public static final String MINI_VERSION_ADQUIRIR_PRODUCTOS_CONSTANT = "Ver 1.0.305 (2025-07-09)";
 
