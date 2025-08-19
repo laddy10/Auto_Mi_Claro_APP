@@ -1,7 +1,7 @@
 Feature: Ingresar al módulo de entretenimiento
 
   ############################################### pospago prioridad por barra entretenimiento
-  @SA059
+  @SA059 @POSTPAGO
   Scenario: Ingresar a entretenimiento y validar Claro Video
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -12,7 +12,7 @@ Feature: Ingresar al módulo de entretenimiento
     And   VALIDA VERSION DE MINIPROGRAMA CLARO VIDEO
     Then  VALIDA REDIRECCION APP STORE CLARO VIDEO
 
-  @SA081
+  @SA081 @POSTPAGO
   Scenario: Ingresar a entretenimiento y validar redirección a Claro Club
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -22,7 +22,7 @@ Feature: Ingresar al módulo de entretenimiento
     And   VALIDA VERSION DE MINIPROGRAMA CLARO CLUB
     Then  VALIDA REDIRECCION CLARO CLUB
 
-  @SA062
+  @SA062 @POSTPAGO
   Scenario: Ingresar a entretenimiento y validar Claro Música
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -33,7 +33,7 @@ Feature: Ingresar al módulo de entretenimiento
     Then  VALIDA REDIRECCION CLARO MUSICA APP
 
 
-  @SA063
+  @SA063 @POSTPAGO
   Scenario: Ingresar a entretenimiento y validar Netflix con términos y condiciones
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -45,7 +45,7 @@ Feature: Ingresar al módulo de entretenimiento
     Then  VALIDA REDIRECCIONAMIENTO ID ClARO
 
 
-  @SA066
+  @SA066 @POSTPAGO
   Scenario: Ingresar a entretenimiento y validar Disney+ plan estándar
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -57,7 +57,7 @@ Feature: Ingresar al módulo de entretenimiento
     And   VALIDA TERMINOS Y CONDICIONES DISNEY ESTANDAR
     Then  VALIDA REDIRECCIONAMIENTO ID ClARO
 
-  @SA067
+  @SA067 @POSTPAGO
   Scenario: Ingresar a entretenimiento y validar Disney+ plan premium
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -69,7 +69,7 @@ Feature: Ingresar al módulo de entretenimiento
     And   VALIDA TERMINOS Y CONDICIONES DISNEY PREMIUM
     Then  VALIDA REDIRECCIONAMIENTO ID ClARO
 
-  @SA069
+  @SA069 @POSTPAGO
   Scenario: Ingresar a entretenimiento y validar Amazon Prime con términos y condiciones
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -83,7 +83,7 @@ Feature: Ingresar al módulo de entretenimiento
 
   ############################################################## pospago prioridad por tus servicios favoritos
 
-  @SA082
+  @SA082 @POSTPAGO
   Scenario: Validar redireccion Claro Video ingresando por tus servicios favoritos
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -94,7 +94,7 @@ Feature: Ingresar al módulo de entretenimiento
     And   VALIDA VERSION DE MINIPROGRAMA CLARO VIDEO
     Then  VALIDA REDIRECCION APP STORE CLARO VIDEO
 
-  @SA083
+  @SA083 @POSTPAGO
   Scenario: Validar redireccion Claro Musica ingresando por tus servicios favoritos
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -107,7 +107,7 @@ Feature: Ingresar al módulo de entretenimiento
 
 
   ############################################ Claro Club por explora y compra
-  @SA084
+  @SA084 @POSTPAGO
   Scenario: Explora y Compra Redirección de Claro Club
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -118,7 +118,7 @@ Feature: Ingresar al módulo de entretenimiento
     Then  VALIDA REDIRECCION CLARO CLUB
 
   ############################################ Entretenimiento Prepago prioridad
-  @PRE079
+  @PRE079 @PREPAGO
   Scenario: Ingresar a entretenimiento y validar Claro Video Prepago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -129,7 +129,7 @@ Feature: Ingresar al módulo de entretenimiento
     And   VALIDA VERSION DE MINIPROGRAMA PRE CLARO VIDEO
     Then  VALIDA REDIRECCION APP STORE CLARO VIDEO
 
-  @PRE103
+  @PRE103 @PREPAGO
   Scenario: Ingresar a entretenimiento y validar Claro Club Prepago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -140,7 +140,7 @@ Feature: Ingresar al módulo de entretenimiento
     And   VALIDA VERSION DE MINIPROGRAMA PRE CLARO CLUB
     Then  VALIDA REDIRECCION CLARO CLUB
 
-  @PRE104
+  @PRE104 @PREPAGO
   Scenario: Explora y Compra Redirección de Claro Club Prepago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -150,7 +150,7 @@ Feature: Ingresar al módulo de entretenimiento
     And   VALIDA VERSION DE MINIPROGRAMA PRE CLARO CLUB
     Then  VALIDA REDIRECCION CLARO CLUB
 
-  @PRE082
+  @PRE082 @PREPAGO
   Scenario: Ingresar a entretenimiento y validar Claro Música Prepago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -161,7 +161,7 @@ Feature: Ingresar al módulo de entretenimiento
     And   VALIDA VERSION DE MINIPROGRAMA PRE CLARO MUSICA
     Then  VALIDA REDIRECCION CLARO MUSICA APP
 
-  @PRE105
+  @PRE105 @PREPAGO
   Scenario: Validar redireccion Claro Video ingresando por tus servicios favoritos Prepago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -172,7 +172,7 @@ Feature: Ingresar al módulo de entretenimiento
     And   VALIDA VERSION DE MINIPROGRAMA PRE CLARO VIDEO
     Then  VALIDA REDIRECCION APP STORE CLARO VIDEO
 
-  @PRE106
+  @PRE106 @PREPAGO
   Scenario: Validar redireccion Claro Musica ingresando por tus servicios favoritos Prepago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
