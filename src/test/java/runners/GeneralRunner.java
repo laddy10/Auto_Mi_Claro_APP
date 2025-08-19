@@ -14,7 +14,6 @@ import java.io.IOException;
         glue = {"stepDefinitions", "utils", "hooks"},
         snippets = SnippetType.CAMELCASE,
         tags = ""
-
 )
 
 
