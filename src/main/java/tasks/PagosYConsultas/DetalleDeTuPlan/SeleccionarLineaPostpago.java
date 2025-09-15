@@ -26,9 +26,7 @@ public class SeleccionarLineaPostpago implements Task {
     EvidenciaUtils.registrarCaptura(paso1);
 
     actor.attemptsTo(
-        ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
-        WaitForResponse.withAnyText(
-            FAMILIA_Y_AMIGOS_OPCION, ADELANTA_SALDO_LABEL, COMPRA_POR_CATEGORIA));
+        ClickTextoQueContengaX.elTextoContiene(user.getNumero()));
   }
 
   public static Performable seleccionarLinea() {

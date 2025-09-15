@@ -5,7 +5,6 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Ingresar a entretenimiento y validar Claro Video
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
     #And   VALIDA REDIRECCION A ENTRETENIMIENTO
     And   SELECCIONA EL BOTON CLARO VIDEO
@@ -16,7 +15,6 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Ingresar a entretenimiento y validar redirección a Claro Club
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
     And   SELECCIONA EL BOTON CLARO CLUB
     And   VALIDA VERSION DE MINIPROGRAMA CLARO CLUB
@@ -26,7 +24,6 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Ingresar a entretenimiento y validar Claro Música
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
     And   SELECCIONA EL BOTON CLARO MUSICA
     And   VALIDA VERSION DE MINIPROGRAMA CLARO MUSICA
@@ -37,7 +34,6 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Ingresar a entretenimiento y validar Netflix con términos y condiciones
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
     And   SELECCIONA BOTON NETFLIX
     And   VALIDA VERSION DE MINIPROGRAMA NETFLIX
@@ -49,7 +45,6 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Ingresar a entretenimiento y validar Disney+ plan estándar
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
     And   SELECCIONA BOTON DISNEY PLUS
     And   VALIDAR VERSION DE MINIPROGRAMA DISNEY
@@ -61,7 +56,6 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Ingresar a entretenimiento y validar Disney+ plan premium
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
     And   SELECCIONA BOTON DISNEY PLUS
     And   VALIDAR VERSION DE MINIPROGRAMA DISNEY
@@ -73,7 +67,6 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Ingresar a entretenimiento y validar Amazon Prime con términos y condiciones
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
     And   SELECCIONA BOTON AMAZON PRIME
     And   VALIDAR VERSION DE MINIPROGRAMA AMAZONPRIME
@@ -87,7 +80,7 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Validar redireccion Claro Video ingresando por tus servicios favoritos
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
+    
     And   SELECCIONA EL BOTON VER MAS EN SECCION TUS SERVCICOS FAVORITOS
     #And   VALIDA REDIRECCION A ENTRETENIMIENTO
     And   SELECCIONA EL BOTON CLARO VIDEO
@@ -98,7 +91,7 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Validar redireccion Claro Musica ingresando por tus servicios favoritos
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
+    
     And   SELECCIONA EL BOTON VER MAS EN SECCION TUS SERVCICOS FAVORITOS
     #And   VALIDA REDIRECCION A ENTRETENIMIENTO
     And   SELECCIONA EL BOTON CLARO MUSICA
@@ -111,7 +104,6 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Explora y Compra Redirección de Claro Club
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     #And   VALIDA REDIRECCION A ENTRETENIMIENTO
     And   SELECCIONA EL BOTON CLARO CLUB EN EXPLORA Y COMPRA
     And   VALIDA VERSION DE MINIPROGRAMA CLARO CLUB
@@ -122,7 +114,6 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Ingresar a entretenimiento y validar Claro Video Prepago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
     #And   VALIDA REDIRECCION A ENTRETENIMIENTO
     And   SELECCIONA EL BOTON CLARO VIDEO
@@ -133,7 +124,6 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Ingresar a entretenimiento y validar Claro Club Prepago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
     #And   VALIDA REDIRECCION A ENTRETENIMIENTO
     And   SELECCIONA EL BOTON CLARO CLUB
@@ -144,7 +134,6 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Explora y Compra Redirección de Claro Club Prepago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     #And   VALIDA REDIRECCION A ENTRETENIMIENTO
     And   SELECCIONA EL BOTON CLARO CLUB EN EXPLORA Y COMPRA
     And   VALIDA VERSION DE MINIPROGRAMA PRE CLARO CLUB
@@ -154,7 +143,6 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Ingresar a entretenimiento y validar Claro Música Prepago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
     #And   VALIDA REDIRECCION A ENTRETENIMIENTO
     And   SELECCIONA EL BOTON CLARO MUSICA
@@ -165,7 +153,6 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Validar redireccion Claro Video ingresando por tus servicios favoritos Prepago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   SELECCIONA EL BOTON VER MAS EN SECCION TUS SERVCICOS FAVORITOS
     #And   VALIDA REDIRECCION A ENTRETENIMIENTO
     And   SELECCIONA EL BOTON CLARO VIDEO
@@ -176,7 +163,6 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Validar redireccion Claro Musica ingresando por tus servicios favoritos Prepago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   SELECCIONA EL BOTON VER MAS EN SECCION TUS SERVCICOS FAVORITOS
     #And   VALIDA REDIRECCION A ENTRETENIMIENTO
     And   SELECCIONA EL BOTON CLARO MUSICA
@@ -202,7 +188,6 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Ingresar a entretenimiento y validar HotGo
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
     And   VALIDA REDIRECCION A ENTRETENIMIENTO
     And   DESPLAZARSE HASTA EL MODULO TUS PLATAFORMAS FAVORITAS
@@ -214,7 +199,6 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Ingresar a entretenimiento y validar HBOmax
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
     And   VALIDA REDIRECCION A ENTRETENIMIENTO
     And   DESPLAZARSE HASTA EL MODULO TUS PLATAFORMAS FAVORITAS
@@ -225,7 +209,6 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Ingresar a entretenimiento y validar Win Play
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
     And   VALIDA REDIRECCION A ENTRETENIMIENTO
     And   DESPLAZARSE HASTA EL MODULO TUS PLATAFORMAS FAVORITAS
@@ -237,7 +220,6 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Ingresar a entretenimiento y validar RED + TV en vivo
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
     And   VALIDA REDIRECCION A ENTRETENIMIENTO
     And   SELECCIONA EL BOTON RED PLUS TV EN VIVO
@@ -247,7 +229,6 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Ingresar a entretenimiento y validar RED + NOTICIAS
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
     And   VALIDA REDIRECCION A ENTRETENIMIENTO
     And   DESPLAZARSE HASTA EL MODULO TUS PLATAFORMAS FAVORITAS

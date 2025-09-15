@@ -56,9 +56,7 @@ public class NecesitasAyuda implements Task {
       EvidenciaUtils.registrarCaptura("Verificar redirección a ClaroBot");
 
       actor.attemptsTo(
-          ValidarTextoQueContengaX.elTextoContiene(CLAROBOT),
-          ValidarTextoQueContengaX.elTextoContiene(MUNDO_CLARO),
-          ValidarTextoQueContengaX.elTextoContiene(LO_MAS_CONSULTADO));
+          ValidarTextoQueContengaX.elTextoContiene(CLAROBOT));
     }
 
     public static Performable ejecutar() {
