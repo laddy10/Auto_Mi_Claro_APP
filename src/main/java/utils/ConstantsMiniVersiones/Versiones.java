@@ -8,11 +8,11 @@ public class Versiones {
 
     public static final String MINI_VERSION_CLARO_MUSICA_CONSTANT = "Ver 1.4.4 (2025-03-03)";
 
-    public static final String MINI_VERSION_NETFLIX_CONSTANT = "Ver 1.1.86 (2025-07-10)";
+    public static final String MINI_VERSION_NETFLIX_CONSTANT = "Ver 1.2.0 (2025-08-20)";
 
-    public static final String MINI_VERSION_AMAZON_PRIME_CONSTANT = "Ver 1.4.25 (2025-07-25)";
+    public static final String MINI_VERSION_AMAZON_PRIME_CONSTANT = "Ver 1.4.28 (2025-08-20)";
 
-    public static final String MINI_VERSION_DISNEY_CONSTANT = "Ver 1.0.48 (2025-06-16)";
+    public static final String MINI_VERSION_DISNEY_CONSTANT = "Ver 1.0.62 (2025-08-20)";
 
     public static final String MINI_VERSION_PAGA_TU_FACTURA_CONSTANT = "Ver 1.0.587 (2025-09-10)";
 
@@ -22,11 +22,11 @@ public class Versiones {
 
     public static final String MINI_VERSION_ESTADO_SERVICIOS_TECNICOS_CONSTANT = "Ver 1.4.6 (2025-06-17)";
 
-    public static final String MINI_VERSION_CONSULTAR_PQR_CONSTANT = "Ver 1.4.3 (2025-07-14)";
+    public static final String MINI_VERSION_CONSULTAR_PQR_CONSTANT = "Ver 1.4.9 (2025-08-13)";
 
     public static final String MINI_VERSION_DETALLE_DE_TU_PLAN_CONSTANT = "Ver 1.1.97 (2025-09-10)";
 
-    public static final String MINI_VERSION_ADQUIRIR_PRODUCTOS_CONSTANT = "Ver 1.0.305 (2025-07-09)";
+    public static final String MINI_VERSION_ADQUIRIR_PRODUCTOS_CONSTANT = "Ver 1.0.307 (2025-08-13)";
 
     public static final String MINI_VERSION_CONSULTAR_CONSUMOS_CONSTANT = "Ver 1.0.365 (2025-07-30)";
 

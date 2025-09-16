@@ -3,12 +3,13 @@ package tasks.PagosYConsultas.AdquirirProductos;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static userinterfaces.PagosYConsultasPage.BTN_TRES_PUNTOS_MAS;
 import static utils.Constants.*;
+import static utils.ConstantsMiniVersiones.Versiones.MINI_VERSION_ADQUIRIR_PRODUCTOS_CONSTANT;
 
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.comunes.Atras;
 import interactions.validations.ValidarTexto;
-import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
+
 import interactions.wait.WaitForResponse;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -29,7 +30,7 @@ public class MiniprogramaAdquirirProductos implements Task {
         WaitForResponse.withText(DECLARACION_SERVICIO),
         ValidarTexto.validarTexto(ADQUIRIR_PRODUCTOS),
         ValidarTexto.validarTexto(DECLARACION_SERVICIO),
-        ValidarTextoQueContengaX.elTextoContiene(VER));
+        ValidarTexto.validarTexto(MINI_VERSION_ADQUIRIR_PRODUCTOS_CONSTANT));
 
     EvidenciaUtils.registrarCaptura(paso1);
 

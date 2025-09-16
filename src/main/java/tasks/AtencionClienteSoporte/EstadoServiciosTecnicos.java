@@ -7,6 +7,7 @@ import static utils.Constants.*;
 import interactions.Click.ClickElementByText;
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarTexto;
+import interactions.wait.WaitElement;
 import interactions.wait.WaitFor;
 import interactions.wait.WaitForResponse;
 import models.User;
@@ -67,7 +68,7 @@ public class EstadoServiciosTecnicos implements Task {
           ClickTextoQueContengaX.elTextoContiene(NUMERO_DE_DOCUMENTO),
           Enter.theValue(user.getContrasena()).into(TXT_INGRESA_NUMERO),
           Click.on(BTN_CONSULTAR),
-          WaitFor.aTime(3000),
+          WaitFor.aTime(10000),
           ValidarTexto.validarTexto(NO_SE_ENCONTRO_INFORMACION),
           ClickElementByText.clickElementByText(ACEPTAR_2));
     }
@@ -89,7 +90,7 @@ public class EstadoServiciosTecnicos implements Task {
           ClickTextoQueContengaX.elTextoContiene(NUMERO_DE_CELULAR),
           Enter.theValue(user.getNumero()).into(TXT_INGRESA_NUMERO),
           Click.on(BTN_CONSULTAR),
-          WaitFor.aTime(3000),
+          WaitFor.aTime(15000),
           WaitForResponse.withText(NO_SE_ENCONTRO_INFORMACION),
           ValidarTexto.validarTexto(NO_SE_ENCONTRO_INFORMACION),
           ClickElementByText.clickElementByText(ACEPTAR_2));
@@ -112,7 +113,7 @@ public class EstadoServiciosTecnicos implements Task {
           ClickTextoQueContengaX.elTextoContiene(IMEI),
           Enter.theValue(user.getImei()).into(TXT_INGRESA_NUMERO),
           Click.on(BTN_CONSULTAR),
-          WaitFor.aTime(3000),
+          WaitFor.aTime(10000),
           WaitForResponse.withText(NO_SE_ENCONTRO_INFORMACION),
           ValidarTexto.validarTexto(NO_SE_ENCONTRO_INFORMACION),
           ClickElementByText.clickElementByText(ACEPTAR_2));
