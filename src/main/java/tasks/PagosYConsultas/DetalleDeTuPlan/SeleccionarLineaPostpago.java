@@ -28,7 +28,7 @@ public class SeleccionarLineaPostpago implements Task {
     actor.attemptsTo(
         ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
         WaitForResponse.withAnyText(
-            FAMILIA_Y_AMIGOS_OPCION, ADELANTA_SALDO_LABEL, COMPRA_POR_CATEGORIA));
+            FAMILIA_Y_AMIGOS_OPCION, ADELANTA_SALDO_LABEL, COMPRA_POR_CATEGORIA, CLARO_COLOMBIA));
   }
 
   public static Performable seleccionarLinea() {

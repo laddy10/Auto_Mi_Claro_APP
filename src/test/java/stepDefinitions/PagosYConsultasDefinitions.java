@@ -299,8 +299,8 @@ public class PagosYConsultasDefinitions {
         );
     }
 
-    @Then("^INGRESA Y VALIDA COMPRAR APLICACIONES NO PERMITIDO$")
-    public void ingresaYValidaComprarAplicacionesNoPermitido() {
+    @Then("^VALIDAR COMPRAR APLICACIONES NO PERMITIDO$")
+    public void validarComprarAplicacionesNoPermitido() {
         theActorInTheSpotlight().attemptsTo(
                 ComprarAplicacionesNoPermitido.ingresarYValidar()
         );
@@ -308,9 +308,10 @@ public class PagosYConsultasDefinitions {
 
     @And("INGRESA MEJORAR PLAN")
     public void ingresaMejorarPlan() {
-        EvidenciaUtils.registrarCaptura("Ingresar opción Mejorar plan");
+        EvidenciaUtils.registrarCaptura("Ingresar opción Gestionar mi plan - Mejorar plan");
 
         theActorInTheSpotlight().attemptsTo(
+                ClickTextoQueContengaX.elTextoContiene(GESTIONAR_MI_PLAN),
                 ClickTextoQueContengaX.elTextoContiene(MEJORAR_PLAN),
                 WaitForResponse.withText(VER_PLANES_ESPECIALES)
         );
@@ -347,8 +348,8 @@ public class PagosYConsultasDefinitions {
         );
     }
 
-    @And("INGRESA ADMINISTRAR ROAMING SERVICIO ACTIVO")
-    public void administrarRoamingServicioActivo() {
+    @And("ADMINISTRAR ROAMING SERVICIO ACTIVO")
+    public void administrarRoaServActivo() {
         theActorInTheSpotlight().attemptsTo(
                 AdministrarRoamingActivo.ingresarRoaming()
         );
@@ -495,8 +496,8 @@ public class PagosYConsultasDefinitions {
         );
     }
 
-    @Then("SELECCIONA LINEA POSTPAGO eSIM")
-    public void seleccionaLineaPostpagoeSIM() {
+    @Then("INGRESAR LINEA POSTPAGO eSIM")
+    public void ingresarLineaPostpagoeSIM() {
         theActorInTheSpotlight().attemptsTo(
                 SeleccionarLineaPostEsim.seleccionarLinea()
         );

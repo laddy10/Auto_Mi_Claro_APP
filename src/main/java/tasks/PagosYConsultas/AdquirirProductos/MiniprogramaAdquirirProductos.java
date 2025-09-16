@@ -8,6 +8,7 @@ import interactions.Click.ClickTextoQueContengaX;
 import interactions.comunes.Atras;
 import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;
+import interactions.wait.WaitFor;
 import interactions.wait.WaitForResponse;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -32,7 +33,9 @@ public class MiniprogramaAdquirirProductos implements Task {
 
     EvidenciaUtils.registrarCaptura(paso1);
 
-    actor.attemptsTo(Atras.irAtras());
+    actor.attemptsTo(
+            Atras.irAtras(),
+            WaitFor.aTime(3000));
   }
 
   public static Performable validarVersion() {
