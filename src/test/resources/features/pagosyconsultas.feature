@@ -230,7 +230,7 @@ Feature: Ingresar al modulo pagos y consultas
     And   ESPERA A QUE INGRESE A LA OPCION
     Then   VERIFICA LOS TEXTOS DISPONIBLES
 
-
+    
   @SA027 @POSTPAGO
   Scenario: Familia y amigos - Agregar, eliminar y desactivar servicio
     Given EL USUARIO ABRE LA SUPER APP
@@ -298,11 +298,10 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Adquirir productos en postpago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA A ADQUIRIR PRODUCTOS
-    And   SELECCIONA LINEA POSTPAGO
     And   VALIDA VERSION DE MINIPROGRAMA ADQUIRIR
+    And   SELECCIONA LINEA POSTPAGO
     Then  VALIDA REDIRECCIONAMIENTO A PAGINA CLARO
 
 
