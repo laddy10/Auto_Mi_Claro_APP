@@ -30,4 +30,9 @@ public class PagosyConsultasPrePage {
                     .located(
                             By.xpath("//android.widget.TextView[@text=\"Información importante\"]"));
 
+    public static final Target LBL_DOCUMENTO_TERMINOS_Y_CONDICIONES =
+            Target.the("Texto documento de terminos y condiciones")
+                    .located(
+                            By.xpath("(//android.widget.ImageView[@resource-id=\"com.clarocolombia.miclaro:id/page\"])[1]"));
+
 }

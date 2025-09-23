@@ -1,6 +1,5 @@
 package userinterfaces;
 
-import io.appium.java_client.AppiumBy;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 
@@ -46,25 +45,25 @@ public class MediosPagoPage {
 
     public static final Target BTN_PSE_RECARGAS =
             Target.the("Boton PSE de recargas y paquetes")
-                    .located(AppiumBy.xpath("//android.view.View[@resource-id=\"__react-content\"]/android.view.View/android.widget.TextView[4]"));
+                    .located(By.xpath("//android.view.View[@resource-id=\"__react-content\"]/android.view.View/android.widget.TextView[4]"));
     public static final Target LBL_PAQUETE_INSTALADO =
             Target.the("Texto paquete activo")
-                    .located(AppiumBy.xpath("//*[contains(@text, 'fue instalado')]"));
+                    .located(By.xpath("//*[contains(@text, 'fue instalado')]"));
 
     public static final Target TXT_USUARIO_BANCOLOMBIA =
             Target.the("Caja de texto usuario Bancolombia")
-                    .located(AppiumBy.xpath("//android.view.View[@text=\"Usuario\"]"));
+                    .located(By.xpath("//android.view.View[@text=\"Usuario\"]"));
 
 
     // Elementos Daviplata
 
     public static final Target BTN_TIPO_DOCUMENTO_DAVIPLATA =
             Target.the("Botón tipo documento Daviplata")
-            .located(By.xpath("//android.widget.Button[@text='Cédula de ciudadanía']"));
+                    .located(By.xpath("//android.widget.Button[@text='Cédula de ciudadanía']"));
 
     public static final Target BTN_TIPO_DOCUMENTO_DAVIPLATA_2 =
             Target.the("Botón tipo documento Daviplata")
-            .located(By.xpath("//android.widget.Button[@text=\"Cedula de extranjería\"]"));
+                    .located(By.xpath("//android.widget.Button[@text=\"Cedula de extranjería\"]"));
 
     public static final Target DROPDOWN_MEDIO_PAGO =
             Target.the("Flecha desplegar medios de pago")

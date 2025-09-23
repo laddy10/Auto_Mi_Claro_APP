@@ -16,6 +16,8 @@ import utils.TestDataProvider;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
+import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
 import static userinterfaces.MediosPagoPage.DROPDOWN_BANCO;
 import static userinterfaces.MediosPagoPage.DROPDOWN_TIPO_CLIENTE;
 import static userinterfaces.PagosYConsultasPage.*;
@@ -118,11 +120,11 @@ public class PSE implements Task {
 
         // Validar presencia de iconos
         actor.should(
-                seeThat(Presence.of(ICON_HOME))
+                seeThat(the(ICON_HOME), isPresent())
         );
 
         actor.should(
-                seeThat(Presence.of(BTN_TRES_PUNTOS_MAS))
+                seeThat(the(BTN_TRES_PUNTOS_MAS), isPresent())
         );
 
         EvidenciaUtils.registrarCaptura(paso7);

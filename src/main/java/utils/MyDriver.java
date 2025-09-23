@@ -1,15 +1,12 @@
 package utils;
 
-import static userinterfaces.LoginPage.AppConstants.WHATSAPP_ACTIVITY;
-import static userinterfaces.LoginPage.AppConstants.WHATSAPP_PACKAGE;
-
 import io.appium.java_client.android.AndroidDriver;
-import java.io.IOException;
+import net.thucydides.core.webdriver.DriverSource;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-import net.thucydides.core.webdriver.DriverSource;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class MyDriver implements DriverSource {
 
@@ -20,30 +17,32 @@ public class MyDriver implements DriverSource {
   }
 
   @Override
-  public AndroidDriver newDriver() {
+  public WebDriver newDriver() {
     try {
-      ChromeOptions options = new ChromeOptions();
-      options.addArguments("test-type");
-      DesiredCapabilities capabilities = new DesiredCapabilities();
-      capabilities.setCapability("appActivity", WHATSAPP_ACTIVITY);
-      capabilities.setCapability("appPackage", WHATSAPP_PACKAGE);
-      capabilities.setCapability(
-          "chromedriverExecutable", "src/test/resources/webdriver/windows/chromedriver.exe");
+      DesiredCapabilities caps = new DesiredCapabilities();
 
-      capabilities.setCapability("noReset", true); // No borra datos, mantiene la sesión
-      capabilities.setCapability("fullReset", false); // Evita reiniciar la app
+      // Capabilities base (alineadas a serenity.properties)
+      caps.setCapability("automationName", "UiAutomator2");
+      caps.setCapability("platformName", "Android");
+      caps.setCapability("app", System.getProperty("app", System.getProperty("user.dir") + "/src/test/resources/app/mi-claro.apk"));
+      caps.setCapability("appPackage", "com.clarocolombia.miclaro");
+      caps.setCapability("appActivity", "com.claro.superapp.SplashActivity");
 
-      capabilities.setCapability("automationName", "UiAutomator2");
-      capabilities.setCapability("autoGrantPermissions", "true");
-      // capabilities.setCapability("reset", "false");
-      // capabilities.setCapability("noReset", "false");
-      capabilities.setCapability("autoDismissAlerts", "true");
+      caps.setCapability("noReset", true);
+      caps.setCapability("fullReset", false);
+      caps.setCapability("autoGrantPermissions", true);
+      caps.setCapability("autoDismissAlerts", true);
+      caps.setCapability("newCommandTimeout", 8000);
+      // Si usas WebView y necesitas ChromeDriver:
+      // caps.setCapability("chromedriverExecutable", "src/test/resources/webdriver/windows/chromedriver.exe");
 
-      driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+      URL hub = new URL("http://127.0.0.1:4723/wd/hub");
+      driver = new AndroidDriver(hub, caps);
       driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
       return driver;
-    } catch (IOException e) {
-      throw new Error(e);
+
+    } catch (Exception e) {
+      throw new RuntimeException("Error iniciando el driver de Appium", e);
     }
   }
 

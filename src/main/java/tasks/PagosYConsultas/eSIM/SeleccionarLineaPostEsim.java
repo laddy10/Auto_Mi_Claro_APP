@@ -16,18 +16,21 @@ import utils.TestDataProvider;
 
 public class SeleccionarLineaPostEsim implements Task {
 
+  private static final String NUMERO_LINEA = "322 278 6448";
+
+
   private static final User user = TestDataProvider.getRealUser();
-  private static final String paso1 = "Seleccionar línea eSIM " + user.getNumero();
+  private static final String paso1 = "Seleccionar línea eSIM " + NUMERO_LINEA;
 
   @Override
   public <T extends Actor> void performAs(T actor) {
 
-    AndroidObject.scrollCorto2(actor, user.getNumero() + " " + SELECCIONAR);
+    AndroidObject.scrollCorto2(actor, NUMERO_LINEA + " " + SELECCIONAR);
 
     EvidenciaUtils.registrarCaptura(paso1);
 
     actor.attemptsTo(
-        ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
+        ClickTextoQueContengaX.elTextoContiene(NUMERO_LINEA),
         WaitForResponse.withText(SIGUIENTE),
         WaitFor.aTime(2000));
   }

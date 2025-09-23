@@ -39,9 +39,9 @@ public class IngresoSuperApp implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
 
-        if (isVisible(actor, LBL_ENCABEZADO_USUARIO)) {
+        if (isVisible(actor, LBL_TUS_SERVICIOS_FAVORITOS)) {
             String textoVisible = ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO).answeredBy(actor);
-            if (!"¡Hola!".equals(textoVisible)) {
+            if (!"¡Hola, Gerencia!".equals(textoVisible)) {
                 actor.should(seeThat(ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
                         equalTo(user.getNombreUsuario())));
                 EvidenciaUtils.registrarCaptura(paso);
@@ -248,7 +248,7 @@ public class IngresoSuperApp implements Task {
     // Método ultra rápido para verificar visibilidad (sin waits)
     private <T extends Actor> boolean isVisibleFast(T actor, Target element) {
         try {
-            return element.resolveFor(actor).withTimeoutOf(Duration.ofMillis(500)).isPresent();
+            return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
         } catch (Exception e) {
             return false;
         }
@@ -263,7 +263,7 @@ public class IngresoSuperApp implements Task {
     }
 
     private <T extends Actor> boolean isVisible(T actor, Target element) {
-        return Presence.of(element).answeredBy(actor);
+        return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
     }
 
     private <T extends Actor> void clickSiExiste(T actor, Target elemento, String texto) {

@@ -58,3 +58,6 @@ Capturas/
 
 #APK
 *.apk
+
+#Reportes
+reportes/

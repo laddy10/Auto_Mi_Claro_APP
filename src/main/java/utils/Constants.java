@@ -133,6 +133,8 @@ public class Constants {
     public static final String MEJORAR_PLAN = "Mejorar plan";
     public static final String PAQUETES_ADICIONALES = "Paquetes adicionales";
     public static final String ADMINISTRAR_ROAMING = "Administrar roaming";
+    public static final String GESTIONAR_MI_PLAN = "Gestionar mi plan";
+
 
 
 

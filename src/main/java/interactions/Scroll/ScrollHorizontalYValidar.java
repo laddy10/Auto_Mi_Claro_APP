@@ -2,10 +2,10 @@ package interactions.Scroll;
 
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
-import net.serenitybdd.annotations.Step;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
 import net.serenitybdd.screenplay.Tasks;
+import net.thucydides.core.annotations.Step;
 import utils.AndroidObject;
 
 /**
@@ -61,11 +61,11 @@ public class ScrollHorizontalYValidar implements Interaction {
    * @param tiempoEsperaValidacion Tiempo en ms antes de validar
    */
   public ScrollHorizontalYValidar(
-      String textoAValidar,
-      DireccionScroll direccion,
-      int numeroScrolls,
-      double velocidad,
-      int tiempoEsperaValidacion) {
+          String textoAValidar,
+          DireccionScroll direccion,
+          int numeroScrolls,
+          double velocidad,
+          int tiempoEsperaValidacion) {
     this.textoAValidar = textoAValidar;
     this.direccion = direccion;
     this.numeroScrolls = numeroScrolls;
@@ -229,7 +229,7 @@ public class ScrollHorizontalYValidar implements Interaction {
    */
   public static ScrollHorizontalYValidar scrollAmbasDireccionesYValidar(String texto) {
     return Tasks.instrumented(
-        ScrollHorizontalYValidar.class, texto, DireccionScroll.AMBAS_DIRECCIONES);
+            ScrollHorizontalYValidar.class, texto, DireccionScroll.AMBAS_DIRECCIONES);
   }
 
   /**
@@ -243,13 +243,13 @@ public class ScrollHorizontalYValidar implements Interaction {
    * @return Interaction configurada
    */
   public static ScrollHorizontalYValidar scrollPersonalizadoYValidar(
-      String texto,
-      DireccionScroll direccion,
-      int numeroScrolls,
-      double velocidad,
-      int tiempoEspera) {
+          String texto,
+          DireccionScroll direccion,
+          int numeroScrolls,
+          double velocidad,
+          int tiempoEspera) {
     return Tasks.instrumented(
-        ScrollHorizontalYValidar.class, texto, direccion, numeroScrolls, velocidad, tiempoEspera);
+            ScrollHorizontalYValidar.class, texto, direccion, numeroScrolls, velocidad, tiempoEspera);
   }
 
   /**
@@ -260,7 +260,7 @@ public class ScrollHorizontalYValidar implements Interaction {
    * @return Interaction configurada para ejecución rápida
    */
   public static ScrollHorizontalYValidar scrollRapidoYValidar(
-      String texto, DireccionScroll direccion) {
+          String texto, DireccionScroll direccion) {
     return Tasks.instrumented(ScrollHorizontalYValidar.class, texto, direccion, 5, 0.8, 800);
   }
 
@@ -272,7 +272,7 @@ public class ScrollHorizontalYValidar implements Interaction {
    * @return Interaction configurada para ejecución lenta
    */
   public static ScrollHorizontalYValidar scrollLentoYValidar(
-      String texto, DireccionScroll direccion) {
+          String texto, DireccionScroll direccion) {
     return Tasks.instrumented(ScrollHorizontalYValidar.class, texto, direccion, 2, 0.3, 2000);
   }
 

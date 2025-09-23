@@ -1,5 +1,7 @@
 package stepDefinitions;
 
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 import hooks.ReportHooks;
 import interactions.Click.ClickElementByText;
 import interactions.Click.ClickTextoQueContengaX;
@@ -7,8 +9,6 @@ import interactions.comunes.Atras;
 import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitForResponse;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
 import models.User;
 import net.serenitybdd.screenplay.actions.Click;
 import tasks.MediosDePagos.*;
