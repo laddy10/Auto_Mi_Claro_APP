@@ -21,7 +21,6 @@ import utils.AndroidObject;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
-import java.time.Duration;
 import java.util.List;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
@@ -38,68 +37,60 @@ public class IngresoSuperApp implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-
-        if (isVisible(actor, LBL_ENCABEZADO_USUARIO)) {
-            String textoVisible = ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO).answeredBy(actor);
-            if (!"¡Hola!".equals(textoVisible)) {
-                actor.should(seeThat(ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
-                        equalTo(user.getNombreUsuario())));
-                EvidenciaUtils.registrarCaptura(paso);
-                return;
-            }
-        }
-
-        // PRIMERA VALIDACIÓN: Usuario ya logueado
-        if (isVisible(actor, LBL_ENCABEZADO_USUARIO)) {
-            actor.should(seeThat(ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
-                    equalTo(user.getNombreUsuario())));
-            EvidenciaUtils.registrarCaptura(paso);
+        // 1. Guard inicial: si ya está logueado, terminamos de inmediato
+        if (isUserAlreadyLoggedIn(actor)) {
+            EvidenciaUtils.registrarCaptura(paso + " [ya logueado]");
             return;
         }
 
-        // SEGUNDA VALIDACIÓN: Sesión cerrada por seguridad
+        // 2. Elegir la ruta según prioridad usando if / else if
         if (isVisible(actor, LBL_SESION_CERRADA_POR_SEGURIDAD)) {
+            EvidenciaUtils.registrarCaptura("Ruta: sesión cerrada por seguridad detectada");
             clickAceptarSesion(actor);
-            iniciarSesion(actor);
-            validarLogin(actor);
-            EvidenciaUtils.registrarCaptura(paso);
-            return;
-        }
+            loginViaIniciar(actor);
 
-        // TERCERA VALIDACIÓN: Mensaje de bienvenida
-        if (isVisible(actor, LBL_NOS_ALEGRA_TENERTE_DE_VUELTA)) {
-            iniciarSesion(actor);
-            validarLogin(actor);
-            EvidenciaUtils.registrarCaptura(paso);
-            return;
-        }
+        } else if (isVisible(actor, LBL_NOS_ALEGRA_TENERTE_DE_VUELTA)) {
+            EvidenciaUtils.registrarCaptura("Ruta: mensaje de bienvenida detectado");
+            loginViaIniciar(actor);
 
-        // CUARTA VALIDACIÓN: Botón iniciar sesión visible
-        if (isVisible(actor, LBL_INICIAR_SESION)) {
+        } else if (isVisible(actor, LBL_INICIAR_SESION)) {
+            EvidenciaUtils.registrarCaptura("Ruta: botón iniciar sesión visible");
             actor.attemptsTo(Click.on(LBL_INICIAR_SESION));
-            iniciarSesion(actor);
-            validarLogin(actor);
-            EvidenciaUtils.registrarCaptura(paso);
-            return;
-        }
+            loginViaIniciar(actor);
 
-        // QUINTA VALIDACIÓN: Otros métodos de ingreso con email
-        if (isVisible(actor, BTN_OTROS_METODOS_INGRESO) && user.getEmail() != null && !user.getEmail().isEmpty()) {
+        } else if (isVisible(actor, BTN_OTROS_METODOS_INGRESO) && isValidEmail(user.getEmail())) {
+            EvidenciaUtils.registrarCaptura("Ruta: otros métodos + email válido");
             loginConEmail(actor);
-            EvidenciaUtils.registrarCaptura(paso);
-            return;
-        }
 
-        // SEXTA VALIDACIÓN: Campo usuario visible con cédula
-        if (isVisible(actor, TXT_USERNAME) && user.getCedula() != null && !user.getCedula().isEmpty()) {
+        } else if (isVisible(actor, TXT_USERNAME) && isValidCedula(user.getCedula())) {
+            EvidenciaUtils.registrarCaptura("Ruta: campo usuario visible + cédula válida");
             loginConCedula(actor);
-            EvidenciaUtils.registrarCaptura(paso);
-            return;
+
+        } else {
+            EvidenciaUtils.registrarCaptura("Ruta: fallback - login desde cero completo");
+            loginDesdeCeroCompleto(actor);
         }
 
-        // ÚLTIMO RECURSO: Login desde cero solo si no se cumple ninguna condición anterior
-        loginDesdeCeroCompleto(actor);
+        // 3. Validación final de que el login fue exitoso
+        actor.should(seeThat(ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
+                equalTo(user.getNombreUsuario())));
         EvidenciaUtils.registrarCaptura(paso);
+    }
+
+    /**
+     * Ruta común para iniciar sesión + validar login.
+     */
+    private <T extends Actor> void loginViaIniciar(T actor) {
+        iniciarSesion(actor);
+        validarLogin(actor);
+    }
+
+    private boolean isValidEmail(String email) {
+        return email != null && !email.trim().isEmpty();
+    }
+
+    private boolean isValidCedula(String cedula) {
+        return cedula != null && !cedula.trim().isEmpty();
     }
 
     private <T extends Actor> void loginConEmail(T actor) {
@@ -150,7 +141,6 @@ public class IngresoSuperApp implements Task {
         }
     }
 
-    // Resto de métodos sin cambios...
     private <T extends Actor> void aceptarPermisosIniciales(T actor) {
         clickSiExiste(actor, BTN_PERMISO_UBICACION, MIENTRAS_APP_ESTA_EN_USO);
         clickSiExiste(actor, BTN_ACEPTAR_PERMISO, ACEPTAR_2);
@@ -163,9 +153,10 @@ public class IngresoSuperApp implements Task {
 
     private <T extends Actor> void loginDesdeCero(T actor) {
         actor.attemptsTo(ClickElementByText.clickElementByText(INICIAR_SESION));
+
         ValidarTextoQueContengaX.elTextoContiene(VERSION);
 
-        if (user.getEmail() != null && !user.getEmail().isEmpty()) {
+        if (isValidEmail(user.getEmail())) {
             actor.attemptsTo(
                     ClickElementByText.clickElementByText(OTROS_METODOS_DE_INGRESO),
                     ClickElementByText.clickElementByText(CORREO_ELECTRONICO),
@@ -188,64 +179,74 @@ public class IngresoSuperApp implements Task {
     }
 
     private <T extends Actor> void validarLogin(T actor) {
-        // VALIDACIÓN TEMPRANA: Si ya está logueado, salir inmediatamente
+        // Si ya está logueado, no continuar
         if (isUserAlreadyLoggedIn(actor)) {
             return;
         }
 
-        // Solo ejecutar validaciones si NO está logueado aún
+        maybeAceptarTerminos(actor);
+        maybeManejarSesionAbierta(actor);
+        maybeManejarBiometrico(actor);
+        maybePermisoNotificaciones(actor);
+        maybeAutorizarVelocidad(actor);
+
+        // Validación final del login exitoso
+        actor.should(seeThat(ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
+                equalTo(user.getNombreUsuario())));
+    }
+
+    private <T extends Actor> void maybeAceptarTerminos(T actor) {
         if (isVisibleFast(actor, LBL_TERMINOS_Y_CONDICIONES)) {
             actor.attemptsTo(
                     Click.on(CHECK_TERMINOS_Y_CONDICIONES),
                     ClickElementByText.clickElementByText(CONTINUAR)
             );
         }
+    }
 
+    private <T extends Actor> void maybeManejarSesionAbierta(T actor) {
         if (isVisibleFast(actor, LBL_SESION_ABIERTA)) {
-            actor.attemptsTo(ClickElementByText.clickElementByText(CONTINUAR), WaitFor.aTime(6000));
+            actor.attemptsTo(
+                    ClickElementByText.clickElementByText(CONTINUAR),
+                    WaitFor.aTime(6000)
+            );
         }
+    }
 
+    private <T extends Actor> void maybeManejarBiometrico(T actor) {
         if (isVisibleFast(actor, LBL_INGRESO_BIOMETRICO)) {
             actor.attemptsTo(ClickElementByText.clickElementByText("En otro momento"));
         }
+    }
 
-        // Verificar de nuevo antes de continuar
-        if (isUserAlreadyLoggedIn(actor)) {
-            return;
-        }
-
+    private <T extends Actor> void maybePermisoNotificaciones(T actor) {
         clickSiExisteFast(actor, SMS_PERMISO_NOTIFICACIONES, NO_PERMITIR);
+    }
 
+    private <T extends Actor> void maybeAutorizarVelocidad(T actor) {
         if (isVisibleFast(actor, TXT_AUTORIZACION_VELOCIDAD)) {
-            actor.attemptsTo(WaitFor.aTime(1000), ClickElementByText.clickElementByText(ACEPTAR));
+            actor.attemptsTo(WaitFor.aTime(1000),
+                    ClickElementByText.clickElementByText(ACEPTAR));
         }
-
         if (isVisibleFast(actor, TXT_AUTORIZACION_VELOCIDAD_2)) {
             actor.attemptsTo(
                     WaitFor.aTime(1000),
                     ClickElementByText.clickElementByText(ACEPTAR),
-                    Atras.irAtras());
+                    Atras.irAtras()
+            );
         }
-
-        // Validación final del login
-        actor.should(seeThat(ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
-                equalTo(user.getNombreUsuario())));
     }
 
-    // Método para verificar si el usuario ya está logueado (MUY RÁPIDO)
     private <T extends Actor> boolean isUserAlreadyLoggedIn(T actor) {
         try {
-            // Usar xpath simple y directo para el nombre de usuario
             List<WebElement> userElements = AndroidObject.androidDriver(actor)
                     .findElements(By.xpath("//android.widget.TextView[contains(@text, '" + user.getNombreUsuario() + "')]"));
-
             return !userElements.isEmpty() && userElements.get(0).isDisplayed();
         } catch (Exception e) {
             return false;
         }
     }
 
-    // Método ultra rápido para verificar visibilidad (sin waits)
     private <T extends Actor> boolean isVisibleFast(T actor, Target element) {
         try {
             return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
@@ -254,16 +255,18 @@ public class IngresoSuperApp implements Task {
         }
     }
 
-    // Método optimizado para clic condicional ultra rápido
+    private <T extends Actor> boolean isVisible(T actor, Target element) {
+        try {
+            return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     private <T extends Actor> void clickSiExisteFast(T actor, Target elemento, String texto) {
         if (isVisibleFast(actor, elemento)) {
             actor.attemptsTo(ClickElementByText.clickElementByText(texto));
         }
-        // Sin waits innecesarios
-    }
-
-    private <T extends Actor> boolean isVisible(T actor, Target element) {
-        return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
     }
 
     private <T extends Actor> void clickSiExiste(T actor, Target elemento, String texto) {

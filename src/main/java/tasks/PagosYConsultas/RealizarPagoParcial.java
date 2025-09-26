@@ -66,8 +66,9 @@ public class RealizarPagoParcial implements Task {
 
             // Continuar al proceso de pago
             actor.attemptsTo(
-                    ClickElementByText.clickElementByText(CONTINUAR),
-                    WaitForResponse.withText(ELEGIR_OTRO_MEDIO_PAGO));
+                    ClickElementByText.clickElementByText(CONTINUAR)
+                    //WaitForResponse.withText(ELEGIR_OTRO_MEDIO_PAGO)
+            );
         }
     }
 
