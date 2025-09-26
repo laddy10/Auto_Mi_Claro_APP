@@ -13,30 +13,30 @@ import utils.EvidenciaUtils;
 
 public class AdministrarRoamingActivo implements Task {
 
-  private static final String NUMERO_LINEA = "310 262 8443";
-  private static final String paso1 = "Hacer clic en Administrar Roaming";
-  private static final String paso2 = "Seleccionar línea para administrar Roaming " + NUMERO_LINEA;
+    private static final String NUMERO_LINEA = "310 262 9612";
+    private static final String paso1 = "Hacer clic en Administrar Roaming";
+    private static final String paso2 = "Seleccionar línea para administrar Roaming " + NUMERO_LINEA;
 
-  @Override
-  public <T extends Actor> void performAs(T actor) {
+    @Override
+    public <T extends Actor> void performAs(T actor) {
 
-    EvidenciaUtils.registrarCaptura(paso1);
+        EvidenciaUtils.registrarCaptura(paso1);
 
-    actor.attemptsTo(
-        ClickTextoQueContengaX.elTextoContiene(ADMINISTRAR_ROAMING),
-        WaitForResponse.withText(ACTIVA_ROAMING));
+        actor.attemptsTo(
+                ClickTextoQueContengaX.elTextoContiene(ADMINISTRAR_ROAMING),
+                WaitForResponse.withText(ACTIVA_ROAMING));
 
-    // Seleccionar la línea específica del usuario
-    AndroidObject.scrollCorto2(actor, LINEA_TEXTO + " " + NUMERO_LINEA + " " + ADMINISTRAR);
+        // Seleccionar la línea específica del usuario
+        AndroidObject.scrollCorto2(actor, LINEA_TEXTO + " " + NUMERO_LINEA + " " + ADMINISTRAR);
 
-    EvidenciaUtils.registrarCaptura(paso2);
+        EvidenciaUtils.registrarCaptura(paso2);
 
-    actor.attemptsTo(
-        ClickTextoQueContengaX.elTextoContiene(NUMERO_LINEA),
-        WaitForResponse.withText(SERVICIO_ROAMING));
-  }
+        actor.attemptsTo(
+                ClickTextoQueContengaX.elTextoContiene(NUMERO_LINEA),
+                WaitForResponse.withText(SERVICIO_ROAMING));
+    }
 
-  public static Performable ingresarRoaming() {
-    return instrumented(AdministrarRoamingActivo.class);
-  }
+    public static Performable ingresarRoaming() {
+        return instrumented(AdministrarRoamingActivo.class);
+    }
 }

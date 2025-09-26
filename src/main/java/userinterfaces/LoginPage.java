@@ -107,4 +107,7 @@ public class LoginPage {
   public static final Target TXT_NO_PERMITIR =
           Target.the("Texto No permitir")
                   .located(By.xpath("//*[contains(text(),'No permitir')]"));
+
+  public static final Target LBL_TUS_SERVICIOS_FAVORITOS =
+          Target.the("Label Tus servicios favoritos").located(By.id("card_mini_program_title_tv"));
 }

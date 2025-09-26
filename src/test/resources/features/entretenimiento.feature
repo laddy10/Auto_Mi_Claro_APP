@@ -1,6 +1,7 @@
 Feature: Ingresar al módulo de entretenimiento
 
   ############################################### pospago prioridad por barra entretenimiento
+
   @SA059 @POSTPAGO
   Scenario: Ingresar a entretenimiento y validar Claro Video
     Given EL USUARIO ABRE LA SUPER APP
@@ -10,6 +11,7 @@ Feature: Ingresar al módulo de entretenimiento
     And   SELECCIONA EL BOTON CLARO VIDEO
     And   VALIDA VERSION DE MINIPROGRAMA CLARO VIDEO
     Then  VALIDA REDIRECCION APP STORE CLARO VIDEO
+
 
   @SA081 @POSTPAGO
   Scenario: Ingresar a entretenimiento y validar redirección a Claro Club
