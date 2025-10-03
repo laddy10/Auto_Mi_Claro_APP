@@ -33,7 +33,7 @@ public class Constants {
     public static final String FECHA_PAGO_OPORTUNO = "Fecha de pago oportuno:";
     public static final String ELEGIR_OTRO_MEDIO_PAGO = "Elegir otro medio de pago";
     public static final String TARJETA_C_D = "Tarjeta de crédito/débito";
-    public static final String BOTON_BANCOLOMBIA = "Botón Bancolombia";
+    public static final String BOTON_BANCOLOMBIA = "Bancolombia";
     public static final String CODENSA = "Codensa";
     public static final String OTROS_MEDIOS = "Otros medios";
     public static final String DAVIPLATA = "Daviplata";
@@ -569,7 +569,7 @@ public class Constants {
 
     //Terminos y condiciones
     public static final String ESCRIBIR_CODIGO_VENDEDOR = "Escribe el código del vendedor";
-    public static final String ACEPTAR_TERMINOS_CONDICIONES = "Aceptar Términos y Condiciones";
+    public static final String ACEPTAR_TERMINOS_CONDICIONES = "Aceptar";
     public static final String TERMINOS_Y_CONDICIONES_2 = "Términos y Condiciones";
     public static final String ACEPTO_TERMINOS_CONDICIONES_3 = "Acepto los términos y condiciones";
     public static final String ACTIVAR = "Activar";
@@ -713,6 +713,6 @@ public class Constants {
     public static final String LO_MAS_CONSULTADO = "Lo más consultado";
 
     public static final String CLARO_COLOMBIA = "Claro Colombia | Ofertas de celulares y planes";
-
-
+    public static final String ENTRAR = "Entrar";
+    public static final String TEXTO_CLARO_MUSICA = "Todo lo que te encanta escuchar, en un solo lugar.";
 }

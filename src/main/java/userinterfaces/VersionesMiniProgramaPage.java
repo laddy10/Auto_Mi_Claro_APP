@@ -27,7 +27,7 @@ public class VersionesMiniProgramaPage {
             .located(By.xpath("//android.widget.TextView[@text=\"Ver 1.0.587 (2025-09-10)\"]"));
 
     public static final Target MINI_VERSION_RECARGAS_Y_PAQUETES_TARGET = Target.the("etiqueta de versión 1.0.394")
-            .located(By.xpath("//android.widget.TextView[@text=\"Ver 1.0.400 (2025-09-08)\"]"));
+            .located(By.xpath("//android.widget.TextView[@text=\"Ver 1.0.400 (2025-09-16)\"]"));
 
     public static final Target MINI_VERSION_NECESITAS_AYUDA_TARGET = Target.the("etiqueta de versión 1.0.41")
             .located(By.xpath("//android.widget.TextView[@text=\"Ver 1.0.41 (2025-06-25)\"]"));

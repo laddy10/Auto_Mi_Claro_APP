@@ -1,20 +1,20 @@
 package tasks.Entretenimiento.ValidarRedirecciones;
 
+import interactions.validations.ValidarElemento;
 import interactions.wait.WaitFor;
 import io.appium.java_client.android.AndroidDriver;
 import interactions.validations.ValidarTexto;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.questions.Presence;
 import net.serenitybdd.screenplay.targets.Target;
-import net.thucydides.core.webdriver.WebDriverFacade;
 import utils.EvidenciaUtils;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static userinterfaces.EntretenimientoPage.*;
+import static utils.Constants.*;
 
 public class ValidarRedireccionClaroMusicaApp implements Task {
 
@@ -23,21 +23,21 @@ public class ValidarRedireccionClaroMusicaApp implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
 
-        // Obtener el driver Appium
+       /* // Obtener el driver Appium
         WebDriverFacade facade = (WebDriverFacade) BrowseTheWeb.as(actor).getDriver();
         AndroidDriver driver = (AndroidDriver) BrowseTheWeb.as(actor).getDriver();
 
 
         // Activar la app Claro Música
-        driver.activateApp("com.claro.claromusica.latam");
+        driver.activateApp("com.claro.claromusica.latam");*/
 
         // Esperar a que la app cargue
         try {
-            Thread.sleep(4000);
+            Thread.sleep(12000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        actor.attemptsTo(WaitFor.aTime(500)); // medio segundo antes de validar
+        actor.attemptsTo(WaitFor.aTime(1000)); // medio segundo antes de validar
         if (isVisible(actor, LBL_MENSAJE_ALERT)) {
             actor.attemptsTo(
                     Click.on(BTN_ALERT_CONFIRM)
@@ -47,9 +47,8 @@ public class ValidarRedireccionClaroMusicaApp implements Task {
         }
         // Validar elementos visibles en Claro Música (ajusta si cambian)
         actor.attemptsTo(
-                ValidarTexto.validarTexto("Inicio"),
-                ValidarTexto.validarTexto("Buscar"),
-                ValidarTexto.validarTexto("Mi Música")
+                ValidarTexto.validarTexto(ENTRAR),
+                ValidarTexto.validarTexto(TEXTO_CLARO_MUSICA)
         );
 
         EvidenciaUtils.registrarCaptura(paso);

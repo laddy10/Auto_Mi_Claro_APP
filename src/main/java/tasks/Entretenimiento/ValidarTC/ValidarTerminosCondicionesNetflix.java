@@ -30,7 +30,8 @@ public class ValidarTerminosCondicionesNetflix implements Task {
                 WaitForResponse.withText("Netflix"),
                 ValidarTextoQueContengaX.elTextoContiene("Netflix"),
                 ValidarTexto.validarTexto(ESCRIBIR_CODIGO_VENDEDOR),
-                ValidarTextoQueContengaX.elTextoContiene(ACEPTAR_TERMINOS_CONDICIONES)
+                ValidarTextoQueContengaX.elTextoContiene(ACEPTAR_TERMINOS_CONDICIONES),
+                ValidarTextoQueContengaX.elTextoContiene(TERMINOS_Y_CONDICIONES_2)
         );
         EvidenciaUtils.registrarCaptura(paso);
 
