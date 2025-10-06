@@ -23,11 +23,11 @@ public class VersionesMiniProgramaPage {
     public static final Target MINI_VERSION_DISNEY_TARGET = Target.the("etiqueta de versión 1.0.48")
             .located(By.xpath("//android.widget.TextView[@text=\"Ver 1.0.48 (2025-06-16)\"]"));
 
-    public static final Target MINI_VERSION_PAGA_TU_FACTURA_TARGET = Target.the("etiqueta de versión 1.0.563")
+    public static final Target MINI_VERSION_PAGA_TU_FACTURA_TARGET = Target.the("etiqueta de versión 1.0.587")
             .located(By.xpath("//android.widget.TextView[@text=\"Ver 1.0.587 (2025-09-10)\"]"));
 
     public static final Target MINI_VERSION_RECARGAS_Y_PAQUETES_TARGET = Target.the("etiqueta de versión 1.0.394")
-            .located(By.xpath("//android.widget.TextView[@text=\"Ver 1.0.400 (2025-09-08)\"]"));
+            .located(By.xpath("//android.widget.TextView[@text=\"Ver 1.0.400 (2025-09-16)\"]"));
 
     public static final Target MINI_VERSION_NECESITAS_AYUDA_TARGET = Target.the("etiqueta de versión 1.0.41")
             .located(By.xpath("//android.widget.TextView[@text=\"Ver 1.0.41 (2025-06-25)\"]"));
@@ -39,7 +39,7 @@ public class VersionesMiniProgramaPage {
             .located(By.xpath("//android.widget.TextView[@text=\"Ver 1.4.3 (2025-07-14)\"]"));
 
     public static final Target MINI_VERSION_DETALLE_DE_TU_PLAN_TARGET = Target.the("etiqueta de versión 1.0.267")
-            .located(By.xpath("//android.widget.TextView[@text=\"Ver 1.1.97 (2025-09-10)\"]"));
+            .located(By.xpath("//android.widget.TextView[@text=\"Ver 1.0.267 (2025-09-01)\"]"));
 
     public static final Target MINI_VERSION_ADQUIRIR_PRODUCTOS_TARGET = Target.the("etiqueta de versión 1.0.305")
             .located(By.xpath("//android.widget.TextView[@text=\"Ver 1.0.305 (2025-07-09)\"]"));

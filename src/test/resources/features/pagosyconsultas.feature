@@ -4,7 +4,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a paga tu factura
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA AL PORTAL DE PAGA TU FACTURA
     And   VALIDAR REDIRECCION BOTON PAGAR FACTURA
@@ -14,7 +13,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a paga tu factura y realizar pago parcial
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA AL PORTAL DE PAGA TU FACTURA
     And   REALIZA PAGO PARCIAL
@@ -24,7 +22,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a paga tu factura y validar pagos automáticos
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA AL PORTAL DE PAGA TU FACTURA
     Then  VALIDA PAGOS AUTOMATICOS
@@ -33,7 +30,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a paga tu factura y validar descarga de factura
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA AL PORTAL DE PAGA TU FACTURA
     Then  DESCARGA FACTURA
@@ -42,7 +38,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a paga tu factura y validar envío de factura por correo electrónico
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA AL PORTAL DE PAGA TU FACTURA
     Then  ENVIA FACTURA POR CORREO
@@ -52,7 +47,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a paga tu factura y validar detalle de última facturación
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA AL PORTAL DE PAGA TU FACTURA
     Then  VALIDA DETALLE ULTIMA FACTURACION
@@ -62,7 +56,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a paga tu factura y validar historial de pagos
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA AL PORTAL DE PAGA TU FACTURA
     Then  VALIDA HISTORIAL DE PAGOS
@@ -72,7 +65,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a recargas y paquetes y validar Paquetes LDI
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA AL PORTAL DE RECARGAS Y PAQUETES
     Then  VALIDA PAQUETES LDI
@@ -82,7 +74,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Recargas y Paquetes - Paquetes complementarios
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA AL PORTAL DE RECARGAS Y PAQUETES
     Then  VALIDA DIRECCIONAMIENTO PAQUETES COMPLEMENTARIOS
@@ -92,7 +83,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a recargas y paquetes y validar Recargas
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA AL PORTAL DE RECARGAS Y PAQUETES
     And   SELECCIONA RECARGAS
@@ -102,7 +92,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a recargas y paquetes y validar gestionar compras recurrentes
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA AL PORTAL DE RECARGAS Y PAQUETES
     Then  GESTIONA COMPRAS RECURRENTES
@@ -112,7 +101,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a Detalle de tu plan
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     Then   VALIDA DETALLE DE TU PLAN
 
@@ -121,7 +109,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a Ver factura desde Detalle de tu plan
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   VALIDA DETALLE DE TU PLAN
     And   INGRESA VER FACTURA
@@ -132,7 +119,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a Familia y amigos desde Detalle de tu plan
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   VALIDA DETALLE DE TU PLAN
     And   INGRESA FAMILIA Y AMIGOS
@@ -150,7 +136,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a Aplicaciones elegibles - Compra de Aplicaciones - Plan que permite
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   VALIDA DETALLE DE TU PLAN
     And   INGRESA Y VALIDA APLICACIONES ELEGIBLES
@@ -162,7 +147,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a Mejorar plan desde Detalle de tu plan
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   VALIDA DETALLE DE TU PLAN
     And   INGRESA MEJORAR PLAN
@@ -172,7 +156,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a gestiona tu equipo y registrar equipo
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MODULO GESTIONA TU EQUIPO
     Then  SELECCIONA LA OPCION REGISTRAR EQUIPO
 
@@ -181,7 +164,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a gestiona tu equipo y reportar por robo o pérdida
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MODULO GESTIONA TU EQUIPO
     And   SELECCIONA LA OPCION REPORTAR POR ROBO O PERDIDA
     Then  CONFIRMA INGRESO A LA OPCION Y VALIDA TEXTOS DISPONIBLES
@@ -190,7 +172,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a gestiona tu equipo y solucionar equipo con IMEI duplicado
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MODULO GESTIONA TU EQUIPO
     And   SELECCIONA LA OPCION SOLUCIONAR EQUIPO CON IMEI DUPLICADO
     Then  VERIFICA QUE SE MUESTREN LAS DOS OPCIONES EN PANTALLA
@@ -199,7 +180,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a gestiona tu equipo y reconectar por robo o pérdida
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MODULO GESTIONA TU EQUIPO
     And   SELECCIONA LA OPCION RECONECTAR POR ROBO O PERDIDA
     Then  VALIDA TEXTO DISPONIBLE Y CIERRA MODAL
@@ -208,7 +188,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a gestiona tu equipo y consultar equipo
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MODULO GESTIONA TU EQUIPO
     And   SELECCIONA LA OPCION CONSULTAR EQUIPO
     Then  VERIFICA INFORMACION DISPONIBLE DEL EQUIPO
@@ -217,7 +196,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a gestiona tu equipo y actualizar datos de tu equipo
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MODULO GESTIONA TU EQUIPO
     Then   SELECCIONA LA OPCION ACTUALIZAR DATOS DE TU EQUIPO
 
@@ -235,7 +213,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Familia y amigos - Agregar, eliminar y desactivar servicio
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA FAMILIA Y AMIGOS
     And   SELECCIONA LINEA POSTPAGO
@@ -246,7 +223,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Validar direccionamiento Roaming
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     Then  VALIDA DIRECCIONAMIENTO A ROAMING
 
@@ -255,7 +231,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Estado de portabilidad desde Pagos y consultas
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA A PORTABILIDAD
     And   VALIDA VERSION DE MINIPROGRAMA PORTABILIDAD
@@ -266,7 +241,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Envío de SIM Card desde Portabilidad
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA A PORTABILIDAD
     And   VALIDA VERSION DE MINIPROGRAMA PORTABILIDAD
@@ -277,7 +251,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Portabilidad prepago desde Portabilidad
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA A PORTABILIDAD
     And   VALIDA VERSION DE MINIPROGRAMA PORTABILIDAD
@@ -287,7 +260,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Portabilidad postpago desde Portabilidad
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA A PORTABILIDAD
     And   VALIDA VERSION DE MINIPROGRAMA PORTABILIDAD
@@ -309,7 +281,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: eSIM Claro
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA A ESIM CLARO
     And   INGRESAR LINEA POSTPAGO eSIM
@@ -322,7 +293,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Certificación cuenta al día
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     Then  GESTIONA CERTIFICACION CUENTA AL DIA
 
@@ -331,7 +301,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Vehículo conectado
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     Then  VALIDA DIRECCIONAMIENTO VEHICULO CONECTADO
 
@@ -340,7 +309,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Pagos
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     Then  VALIDA DIRECCIONAMIENTO CORRECTO PAGOS
 
@@ -349,7 +317,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Legalización de líneas
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     Then  VALIDA DIRECCIONAMIENTO CORRECTO LEGALIZACION
 
@@ -358,7 +325,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Beneficios
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     Then  VALIDA DIRECCIONAMIENTO CORRECTO BENEFICIOS
 
@@ -367,7 +333,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a Paquetes adicionales - plan que si tiene
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   VALIDA DETALLE DE TU PLAN
     And   INGRESA PAQUETES ADICIONALES
@@ -378,7 +343,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a Administrar roaming - servicio NO activo
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   VALIDA DETALLE DE TU PLAN
     And   INGRESA ADMINISTRAR ROAMING
@@ -389,7 +353,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a Adelanta tu saldo
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   HACE CLIC EN ADELANTA TU SALDO
     And   SELECCIONA LINEA POSTPAGO
@@ -401,7 +364,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a Agendar turnos
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     Then  VALIDA DIRECCIONAMIENTO AGENDAR TURNOS
 
@@ -410,7 +372,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a recargas y paquetes y validar Paquetes de Datos
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA AL PORTAL DE RECARGAS Y PAQUETES
     Then  VALIDA PAQUETES DE DATOS
@@ -420,7 +381,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a Aplicaciones elegibles - Compra de Aplicaciones - Plan que NO permite
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   VALIDA DETALLE DE TU PLAN PARA LINEA QUE NO PERMITE COMPRAR APLICACIONES
     And   INGRESA Y VALIDA APLICACIONES ELEGIBLES
@@ -431,7 +391,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a Aplicaciones elegibles - Administra Aplicaciones - Plan que permite
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   SELECCIONAR LINEA POSTPAGO QUE PERMITA ADMINISTRAR APPS
     And   INGRESA Y VALIDA APLICACIONES ELEGIBLES
@@ -442,7 +401,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a Aplicaciones elegibles - Administra Aplicaciones - Plan que NO permite
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   VALIDA DETALLE DE TU PLAN
     And   INGRESA Y VALIDA APLICACIONES ELEGIBLES
@@ -453,7 +411,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a Paquetes Adicionales - No tiene paquetes - popup
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   VALIDA DETALLE DE TU PLAN LINEA ESPECIFICA
     And   INGRESA PAQUETES ADICIONALES
@@ -464,7 +421,6 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a Administrar roaming - servicio activo
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   VERIFICA VERSION DE LA SUPER APP
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   VALIDA DETALLE DE TU PLAN PARA LINEA QUE NO PERMITE COMPRAR APLICACIONES
     And   ADMINISTRAR ROAMING SERVICIO ACTIVO

@@ -9,6 +9,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Click;
 import utils.EvidenciaUtils;
 
 import java.util.List;
@@ -26,15 +27,17 @@ public class ValidarPaginaClaro implements Task {
     public <T extends Actor> void performAs(T actor) {
 
 
-        List<WebElementFacade> smscookies = LBL_MENSAJE_COOKIES.resolveAllFor(actor);
-        if (!smscookies.isEmpty()) {
+        if (LBL_MENSAJE_COOKIES.resolveFor(actor).isVisible()) {
             actor.attemptsTo(
                     ClickTextoQueContengaX.elTextoContiene(ENTENDIDO),
                     WaitFor.aTime(2000)
             );
+        }else
+        {
+            EvidenciaUtils.registrarCaptura(paso1);
+            return;
         }
 
-        EvidenciaUtils.registrarCaptura(paso1);
 
         actor.attemptsTo(
                 ValidarTexto.validarTexto(COMPRA_POR_CATEGORIA),

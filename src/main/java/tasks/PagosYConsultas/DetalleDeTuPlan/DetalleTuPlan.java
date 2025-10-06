@@ -66,8 +66,7 @@ public class DetalleTuPlan implements Task {
 
         EvidenciaUtils.registrarCaptura(paso3);
 
-        actor.should(seeThat(ValidateInformationText.validateInformationText(MINI_VERSION_DETALLE_DE_TU_PLAN_TARGET),
-                equalTo(MINI_VERSION_DETALLE_DE_TU_PLAN_CONSTANT)));
+        actor.attemptsTo(ValidarTexto.validarTexto(MINI_VERSION_DETALLE_DE_TU_PLAN_CONSTANT));
 
         // Validar información detalle del plan
         actor.attemptsTo(

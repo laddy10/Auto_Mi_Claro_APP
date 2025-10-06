@@ -35,8 +35,7 @@ public class ValidarInfoRecargas implements Task {
 
         EvidenciaUtils.registrarCaptura(paso);
 
-        actor.should(seeThat(ValidateInformationText.validateInformationText(MINI_VERSION_RECARGAS_Y_PAQUETES_TARGET),
-                equalTo(MINI_VERSION_RECARGAS_Y_PAQUETES_CONSTANT)));
+        actor.attemptsTo(ValidarTexto.validarTexto(MINI_VERSION_RECARGAS_Y_PAQUETES_CONSTANT));
 
         actor.attemptsTo(Atras.irAtras());
     }

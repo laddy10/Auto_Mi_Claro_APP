@@ -713,6 +713,6 @@ public class Constants {
     public static final String LO_MAS_CONSULTADO = "Lo más consultado";
 
     public static final String CLARO_COLOMBIA = "Claro Colombia | Ofertas de celulares y planes";
-
-
+    public static final String ENTRAR = "Entrar";
+    public static final String TEXTO_CLARO_MUSICA = "Todo lo que te encanta escuchar, en un solo lugar.";
 }

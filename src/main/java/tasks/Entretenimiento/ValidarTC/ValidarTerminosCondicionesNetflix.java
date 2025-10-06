@@ -31,7 +31,8 @@ public class ValidarTerminosCondicionesNetflix implements Task {
         actor.attemptsTo(
                 WaitElement.isVisible(IMAGEN_NETFLIX),
                 ValidarTexto.validarTexto(ESCRIBIR_CODIGO_VENDEDOR),
-                ValidarTextoQueContengaX.elTextoContiene(ACEPTAR_TERMINOS_CONDICIONES)
+                ValidarTextoQueContengaX.elTextoContiene(ACEPTAR_TERMINOS_CONDICIONES),
+                ValidarTextoQueContengaX.elTextoContiene(TERMINOS_Y_CONDICIONES_2)
         );
         EvidenciaUtils.registrarCaptura(paso);
 

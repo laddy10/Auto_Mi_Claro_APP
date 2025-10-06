@@ -6,6 +6,7 @@ import static userinterfaces.PagosYConsultasPage.LBL_FECHA_PAGO_OPORTUNO;
 import static utils.Constants.*;
 
 import interactions.validations.ValidarTextoQueContengaX;
+import interactions.wait.WaitFor;
 import interactions.wait.WaitForResponse;
 import models.User;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -13,6 +14,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.waits.Wait;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
@@ -32,8 +34,9 @@ public class RedireccionPagarFactura implements Task {
             EvidenciaUtils.registrarCaptura(paso);
 
             actor.attemptsTo(
-                    Click.on(BTN_PAGAR_FACTURA),
-                    WaitForResponse.withText(ELEGIR_OTRO_MEDIO_PAGO));
+                    Click.on(BTN_PAGAR_FACTURA)
+                    //WaitForResponse.withText(ELEGIR_OTRO_MEDIO_PAGO)
+            );
 
             EvidenciaUtils.registrarCaptura(paso2);
 

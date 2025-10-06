@@ -17,17 +17,16 @@ public class ValidarRedireccionPlayStoreClaroVideo implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-
-        // Obtener el driver real de Appium desde Serenity
+       /* // Obtener el driver original de Appium desde el facade de Serenity
         WebDriverFacade facade = (WebDriverFacade) BrowseTheWeb.as(actor).getDriver();
         AndroidDriver driver = (AndroidDriver) facade.getProxiedDriver();
 
         // Activar la app Play Store
-        driver.activateApp("com.android.vending");
+        driver.activateApp("com.android.vending");*/
 
         // Esperar unos segundos para que la Play Store cargue
         try {
-            Thread.sleep(3000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }

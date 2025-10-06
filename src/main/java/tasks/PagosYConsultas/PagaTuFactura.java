@@ -62,12 +62,8 @@ public class PagaTuFactura implements Task {
 
         EvidenciaUtils.registrarCaptura(paso3);
 
-
-        actor.should(seeThat(ValidateInformationText.validateInformationText(MINI_VERSION_PAGA_TU_FACTURA_TARGET),
-                equalTo(MINI_VERSION_PAGA_TU_FACTURA_CONSTANT)));
-
-
         actor.attemptsTo(
+                ValidarTexto.validarTexto(MINI_VERSION_PAGA_TU_FACTURA_CONSTANT),
                 Atras.irAtras(),
                 WaitForResponse.withText(PAGAR_FACTURA),
                 ValidarTextoQueContengaX.elTextoContiene(REFERENCIA_PAGO),

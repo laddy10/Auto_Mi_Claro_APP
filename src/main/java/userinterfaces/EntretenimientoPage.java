@@ -326,4 +326,7 @@ public class EntretenimientoPage {
 
     public static final Target EDUCACION = Target.the("Botón 'Educación'")
             .located(By.xpath("//android.view.View[contains(@content-desc, 'Educación')]"));
+
+    public static final Target LOGO_CLARO_VIDEO = Target.the("Botón 'Educación'")
+            .located(By.xpath("//android.widget.ImageView[@content-desc=\"Cm Logo\"]"));
 }
