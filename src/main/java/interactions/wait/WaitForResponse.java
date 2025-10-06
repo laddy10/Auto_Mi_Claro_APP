@@ -1,6 +1,5 @@
 package interactions.wait;
 
-import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,6 +9,7 @@ import net.serenitybdd.screenplay.Interaction;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WaitForResponse implements Interaction {
@@ -27,29 +27,41 @@ public class WaitForResponse implements Interaction {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        WebDriverWait wait = new WebDriverWait(BrowseTheWeb.as(actor).getDriver(), timeout);
+        WebDriverWait wait = new WebDriverWait(
+                BrowseTheWeb.as(actor).getDriver(),
+                timeout // 👈 usamos el constructor antiguo compatible
+        );
+
         boolean found = false;
         long startTime = System.currentTimeMillis();
 
         while ((System.currentTimeMillis() - startTime) < timeout * 1000 && !found) {
             for (String text : expectedTexts) {
                 try {
-                    By locator =
-                            new MobileBy.ByAndroidUIAutomator(
-                                    String.format("new UiSelector().textContains(\"%s\")", text));
-                    List<WebElement> elements = BrowseTheWeb.as(actor).getDriver().findElements(locator);
-                    if (!elements.isEmpty()) {
+                    By locator = new MobileBy.ByAndroidUIAutomator(
+                            String.format("new UiSelector().textContains(\"%s\")", text)
+                    );
+
+                    // ✅ Esperar hasta que el elemento sea visible
+                    WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+                    if (element != null && element.isDisplayed()) {
                         found = true;
                         break;
                     }
-                } catch (Exception ignored) {
-                }
+
+                } catch (Exception ignored) { }
             }
         }
 
         if (!found) {
-            throw new RuntimeException(
-                    "Ninguno de los textos esperados fue encontrado en el tiempo dado.");
+            throw new RuntimeException("Ninguno de los textos esperados fue encontrado en el tiempo dado.");
+        }
+
+        // 🔄 Pequeña pausa adicional para asegurar que la UI esté estable
+        try {
+            Thread.sleep(800);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
         }
     }
 
@@ -68,7 +80,6 @@ public class WaitForResponse implements Interaction {
     }
 
     // ✅ 🔁 Nuevos métodos con timeout por defecto
-
     public static WaitForResponse withText(String text) {
         return new WaitForResponse(Arrays.asList(text), DEFAULT_TIMEOUT);
     }

@@ -9,9 +9,11 @@ import interactions.wait.WaitForResponse;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Click;
 import utils.EvidenciaUtils;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static userinterfaces.EntretenimientoPage.*;
 import static utils.Constants.*;
 
 /**
@@ -32,8 +34,8 @@ public class SeleccionaPlanEstandarDisney implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 // Espera inicial para cargar la interfaz
-                WaitForResponse.withAnyText("Disney+ Premium"),
-
+                WaitForResponse.withText("Disney+"),
+                WaitFor.aTime(5000),
                 // Scroll horizontal hasta encontrar el plan Disney+ Estándar
                 ScrollHorizontalYValidar.scrollIzquierdaYValidar(ELEGIR_PLAN),
 
@@ -46,7 +48,7 @@ public class SeleccionaPlanEstandarDisney implements Task {
 
         actor.attemptsTo(
                 // Click en el botón Elegir Plan
-                ClickTextoQueContengaX.elTextoContiene(ELEGIR_PLAN)
+                Click.on(BTN_ELEGIR_PLAN_PREMIUM)
         );
     }
 

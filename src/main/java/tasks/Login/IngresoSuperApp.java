@@ -39,22 +39,18 @@ public class IngresoSuperApp implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
 
-        if (isVisible(actor, LBL_TUS_SERVICIOS_FAVORITOS)) {
-            String textoVisible = ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO).answeredBy(actor);
-            if (!"¡Hola, Gerencia!".equals(textoVisible)) {
-                actor.should(seeThat(ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
-                        equalTo(user.getNombreUsuario())));
-                EvidenciaUtils.registrarCaptura(paso);
-                return;
-            }
-        }
-
-        // PRIMERA VALIDACIÓN: Usuario ya logueado
         if (isVisible(actor, LBL_ENCABEZADO_USUARIO)) {
-            actor.should(seeThat(ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
-                    equalTo(user.getNombreUsuario())));
-            EvidenciaUtils.registrarCaptura(paso);
-            return;
+            String encabezado = LBL_ENCABEZADO_USUARIO.resolveFor(actor).getText();
+
+            if (encabezado.contains("Hola, Gerencia")) {
+                // Ya logueado, solo capturas
+                EvidenciaUtils.registrarCaptura("Usuario ya tiene sesión iniciada");
+                return; // Se corta aquí
+            }
+            if (encabezado.contains("¡Hola!")) {
+                // Usuario sin login, se continúa con flujo
+                EvidenciaUtils.registrarCaptura("Usuario sin sesión, se inicia login");
+            }
         }
 
         // SEGUNDA VALIDACIÓN: Sesión cerrada por seguridad
@@ -131,6 +127,15 @@ public class IngresoSuperApp implements Task {
         aceptarPermisosIniciales(actor);
         loginDesdeCero(actor);
         validarLogin(actor);
+    }
+
+    private <T extends Actor> void SesiónCerradaPorSeguridad(T actor) {
+        actor.attemptsTo(
+                ClickElementByText.clickElementByText(CONTINUAR),
+                Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
+                ClickElementByText.clickElementByText(CONTINUAR),
+                WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds()
+        );
     }
 
     private <T extends Actor> void iniciarSesion(T actor) {

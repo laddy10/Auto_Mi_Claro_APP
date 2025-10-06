@@ -28,7 +28,7 @@ public class ValidarRedireccionClaroClub implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitFor.aTime(7000),
+                WaitFor.aTime(8000),
                 Click.on(BTN_CLOSE),
                 ValidarTextoQueContengaX.elTextoContiene("Categorías")
         );

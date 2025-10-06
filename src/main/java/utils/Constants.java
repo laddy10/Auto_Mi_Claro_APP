@@ -569,7 +569,7 @@ public class Constants {
 
     //Terminos y condiciones
     public static final String ESCRIBIR_CODIGO_VENDEDOR = "Escribe el código del vendedor";
-    public static final String ACEPTAR_TERMINOS_CONDICIONES = "Aceptar Términos y Condiciones";
+    public static final String ACEPTAR_TERMINOS_CONDICIONES = "Términos y Condiciones";
     public static final String TERMINOS_Y_CONDICIONES_2 = "Términos y Condiciones";
     public static final String ACEPTO_TERMINOS_CONDICIONES_3 = "Acepto los términos y condiciones";
     public static final String ACTIVAR = "Activar";

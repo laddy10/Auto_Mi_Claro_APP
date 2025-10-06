@@ -11,6 +11,9 @@ public class LoginPage {
     public static final String WHATSAPP_PACKAGE = "com.clarocolombia.miclaro";
     public static final String WHATSAPP_ACTIVITY = "com.claro.superapp.SplashActivity";
   }
+  public static final Target LOGO_HOME =
+          Target.the("Logo principal en el home de Mi Claro")
+                  .located(By.xpath("//android.widget.ImageView[@resource-id=\"com.clarocolombia.miclaro:id/home_logo_iv\"]"));
 
   public static final Target LOADING_SPLASH =
           Target.the("Logo de espera al iniciar la App Mi Claro")

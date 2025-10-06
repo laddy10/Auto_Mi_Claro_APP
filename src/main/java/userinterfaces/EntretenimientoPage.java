@@ -24,6 +24,18 @@ public class EntretenimientoPage {
     public static final Target BTN_ACEPTAR_ET = Target.the("Botón 'Aceptar'")
             .locatedBy("//android.widget.Button[@text='Aceptar']");
 
+    public static final Target IMAGEN_NETFLIX =
+            Target.the("Imagen genérica en la App Mi Claro")
+                    .located(By.xpath("//android.widget.Image"));
+
+    public static final Target BTN_ELEGIR_PLAN_PREMIUM =
+            Target.the("Botón para elegir plan")
+                    .located(By.xpath("//android.widget.Button[@text=\"Elegir plan\"]"));
+
+    public static final Target BTN_ELEGIR_PLAN_ESTANDAR =
+            Target.the("Segundo botón 'Elegir plan'")
+                    .located(By.xpath("(//android.widget.Button[@text=\"Elegir plan\"])[2]"));
+
 
 
     // Sección Hecho para ti
@@ -212,10 +224,6 @@ public class EntretenimientoPage {
     public static final Target LBL_PRIME_GAMING =
             Target.the("Título Prime Gaming")
                     .located(By.xpath("//*[@text='Prime Gaming']"));
-
-    public static final Target BTN_ELEGIR_PLAN =
-            Target.the("Botón Elegir plan")
-                    .located(By.xpath("//*[@text='Elegir plan']"));
 
     // Pantalla de activación Amazon Prime
     public static final Target LBL_VALOR_SUSCRIPCION =
