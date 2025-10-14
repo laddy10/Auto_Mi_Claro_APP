@@ -13,7 +13,7 @@ public class EntretenimientoPage {
             .located(By.xpath("//*[@text='Continuar']"));
 
     public static final Target BTN_CLOSE = Target.the("Botón Close")
-            .locatedBy("//android.view.View[@content-desc=\"2359-claro-club-participa-en-la-liga-claro-de-red-bull-tetris\"]");
+            .locatedBy("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.app.Dialog/android.view.View/android.view.View/android.view.View[1]/android.widget.Button");
 
     public static final Target BTN_CONTINUAR_2 = Target.the("Botón 'Continuar' (segundo)")
             .locatedBy("(//android.widget.Button[@text='Continuar'])[2]");
@@ -290,6 +290,9 @@ public class EntretenimientoPage {
 
     public static final Target CHECK_TERMINOS = Target.the("Check de aceptar términos y condiciones")
             .located(By.xpath("//android.view.View[@resource-id='__react-content']/android.view.View[3]/android.view.View/android.widget.TextView"));
+
+    public static final Target BTN_ELEGIR_PLAN = Target.the("Botón elegir plan")
+            .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button"));
 
     public static final Target CHECK_TERMINOS_AMAZON_PRIME = Target.the("Check de aceptar términos y condiciones")
             .located(By.xpath("//android.view.View[@resource-id=\"__react-content\"]/android.view.View/android.view.View[2]/android.widget.TextView"));

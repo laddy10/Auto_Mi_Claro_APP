@@ -25,7 +25,7 @@ public class PortabilidadPrepago implements Task {
     actor.attemptsTo(
         ClickTextoQueContengaX.elTextoContiene(PORTABILIDAD_PREPAGO),
         // WaitForResponse.withText(DATOS_PERSONALES)
-        WaitFor.aTime(6000));
+        WaitFor.aTime(10000));
 
     // Validar redirección a formulario
     EvidenciaUtils.registrarCaptura(paso2);
