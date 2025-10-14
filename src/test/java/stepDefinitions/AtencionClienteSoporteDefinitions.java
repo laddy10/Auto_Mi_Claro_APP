@@ -7,6 +7,7 @@ import static utils.Constants.*;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import interactions.Click.ClickTextoQueContengaX;
+import interactions.Scroll.Scroll;
 import interactions.Scroll.ScrollHastaTexto;
 import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;
@@ -25,7 +26,9 @@ public class AtencionClienteSoporteDefinitions {
 
   @And("^DESPLAZA HASTA LA OPCION ATENCION AL CLIENTE Y SOPORTE$")
   public void desplazaHastaAtencionClienteSoporte() {
-    theActorInTheSpotlight().attemptsTo(ScrollHastaTexto.conTexto(ATENCION_AL_CLIENTE));
+    theActorInTheSpotlight().attemptsTo(ScrollHastaTexto.conTexto(ATENCION_AL_CLIENTE),
+            Scroll.scrollUnaVista()
+    );
     EvidenciaUtils.registrarCaptura("Desplazarse hasta Atención al cliente y soporte");
   }
 

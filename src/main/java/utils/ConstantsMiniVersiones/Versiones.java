@@ -6,7 +6,7 @@ public class Versiones {
 
     public static final String MINI_VERSION_CLARO_CLUB_CONSTANT = "Ver 1.4.9 (2025-06-04)";
 
-    public static final String MINI_VERSION_CLARO_MUSICA_CONSTANT = "Ver 1.4.4 (2025-03-03)";
+    public static final String MINI_VERSION_CLARO_MUSICA_CONSTANT = "Ver 1.4.4 (2025-10-09)";
 
     public static final String MINI_VERSION_NETFLIX_CONSTANT = "Ver 1.2.0 (2025-09-26)";
 
@@ -22,7 +22,7 @@ public class Versiones {
 
     public static final String MINI_VERSION_ESTADO_SERVICIOS_TECNICOS_CONSTANT = "Ver 1.4.6 (2025-06-17)";
 
-    public static final String MINI_VERSION_CONSULTAR_PQR_CONSTANT = "Ver 1.4.9 (2025-08-13)";
+    public static final String MINI_VERSION_CONSULTAR_PQR_CONSTANT = "Ver 1.4.9 (2025-10-03)";
 
     public static final String MINI_VERSION_DETALLE_DE_TU_PLAN_CONSTANT = "Ver 1.1.97 (2025-09-18)";
 

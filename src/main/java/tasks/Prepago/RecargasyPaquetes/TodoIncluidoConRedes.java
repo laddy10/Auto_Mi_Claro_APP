@@ -32,8 +32,8 @@ public class TodoIncluidoConRedes implements Task {
     private static final String paso7 = "Validar quinto paquete 1.4GB - Ver detalle";
     private static final String paso8 = "Validar sexto paquete 2 GB - Ver detalle";
     private static final String paso9 = "Dar clic en Último para tercera pagina";
-    private static final String paso10 = "Validar septimo paquete 3.5 GB - Ver detalle";
-    private static final String paso11 = "Validar octavo paquete 80 GB - Ver detalle";
+    private static final String paso10 = "Validar octavo paquete 80 GB - Ver detalle";
+    private static final String paso11 = "Validar septimo paquete 3.5 GB - Ver detalle";
     private static final String paso12 = "Validar noveno paquete 7.5 GB - Ver detalle";
     private static final String paso13 = "Dar clic en Último para cuarta y ultima pagina";
     private static final String paso14 = "Validar decimo paquete 12 GB - Ver detalle";
@@ -166,9 +166,28 @@ public class TodoIncluidoConRedes implements Task {
 
         EvidenciaUtils.registrarCaptura(paso9);
 
+        // PASO 8: Validar y explorar octavo paquete 80GB
+
         actor.attemptsTo(
                 ClickTextoQueContengaX.elTextoContiene(ULTIMO),
                 WaitForResponse.withText(ELIGE_TIPO_PAQUETE),
+
+                ValidarTexto.validarTexto(LABEL_PAQUETES),
+                ValidarTexto.validarTexto("80 GB"),
+                ValidarTexto.validarTexto(PRECIO),
+                ValidarTexto.validarTexto("$ 100.000"),
+                ValidarTexto.validarTexto("Min ILIMITADOS"),
+                ValidarTexto.validarTexto("SMS ILIMITADOS"),
+                ValidarTexto.validarTexto("Apps incluidas"),
+                ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
+                ValidarTexto.validarTexto(
+                        "Este paquete Todo Incluido incluye 80GB, ilimitados de Minutos + WhatsApp, Facebook y Twitter, Vigencia 30 dias.")
+        );
+        EvidenciaUtils.registrarCaptura(paso10);
+
+        scrollCorto2(actor, "$ 12.000");
+
+        actor.attemptsTo(
 
                 // PASO 7: Validar y explorar septimo paquete 3.5GB
                 ValidarTexto.validarTexto(LABEL_PAQUETES),
@@ -182,25 +201,6 @@ public class TodoIncluidoConRedes implements Task {
                 ValidarTexto.validarTexto(
                         "Este paquete incluye los servicios ilimitados de Minutos y SMS todo destino + 3.5GB + WhatsApp, Twitter y Facebook sin descontar de la capacidad")
         );
-
-        EvidenciaUtils.registrarCaptura(paso10);
-
-        // PASO 8: Validar y explorar octavo paquete 80GB
-        scrollCorto2(actor, "$ 100.000");
-
-        actor.attemptsTo(
-                ValidarTexto.validarTexto(LABEL_PAQUETES),
-                ValidarTexto.validarTexto("80 GB"),
-                ValidarTexto.validarTexto(PRECIO),
-                ValidarTexto.validarTexto("$ 100.000"),
-                ValidarTexto.validarTexto("Min ILIMITADOS"),
-                ValidarTexto.validarTexto("SMS ILIMITADOS"),
-                ValidarTexto.validarTexto("Apps incluidas"),
-                ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
-                ValidarTexto.validarTexto(
-                        "Este paquete Todo Incluido incluye 80GB, ilimitados de Minutos + WhatsApp, Facebook y Twitter, Vigencia 30 dias.")
-        );
-
         EvidenciaUtils.registrarCaptura(paso11);
 
 
@@ -249,7 +249,7 @@ public class TodoIncluidoConRedes implements Task {
         EvidenciaUtils.registrarCaptura(paso14);
 
 
-        // PASO 11: Validar y explorar undecimo paquete 12 GB
+        // PASO 11: Validar y explorar undecimo paquete 18 GB
         actor.attemptsTo(
                 Scroll.scrollUnaVista(),
                 ValidarTexto.validarTexto(LABEL_PAQUETES),

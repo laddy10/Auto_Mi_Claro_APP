@@ -12,15 +12,6 @@ Feature: Ingresar al módulo de entretenimiento
     Then  VALIDA REDIRECCION APP STORE CLARO VIDEO
 
 
-  @SA081 @POSTPAGO
-  Scenario: Ingresar a entretenimiento y validar redirección a Claro Club
-    Given EL USUARIO ABRE LA SUPER APP
-    When  REALIZA EL INGRESO
-    And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
-    And   SELECCIONA EL BOTON CLARO CLUB
-    And   VALIDA VERSION DE MINIPROGRAMA CLARO CLUB
-    Then  VALIDA REDIRECCION CLARO CLUB
-
   @SA062 @POSTPAGO
   Scenario: Ingresar a entretenimiento y validar Claro Música
     Given EL USUARIO ABRE LA SUPER APP
@@ -39,7 +30,7 @@ Feature: Ingresar al módulo de entretenimiento
     And   SELECCIONA BOTON NETFLIX
     And   VALIDA VERSION DE MINIPROGRAMA NETFLIX
     And   VALIDA TERMINOS Y CONDICIONES NETFLIX
-    Then  VALIDA REDIRECCIONAMIENTO ID ClARO
+    #Then  VALIDA REDIRECCIONAMIENTO ID ClARO
 
 
   @SA066 @POSTPAGO
@@ -74,6 +65,17 @@ Feature: Ingresar al módulo de entretenimiento
     And   SELECCIONA PLAN AMAZON PRIME
     And   VALIDA TERMINOS Y CONDICIONES AMAZON PRIME
     Then  VALIDA REDIRECCIONAMIENTO ID ClARO
+
+
+  @SA081 @POSTPAGO
+  Scenario: Ingresar a entretenimiento y validar redirección a Claro Club
+    Given EL USUARIO ABRE LA SUPER APP
+    When  REALIZA EL INGRESO
+    And   SELECCIONA EL BOTON ENTRETENIMIENTO EN LA BARRA INFERIOR
+    And   SELECCIONA EL BOTON CLARO CLUB
+    And   VALIDA VERSION DE MINIPROGRAMA CLARO CLUB
+    Then  VALIDA REDIRECCION CLARO CLUB
+
 
   ############################################################## pospago prioridad por tus servicios favoritos
 

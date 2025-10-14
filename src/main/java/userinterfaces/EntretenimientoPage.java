@@ -13,7 +13,7 @@ public class EntretenimientoPage {
             .located(By.xpath("//*[@text='Continuar']"));
 
     public static final Target BTN_CLOSE = Target.the("Botón Close")
-            .locatedBy("//android.widget.Button[@text='Close']");
+            .locatedBy("//android.view.View[@content-desc=\"2359-claro-club-participa-en-la-liga-claro-de-red-bull-tetris\"]");
 
     public static final Target BTN_CONTINUAR_2 = Target.the("Botón 'Continuar' (segundo)")
             .locatedBy("(//android.widget.Button[@text='Continuar'])[2]");
@@ -23,6 +23,9 @@ public class EntretenimientoPage {
 
     public static final Target BTN_ACEPTAR_ET = Target.the("Botón 'Aceptar'")
             .locatedBy("//android.widget.Button[@text='Aceptar']");
+
+    public static final Target RADIO_BT_ACEPTAR = Target.the("Botón 'Aceptar'")
+            .locatedBy("//*[@class='android.view.View' and ./*[@text='Aceptar']]");
 
     public static final Target IMAGEN_NETFLIX =
             Target.the("Imagen genérica en la App Mi Claro")

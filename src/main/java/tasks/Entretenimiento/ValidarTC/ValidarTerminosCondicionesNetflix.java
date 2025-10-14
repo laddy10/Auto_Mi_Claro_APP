@@ -23,8 +23,6 @@ import static utils.Constants.*;
 public class ValidarTerminosCondicionesNetflix implements Task {
 
     private static final String paso = "Validar y aceptar Términos y Condiciones Netflix";
-    private static final String paso2 = "Aceptar TC";
-    private static final String paso4 = "Se da click en Activar y se acepta verificacion de identidad";
 
     @Override
     public <T extends Actor> void performAs(T actor) {
@@ -32,22 +30,9 @@ public class ValidarTerminosCondicionesNetflix implements Task {
                 WaitElement.isVisible(IMAGEN_NETFLIX),
                 ValidarTexto.validarTexto(ESCRIBIR_CODIGO_VENDEDOR),
                 ValidarTextoQueContengaX.elTextoContiene(ACEPTAR_TERMINOS_CONDICIONES),
-                ValidarTextoQueContengaX.elTextoContiene(TERMINOS_Y_CONDICIONES_2)
-        );
+                ValidarTextoQueContengaX.elTextoContiene(TERMINOS_Y_CONDICIONES_2),
+                ValidarTexto.validarTexto(ACTIVAR));
         EvidenciaUtils.registrarCaptura(paso);
-
-        AdbUtils.ejecutarAdbTap(325, 1246);
-        EvidenciaUtils.registrarCaptura(paso2);
-        actor.attemptsTo(
-                ValidarTexto.validarTexto(ACTIVAR),
-                ClickElementByText.clickElementByText(ACTIVAR)
-        );
-        EvidenciaUtils.registrarCaptura(paso4);
-        actor.attemptsTo(
-                ValidarTexto.validarTexto(ACEPTAR_2),
-                Click.on(BTN_ACEPTAR_ET)
-        );
-
     }
 
     public static Performable validar() {

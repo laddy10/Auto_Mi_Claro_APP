@@ -30,6 +30,7 @@ public class ValidarRedireccionClaroClub implements Task {
         actor.attemptsTo(
                 WaitFor.aTime(8000),
                 Click.on(BTN_CLOSE),
+                WaitFor.aTime(2000),
                 ValidarTextoQueContengaX.elTextoContiene("Categorías")
         );
         EvidenciaUtils.registrarCaptura(paso1);
