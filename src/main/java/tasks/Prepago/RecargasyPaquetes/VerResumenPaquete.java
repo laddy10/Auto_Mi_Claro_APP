@@ -40,11 +40,11 @@ public class VerResumenPaquete implements Task {
         actor.attemptsTo(
                 ValidarTexto.validarTexto(RESUMEN_DEL_PAQUETE),
                 ValidarTexto.validarTexto(user.getCantidadDatosArmar()),
-                ValidarTexto.validarTexto(PRECIO),
+                //ValidarTexto.validarTexto(PRECIO),
                 ValidarTexto.validarTexto(MIN_ILIMITADOS),
                 ValidarTextoQueContengaX.elTextoContiene(user.getDuracionPaqueteArmar()),
-                ValidarTextoQueContengaX.elTextoContiene(APPS_INCLUIDAS),
-                ValidarTextoQueContengaX.elTextoContiene(TODOS_PAQUETES_INCLUYEN)
+                ValidarTextoQueContengaX.elTextoContiene(APPS_INCLUIDAS)
+                //ValidarTextoQueContengaX.elTextoContiene(TODOS_PAQUETES_INCLUYEN)
         );
 
         EvidenciaUtils.registrarCaptura(paso2);

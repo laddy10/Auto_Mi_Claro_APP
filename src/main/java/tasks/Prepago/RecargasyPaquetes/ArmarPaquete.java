@@ -60,7 +60,7 @@ public class ArmarPaquete implements Task {
         actor.attemptsTo(
                 ValidarTextoQueContengaX.elTextoContiene(ELIGE_DURACION_PAQUETE),
                 ClickTextoQueContengaX.elTextoContiene(user.getDuracionPaqueteArmar()),
-                WaitFor.aTime(1000)
+                WaitFor.aTime(3000)
         );
 
 

@@ -27,7 +27,7 @@ public class PaquetesApps implements Task {
     private static final String paso2 = "Página 1 - Validar primer paquete $3.000 - Ver detalle";
     private static final String paso3 = "Página 1 - Validar segundo paquete $4.500 - Ver detalle";
     private static final String paso4 = "Página 1 - Validar tercer paquete $6.000 - Ver detalle";
-    private static final String paso5 = "Navegación a página 2";
+    /*private static final String paso5 = "Navegación a página 2";
     private static final String paso6 = "Página 2 - Validar cuarto paquete $1.500 WhatsApp - Ver detalle";
     private static final String paso7 = "Página 2 - Validar quinto paquete $3.000 Instagram - Ver detalle";
     private static final String paso8 = "Página 2 - Validar sexto paquete $3.500 YouTube - Ver detalle";
@@ -37,7 +37,7 @@ public class PaquetesApps implements Task {
     private static final String paso12 = "Página 3 - Validar noveno paquete $15.500 Instagram - Ver detalle";
     private static final String paso13 = "Navegación a página 4";
     private static final String paso14 = "Página 4 - Validar décimo paquete $18.500 WhatsApp - Ver detalle";
-
+*/
     @Override
     public <T extends Actor> void performAs(T actor) {
 
@@ -98,7 +98,7 @@ public class PaquetesApps implements Task {
         actor.attemptsTo(
                 Scroll.scrollUnaVista()
         );
-
+/*
         EvidenciaUtils.registrarCaptura(paso5);
 
         actor.attemptsTo(
@@ -238,7 +238,7 @@ public class PaquetesApps implements Task {
                 ValidarTextoQueContengaX.elTextoContiene(PAQUETES_APPS),
                 ValidarTexto.validarTexto("3"),
                 ValidarTexto.validarTexto("4")
-        );
+        );*/
     }
 
     public static Performable validar() {

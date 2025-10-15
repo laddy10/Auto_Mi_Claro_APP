@@ -6,6 +6,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.questions.Presence;
 import net.serenitybdd.screenplay.targets.Target;
 import utils.EvidenciaUtils;
 
@@ -27,10 +28,18 @@ public class ValidarRedireccionClaroClub implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
+
+        // ✅ Nueva condición: si está visible el botón de cerrar (BTN_CLOSE), hace clic.
+        if (isVisible(actor, BTN_CLOSE)) {
+            actor.attemptsTo(
+                    Click.on(BTN_CLOSE),
+                    WaitFor.aTime(1000)
+            );
+        }
+
+        // Flujo principal
         actor.attemptsTo(
                 WaitFor.aTime(8000),
-                Click.on(BTN_CLOSE),
-                WaitFor.aTime(2000),
                 ValidarTextoQueContengaX.elTextoContiene("Categorías")
         );
         EvidenciaUtils.registrarCaptura(paso1);
@@ -50,6 +59,11 @@ public class ValidarRedireccionClaroClub implements Task {
         validarCategoria(actor, EDUCACION, "Educación", paso10);
 
         EvidenciaUtils.registrarCaptura(pasoFinal);
+    }
+
+    // ✅ Método reutilizable para validar si un elemento está presente en pantalla
+    private <T extends Actor> boolean isVisible(T actor, Target element) {
+        return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
     }
 
     private <T extends Actor> void validarCategoria(T actor, Target categoriaTarget, String textoValidacion, String pasoCaptura) {
