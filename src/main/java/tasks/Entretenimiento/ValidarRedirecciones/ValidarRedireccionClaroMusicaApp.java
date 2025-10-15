@@ -2,7 +2,6 @@ package tasks.Entretenimiento.ValidarRedirecciones;
 
 import interactions.validations.ValidarElemento;
 import interactions.wait.WaitFor;
-import io.appium.java_client.android.AndroidDriver;
 import interactions.validations.ValidarTexto;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -23,14 +22,6 @@ public class ValidarRedireccionClaroMusicaApp implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
 
-       /* // Obtener el driver Appium
-        WebDriverFacade facade = (WebDriverFacade) BrowseTheWeb.as(actor).getDriver();
-        AndroidDriver driver = (AndroidDriver) BrowseTheWeb.as(actor).getDriver();
-
-
-        // Activar la app Claro Música
-        driver.activateApp("com.claro.claromusica.latam");*/
-
         // Esperar a que la app cargue
         try {
             Thread.sleep(12000);
@@ -38,6 +29,16 @@ public class ValidarRedireccionClaroMusicaApp implements Task {
             e.printStackTrace();
         }
         actor.attemptsTo(WaitFor.aTime(1000)); // medio segundo antes de validar
+
+        // ✅ Nueva condición: Si aparece "Aceptar y continuar", hacer clic
+        if (isVisible(actor, BTN_ACEPTAR_CONTINUAR)) {
+            actor.attemptsTo(
+                    Click.on(BTN_ACEPTAR_CONTINUAR),
+                    WaitFor.aTime(1000)
+            );
+        }
+
+        // Si aparece el mensaje de alerta, hacer clic en confirmar
         if (isVisible(actor, LBL_MENSAJE_ALERT)) {
             actor.attemptsTo(
                     Click.on(BTN_ALERT_CONFIRM)
@@ -45,7 +46,8 @@ public class ValidarRedireccionClaroMusicaApp implements Task {
         } else {
             actor.attemptsTo(WaitFor.aTime(1000));
         }
-        // Validar elementos visibles en Claro Música (ajusta si cambian)
+
+        // Validar elementos visibles en Claro Música
         actor.attemptsTo(
                 ValidarTexto.validarTexto("Escucha gratis"),
                 ValidarTexto.validarTexto("Entrar")

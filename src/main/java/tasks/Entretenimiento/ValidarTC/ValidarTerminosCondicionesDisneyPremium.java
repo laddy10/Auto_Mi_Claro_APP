@@ -17,7 +17,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import utils.EvidenciaUtils;
 
 public class ValidarTerminosCondicionesDisneyPremium implements Task {
-  private static final String paso = "Validar Plan y Términos y Condiciones Disney+";
+  //private static final String paso = "Validar Plan y Términos y Condiciones Disney+";
   private static final String paso2 = "Aceptar TC";
   private static final String paso3 = "Aceptar";
 
@@ -26,8 +26,6 @@ public class ValidarTerminosCondicionesDisneyPremium implements Task {
     actor.attemptsTo(
         WaitForResponse.withText("Disney+ Premium"),
         ValidarTextoQueContengaX.elTextoContiene("Disney+ Premium"));
-    EvidenciaUtils.registrarCaptura(paso);
-    actor.attemptsTo(Click.on(BTN_ELEGIR_PLAN));
     EvidenciaUtils.registrarCaptura(paso2);
     actor.attemptsTo(
             Click.on(CHECK_TERMINOS),
