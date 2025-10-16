@@ -13,7 +13,7 @@ public class EntretenimientoPage {
             .located(By.xpath("//*[@text='Continuar']"));
 
     public static final Target BTN_CLOSE = Target.the("Botón Close")
-            .locatedBy("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.app.Dialog/android.view.View/android.view.View/android.view.View[1]/android.widget.Button");
+            .located(By.xpath("//android.view.View[@content-desc=\"2356-burger-king-25dto-combos-de-menu-regular\"]"));
 
     public static final Target BTN_CONTINUAR_2 = Target.the("Botón 'Continuar' (segundo)")
             .locatedBy("(//android.widget.Button[@text='Continuar'])[2]");
