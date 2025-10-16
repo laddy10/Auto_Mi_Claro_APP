@@ -52,7 +52,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then  VALIDA DETALLE ULTIMA FACTURACION
 
 
-  @SA010 @Ignore
+
   Scenario: Ingresar a paga tu factura y validar historial de pagos
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
