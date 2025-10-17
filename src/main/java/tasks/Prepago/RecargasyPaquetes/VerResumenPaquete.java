@@ -15,6 +15,7 @@ import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static userinterfaces.PagosYConsultasPage.CUADRO_RESUMEN;
 import static utils.Constants.*;
 
 public class VerResumenPaquete implements Task {
@@ -38,13 +39,14 @@ public class VerResumenPaquete implements Task {
 
         // Validar pantalla de resumen
         actor.attemptsTo(
+                Click.on(CUADRO_RESUMEN),
                 ValidarTexto.validarTexto(RESUMEN_DEL_PAQUETE),
                 ValidarTexto.validarTexto(user.getCantidadDatosArmar()),
-                //ValidarTexto.validarTexto(PRECIO),
+                ValidarTexto.validarTexto(PRECIO),
                 ValidarTexto.validarTexto(MIN_ILIMITADOS),
                 ValidarTextoQueContengaX.elTextoContiene(user.getDuracionPaqueteArmar()),
-                ValidarTextoQueContengaX.elTextoContiene(APPS_INCLUIDAS)
-                //ValidarTextoQueContengaX.elTextoContiene(TODOS_PAQUETES_INCLUYEN)
+                ValidarTextoQueContengaX.elTextoContiene(APPS_INCLUIDAS),
+                ValidarTextoQueContengaX.elTextoContiene(TODOS_PAQUETES_INCLUYEN)
         );
 
         EvidenciaUtils.registrarCaptura(paso2);

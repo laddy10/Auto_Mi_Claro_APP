@@ -143,4 +143,8 @@ public class PagosYConsultasPage {
     public static final Target LBL_ELEGIR_OTRO_MEDIO_PAGO =
             Target.the("Texto Elegir otro medio de pago")
                     .located(By.xpath("//*[@text='Elegir otro medio de pago']"));
+
+    public static final Target CUADRO_RESUMEN =
+            Target.the("Cuadro de ver resumen del paquete")
+                    .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]"));
 }
