@@ -13,7 +13,7 @@ public class EntretenimientoPage {
             .located(By.xpath("//*[@text='Continuar']"));
 
     public static final Target BTN_CLOSE = Target.the("Botón Close")
-            .located(By.xpath("//android.view.View[@content-desc=\"2356-burger-king-25dto-combos-de-menu-regular\"]"));
+            .located(By.xpath("(//android.view.View[@clickable=\"true\"])[1]\n"));
 
     public static final Target BTN_CONTINUAR_2 = Target.the("Botón 'Continuar' (segundo)")
             .locatedBy("(//android.widget.Button[@text='Continuar'])[2]");
