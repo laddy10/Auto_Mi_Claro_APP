@@ -65,14 +65,11 @@ public class AndroidObject extends Excepciones {
 
     public static void scrollToText(Actor actor, String texto) {
         try {
-            // Se crea un UiScrollable que se moverá solo hacia adelante (hacia abajo)
             androidDriver(actor).findElement(
-                    new MobileBy.ByAndroidUIAutomator(
+                    new MobileBy.ByAndroidUIAutomator((
                             "new UiScrollable(new UiSelector().scrollable(true))" +
-                                    ".setAsVerticalList()" +
-                                    ".scrollForward()" +
                                     ".scrollIntoView(new UiSelector().textContains(\"" + texto + "\"))"
-                    )
+                    ))
             );
         } catch (Exception e) {
             throw new RuntimeException("No se encontró el texto al hacer scroll: " + texto, e);
