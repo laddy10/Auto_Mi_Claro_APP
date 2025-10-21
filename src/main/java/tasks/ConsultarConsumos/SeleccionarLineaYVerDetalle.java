@@ -8,21 +8,27 @@ import static utils.Constants.*;
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.ScrollHastaTexto;
 import interactions.wait.WaitFor;
+import models.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import utils.AndroidObject;
 import utils.EvidenciaUtils;
+import utils.TestDataProvider;
 
 public class SeleccionarLineaYVerDetalle implements Task {
 
-  private static final String paso = "Seleccionar Línea y Ver Detalle";
+  private static final User user = TestDataProvider.getRealUser();
+  private static final String paso = "Seleccionar Línea y Ver Detalle" + user.getNumero();
 
   @Override
   public <T extends Actor> void performAs(T actor) {
+
+    AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumero() + " " + VER_DETALLE);
+
     actor.attemptsTo(
-        ScrollHastaTexto.conTexto(LINEA_POST),
-        ClickTextoQueContengaX.elTextoContiene(VER_DETALLE),
+            ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
         WaitUntil.the(LBL_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds(),
         WaitFor.aTime(3000));
 

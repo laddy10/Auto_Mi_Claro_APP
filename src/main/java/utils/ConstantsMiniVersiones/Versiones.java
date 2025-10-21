@@ -26,7 +26,7 @@ public class Versiones {
 
     public static final String MINI_VERSION_DETALLE_DE_TU_PLAN_CONSTANT = "Ver 1.1.97 (2025-10-09)";
 
-    public static final String MINI_VERSION_ADQUIRIR_PRODUCTOS_CONSTANT = "Ver 1.0.307 (2025-08-13)";
+    public static final String MINI_VERSION_ADQUIRIR_PRODUCTOS_CONSTANT = "Ver 1.0.307 (2025-10-20)";
 
     public static final String MINI_VERSION_CONSULTAR_CONSUMOS_CONSTANT = "Ver 1.0.365 (2025-07-30)";
 
