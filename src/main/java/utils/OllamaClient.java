@@ -1,17 +1,31 @@
 package utils;
 
 import okhttp3.*;
-
+import org.json.JSONObject; // <-- Asegúrate de tener org.json en tu proyecto
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class OllamaClient {
+    private static final String OLLAMA_URL = "http://127.0.0.1:11434/api/generate";
 
-    private static final String OLLAMA_URL = "http://localhost:11434/api/generate";
-    private final OkHttpClient client = new OkHttpClient();
+    private final OkHttpClient client = new OkHttpClient.Builder()
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .writeTimeout(60, TimeUnit.SECONDS)
+            .readTimeout(120, TimeUnit.SECONDS)
+            .build();
 
     public String ask(String prompt) throws IOException {
-        // Construimos el JSON del prompt
-        String json = "{ \"model\": \"mistral\", \"prompt\": \"" + prompt + "\" }";
+        String safePrompt = prompt
+                .replace("\\", "\\\\")
+                .replace("\"", "\\\"")
+                .replace("\n", "\\n")
+                .replace("\r", "");
+
+        String json = "{"
+                + "\"model\": \"mistral\","
+                + "\"stream\": false,"
+                + "\"prompt\": \"" + safePrompt + "\""
+                + "}";
 
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         RequestBody body = RequestBody.create(JSON, json);
@@ -25,7 +39,31 @@ public class OllamaClient {
             if (!response.isSuccessful()) {
                 throw new IOException("Error en la llamada a Ollama: " + response);
             }
-            return response.body() != null ? response.body().string() : "Sin respuesta del modelo";
+
+            if (response.body() == null) {
+                throw new IOException("Respuesta vacía del modelo");
+            }
+
+            String bodyString = response.body().string();
+
+            // ✅ Extraer solo el campo “response” del JSON
+            try {
+                JSONObject jsonResponse = new JSONObject(bodyString);
+                return jsonResponse.optString("response", bodyString);
+            } catch (Exception e) {
+                return bodyString; // Si no es JSON, devolver tal cual
+            }
+        }
+    }
+
+    // 🔹 Prueba rápida local
+    public static void main(String[] args) {
+        try {
+            OllamaClient client = new OllamaClient();
+            String respuesta = client.ask("Hola, ¿puedes responder brevemente?");
+            System.out.println("🧠 Respuesta de Ollama:\n" + respuesta);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

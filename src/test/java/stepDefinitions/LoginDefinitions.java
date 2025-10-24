@@ -15,6 +15,7 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import tasks.Login.IngresoSuperApp;
 import tasks.Login.LoginConCedula;
 import tasks.Login.VersionSuperApp;
+import tasks.Ollama.ValidateLocatorsWithOllama;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 import utils.WordAppium;
@@ -69,4 +70,13 @@ public class LoginDefinitions {
         );
     }
 
+   /* @When("verifico los siguientes localizadores o textos {string} contra el page source {string}")
+    public void verificoLosLocalizadoresContraElPageSource(String locatorsOrTexts, String xmlFileName) {
+        // Leer maxLocatorsToSend desde serenity.properties si prefieres (por ejemplo 100)
+        int maxLocatorsToSend = 100; // ajustable o configurable
+
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                ValidateLocatorsWithOllama.using(xmlFileName, locatorsOrTexts, maxLocatorsToSend)
+        );
+    }*/
 }

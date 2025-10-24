@@ -338,4 +338,17 @@ public class EntretenimientoPage {
 
     public static final Target BTN_ACEPTAR_CONTINUAR = Target.the("Botón Aceptar y continuar")
             .locatedBy("//*[@text='Aceptar y continuar']");
+
+    public static final Target MSJ_ALERTA_INGRESO = Target.the("Mensaje de alerta ¡Bienvenido! Disfruta gratis")
+            .locatedBy("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.widget.TextView[3]");
+
+    public static final Target LOGO_CLARO_MUSICA = Target.the("Logo claro musica dentro de la app")
+            .locatedBy("//android.widget.ImageView[@content-desc=\"Cm Logo\"]");
+
+    public static final Target BTN_ENTENDIDO = Target.the("Botón entendido")
+            .locatedBy("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.widget.TextView");
+
+    public static final Target BTN_ESCUCHA_GRATIS = Target.the("Botón Escucha gratis")
+            .locatedBy("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.Button");
+
 }

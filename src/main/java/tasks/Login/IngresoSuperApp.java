@@ -1,6 +1,7 @@
 package tasks.Login;
 
 import interactions.Click.ClickElementByText;
+import interactions.Click.ClickTextoQueContengaX;
 import interactions.comunes.Atras;
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.validations.ValidateInformationText;
@@ -144,6 +145,9 @@ public class IngresoSuperApp implements Task {
     }
 
     private <T extends Actor> void iniciarSesion(T actor) {
+        if (isVisible(actor, LBL_INICIAR_SESION)){
+            actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(INICIAR_SESION));
+        }
         actor.attemptsTo(
                 ClickElementByText.clickElementByText(CONTINUAR),
                 Enter.theValue(user.getPassword()).into(TXT_PASSWORD),

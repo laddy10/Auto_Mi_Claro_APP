@@ -1,5 +1,6 @@
 package tasks.Entretenimiento.ValidarRedirecciones;
 
+import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarElemento;
 import interactions.wait.WaitFor;
 import interactions.validations.ValidarTexto;
@@ -10,6 +11,8 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.questions.Presence;
 import net.serenitybdd.screenplay.targets.Target;
 import utils.EvidenciaUtils;
+
+import javax.swing.text.html.parser.Element;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static userinterfaces.EntretenimientoPage.*;
@@ -47,12 +50,26 @@ public class ValidarRedireccionClaroMusicaApp implements Task {
             actor.attemptsTo(WaitFor.aTime(1000));
         }
 
-        // Validar elementos visibles en Claro Música
-        actor.attemptsTo(
-                ValidarTexto.validarTexto("Escucha gratis"),
-                ValidarTexto.validarTexto("Entrar")
-        );
+        // ✅ Nueva condición:Si ingresa a una sesión verifica el mensaje y continúa
+        if (isVisible(actor, MSJ_ALERTA_INGRESO)) {
+            if (isVisible(actor, BTN_ENTENDIDO)) {
+                actor.attemptsTo(
+                        ClickTextoQueContengaX.elTextoContiene(ENTENDIDO)
+                );
+            }
+            actor.attemptsTo(
+                    (Performable) ValidarElemento.esVisible(LOGO_CLARO_MUSICA)
+            );
+        }
 
+        // Validar elementos visibles en Claro Música si no hay sesiòn iniciada
+
+        if(isVisible(actor, BTN_ESCUCHA_GRATIS)) {
+            actor.attemptsTo(
+                    ValidarTexto.validarTexto("Escucha gratis"),
+                    ValidarTexto.validarTexto("Entrar")
+            );
+        }
         EvidenciaUtils.registrarCaptura(paso);
     }
 
