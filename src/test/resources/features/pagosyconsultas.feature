@@ -277,7 +277,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then  VALIDA REDIRECCIONAMIENTO A PAGINA CLARO
 
 
-  @SA034 @POSTPAGO
+  @SA034
   Scenario: eSIM Claro
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO

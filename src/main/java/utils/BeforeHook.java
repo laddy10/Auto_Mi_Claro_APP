@@ -14,28 +14,24 @@ import org.junit.Before;
 
 public class BeforeHook {
 
-  /********** Log Attribute **********/
   private static final Logger LOGGER = Logger.getLogger(BeforeHook.class);
-
   private static boolean listenerRegistrado = false;
 
   @Before
   public void initScenario(Scenario scenario) {
-    LOGGER.info(
-            "************************************************************************************************");
-    LOGGER.info("[ Start stage ] --> " + scenario.getName());
-    LOGGER.info(
-            "************************************************************************************************");
+    LOGGER.info("\n══════════════════════════════════════════════════════");
+    LOGGER.info("🚀 Iniciando escenario: " + scenario.getName());
+    LOGGER.info("══════════════════════════════════════════════════════");
 
-    // 🔹 Inicializa el escenario
-    OnStage.setTheStage(new OnlineCast());
-
-    // 🔹 Registra el listener SOLO UNA VEZ
+    // 🔹 Registrar el listener de Ollama solo una vez
     if (!listenerRegistrado) {
-      LOGGER.info("🧩 Registrando OllamaStepListener para análisis automático de errores...");
       StepEventBus.getEventBus().registerListener(new OllamaStepListener());
       listenerRegistrado = true;
+      LOGGER.info("[OLLAMA] Listener registrado correctamente ✅");
     }
+
+    // 🔹 Inicializar actores de Serenity
+    OnStage.setTheStage(new OnlineCast());
   }
 
   public static void prepareStage(String urlBase) {
@@ -45,10 +41,8 @@ public class BeforeHook {
 
   @After
   public void endScenario(Scenario scenario) {
-    LOGGER.info(
-            "************************************************************************************************");
-    LOGGER.info("[ End of stage ] --> " + scenario.getName());
-    LOGGER.info(
-            "************************************************************************************************");
+    LOGGER.info("══════════════════════════════════════════════════════");
+    LOGGER.info("🏁 Escenario finalizado: " + scenario.getName());
+    LOGGER.info("══════════════════════════════════════════════════════\n");
   }
 }
