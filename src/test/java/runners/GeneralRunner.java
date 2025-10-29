@@ -20,7 +20,7 @@ import java.io.IOException;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = {"stepDefinitions", "utils", "hooks"},
+        glue = {"stepDefinitions", "utils", "hooks", "listeners"},
         snippets = SnippetType.CAMELCASE,
         plugin = {"pretty"},
         tags = "@SA001"

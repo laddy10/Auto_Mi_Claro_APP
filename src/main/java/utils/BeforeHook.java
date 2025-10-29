@@ -19,18 +19,17 @@ public class BeforeHook {
 
   @Before
   public void initScenario(Scenario scenario) {
-    LOGGER.info("\n══════════════════════════════════════════════════════");
-    LOGGER.info("🚀 Iniciando escenario: " + scenario.getName());
-    LOGGER.info("══════════════════════════════════════════════════════");
+    LOGGER.info("************************************************************************************************");
+    LOGGER.info("[ Start stage ] --> " + scenario.getName());
+    LOGGER.info("************************************************************************************************");
 
-    // 🔹 Registrar el listener de Ollama solo una vez
+    // ✅ Registrar el listener de Ollama solo una vez
     if (!listenerRegistrado) {
       StepEventBus.getEventBus().registerListener(new OllamaStepListener());
       listenerRegistrado = true;
-      LOGGER.info("[OLLAMA] Listener registrado correctamente ✅");
+      LOGGER.info("[OLLAMA] Listener registrado correctamente en BeforeHook.");
     }
 
-    // 🔹 Inicializar actores de Serenity
     OnStage.setTheStage(new OnlineCast());
   }
 
@@ -41,8 +40,8 @@ public class BeforeHook {
 
   @After
   public void endScenario(Scenario scenario) {
-    LOGGER.info("══════════════════════════════════════════════════════");
-    LOGGER.info("🏁 Escenario finalizado: " + scenario.getName());
-    LOGGER.info("══════════════════════════════════════════════════════\n");
+    LOGGER.info("************************************************************************************************");
+    LOGGER.info("[ End of stage ] --> " + scenario.getName());
+    LOGGER.info("************************************************************************************************");
   }
 }
