@@ -9,7 +9,7 @@ public class Constants {
     public static final String NO_PERMITIR = "No permitir";
     public static final String OMITIR = "Omitir";
     public static final String INICIAR_SESION = "Iniciar sesión";
-    public static final String VERSION = "Version";
+    public static final String VERSION = "Versión";
     public static final String OTROS_METODOS_DE_INGRESO = "Otros métodos de ingreso";
     public static final String CORREO_ELECTRONICO = "Correo electrónico";
     public static final String PERFIL = "Perfil";
@@ -518,6 +518,7 @@ public class Constants {
     public static final String LABEL_CARGO_FACTURA = "Se cargará a tu factura postpago Claro";
     public static final String NO_TIENES_APLICACIONES_DISPONIBLES_ADMINISTRAR = "No tienes aplicaciones disponibles para administrar";
     public static final String ACTIVO = "activo";
+    public static final String TU_PLAN_NO_INCLUYE_ESTA_FUNCIONALIDAD = "Tu plan actual no incluye esta funcionalidad";
 
 
     //Sesión Explora y compra

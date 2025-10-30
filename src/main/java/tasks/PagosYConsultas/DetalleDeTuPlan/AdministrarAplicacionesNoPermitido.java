@@ -14,7 +14,7 @@ import utils.EvidenciaUtils;
 public class AdministrarAplicacionesNoPermitido implements Task {
 
   private static final String paso1 = "Ingresar Administra las aplicaciones incluidas";
-  private static final String paso2 = "Validar popup - No tienes aplicaciones disponibles";
+  private static final String paso2 = "Validar popup - Tu plan actual no incluye esta funcionalidad";
 
   @Override
   public <T extends Actor> void performAs(T actor) {
@@ -30,7 +30,7 @@ public class AdministrarAplicacionesNoPermitido implements Task {
     EvidenciaUtils.registrarCaptura(paso2);
 
     actor.attemptsTo(
-        ValidarTexto.validarTexto(NO_TIENES_APLICACIONES_DISPONIBLES_ADMINISTRAR),
+        ValidarTexto.validarTexto(TU_PLAN_NO_INCLUYE_ESTA_FUNCIONALIDAD),
         ValidarTexto.validarTexto(ACEPTAR_2),
         ClickTextoQueContengaX.elTextoContiene(ACEPTAR_2));
   }

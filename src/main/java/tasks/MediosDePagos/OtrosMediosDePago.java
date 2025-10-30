@@ -28,9 +28,9 @@ public class OtrosMediosDePago implements Task {
     private static final String PASO_TARJETA_CODENSA = "Por medio de Tarjeta Codensa";
     private static final String PASO_BANCOLOMBIA = "Por medio de Bancolombia";
 
-    private static final int TIMEOUT_SHORT = 800;
-    private static final int TIMEOUT_MEDIUM = 1500;
-    private static final int TIMEOUT_LONG = 2500;
+    private static final int TIMEOUT_SHORT = 1200;
+    private static final int TIMEOUT_MEDIUM = 1900;
+    private static final int TIMEOUT_LONG = 3200;
 
     @Override
     public <T extends Actor> void performAs(T actor) {

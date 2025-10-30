@@ -23,7 +23,7 @@ Feature: Ingresar al módulo de Atención al cliente y soporte con lìneas prepa
     Then  VERIFICA REDIRECCION A CLAROBOT
 
 
-  @PRE107 @PREPAGO
+  @PRE108 @PREPAGO
   Scenario: Estado de servicios técnicos Comcel Prepago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO

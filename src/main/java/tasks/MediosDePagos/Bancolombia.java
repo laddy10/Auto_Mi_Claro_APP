@@ -23,7 +23,7 @@ public class Bancolombia implements Task {
     public <T extends Actor> void performAs(T actor) {
 
         actor.attemptsTo(
-                WaitFor.aTime(5000)
+                WaitFor.aTime(10000)
         );
 
         // VALIDAR REDIRECCIÓN A PORTAL BANCOLOMBIA

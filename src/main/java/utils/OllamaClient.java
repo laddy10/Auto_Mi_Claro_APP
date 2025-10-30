@@ -1,76 +1,132 @@
 package utils;
 
-import okhttp3.*;
-import org.json.JSONObject;
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+
+/**
+ * Cliente para interactuar con Ollama API
+ *
+ * VERSIÓN OPTIMIZADA:
+ * ✅ Timeout aumentado a 3 minutos
+ * ✅ Manejo robusto de errores
+ * ✅ Logs informativos
+ */
 public class OllamaClient {
 
-    private static final String OLLAMA_URL = "http://127.0.0.1:11434/api/generate";
-    private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    private static final String OLLAMA_URL = System.getProperty(
+            "ollama.url",
+            "http://127.0.0.1:11434/api/generate"
+    );
 
-    private final OkHttpClient client = new OkHttpClient.Builder()
-            .connectTimeout(20, TimeUnit.SECONDS)
-            .writeTimeout(40, TimeUnit.SECONDS)
-            .readTimeout(90, TimeUnit.SECONDS)
-            .build();
+    private static final String MODEL = System.getProperty(
+            "ollama.model",
+            "Phi3"
+    );
+
+    // ✅ AUMENTAR TIMEOUT A 3 MINUTOS (180 segundos)
+    private static final int CONNECT_TIMEOUT = 10_000;  // 10 segundos para conectar
+    private static final int READ_TIMEOUT = 180_000;    // 3 minutos para leer respuesta
+
+    private final Gson gson;
+
+    public OllamaClient() {
+        this.gson = new Gson();
+        System.out.println("[OLLAMA-CLIENT] Configurado:");
+        System.out.println("  URL: " + OLLAMA_URL);
+        System.out.println("  Modelo: " + MODEL);
+        System.out.println("  Timeout lectura: " + (READ_TIMEOUT / 1000) + " segundos");
+    }
 
     /**
-     * Envía una pregunta o instrucción al modelo Ollama local.
+     * Envía un prompt a Ollama y obtiene la respuesta completa
      *
-     * @param prompt Texto de entrada
-     * @return Respuesta del modelo
-     * @throws IOException si hay problema de conexión o respuesta
+     * @param prompt El prompt a enviar
+     * @return La respuesta de Ollama
+     * @throws IOException Si hay error de comunicación
      */
     public String ask(String prompt) throws IOException {
-        if (prompt == null || prompt.isEmpty()) {
-            throw new IllegalArgumentException("El prompt no puede ser nulo o vacío");
-        }
+        long startTime = System.currentTimeMillis();
 
-        String safePrompt = prompt
-                .replace("\\", "\\\\")
-                .replace("\"", "\\\"")
-                .replace("\n", "\\n")
-                .replace("\r", "");
+        try {
+            URL url = new URL(OLLAMA_URL);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-        String json = String.format(
-                "{\"model\": \"mistral\", \"stream\": false, \"prompt\": \"%s\"}",
-                safePrompt
-        );
+            // Configurar conexión
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setDoOutput(true);
 
-        RequestBody body = RequestBody.create(json, JSON);
-        Request request = new Request.Builder().url(OLLAMA_URL).post(body).build();
+            // ✅ CONFIGURAR TIMEOUTS
+            connection.setConnectTimeout(CONNECT_TIMEOUT);
+            connection.setReadTimeout(READ_TIMEOUT);
 
-        try (Response response = client.newCall(request).execute()) {
-            if (!response.isSuccessful()) {
-                throw new IOException("❌ Error en la llamada a Ollama: " + response);
+            // Construir request JSON
+            JsonObject requestBody = new JsonObject();
+            requestBody.addProperty("model", MODEL);
+            requestBody.addProperty("prompt", prompt);
+            requestBody.addProperty("stream", false);
+
+            // Enviar request
+            try (OutputStream os = connection.getOutputStream()) {
+                byte[] input = requestBody.toString().getBytes(StandardCharsets.UTF_8);
+                os.write(input, 0, input.length);
             }
 
-            if (response.body() == null) {
-                throw new IOException("❌ Respuesta vacía del modelo.");
+            // Leer respuesta
+            int responseCode = connection.getResponseCode();
+
+            if (responseCode != HttpURLConnection.HTTP_OK) {
+                throw new IOException("Ollama API error: HTTP " + responseCode);
             }
 
-            String bodyString = response.body().string();
-
-            // ✅ Intenta parsear el JSON, si no es JSON devuelve la cadena tal cual
-            try {
-                JSONObject jsonResponse = new JSONObject(bodyString);
-                return jsonResponse.optString("response", bodyString);
-            } catch (Exception e) {
-                return bodyString;
+            StringBuilder response = new StringBuilder();
+            try (BufferedReader br = new BufferedReader(
+                    new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    response.append(line);
+                }
             }
+
+            // Parsear respuesta JSON
+            JsonObject jsonResponse = gson.fromJson(response.toString(), JsonObject.class);
+            String answer = jsonResponse.get("response").getAsString();
+
+            long duration = System.currentTimeMillis() - startTime;
+            System.out.println("[OLLAMA-CLIENT] ✅ Respuesta recibida en " + (duration / 1000) + " segundos");
+
+            return answer;
+
+        } catch (java.net.SocketTimeoutException e) {
+            long duration = System.currentTimeMillis() - startTime;
+            System.err.println("[OLLAMA-CLIENT] ❌ Timeout después de " + (duration / 1000) + " segundos");
+            throw new IOException("Ollama timeout - considera usar un modelo más rápido o aumentar el timeout", e);
+        } catch (Exception e) {
+            long duration = System.currentTimeMillis() - startTime;
+            System.err.println("[OLLAMA-CLIENT] ❌ Error después de " + (duration / 1000) + " segundos: " + e.getMessage());
+            throw new IOException("Error comunicando con Ollama: " + e.getMessage(), e);
         }
     }
 
-    // 🔹 Método de prueba local (opcional)
-    public static void main(String[] args) {
+    /**
+     * Verifica si Ollama está disponible
+     *
+     * @return true si Ollama responde, false en caso contrario
+     */
+    public boolean isAvailable() {
         try {
-            OllamaClient client = new OllamaClient();
-            String respuesta = client.ask("Dime algo breve para probar conexión con Ollama.");
-            System.out.println("🧠 Respuesta de Ollama:\n" + respuesta);
+            String response = ask("test");
+            return response != null && !response.isEmpty();
         } catch (IOException e) {
-            System.err.println("🚫 Error al conectar con Ollama: " + e.getMessage());
+            return false;
         }
     }
 }
