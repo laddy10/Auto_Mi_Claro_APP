@@ -16,7 +16,7 @@ import java.io.IOException;
         glue = {"stepDefinitions", "utils", "hooks", "listeners"},
         snippets = SnippetType.CAMELCASE,
         plugin = {"pretty"},
-        tags = "@SA081"
+        tags = "@LOGIN_PIN_01"
 )
 public class GeneralRunner {
     @BeforeSuite
