@@ -12,9 +12,7 @@ import models.User;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-import tasks.Login.IngresoSuperApp;
-import tasks.Login.LoginConCedula;
-import tasks.Login.VersionSuperApp;
+import tasks.Login.*;
 import tasks.Ollama.ValidateLocatorsWithOllama;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
@@ -69,6 +67,30 @@ public class LoginDefinitions {
                 LoginConCedula.conCedula()
         );
     }
+
+
+    @When("^REALIZA EL INGRESO CON CORREO$")
+    public void ingresoCorreo() {
+        theActorInTheSpotlight().attemptsTo(
+                LoginOrquestado.con(LoginOrquestado.Metodo.CORREO)
+        );
+    }
+
+    @When("^REALIZA EL INGRESO CON DOCUMENTO$")
+    public void ingresoDocumento() {
+        theActorInTheSpotlight().attemptsTo(
+                LoginOrquestado.con(LoginOrquestado.Metodo.DOCUMENTO)
+        );
+    }
+
+    @When("^REALIZA EL INGRESO CON PIN$")
+    public void ingresoPIN() {
+        theActorInTheSpotlight().attemptsTo(
+                LoginOrquestado.con(LoginOrquestado.Metodo.PIN)
+        );
+    }
+
+
 
    /* @When("verifico los siguientes localizadores o textos {string} contra el page source {string}")
     public void verificoLosLocalizadoresContraElPageSource(String locatorsOrTexts, String xmlFileName) {

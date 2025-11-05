@@ -113,4 +113,22 @@ public class LoginPage {
 
   public static final Target LBL_TUS_SERVICIOS_FAVORITOS =
           Target.the("Label Tus servicios favoritos").located(By.id("card_mini_program_title_tv"));
+
+  // LoginPage.java
+  public static final Target LBL_WELCOME_BACK = Target.the("Pantalla Nos alegra tenerte de vuelta")
+          .locatedBy("//*[contains(@text,'Nos alegra tenerte de vuelta') or contains(@text,'Te damos la bienvenida a Mi Claro')]");
+
+  public static final Target BTN_CONTINUAR_WELCOME = Target.the("Botón Continuar (welcome back)")
+          .locatedBy("//*[contains(@text,'Continuar')]");
+
+  public static final Target LNK_INGRESAR_OTRA_CUENTA = Target.the("Link Ingresar con otra cuenta")
+          .locatedBy("//*[contains(@text,'Ingresar con otra cuenta') or contains(@text,'Iniciar sesión con otra cuenta')]");
+
+  public static final Target LNK_VOLVER_PRINCIPAL = Target.the("Volver a la página principal")
+          .locatedBy("//*[contains(@text,'Volver a la página principal')]");
+
+  public static final Target TXT_NUMERO =
+          Target.the("Ingresar numero o cuenta").located(By.id("input"));
+
+
 }

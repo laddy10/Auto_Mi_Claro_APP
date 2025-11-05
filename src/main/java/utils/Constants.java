@@ -716,4 +716,9 @@ public class Constants {
     public static final String CLARO_COLOMBIA = "Claro Colombia | Ofertas de celulares y planes";
     public static final String ENTRAR = "Entrar";
     public static final String TEXTO_CLARO_MUSICA = "Todo lo que te encanta escuchar, en un solo lugar.";
+    public static final String PIN = "PIN";
+    public static final String EN_OTRO_MOMENTO = "En otro momento";
+    public static final String CERRAR_SESION = "Cerrar sesión";
+    public static final String SI_CERRAR = "Si, cerrar";
+
 }
