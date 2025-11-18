@@ -4,6 +4,7 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
+import interactions.Scroll.Scroll;
 import interactions.Scroll.ScrollHastaTexto;
 import interactions.wait.WaitForResponse;
 import net.serenitybdd.screenplay.Actor;

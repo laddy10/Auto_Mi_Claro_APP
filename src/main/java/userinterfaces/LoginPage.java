@@ -130,5 +130,12 @@ public class LoginPage {
   public static final Target TXT_NUMERO =
           Target.the("Ingresar numero o cuenta").located(By.id("input"));
 
+  public static final Target MENU_USUARIO =
+          Target.the("Menú del perfil").located(By.id("com.clarocolombia.miclaro:id/iv_menu"));
 
+  public static final Target BANER_INICIO =
+          Target.the("Banner de pantalla de inicio").located(By.id("com.clarocolombia.miclaro:id/card_mini_program_banner_top_title_tv"));
+
+  public static final Target LBL_NOMBRE_USUARIO =
+          Target.the("Label que contiene el nombre de usuario").located(By.id("com.clarocolombia.miclaro:id/profile_welcome_title"));
 }

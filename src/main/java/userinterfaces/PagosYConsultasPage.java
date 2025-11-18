@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 public class PagosYConsultasPage {
 
     public static final Target BTN_TRES_PUNTOS_MAS =
-            Target.the("Boton de los 3 punticos para validar la mini versión")
+            Target.the("Boton de los 3 puntos para validar la mini versión")
                     .located(By.xpath("//android.widget.TextView[@content-desc=\"Más\"]"));
     public static final Target BTN_PAGAR_FACTURA =
             Target.the("Boton Pagar factura")

@@ -96,12 +96,13 @@ public class DetalleTuPlan implements Task {
                 ValidarTexto.validarTexto(LARGA_DISTANCIA_INTERNACIONAL),
 
                 // Validar texto botones
+                Scroll.scrollUnaVista(),
                 ValidarTexto.validarTexto(DESCRIPCION_DEL_PLAN),
                 ValidarTexto.validarTexto(FAMILIA_Y_AMIGOS),
                 ValidarTexto.validarTexto(APLICACIONES_ELEGIBLES),
-                ValidarTexto.validarTexto(GESTIONAR_MI_PLAN),
                 ValidarTexto.validarTexto(PAQUETES_ADICIONALES),
-                ValidarTexto.validarTexto(ADMINISTRAR_ROAMING));
+                ValidarTexto.validarTexto(ADMINISTRAR_ROAMING),
+                ValidarTexto.validarTexto(GESTIONAR_MI_PLAN));
 
         EvidenciaUtils.registrarCaptura(paso5);
     }

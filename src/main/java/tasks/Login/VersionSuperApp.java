@@ -1,6 +1,7 @@
 package tasks.Login;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static userinterfaces.LoginPage.MENU_USUARIO;
 import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
@@ -10,6 +11,8 @@ import models.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Click;
+import org.openqa.selenium.By;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
@@ -20,7 +23,7 @@ public class VersionSuperApp implements Task {
   @Override
   public <T extends Actor> void performAs(T actor) {
     actor.attemptsTo(
-        ClickTextoQueContengaX.elTextoContiene(PERFIL),
+            Click.on(MENU_USUARIO),
         ValidarTexto.validarTexto(user.getNombreUsuario()),
         ValidarTextoQueContengaX.elTextoContiene(VERSION));
 

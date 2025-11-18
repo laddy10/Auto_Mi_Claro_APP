@@ -50,7 +50,7 @@ public class ReportHooks {
     EstadoPrueba.fallo = false;
     EstadoPrueba.pasoFallido = "";
 
-   /* // 🔹 Registrar el listener de Ollama solo una vez
+   // 🔹 Registrar el listener de Ollama solo una vez
     if (!listenerRegistrado) {
       try {
         OllamaStepListener ollamaListener = new OllamaStepListener();
@@ -61,7 +61,7 @@ public class ReportHooks {
         System.err.println("❌ [OLLAMA] Error al registrar listener: " + e.getMessage());
         e.printStackTrace();
       }
-    }*/
+    }
 
     // 🔹 Inicializar actores de Serenity
     OnStage.setTheStage(new OnlineCast());

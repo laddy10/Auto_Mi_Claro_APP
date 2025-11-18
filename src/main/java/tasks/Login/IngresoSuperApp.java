@@ -38,16 +38,15 @@ public class IngresoSuperApp implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
+        if (isVisible(actor, LBL_TUS_SERVICIOS_FAVORITOS)) {
+            String encabezado = LBL_TUS_SERVICIOS_FAVORITOS.resolveFor(actor).getText();
 
-        if (isVisible(actor, LBL_ENCABEZADO_USUARIO)) {
-            String encabezado = LBL_ENCABEZADO_USUARIO.resolveFor(actor).getText();
-
-            if (encabezado.contains("Hola, Gerencia")) {
+            if (encabezado.contains("Tus servicios favoritos")) {
                 // Ya logueado, solo capturas
                 EvidenciaUtils.registrarCaptura("Usuario ya tiene sesión iniciada");
                 return; // Se corta aquí
             }
-            if (encabezado.contains("¡Hola!")) {
+            if (encabezado.contains("Te puede interesar")) {
                 // Usuario sin login, se continúa con flujo
                 EvidenciaUtils.registrarCaptura("Usuario sin sesión, se inicia login");
             }
@@ -83,8 +82,8 @@ public class IngresoSuperApp implements Task {
         }
 
         // 3. Validación final de que el login fue exitoso
-        actor.should(seeThat(ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
-                equalTo(user.getNombreUsuario())));
+
+        actor.attemptsTo(ValidarTextoQueContengaX.elTextoContiene(TUS_SERVICIOS_FAVORITOS));
         EvidenciaUtils.registrarCaptura(paso);
     }
 
@@ -214,8 +213,7 @@ public class IngresoSuperApp implements Task {
         maybeAutorizarVelocidad(actor);
 
         // Validación final del login exitoso
-        actor.should(seeThat(ValidateInformationText.validateInformationText(LBL_ENCABEZADO_USUARIO),
-                equalTo(user.getNombreUsuario())));
+        actor.attemptsTo(ValidarTextoQueContengaX.elTextoContiene(TUS_SERVICIOS_FAVORITOS));
     }
 
     private <T extends Actor> void maybeAceptarTerminos(T actor) {

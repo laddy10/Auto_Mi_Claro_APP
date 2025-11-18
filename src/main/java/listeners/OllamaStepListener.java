@@ -24,23 +24,18 @@ import java.util.Map;
 /**
  * Listener de Serenity optimizado para análisis con Ollama
  *
- * VERSIÓN FINAL CORREGIDA:
- * ✅ Implementa todas las firmas de StepListener correctamente
- * ✅ Maneja WebDriverFacade de Serenity
- * ✅ Solo se ejecuta cuando hay NoSuchElementException
- * ✅ Solo UNA VEZ por test
- * ✅ Captura page source correctamente
- * ✅ Puede deshabilitarse fácilmente
+ * VERSIÓN MEJORADA CON:
+ * ✅ Análisis de similitud de textos
+ * ✅ Detección inteligente de localizadores similares
+ * ✅ Sugerencias de código flexible
  *
  * Compatible con: Serenity BDD 2.0.71, Cucumber API 2.x, Java 11
  */
 public class OllamaStepListener implements StepListener {
 
-    // ✅ LEER SIN PREFIJO systemProp
     private static final boolean OLLAMA_ENABLED = Boolean.parseBoolean(
-            System.getProperty("ollama.enabled", "false")
+            System.getProperty("ollama.enabled", "true")
     );
-
     private static final String PAGE_SOURCE_DIR = "target/ollama/pagesources";
     private static final String REPORTS_DIR = "target/ollama/reports";
 
@@ -51,10 +46,7 @@ public class OllamaStepListener implements StepListener {
 
     public OllamaStepListener() {
         System.out.println("[OLLAMA] Inicializando listener optimizado...");
-
-        // Debug: Mostrar valor leído
-        System.out.println("[OLLAMA-DEBUG] ollama.enabled = " +
-                System.getProperty("ollama.enabled", "false (default)"));
+        System.out.println("[OLLAMA-DEBUG] ollama.enabled = " + System.getProperty("ollama.enabled", "false (default)"));
 
         this.ollamaClient = new OllamaClient();
 
@@ -77,17 +69,13 @@ public class OllamaStepListener implements StepListener {
                 System.out.println("   - Para deshabilitar: ollama.enabled=false");
             } else {
                 System.out.println("⚠️ [OLLAMA] No disponible");
-                System.out.println("   Para habilitar: ollama run Phi3");
+                System.out.println("   Para habilitar: ollama run phi3");
             }
         } else {
             System.out.println("ℹ️ [OLLAMA] Deshabilitado (ollama.enabled=false)");
         }
     }
 
-    /**
-     * ⚡ MÉTODO CLAVE: Solo se ejecuta cuando hay fallo
-     * Y SOLO UNA VEZ POR TEST
-     */
     @Override
     public void stepFailed(StepFailure failure) {
         if (!OLLAMA_ENABLED || !ollamaAvailable) {
@@ -95,14 +83,14 @@ public class OllamaStepListener implements StepListener {
         }
 
         if (alreadyAnalyzedCurrentTest) {
-            return; // Ya se analizó este test
+            return;
         }
 
         if (!isLocatorError(failure)) {
-            return; // No es error de localizador
+            return;
         }
 
-        alreadyAnalyzedCurrentTest = true; // Marcar como analizado
+        alreadyAnalyzedCurrentTest = true;
 
         String stepName = (failure.getDescription() != null)
                 ? failure.getDescription().getName()
@@ -139,11 +127,14 @@ public class OllamaStepListener implements StepListener {
         return isNoSuchElement || isLocatorInMessage;
     }
 
+    /**
+     * ✅ MÉTODO PRINCIPAL - Analiza fallo de localizador con IA
+     */
     private void analyzeLocatorFailure(String stepName, String errorMessage) {
         long startTime = System.currentTimeMillis();
 
         try {
-            System.out.println("[OLLAMA] 1/4 Capturando page source...");
+            System.out.println("[OLLAMA] 1/5 Capturando page source...");
 
             String pageSource = capturePageSource();
             if (pageSource == null || pageSource.isEmpty()) {
@@ -151,28 +142,35 @@ public class OllamaStepListener implements StepListener {
                 return;
             }
 
-            System.out.println("[OLLAMA] 2/4 Guardando XML (" + pageSource.length() + " caracteres)...");
+            System.out.println("[OLLAMA] 2/5 Guardando XML (" + pageSource.length() + " caracteres)...");
             String xmlFileName = savePageSource(pageSource, stepName);
 
-            System.out.println("[OLLAMA] 3/4 Extrayendo localizadores...");
+            System.out.println("[OLLAMA] 3/5 Extrayendo localizadores...");
             File xmlFile = new File(xmlFileName);
-            List<String> availableLocators = PageSourceParser.extractRelevantLocators(xmlFile, 20); // ✅ Reducir a 20
+            List<String> availableLocators = PageSourceParser.extractRelevantLocators(xmlFile, 20);
 
             if (availableLocators.isEmpty()) {
                 System.out.println("[OLLAMA] ⚠️  No se encontraron localizadores");
                 return;
             }
 
-            System.out.println("[OLLAMA] 4/4 Consultando a IA (" + availableLocators.size() + " localizadores)...");
-            String prompt = buildLocatorFailurePrompt(stepName, errorMessage, availableLocators);
+            // ✅ NUEVO: Análisis de similitud ANTES de llamar a la IA
+            System.out.println("[OLLAMA] 4/5 Analizando similitudes...");
+            String searchedText = extractSearchedText(errorMessage);
+            String similarityAnalysis = analyzeSimilarity(searchedText, availableLocators);
+
+            System.out.println(similarityAnalysis); // Mostrar en consola
+
+            System.out.println("[OLLAMA] 5/5 Consultando a IA (" + availableLocators.size() + " localizadores)...");
+            String prompt = buildLocatorFailurePrompt(stepName, errorMessage, availableLocators, searchedText);
 
             String analysis;
             try {
-                analysis = ollamaClient.ask(prompt);
+                String rawAnalysis = ollamaClient.ask(prompt);
+                analysis = similarityAnalysis + "\n" + rawAnalysis;
             } catch (IOException e) {
-                // ✅ FALLBACK: Mostrar localizadores sin análisis de IA
-                System.err.println("[OLLAMA] ⚠️  Timeout - mostrando localizadores sin análisis de IA");
-                analysis = generateFallbackAnalysis(availableLocators, errorMessage);
+                System.err.println("[OLLAMA] ⚠️  Timeout - mostrando análisis sin IA");
+                analysis = similarityAnalysis + "\n" + generateFallbackAnalysis(availableLocators, errorMessage);
             }
 
             long duration = System.currentTimeMillis() - startTime;
@@ -193,28 +191,175 @@ public class OllamaStepListener implements StepListener {
     }
 
     /**
-     * ✅ NUEVO: Generar análisis básico cuando Ollama falla
+     * ✅ NUEVO: Analiza similitud entre el texto buscado y los disponibles
      */
-    private String generateFallbackAnalysis(List<String> availableLocators, String errorMessage) {
-        StringBuilder fallback = new StringBuilder();
-
-        fallback.append("⚠️  Análisis de IA no disponible (timeout)\n\n");
-        fallback.append("LOCALIZADORES DISPONIBLES EN LA PANTALLA:\n\n");
-
-        int limit = Math.min(availableLocators.size(), 10);
-        for (int i = 0; i < limit; i++) {
-            fallback.append("  ").append(i + 1).append(". ").append(availableLocators.get(i)).append("\n");
+    private String analyzeSimilarity(String searchedText, List<String> availableLocators) {
+        if (searchedText == null || searchedText.isEmpty()) {
+            return "\n📋 No se pudo extraer el texto buscado para comparar\n";
         }
 
-        fallback.append("\nSugerencia: Verifica estos localizadores manualmente\n");
-        fallback.append("en el XML guardado en: target/ollama/pagesources/\n");
+        StringBuilder analysis = new StringBuilder();
+        analysis.append("\n🔍 ANÁLISIS DE SIMILITUD:\n");
+        analysis.append("Texto buscado: \"").append(searchedText).append("\"\n\n");
 
-        return fallback.toString();
+        boolean foundSimilar = false;
+
+        // Buscar localizadores con textos similares
+        for (int i = 0; i < availableLocators.size(); i++) {
+            String locator = availableLocators.get(i);
+
+            if (locator.contains("text=")) {
+                String locatorText = extractTextFromLocator(locator);
+
+                if (!locatorText.isEmpty()) {
+                    int similarity = calculateSimilarity(searchedText, locatorText);
+
+                    if (similarity > 70) {
+                        analysis.append(String.format("   ✅ %d%% similar (localizador #%d): %s\n",
+                                similarity, i + 1, locator));
+                        foundSimilar = true;
+                    } else if (similarity > 50) {
+                        analysis.append(String.format("   ⚠️  %d%% similar (localizador #%d): %s\n",
+                                similarity, i + 1, locator));
+                        foundSimilar = true;
+                    }
+                }
+            }
+        }
+
+        if (!foundSimilar) {
+            analysis.append("   ❌ No se encontraron textos similares (>50% similitud)\n");
+        }
+
+        return analysis.toString();
     }
 
     /**
-     * ✅ SOLUCIÓN CRÍTICA: Desenvolver WebDriverFacade para acceder a AppiumDriver
+     * ✅ NUEVO: Extrae el texto de un localizador
      */
+    private String extractTextFromLocator(String locator) {
+        try {
+            int start = locator.indexOf("text=\"");
+            if (start == -1) return "";
+
+            start += 6; // Saltar 'text="'
+            int end = locator.indexOf("\"", start);
+            if (end == -1) return "";
+
+            return locator.substring(start, end);
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
+    /**
+     * ✅ NUEVO: Calcula similitud entre dos strings (0-100)
+     */
+    private int calculateSimilarity(String s1, String s2) {
+        if (s1 == null || s2 == null) return 0;
+        if (s1.isEmpty() || s2.isEmpty()) return 0;
+
+        // Normalizar para comparación
+        s1 = s1.toLowerCase().trim();
+        s2 = s2.toLowerCase().trim();
+
+        if (s1.equals(s2)) return 100;
+
+        // Similitud basada en palabras comunes
+        String[] words1 = s1.split("\\s+");
+        String[] words2 = s2.split("\\s+");
+
+        int commonWords = 0;
+        for (String w1 : words1) {
+            for (String w2 : words2) {
+                if (w1.equalsIgnoreCase(w2)) {
+                    commonWords++;
+                    break;
+                }
+            }
+        }
+
+        int totalWords = Math.max(words1.length, words2.length);
+        if (totalWords == 0) return 0;
+
+        return (int) ((commonWords * 100.0) / totalWords);
+    }
+
+    /**
+     * ✅ MEJORADO: Construye prompt con análisis de similitud
+     */
+    private String buildLocatorFailurePrompt(String stepName, String errorMessage,
+                                             List<String> availableLocators, String searchedText) {
+        StringBuilder prompt = new StringBuilder();
+
+        prompt.append("Eres un experto en automatización mobile con Appium.\n\n");
+
+        // ✅ AGREGAR CONTEXTO DE SIMILITUD
+        prompt.append("⚠️ IMPORTANTE: El texto buscado puede tener variaciones pequeñas (fechas, números, versiones).\n");
+        prompt.append("Busca localizadores SIMILARES incluso si no son 100% idénticos.\n\n");
+
+        prompt.append("PROBLEMA:\n");
+        String locatorInfo = extractLocatorFromError(errorMessage);
+        prompt.append("Localizador que falló: ").append(locatorInfo).append("\n\n");
+
+        if (searchedText != null && !searchedText.isEmpty()) {
+            prompt.append("Texto específico buscado: \"").append(searchedText).append("\"\n");
+            prompt.append("👉 Busca textos similares con fechas/números/versiones diferentes\n\n");
+        }
+
+        prompt.append("LOCALIZADORES DISPONIBLES EN LA PANTALLA:\n");
+
+        int limit = Math.min(availableLocators.size(), 20);
+        for (int i = 0; i < limit; i++) {
+            prompt.append((i + 1)).append(". ").append(availableLocators.get(i)).append("\n");
+        }
+
+        prompt.append("\nTAREA (responde en máximo 10 líneas):\n");
+        prompt.append("1. ¿Hay algún localizador SIMILAR al buscado?\n");
+        prompt.append("2. Indica el número del localizador de la lista\n");
+        prompt.append("3. Explica qué cambió (fecha, versión, número, etc)\n");
+        prompt.append("4. Sugiere código Java con localizador flexible\n\n");
+
+        prompt.append("EJEMPLO DE RESPUESTA IDEAL:\n");
+        prompt.append("SIMILAR: Localizador #5 tiene 90% similitud\n");
+        prompt.append("DIFERENCIA: Fecha cambió de 2025-11-10 a 2025-11-11\n");
+        prompt.append("CÓDIGO:\n");
+        prompt.append("new UiSelector().textMatches(\"Ver 1\\\\.4\\\\.9 .*\")\n");
+
+        return prompt.toString();
+    }
+
+    /**
+     * ✅ NUEVO: Extrae el texto específico que se buscó del mensaje de error
+     */
+    private String extractSearchedText(String errorMessage) {
+        try {
+            // Buscar patrón: textContains("...")
+            int start = errorMessage.indexOf("textContains(\"");
+            if (start != -1) {
+                start += 14;
+                int end = errorMessage.indexOf("\")", start);
+                if (end != -1) {
+                    return errorMessage.substring(start, end);
+                }
+            }
+
+            // Buscar patrón: text("...")
+            start = errorMessage.indexOf("text(\"");
+            if (start != -1) {
+                start += 6;
+                int end = errorMessage.indexOf("\")", start);
+                if (end != -1) {
+                    return errorMessage.substring(start, end);
+                }
+            }
+
+            return null;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     private String capturePageSource() {
         try {
             WebDriver driver = ThucydidesWebDriverSupport.getDriver();
@@ -224,7 +369,6 @@ public class OllamaStepListener implements StepListener {
                 return null;
             }
 
-            // Desenvolver WebDriverFacade de Serenity
             WebDriver unwrappedDriver = driver;
 
             if (driver.getClass().getName().contains("WebDriverFacade")) {
@@ -238,7 +382,6 @@ public class OllamaStepListener implements StepListener {
                 }
             }
 
-            // Verificar si es AppiumDriver
             if (!(unwrappedDriver instanceof AppiumDriver)) {
                 System.out.println("[OLLAMA-DEBUG] Driver no es AppiumDriver: " + unwrappedDriver.getClass().getSimpleName());
                 return null;
@@ -270,35 +413,7 @@ public class OllamaStepListener implements StepListener {
         return filename;
     }
 
-    private String buildLocatorFailurePrompt(String stepName, String errorMessage, List<String> availableLocators) {
-        StringBuilder prompt = new StringBuilder();
-
-        // ✅ PROMPT SIMPLIFICADO Y DIRECTO
-        prompt.append("Analiza este error de localizador en test mobile:\n\n");
-
-        // Extraer localizador del error
-        String locatorInfo = extractLocatorFromError(errorMessage);
-        prompt.append("Localizador buscado: ").append(locatorInfo).append("\n\n");
-
-        prompt.append("Localizadores disponibles:\n");
-
-        // ✅ REDUCIR A 20 LOCALIZADORES (antes eran 30)
-        int limit = Math.min(availableLocators.size(), 20);
-        for (int i = 0; i < limit; i++) {
-            prompt.append((i + 1)).append(". ").append(availableLocators.get(i)).append("\n");
-        }
-
-        // ✅ PROMPT MÁS CORTO Y DIRECTO
-        prompt.append("\nResponde en máximo 5 líneas:\n");
-        prompt.append("1. Localizador que faltó\n");
-        prompt.append("2. 2 alternativas específicas de la lista\n");
-        prompt.append("3. Causa probable\n");
-
-        return prompt.toString();
-    }
-
     private String extractLocatorFromError(String errorMessage) {
-        // Extraer el localizador del mensaje de error
         if (errorMessage.contains("Element info:")) {
             int start = errorMessage.indexOf("Element info:");
             int end = errorMessage.indexOf("\n", start);
@@ -306,6 +421,27 @@ public class OllamaStepListener implements StepListener {
             return errorMessage.substring(start, Math.min(end, start + 200));
         }
         return "No especificado";
+    }
+
+    /**
+     * ✅ MEJORADO: Análisis fallback cuando Ollama no responde
+     */
+    private String generateFallbackAnalysis(List<String> availableLocators, String errorMessage) {
+        StringBuilder fallback = new StringBuilder();
+
+        fallback.append("⚠️  Análisis de IA no disponible (timeout)\n\n");
+        fallback.append("📋 LOCALIZADORES DISPONIBLES:\n\n");
+
+        int limit = Math.min(availableLocators.size(), 10);
+        for (int i = 0; i < limit; i++) {
+            fallback.append("  ").append(i + 1).append(". ").append(availableLocators.get(i)).append("\n");
+        }
+
+        fallback.append("\n💡 SUGERENCIA:\n");
+        fallback.append("Revisa manualmente el XML en: ").append(PAGE_SOURCE_DIR).append("/\n");
+        fallback.append("Busca textos similares al que intentaste localizar\n");
+
+        return fallback.toString();
     }
 
     private void attachAnalysisToSerenityReport(String stepName, String errorMessage, String analysis) {
@@ -351,8 +487,7 @@ public class OllamaStepListener implements StepListener {
     }
 
     // ===================================================================
-    // Implementación de StepListener (Serenity 2.0.71)
-    // Incluye AMBAS firmas de testStarted que requiere la interfaz
+    // Implementación de StepListener
     // ===================================================================
 
     @Override
@@ -364,14 +499,12 @@ public class OllamaStepListener implements StepListener {
     @Override
     public void testSuiteFinished() {}
 
-    // ✅ FIRMA CON DOS PARÁMETROS
     @Override
     public void testStarted(String description, String id) {
         currentTestName = description;
         alreadyAnalyzedCurrentTest = false;
     }
 
-    // ✅ FIRMA CON UN PARÁMETRO (requerida también)
     @Override
     public void testStarted(String description) {
         testStarted(description, "");

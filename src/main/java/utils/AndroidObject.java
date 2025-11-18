@@ -2,6 +2,7 @@ package utils;
 
 import exceptions.Excepciones;
 import interactions.wait.WaitFor;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
@@ -16,13 +17,13 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.questions.Presence;
 import net.serenitybdd.screenplay.targets.Target;
 import net.thucydides.core.webdriver.WebDriverFacade;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -55,15 +56,60 @@ public class AndroidObject extends Excepciones {
     }
 
     public void UnScrollAbajo(Actor actor) {
+        WebDriver driver = androidDriver(actor); // mantiene tu helper existente
+
         try {
-            androidDriver(actor).findElement(
-                    new MobileBy.ByAndroidUIAutomator((
-                            "new UiScrollable(new UiSelector().scrollable(true)).scrollForward()")));
+            if (!(driver instanceof AppiumDriver)) {
+                // Si por alguna razón no es Appium (poco probable aquí), salir sin crash
+                return;
+            }
+
+            AppiumDriver<?> appium = (AppiumDriver<?>) driver;
+
+            // Obtener tamaño de pantalla
+            org.openqa.selenium.Dimension size = appium.manage().window().getSize();
+            int width = size.width;
+            int height = size.height;
+
+            // Coordenadas relativas: swipe desde 75% altura hasta 35% (un scroll hacia abajo del contenido)
+            int startX = width / 2;
+            int startY = (int) (height * 0.75);
+            int endY = (int) (height * 0.35);
+
+            // Intentamos con W3C PointerInput (recomendado, compatible Appium 2.x)
+            try {
+                PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+                Sequence swipe = new Sequence(finger, 1);
+                swipe.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY));
+                swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+                swipe.addAction(finger.createPointerMove(Duration.ofMillis(600), PointerInput.Origin.viewport(), startX, endY));
+                swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+                appium.perform(Collections.singletonList(swipe));
+            } catch (Exception w3cEx) {
+                // Fallback a TouchAction clásico si W3C no está soportado
+                try {
+                    new TouchAction<>(appium)
+                            .press(PointOption.point(startX, startY))
+                            .waitAction(WaitOptions.waitOptions(Duration.ofMillis(600)))
+                            .moveTo(PointOption.point(startX, endY))
+                            .release()
+                            .perform();
+                } catch (Exception touchEx) {
+                    // ambos intentos fallaron -> no hacemos nada pero no lanzamos excepción para no romper el flujo
+                }
+            }
+
+            // Pequeña espera para que la UI se estabilice después del swipe
+            try { Thread.sleep(600); } catch (InterruptedException ignored) {}
+
         } catch (Exception e) {
+            // No propagamos la excepción para no romper la automatización,
+            // pero podrías loguearla si tienes un logger disponible.
         }
     }
 
-    public static void scrollToText(Actor actor, String texto) {
+   /* public static void scrollToText(Actor actor, String texto) {
         try {
             // Se crea un UiScrollable que se moverá solo hacia adelante (hacia abajo)
             androidDriver(actor).findElement(
@@ -77,8 +123,109 @@ public class AndroidObject extends Excepciones {
         } catch (Exception e) {
             throw new RuntimeException("No se encontró el texto al hacer scroll: " + texto, e);
         }
+    }*/
+
+    public static void scrollToText(Actor actor, String texto) {
+        AppiumDriver<?> driver = (AppiumDriver<?>) androidDriver(actor);
+
+        int maxAttemptsPerDirection = 6; // intentos hacia abajo, y si no se encuentra, hacia arriba
+        int pauseAfterSwipeMs = 700;
+
+        // 1) Comprobación inicial
+        if (existsByText(driver, texto)) {
+            return;
+        }
+
+        // 2) Intentar buscar hacia abajo (swipe up)
+        for (int i = 0; i < maxAttemptsPerDirection; i++) {
+            swipeUp(driver);
+            sleep(pauseAfterSwipeMs);
+            if (existsByText(driver, texto)) {
+                return;
+            }
+        }
+
+        // 3) Si no apareció, intentar buscar hacia arriba (swipe down)
+        for (int i = 0; i < maxAttemptsPerDirection; i++) {
+            swipeDown(driver);
+            sleep(pauseAfterSwipeMs);
+            if (existsByText(driver, texto)) {
+                return;
+            }
+        }
+
+        // 4) No se encontró después de todos los intentos
+        throw new RuntimeException("No se encontró el texto después de swipes: " + texto);
     }
 
+    private static boolean existsByText(AppiumDriver<?> driver, String texto) {
+        try {
+            // Buscar tanto en @text como en @content-desc (accessibility)
+            String xpathText = "//*[contains(@text, \"" + texto + "\") or contains(@content-desc, \"" + texto + "\")]";
+            return !driver.findElements(By.xpath(xpathText)).isEmpty();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    private static void swipeUp(AppiumDriver<?> driver) {
+        performSwipe(driver, 0.75, 0.35, 600);
+    }
+
+    private static void swipeDown(AppiumDriver<?> driver) {
+        performSwipe(driver, 0.35, 0.75, 600);
+    }
+
+    /**
+     * Realiza un swipe vertical relativo a la pantalla:
+     * startPctY, endPctY son valores entre 0.0 y 1.0 representando porcentaje de altura.
+     */
+    private static void performSwipe(AppiumDriver<?> driver, double startPctY, double endPctY, long durationMs) {
+        try {
+            org.openqa.selenium.Dimension size = driver.manage().window().getSize();
+            int width = size.width;
+            int height = size.height;
+
+            int startX = width / 2;
+            int startY = (int) (height * startPctY);
+            int endY = (int) (height * endPctY);
+
+            // Intentamos W3C PointerInput (recomendado)
+            try {
+                PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+                Sequence swipe = new Sequence(finger, 1);
+                swipe.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY));
+                swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+                swipe.addAction(finger.createPointerMove(Duration.ofMillis(durationMs), PointerInput.Origin.viewport(), startX, endY));
+                swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+                driver.perform(Collections.singletonList(swipe));
+                return;
+            } catch (Exception ignored) {
+                // fallback a TouchAction clásico
+            }
+
+            // Fallback TouchAction clásico
+            try {
+                new TouchAction<>(driver)
+                        .press(PointOption.point(startX, startY))
+                        .waitAction(WaitOptions.waitOptions(Duration.ofMillis(durationMs)))
+                        .moveTo(PointOption.point(startX, endY))
+                        .release()
+                        .perform();
+            } catch (Exception ignored) {
+                // si falla el swipe, no propagamos para seguir intentando
+            }
+        } catch (Exception e) {
+            // no propagamos para no romper el flujo; mejor lanzar controladamente más arriba
+        }
+    }
+
+    private static void sleep(long ms) {
+        try {
+            Thread.sleep(ms);
+        } catch (InterruptedException ignored) {}
+    }
 
 
     public static void swipeVertical(Actor actor, double inicioRatio, double finRatio, double duracionSegs) {
