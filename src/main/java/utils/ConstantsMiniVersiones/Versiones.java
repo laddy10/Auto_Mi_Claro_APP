@@ -14,7 +14,7 @@ public class Versiones {
 
     public static final String MINI_VERSION_DISNEY_CONSTANT = "Ver 1.0.62 (2025-08-20)";
 
-    public static final String MINI_VERSION_PAGA_TU_FACTURA_CONSTANT = "Ver 1.1.9 (2025-11-11)";
+    public static final String MINI_VERSION_PAGA_TU_FACTURA_CONSTANT = "Ver 1.1.7 (2025-11-18)";
 
     public static final String MINI_VERSION_RECARGAS_Y_PAQUETES_CONSTANT = "Ver 1.1.0 (2025-11-05)";
 
@@ -22,7 +22,7 @@ public class Versiones {
 
     public static final String MINI_VERSION_ESTADO_SERVICIOS_TECNICOS_CONSTANT = "Ver 1.4.6 (2025-06-17)";
 
-    public static final String MINI_VERSION_CONSULTAR_PQR_CONSTANT = "Ver 1.4.9 (2025-11-11)";
+    public static final String MINI_VERSION_CONSULTAR_PQR_CONSTANT = "Ver 1.4.13 (2025-11-11)";
 
     public static final String MINI_VERSION_DETALLE_DE_TU_PLAN_CONSTANT = "Ver 1.1.105 (2025-11-07)";
 
