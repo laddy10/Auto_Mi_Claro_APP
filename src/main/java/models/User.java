@@ -16,6 +16,7 @@ public class User {
     private String duracionPaqueteArmar;
     private String cantidadDatosArmar;
     private String imei;
+    private String referencia;
 
 
     public String getEmail() {
@@ -52,6 +53,9 @@ public class User {
 
     public String getNumero() {
         return numero;
+    }
+    public String getReferencia() {
+        return referencia;
     }
 
     public void setNumero(String numero) {

@@ -45,13 +45,16 @@ public class AndroidObject extends Excepciones {
     }
 
 
-    public void UnScrollArribaInicio(Actor actor) {
-        try {
-            androidDriver(actor).findElement(
-                    new MobileBy.ByAndroidUIAutomator(
-                            "new UiScrollable(new UiSelector().resourceIdMatches(\"android:id/list\").scrollable(true)).scrollBackward()"));
-        } catch (Exception e) {
-            e.printStackTrace(); // Agrega esto para ver si hay algún error
+    public static void UnScrollArribaInicio(Actor actor) {
+        AppiumDriver<?> driver = androidDriver(actor);
+
+        int maxAttempts = 8;  // Intentos hacia arriba
+        for (int i = 0; i < maxAttempts; i++) {
+            // Hacer swipe hacia abajo (para ver contenido superior)
+            swipeDown(driver);
+
+            // Pequeña pausa para que la UI se estabilice
+            try { Thread.sleep(500); } catch (InterruptedException ignored) {}
         }
     }
 

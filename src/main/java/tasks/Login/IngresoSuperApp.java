@@ -38,6 +38,12 @@ public class IngresoSuperApp implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
+        // Manejo del popup de sesión abierta en otro dispositivo
+        if (isVisible(actor, LBL_SESION_ABIERTA)) {
+            EvidenciaUtils.registrarCaptura("Detectado popup de sesión abierta en otro dispositivo");
+            actor.attemptsTo(Click.on(BTN_CONTINUAR));
+        }
+
         if (isVisible(actor, LBL_TUS_SERVICIOS_FAVORITOS)) {
             String encabezado = LBL_TUS_SERVICIOS_FAVORITOS.resolveFor(actor).getText();
 
