@@ -41,7 +41,7 @@ public class IngresoSuperApp implements Task {
         // Manejo del popup de sesión abierta en otro dispositivo
         if (isVisible(actor, LBL_SESION_ABIERTA)) {
             EvidenciaUtils.registrarCaptura("Detectado popup de sesión abierta en otro dispositivo");
-            actor.attemptsTo(Click.on(BTN_CONTINUAR));
+            actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene("Continuar"));
         }
 
         if (isVisible(actor, LBL_TUS_SERVICIOS_FAVORITOS)) {
