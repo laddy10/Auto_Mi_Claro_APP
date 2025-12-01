@@ -27,6 +27,7 @@ import java.util.List;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotPresent;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static userinterfaces.LoginPage.*;
 import static utils.Constants.*;
@@ -39,9 +40,11 @@ public class IngresoSuperApp implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         // Manejo del popup de sesión abierta en otro dispositivo
-        if (isVisible(actor, LBL_SESION_ABIERTA)) {
-            EvidenciaUtils.registrarCaptura("Detectado popup de sesión abierta en otro dispositivo");
-            actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene("Continuar"));
+        if (isVisibleFast(actor, LBL_SESION_ABIERTA)) {
+            actor.attemptsTo(
+                    ClickElementByText.clickElementByText(CONTINUAR),
+                    WaitFor.aTime(6000)
+            );
         }
 
         if (isVisible(actor, LBL_TUS_SERVICIOS_FAVORITOS)) {
