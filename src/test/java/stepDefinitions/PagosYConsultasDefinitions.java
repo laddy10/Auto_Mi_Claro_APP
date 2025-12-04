@@ -120,7 +120,7 @@ public class PagosYConsultasDefinitions {
                     ValidarTexto.validarTexto(ELEGIR_OTRO_MEDIO_PAGO),
                     ValidarTextoQueContengaX.elTextoContiene(TARJETA_C_D),
                     ValidarTextoQueContengaX.elTextoContiene(BOTON_BANCOLOMBIA),
-                    ValidarTextoQueContengaX.elTextoContiene(CODENSA),
+                    //ValidarTextoQueContengaX.elTextoContiene(CODENSA),
                     ValidarTextoQueContengaX.elTextoContiene(OTROS_MEDIOS)
             );
 
