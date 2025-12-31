@@ -1,11 +1,10 @@
 package hooks;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import java.util.ArrayList;
+import java.util.List;
 import listeners.OllamaStepListener;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
@@ -16,11 +15,8 @@ import utils.WordAppium;
 /**
  * Hooks consolidados de Cucumber
  *
- * Responsabilidades:
- * - Inicializar actores de Serenity
- * - Registrar OllamaStepListener
- * - Generar reportes Word
- * - Tracking de pasos y estado
+ * <p>Responsabilidades: - Inicializar actores de Serenity - Registrar OllamaStepListener - Generar
+ * reportes Word - Tracking de pasos y estado
  */
 public class ReportHooks {
 
@@ -50,7 +46,7 @@ public class ReportHooks {
     EstadoPrueba.fallo = false;
     EstadoPrueba.pasoFallido = "";
 
-   // 🔹 Registrar el listener de Ollama solo una vez
+    // 🔹 Registrar el listener de Ollama solo una vez
     if (!listenerRegistrado) {
       try {
         OllamaStepListener ollamaListener = new OllamaStepListener();
@@ -86,12 +82,12 @@ public class ReportHooks {
     String pasoFallido = scenario.isFailed() ? EstadoPrueba.pasoFallido : null;
 
     WordAppium.generarReporte(
-            scenario.getName(),
-            pasosEjecutados.toArray(new String[0]),
-            lineaUsada,
-            duracionFormato,
-            pasoFallido,
-            estadoFinal);
+        scenario.getName(),
+        pasosEjecutados.toArray(new String[0]),
+        lineaUsada,
+        duracionFormato,
+        pasoFallido,
+        estadoFinal);
 
     System.out.println("══════════════════════════════════════════════════════");
     System.out.println("🏁 Escenario finalizado: " + scenario.getName());

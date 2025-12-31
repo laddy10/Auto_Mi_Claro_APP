@@ -14,7 +14,8 @@ import utils.EvidenciaUtils;
 public class AdministrarAplicacionesNoPermitido implements Task {
 
   private static final String paso1 = "Ingresar Administra las aplicaciones incluidas";
-  private static final String paso2 = "Validar popup - Tu plan actual no incluye esta funcionalidad";
+  private static final String paso2 =
+      "Validar popup - Tu plan actual no incluye esta funcionalidad";
 
   @Override
   public <T extends Actor> void performAs(T actor) {

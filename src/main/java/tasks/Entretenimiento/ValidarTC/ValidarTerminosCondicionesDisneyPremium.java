@@ -1,7 +1,6 @@
 package tasks.Entretenimiento.ValidarTC;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static userinterfaces.EntretenimientoPage.BTN_ELEGIR_PLAN;
 import static userinterfaces.EntretenimientoPage.CHECK_TERMINOS;
 import static userinterfaces.LoginPage.*;
 import static utils.Constants.*;
@@ -17,7 +16,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import utils.EvidenciaUtils;
 
 public class ValidarTerminosCondicionesDisneyPremium implements Task {
-  //private static final String paso = "Validar Plan y Términos y Condiciones Disney+";
+  // private static final String paso = "Validar Plan y Términos y Condiciones Disney+";
   private static final String paso2 = "Aceptar TC";
   private static final String paso3 = "Aceptar";
 
@@ -27,14 +26,10 @@ public class ValidarTerminosCondicionesDisneyPremium implements Task {
         WaitForResponse.withText("Disney+ Premium"),
         ValidarTextoQueContengaX.elTextoContiene("Disney+ Premium"));
     EvidenciaUtils.registrarCaptura(paso2);
-    actor.attemptsTo(
-            Click.on(CHECK_TERMINOS),
-            ClickTextoQueContengaX.elTextoContiene(ACTIVAR)
-    );
+    actor.attemptsTo(Click.on(CHECK_TERMINOS), ClickTextoQueContengaX.elTextoContiene(ACTIVAR));
 
     EvidenciaUtils.registrarCaptura(paso3);
-    actor.attemptsTo(ValidarTexto.validarTexto(ACEPTAR_2),
-            Click.on(BTN_ACEPTAR));
+    actor.attemptsTo(ValidarTexto.validarTexto(ACEPTAR_2), Click.on(BTN_ACEPTAR));
   }
 
   public static Performable validar() {

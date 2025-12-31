@@ -2,7 +2,6 @@ package stepDefinitions;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import tasks.ConsultarConsumos.*;

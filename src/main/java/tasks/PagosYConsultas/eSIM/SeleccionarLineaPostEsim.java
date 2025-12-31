@@ -18,7 +18,6 @@ public class SeleccionarLineaPostEsim implements Task {
 
   private static final String NUMERO_LINEA = "322 278 6448";
 
-
   private static final User user = TestDataProvider.getRealUser();
   private static final String paso1 = "Seleccionar línea eSIM " + NUMERO_LINEA;
 

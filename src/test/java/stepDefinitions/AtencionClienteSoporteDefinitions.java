@@ -26,9 +26,8 @@ public class AtencionClienteSoporteDefinitions {
 
   @And("^DESPLAZA HASTA LA OPCION ATENCION AL CLIENTE Y SOPORTE$")
   public void desplazaHastaAtencionClienteSoporte() {
-    theActorInTheSpotlight().attemptsTo(ScrollHastaTexto.conTexto(ATENCION_AL_CLIENTE),
-            Scroll.scrollUnaVista()
-    );
+    theActorInTheSpotlight()
+        .attemptsTo(ScrollHastaTexto.conTexto(ATENCION_AL_CLIENTE), Scroll.scrollUnaVista());
     EvidenciaUtils.registrarCaptura("Desplazarse hasta Atención al cliente y soporte");
   }
 
@@ -51,7 +50,7 @@ public class AtencionClienteSoporteDefinitions {
   @And("^REALIZA TEST DE VELOCIDAD$")
   public void realizaTestVelocidad() {
     theActorInTheSpotlight()
-            .attemptsTo(ClickTextoQueContengaX.elTextoContiene(REALIZAR_TEST_VELOCIDAD));
+        .attemptsTo(ClickTextoQueContengaX.elTextoContiene(REALIZAR_TEST_VELOCIDAD));
   }
 
   @Then("^VERIFICA LA INFORMACION EN PANTALLA Y MANEJA CONDICIONALES$")
@@ -88,7 +87,7 @@ public class AtencionClienteSoporteDefinitions {
   @Then("^VERIFICA REDIRECCION CORRECTA A PAGINA CLARO$")
   public void verificaRedireccionAPaginaClaro() {
     theActorInTheSpotlight()
-            .attemptsTo(ValidarTextoQueContengaX.elTextoContiene(CLARO_COLOMBIA_PQR));
+        .attemptsTo(ValidarTextoQueContengaX.elTextoContiene(CLARO_COLOMBIA_PQR));
     EvidenciaUtils.registrarCaptura("Verificar redirección a página Claro");
   }
 
@@ -155,23 +154,18 @@ public class AtencionClienteSoporteDefinitions {
 
   @And("^VALIDA VERSION DE MINIPROGRAMA NECESITAS AYUDA$")
   public void validaVersionMiniprogramaNecesitasAyuda() {
-    theActorInTheSpotlight().attemptsTo(
-            ValidarVersionMiniprogramaNecesitasAyuda.validar()
-    );
+    theActorInTheSpotlight().attemptsTo(ValidarVersionMiniprogramaNecesitasAyuda.validar());
   }
 
   @And("^VALIDA VERSION DE MINIPROGRAMA ESTADO SERVICIOS TECNICOS$")
   public void ValidarVersionMiniprogramaEstadoServiciosTecnicos() {
-    theActorInTheSpotlight().attemptsTo(
-            ValidarVersionMiniprogramaEstadoServiciosTecnicos.validar()
-    );
+    theActorInTheSpotlight()
+        .attemptsTo(ValidarVersionMiniprogramaEstadoServiciosTecnicos.validar());
   }
 
   @And("^VALIDA VERSION DE MINIPROGRAMA CONSULTAR PQR$")
   public void ValidarVersionMiniprogramaConsultarPQR() {
-    theActorInTheSpotlight().attemptsTo(
-            ValidarVersionMiniprogramaConsultarPQR.validar()
-    );
+    theActorInTheSpotlight().attemptsTo(ValidarVersionMiniprogramaConsultarPQR.validar());
   }
 
   @And("^DESPLAZA HASTA LINEA Y SELECCIONA VER DETALLE NECESITAS AYUDA PRE$")

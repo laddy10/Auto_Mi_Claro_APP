@@ -35,14 +35,14 @@ public class DetalleUltimaFacturacion implements Task {
 
     // Seleccionar "Detalle última facturación"
     actor.attemptsTo(
-            ClickTextoQueContengaX.elTextoContiene(DETALLE_ULTIMA_FACTURACION),
-            WaitForResponse.withText(ACEPTAR_2));
+        ClickTextoQueContengaX.elTextoContiene(DETALLE_ULTIMA_FACTURACION),
+        WaitForResponse.withText(ACEPTAR_2));
 
     // 🔹 Validar si aparece popup "TU_FACTURA_ESTARA_DISPONIBLE"
     if (isElementoVisible(actor, TU_FACTURA_ESTARA_DISPONIBLE)) {
       actor.attemptsTo(
-              ValidarTexto.validarTexto(TU_FACTURA_ESTARA_DISPONIBLE),
-              ValidarTexto.validarTexto(ACEPTAR_2));
+          ValidarTexto.validarTexto(TU_FACTURA_ESTARA_DISPONIBLE),
+          ValidarTexto.validarTexto(ACEPTAR_2));
 
       EvidenciaUtils.registrarCaptura(paso2);
       return; // 🚪 Finaliza aquí el caso, no continúa a pasos 3 y 4
@@ -50,17 +50,16 @@ public class DetalleUltimaFacturacion implements Task {
 
     // 🔹 Si no aparece popup, continuar flujo normal
     actor.attemptsTo(
-            ClickElementByText.clickElementByText(ACEPTAR_2),
-            WaitForResponse.withText(GERENCIA_DCT));
+        ClickElementByText.clickElementByText(ACEPTAR_2), WaitForResponse.withText(GERENCIA_DCT));
 
     actor.attemptsTo(
-            ValidarTextoQueContengaX.elTextoContiene(GERENCIA_DCT),
-            ValidarTextoQueContengaX.elTextoContiene(PAGA_AQUI),
-            ValidarTextoQueContengaX.elTextoContiene(VALOR_TOTAL_A_PAGAR),
-            ValidarTextoQueContengaX.elTextoContiene(FECHA_LIMITE_PAGO),
-            ValidarTextoQueContengaX.elTextoContiene(MES_FACTURADO),
-            ValidarTextoQueContengaX.elTextoContiene(NUMERO_DE_MOVIL),
-            ValidarTextoQueContengaX.elTextoContiene(user.getNumero().replace(" ", "")));
+        ValidarTextoQueContengaX.elTextoContiene(GERENCIA_DCT),
+        ValidarTextoQueContengaX.elTextoContiene(PAGA_AQUI),
+        ValidarTextoQueContengaX.elTextoContiene(VALOR_TOTAL_A_PAGAR),
+        ValidarTextoQueContengaX.elTextoContiene(FECHA_LIMITE_PAGO),
+        ValidarTextoQueContengaX.elTextoContiene(MES_FACTURADO),
+        ValidarTextoQueContengaX.elTextoContiene(NUMERO_DE_MOVIL),
+        ValidarTextoQueContengaX.elTextoContiene(user.getNumero().replace(" ", "")));
 
     EvidenciaUtils.registrarCaptura(paso3);
 
@@ -72,8 +71,8 @@ public class DetalleUltimaFacturacion implements Task {
   private boolean isElementoVisible(Actor actor, String texto) {
     try {
       WebElement elemento =
-              AndroidObject.androidDriver(actor)
-                      .findElement(By.xpath("//*[contains(@text,'" + texto + "')]"));
+          AndroidObject.androidDriver(actor)
+              .findElement(By.xpath("//*[contains(@text,'" + texto + "')]"));
       return elemento.isDisplayed();
     } catch (Exception e) {
       return false;

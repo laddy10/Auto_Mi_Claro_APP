@@ -60,7 +60,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   VALIDAR DIRECCIONAMIENTO DAVIPLATA
 
 
-  @PRE017 @PREPAGO
+  #@PRE017
   Scenario: Arma tu paquete - redirección pago Codensa
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO

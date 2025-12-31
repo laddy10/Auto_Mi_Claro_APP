@@ -5,9 +5,7 @@ import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarTexto;
-import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
-import interactions.wait.WaitForResponse;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -25,13 +23,12 @@ public class ComprarAplicacionesNoPermitido implements Task {
     EvidenciaUtils.registrarCaptura(paso1);
 
     actor.attemptsTo(
-        ClickTextoQueContengaX.elTextoContiene(COMPRAR_APLICACIONES),
-            WaitFor.aTime(2000));
+        ClickTextoQueContengaX.elTextoContiene(COMPRAR_APLICACIONES), WaitFor.aTime(2000));
 
     // VALIDAR MENSAJE DE ERROR
     actor.attemptsTo(
-            ValidarTexto.validarTexto(TU_PLAN_NO_INCLUYE_ESTA_FUNCIONALIDAD),
-            ValidarTexto.validarTexto(ACEPTAR_2));
+        ValidarTexto.validarTexto(TU_PLAN_NO_INCLUYE_ESTA_FUNCIONALIDAD),
+        ValidarTexto.validarTexto(ACEPTAR_2));
 
     EvidenciaUtils.registrarCaptura(paso2);
 

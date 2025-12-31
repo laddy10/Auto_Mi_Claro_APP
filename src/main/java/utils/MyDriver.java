@@ -1,12 +1,11 @@
 package utils;
 
 import io.appium.java_client.android.AndroidDriver;
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
 import net.thucydides.core.webdriver.DriverSource;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
 
 public class MyDriver implements DriverSource {
 
@@ -24,7 +23,10 @@ public class MyDriver implements DriverSource {
       // Capabilities base (alineadas a serenity.properties)
       caps.setCapability("automationName", "UiAutomator2");
       caps.setCapability("platformName", "Android");
-      caps.setCapability("app", System.getProperty("app", System.getProperty("user.dir") + "/src/test/resources/app/mi-claro.apk"));
+      caps.setCapability(
+          "app",
+          System.getProperty(
+              "app", System.getProperty("user.dir") + "/src/test/resources/app/mi-claro.apk"));
       caps.setCapability("appPackage", "com.clarocolombia.miclaro");
       caps.setCapability("appActivity", "com.claro.superapp.SplashActivity");
 
@@ -34,7 +36,8 @@ public class MyDriver implements DriverSource {
       caps.setCapability("autoDismissAlerts", true);
       caps.setCapability("newCommandTimeout", 8000);
       // Si usas WebView y necesitas ChromeDriver:
-      // caps.setCapability("chromedriverExecutable", "src/test/resources/webdriver/windows/chromedriver.exe");
+      // caps.setCapability("chromedriverExecutable",
+      // "src/test/resources/webdriver/windows/chromedriver.exe");
 
       URL hub = new URL("http://127.0.0.1:4723/wd/hub");
       driver = new AndroidDriver(hub, caps);

@@ -7,7 +7,6 @@ import static utils.Constants.*;
 import interactions.Click.ClickElementByText;
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarTexto;
-import interactions.wait.WaitElement;
 import interactions.wait.WaitFor;
 import interactions.wait.WaitForResponse;
 import models.User;

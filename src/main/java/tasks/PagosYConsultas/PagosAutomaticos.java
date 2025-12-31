@@ -4,7 +4,6 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
-
 import interactions.Scroll.ScrollHastaTexto;
 import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;
@@ -47,8 +46,7 @@ public class PagosAutomaticos implements Task {
     EvidenciaUtils.registrarCaptura(paso3);
 
     // Validar redirección Ver historial
-    actor.attemptsTo(
-            ScrollHastaTexto.conTexto(VER_HISTORIAL));
+    actor.attemptsTo(ScrollHastaTexto.conTexto(VER_HISTORIAL));
 
     EvidenciaUtils.registrarCaptura(paso4);
 

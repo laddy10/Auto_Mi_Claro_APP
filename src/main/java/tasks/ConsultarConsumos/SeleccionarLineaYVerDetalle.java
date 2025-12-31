@@ -6,7 +6,6 @@ import static userinterfaces.ConsultarConsumosPage.*;
 import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
-import interactions.Scroll.ScrollHastaTexto;
 import interactions.wait.WaitFor;
 import models.User;
 import net.serenitybdd.screenplay.Actor;
@@ -28,7 +27,7 @@ public class SeleccionarLineaYVerDetalle implements Task {
     AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumero() + " " + VER_DETALLE);
 
     actor.attemptsTo(
-            ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
+        ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
         WaitUntil.the(LBL_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds(),
         WaitFor.aTime(3000));
 

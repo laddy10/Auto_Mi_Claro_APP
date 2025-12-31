@@ -1,6 +1,8 @@
 package tasks.Entretenimiento.ValidarRedirecciones;
 
-import interactions.Click.ClickEnCoordenadas;
+import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static userinterfaces.EntretenimientoPage.*;
+
 import interactions.Scroll.Scroll;
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
@@ -12,77 +14,64 @@ import net.serenitybdd.screenplay.questions.Presence;
 import net.serenitybdd.screenplay.targets.Target;
 import utils.EvidenciaUtils;
 
-import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static userinterfaces.EntretenimientoPage.*;
-
 public class ValidarRedireccionClaroClub implements Task {
-    private static final String paso1 = "Validar texto 'Categorías' en pantalla inicial";
-    private static final String paso2 = "Ingresar al menú categorías";
-    private static final String paso3 = "Validar categoría Más Descargados";
-    private static final String paso4 = "Validar categoría Comidas";
-    private static final String paso5 = "Validar categoría Productos Claro";
-    private static final String paso6 = "Validar categoría Viajes";
-    private static final String paso7 = "Validar categoría Entretenimiento";
-    private static final String paso8 = "Validar categoría Mascotas";
-    private static final String paso9 = "Validar categoría Variedades";
-    private static final String paso10 = "Validar categoría Educación";
-    private static final String pasoFinal = "Fin validación categorías";
+  private static final String paso1 = "Validar texto 'Categorías' en pantalla inicial";
+  private static final String paso2 = "Ingresar al menú categorías";
+  private static final String paso3 = "Validar categoría Más Descargados";
+  private static final String paso4 = "Validar categoría Comidas";
+  private static final String paso5 = "Validar categoría Productos Claro";
+  private static final String paso6 = "Validar categoría Viajes";
+  private static final String paso7 = "Validar categoría Entretenimiento";
+  private static final String paso8 = "Validar categoría Mascotas";
+  private static final String paso9 = "Validar categoría Variedades";
+  private static final String paso10 = "Validar categoría Educación";
+  private static final String pasoFinal = "Fin validación categorías";
 
-    @Override
-    public <T extends Actor> void performAs(T actor) {
+  @Override
+  public <T extends Actor> void performAs(T actor) {
 
-        // ✅ Nueva condición: si está visible el botón de cerrar (BTN_CLOSE), hace clic.
+    // ✅ Nueva condición: si está visible el botón de cerrar (BTN_CLOSE), hace clic.
 
-            actor.attemptsTo(
-                    WaitFor.aTime(2000),
-                    Scroll.scrollUnaVista(),
-                    Click.on(BTN_CLOSE),
-                    WaitFor.aTime(1000)
-            );
+    actor.attemptsTo(
+        WaitFor.aTime(2000), Scroll.scrollUnaVista(), Click.on(BTN_CLOSE), WaitFor.aTime(1000));
 
-        // Flujo principal
-        actor.attemptsTo(
-                WaitFor.aTime(8000),
-                ValidarTextoQueContengaX.elTextoContiene("Categorías")
+    // Flujo principal
+    actor.attemptsTo(WaitFor.aTime(8000), ValidarTextoQueContengaX.elTextoContiene("Categorías"));
+    EvidenciaUtils.registrarCaptura(paso1);
+
+    actor.attemptsTo(Click.on(MENU_CATEGORIAS));
+    EvidenciaUtils.registrarCaptura(paso2);
+
+    validarCategoria(actor, MAS_DESCARGADOS, "Más Descargados", paso3);
+    validarCategoria(actor, COMIDAS, "Comidas", paso4);
+    validarCategoria(actor, PRODUCTOS_CLARO, "Productos Claro", paso5);
+    validarCategoria(actor, VIAJES, "Viajes", paso6);
+    validarCategoria(actor, ENTRETENIMIENTO_CLAROCLUB, "Entretenimiento", paso7);
+    validarCategoria(actor, MASCOTAS, "Mascotas", paso8);
+    validarCategoria(actor, VARIEDADES, "Variedades", paso9);
+    validarCategoria(actor, EDUCACION, "Educación", paso10);
+
+    EvidenciaUtils.registrarCaptura(pasoFinal);
+  }
+
+  // ✅ Método reutilizable para validar si un elemento está presente en pantalla
+  private <T extends Actor> boolean isVisible(T actor, Target element) {
+    return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
+  }
+
+  private <T extends Actor> void validarCategoria(
+      T actor, Target categoriaTarget, String textoValidacion, String pasoCaptura) {
+    actor.attemptsTo(
+        Click.on(categoriaTarget), ValidarTextoQueContengaX.elTextoContiene(textoValidacion));
+    EvidenciaUtils.registrarCaptura(pasoCaptura);
+    WaitFor.aTime(2000);
+    actor.attemptsTo(
+        Click.on(MENU_CATEGORIAS) // Volver al menú para la siguiente categoría
         );
-        EvidenciaUtils.registrarCaptura(paso1);
+    EvidenciaUtils.registrarCaptura(paso2);
+  }
 
-        actor.attemptsTo(
-                Click.on(MENU_CATEGORIAS)
-        );
-        EvidenciaUtils.registrarCaptura(paso2);
-
-        validarCategoria(actor, MAS_DESCARGADOS, "Más Descargados", paso3);
-        validarCategoria(actor, COMIDAS, "Comidas", paso4);
-        validarCategoria(actor, PRODUCTOS_CLARO, "Productos Claro", paso5);
-        validarCategoria(actor, VIAJES, "Viajes", paso6);
-        validarCategoria(actor, ENTRETENIMIENTO_CLAROCLUB, "Entretenimiento", paso7);
-        validarCategoria(actor, MASCOTAS, "Mascotas", paso8);
-        validarCategoria(actor, VARIEDADES, "Variedades", paso9);
-        validarCategoria(actor, EDUCACION, "Educación", paso10);
-
-        EvidenciaUtils.registrarCaptura(pasoFinal);
-    }
-
-    // ✅ Método reutilizable para validar si un elemento está presente en pantalla
-    private <T extends Actor> boolean isVisible(T actor, Target element) {
-        return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
-    }
-
-    private <T extends Actor> void validarCategoria(T actor, Target categoriaTarget, String textoValidacion, String pasoCaptura) {
-        actor.attemptsTo(
-                Click.on(categoriaTarget),
-                ValidarTextoQueContengaX.elTextoContiene(textoValidacion)
-        );
-        EvidenciaUtils.registrarCaptura(pasoCaptura);
-        WaitFor.aTime(2000);
-        actor.attemptsTo(
-                Click.on(MENU_CATEGORIAS) // Volver al menú para la siguiente categoría
-        );
-        EvidenciaUtils.registrarCaptura(paso2);
-    }
-
-    public static Performable validar() {
-        return instrumented(ValidarRedireccionClaroClub.class);
-    }
+  public static Performable validar() {
+    return instrumented(ValidarRedireccionClaroClub.class);
+  }
 }

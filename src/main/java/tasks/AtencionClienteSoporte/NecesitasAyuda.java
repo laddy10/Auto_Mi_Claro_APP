@@ -24,7 +24,7 @@ public class NecesitasAyuda implements Task {
 
     actor.attemptsTo(
         ClickTextoQueContengaX.elTextoContiene(NECESITAS_AYUDA),
-       WaitForResponse.withText(POSTPAGO));
+        WaitForResponse.withText(POSTPAGO));
   }
 
   public static Performable ingresar() {
@@ -55,8 +55,7 @@ public class NecesitasAyuda implements Task {
     public <T extends Actor> void performAs(T actor) {
       EvidenciaUtils.registrarCaptura("Verificar redirección a ClaroBot");
 
-      actor.attemptsTo(
-          ValidarTextoQueContengaX.elTextoContiene(CLAROBOT));
+      actor.attemptsTo(ValidarTextoQueContengaX.elTextoContiene(CLAROBOT));
     }
 
     public static Performable ejecutar() {

@@ -12,7 +12,6 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
-import org.openqa.selenium.By;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
@@ -23,7 +22,7 @@ public class VersionSuperApp implements Task {
   @Override
   public <T extends Actor> void performAs(T actor) {
     actor.attemptsTo(
-            Click.on(MENU_USUARIO),
+        Click.on(MENU_USUARIO),
         ValidarTexto.validarTexto(user.getNombreUsuario()),
         ValidarTextoQueContengaX.elTextoContiene(VERSION));
 

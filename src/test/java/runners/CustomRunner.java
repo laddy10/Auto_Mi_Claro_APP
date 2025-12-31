@@ -1,5 +1,10 @@
 package runners;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
+import java.util.Properties;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.Description;
 import org.junit.runner.Runner;
@@ -7,12 +12,6 @@ import org.junit.runner.notification.RunNotifier;
 import utils.BeforeSuite;
 import utils.DataToFeature;
 import utils.SeleniumFunctions;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Method;
-import java.util.Properties;
 
 public class CustomRunner extends Runner {
 

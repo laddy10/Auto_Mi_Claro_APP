@@ -51,7 +51,7 @@ public class PaquetesDatos implements Task {
         ValidarTexto.validarTexto(ELEGIR_OTRO_MEDIO_PAGO),
         ValidarTextoQueContengaX.elTextoContiene(TARJETA_C_D),
         ValidarTextoQueContengaX.elTextoContiene(DAVIPLATA),
-        //ValidarTextoQueContengaX.elTextoContiene(CODENSA),
+        // ValidarTextoQueContengaX.elTextoContiene(CODENSA),
         ValidarTextoQueContengaX.elTextoContiene(OTROS_MEDIOS),
         ValidarTextoQueContengaX.elTextoContiene(VALOR_A_PAGAR));
 

@@ -1,11 +1,5 @@
 package utils;
 
-import net.thucydides.core.webdriver.SerenityWebdriverManager;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -14,6 +8,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import net.thucydides.core.webdriver.SerenityWebdriverManager;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 public class CapturaDePantallaMovil {
 
@@ -24,10 +23,12 @@ public class CapturaDePantallaMovil {
     String rutaDestino = "";
     try {
       // Obtener fecha y hora actual en formato seguro para nombres de archivo
-      //   String formattedDateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd_MM_yyyy_HH_mm_ss"));
-      String nombreNormalizado = nombreCaptura
+      //   String formattedDateTime =
+      // LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd_MM_yyyy_HH_mm_ss"));
+      String nombreNormalizado =
+          nombreCaptura
               .toLowerCase()
-              .replaceAll("[^a-z0-9]", "_");  // Reemplaza todo lo que no sea letra o número
+              .replaceAll("[^a-z0-9]", "_"); // Reemplaza todo lo que no sea letra o número
 
       String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
       String nombreArchivo = nombreNormalizado + "_" + timestamp + ".png";
@@ -41,7 +42,8 @@ public class CapturaDePantallaMovil {
       }
 
       // Obtener el WebDriver actual y tomar la captura
-      TakesScreenshot screenshotTaker = (TakesScreenshot) SerenityWebdriverManager.inThisTestThread().getCurrentDriver();
+      TakesScreenshot screenshotTaker =
+          (TakesScreenshot) SerenityWebdriverManager.inThisTestThread().getCurrentDriver();
       File captura = screenshotTaker.getScreenshotAs(OutputType.FILE);
       File destinoTemporal = new File(CAPTURAS_DIR + "temp.png");
 
@@ -56,7 +58,8 @@ public class CapturaDePantallaMovil {
       }
 
       // Crear una nueva imagen con el mismo tamaño
-      BufferedImage imagenConBorde = new BufferedImage(imagen.getWidth(), imagen.getHeight(), BufferedImage.TYPE_INT_RGB);
+      BufferedImage imagenConBorde =
+          new BufferedImage(imagen.getWidth(), imagen.getHeight(), BufferedImage.TYPE_INT_RGB);
       Graphics2D g2d = imagenConBorde.createGraphics();
       g2d.drawImage(imagen, 0, 0, null);
 
@@ -75,7 +78,8 @@ public class CapturaDePantallaMovil {
 
       LOGGER.info("Captura de pantalla guardada con borde rojo: " + rutaDestino);
     } catch (IOException e) {
-      LOGGER.log(Level.SEVERE, "Error al tomar o guardar la captura de pantalla: " + nombreCaptura, e);
+      LOGGER.log(
+          Level.SEVERE, "Error al tomar o guardar la captura de pantalla: " + nombreCaptura, e);
     }
     return rutaDestino;
   }

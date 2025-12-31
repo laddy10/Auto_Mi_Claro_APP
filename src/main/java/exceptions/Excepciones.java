@@ -1,14 +1,13 @@
 package exceptions;
 
+import static utils.AndroidObject.androidDriver;
+
 import interactions.wait.WaitFor;
 import io.appium.java_client.MobileBy;
+import java.util.concurrent.TimeUnit; // ⭐ Alternativa sin Duration
 import net.serenitybdd.screenplay.Actor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.concurrent.TimeUnit; // ⭐ Alternativa sin Duration
-
-import static utils.AndroidObject.androidDriver;
 
 public class Excepciones {
 
@@ -22,9 +21,9 @@ public class Excepciones {
       // ⭐ Usando TimeUnit en lugar de Duration
       androidDriver(actor).manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 
-      androidDriver(actor).findElement(
-              new MobileBy.ByAndroidUIAutomator("new UiSelector().text(\"No permitir\")")
-      ).click();
+      androidDriver(actor)
+          .findElement(new MobileBy.ByAndroidUIAutomator("new UiSelector().text(\"No permitir\")"))
+          .click();
 
       LOGGER.info("Popup 'No permitir' cerrado");
       actor.attemptsTo(WaitFor.aTime(500));
@@ -40,9 +39,10 @@ public class Excepciones {
     try {
       LOGGER.debug("Click en elemento: '{}'", text);
 
-      androidDriver(actor).findElement(
-              new MobileBy.ByAndroidUIAutomator("new UiSelector().textContains(\"" + text + "\")")
-      ).click();
+      androidDriver(actor)
+          .findElement(
+              new MobileBy.ByAndroidUIAutomator("new UiSelector().textContains(\"" + text + "\")"))
+          .click();
 
       LOGGER.info("Click exitoso: '{}'", text);
 
