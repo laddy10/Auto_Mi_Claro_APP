@@ -143,12 +143,8 @@ public class IngresoSuperApp implements Task {
       actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(INICIAR_SESION));
     }
 
-    try {
-      actor.attemptsTo(
-              ClickElementByText.clickElementByText(CONTINUAR)
-      );
-    } catch (Exception e) {
-      // No existe CONTINUAR → continúa el flujo normal
+    if (isVisible(actor,BTN_CONTINUAR )) {
+      actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(CONTINUAR));
     }
 
     actor.attemptsTo(
@@ -179,7 +175,6 @@ public class IngresoSuperApp implements Task {
     actor.attemptsTo(ClickElementByText.clickElementByText(INICIAR_SESION));
 
     ValidarTextoQueContengaX.elTextoContiene(VERSION);
-
     if (isValidEmail(user.getEmail())) {
       actor.attemptsTo(
           ClickElementByText.clickElementByText(OTROS_METODOS_DE_INGRESO),
