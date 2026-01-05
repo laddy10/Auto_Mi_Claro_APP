@@ -142,8 +142,16 @@ public class IngresoSuperApp implements Task {
     if (isVisible(actor, LBL_INICIAR_SESION)) {
       actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(INICIAR_SESION));
     }
+
+    try {
+      actor.attemptsTo(
+              ClickElementByText.clickElementByText(CONTINUAR)
+      );
+    } catch (Exception e) {
+      // No existe CONTINUAR → continúa el flujo normal
+    }
+
     actor.attemptsTo(
-        ClickElementByText.clickElementByText(CONTINUAR),
         Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
         ClickElementByText.clickElementByText(CONTINUAR),
         WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
