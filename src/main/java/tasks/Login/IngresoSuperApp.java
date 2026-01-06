@@ -144,13 +144,13 @@ public class IngresoSuperApp implements Task {
     }
 
     if (isVisible(actor,BTN_CONTINUAR )) {
-      actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(CONTINUAR));
+      actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(CONTINUAR),
+              Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
+              ClickElementByText.clickElementByText(CONTINUAR),
+              WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
+    }else{
+      loginConEmail(actor);
     }
-
-    actor.attemptsTo(
-        Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
-        ClickElementByText.clickElementByText(CONTINUAR),
-        WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
   }
 
   private <T extends Actor> void clickAceptarSesion(T actor) {
