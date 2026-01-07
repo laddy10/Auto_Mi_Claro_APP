@@ -18,7 +18,7 @@ Feature: Ingresar al modulo pagos y consultas
     And   REALIZA PAGO PARCIAL
     Then  VALIDA LA REDIRECCION A MEDIOS DE PAGO DISPONIBLES
 
-  @SA006 @POSTPAGO
+  @SA006_MANTENIMIENTO @POSTPAGO
   Scenario: Ingresar a paga tu factura y validar pagos automáticos
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -266,7 +266,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then  VALIDA PORTABILIDAD POSTPAGO Y REDIRECCION
 
 
-  @SA033 @POSTPAGO
+  @SA033_MANTENIMIENTO @POSTPAGO
   Scenario: Adquirir productos en postpago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
