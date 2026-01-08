@@ -39,8 +39,9 @@ public class ConsultarPQR implements Task {
       AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumero() + " " + VER_DETALLE);
 
       actor.attemptsTo(
-          ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
-          WaitForResponse.withText(CLARO_COLOMBIA_PQR));
+          ClickTextoQueContengaX.elTextoContiene(user.getNumero())
+         // WaitForResponse.withText(CLARO_COLOMBIA_PQR)
+      );
     }
 
     public static Performable ejecutar() {

@@ -19,7 +19,7 @@ Feature: Ingresar al módulo de Atención al cliente y soporte
     And   INGRESA A LA OPCION SOPORTE HOGAR
     Then  SELECCIONA WHATSAPP Y VALIDA REDIRECCION
 
-  @SA056_MANTENIMIENTO @POSTPAGO
+  @SA056 @POSTPAGO
   Scenario: Consultar PQR
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO

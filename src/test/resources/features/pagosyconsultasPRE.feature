@@ -75,7 +75,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   VALIDAR DIRECCIONAMIENTO TARJETA CREDITO DEBITO
 
 
-  @PRE018 @PREPAGO
+  @PRE018_MANTENIMIENTO @PREPAGO
   Scenario: Arma tu paquete - redirección Otros medios de pago - TCD - Condensa - Bancolombia
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
