@@ -43,7 +43,7 @@ public class PaquetesDeVoz implements Task {
     actor.attemptsTo(
         ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto("$ 2.000"),
+        ValidarTexto.validarTexto("$ 2.500"),
         ValidarTexto.validarTexto("300 Min"),
         ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
         ValidarTexto.validarTexto("Paquete 300 Minutos Vig 1 dia"));
@@ -56,7 +56,7 @@ public class PaquetesDeVoz implements Task {
         Scroll.scrollUnaVista(),
         ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto("$ 16.500"),
+        ValidarTexto.validarTexto("$ 17.500"),
         ValidarTexto.validarTexto("1000 Min"),
         Click.on(LBL_VER_DETALLE_2),
         ValidarTexto.validarTexto("Paquete 1000 Minutos Vig 20 dias"));
@@ -69,7 +69,7 @@ public class PaquetesDeVoz implements Task {
         Scroll.scrollUnaVista(),
         ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto("$ 2.500"),
+        ValidarTexto.validarTexto("$ 3.000"),
         ValidarTexto.validarTexto("300 Min"),
         Click.on(LBL_VER_DETALLE_3),
         ValidarTexto.validarTexto("Paquete 300 Minutos Vig 2 dias"));

@@ -126,7 +126,7 @@ Feature: Ingresar al módulo de entretenimiento
     And   VALIDA VERSION DE MINIPROGRAMA PRE CLARO CLUB
     Then  VALIDA REDIRECCION CLARO CLUB
 
-  @PRE110_MANTENIMIENTO @PREPAGO
+  @PRE110 @PREPAGO
   Scenario: Explora y Compra Redirección de Claro Club Prepago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
