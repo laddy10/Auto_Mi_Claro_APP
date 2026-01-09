@@ -181,7 +181,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
 
 
 
-  @PRE107 @PREPAGO
+  @PRE107_MANTENIMIENTO  @PREPAGO
   Scenario: Recargas y Paquetes - Paquetes - Recorrido paquetes relevo comunidad sorda
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO

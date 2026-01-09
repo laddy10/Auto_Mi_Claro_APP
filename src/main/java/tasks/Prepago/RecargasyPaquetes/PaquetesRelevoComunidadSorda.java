@@ -8,6 +8,7 @@ import static utils.Constants.*;
 import interactions.Click.ClickElementByText;
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.Scroll;
+import interactions.Scroll.ScrollHastaTexto;
 import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitForResponse;
@@ -36,6 +37,7 @@ public class PaquetesRelevoComunidadSorda implements Task {
     EvidenciaUtils.registrarCaptura(paso1);
 
     actor.attemptsTo(
+        Scroll.scrollUnaVista(),
         ClickTextoQueContengaX.elTextoContiene(PAQUETES_RELEVO_COMUNIDAD_SORDA),
         WaitForResponse.withText(ELIGE_TU_PAQUETE_IDEAL),
         ValidarTextoQueContengaX.elTextoContiene(user.getNumeroPrepago()),
