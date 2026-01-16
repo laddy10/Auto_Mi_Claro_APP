@@ -158,7 +158,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   REALIZA LA VALIDACIÓN DE PAQUETES DE DATOS
 
 
-  @PRE105 @PREPAGO
+  @PRE105_MANTENIMIENTO @PREPAGO
   Scenario: Recargas y Paquetes - Paquetes - Recorrido paquetes de voz
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
