@@ -8,7 +8,6 @@ import static utils.Constants.*;
 import interactions.Click.ClickElementByText;
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.Scroll;
-import interactions.Scroll.ScrollDentroDeModal;
 import interactions.Scroll.ScrollHastaTexto;
 import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;
@@ -17,10 +16,7 @@ import models.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Click;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
@@ -41,7 +37,8 @@ public class PaquetesRelevoComunidadSorda implements Task {
     EvidenciaUtils.registrarCaptura(paso1);
 
     actor.attemptsTo(
-        Click.on("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[2]"),
+        Click.on(
+            "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[2]"),
         ScrollHastaTexto.conTexto(PAQUETES_RELEVO_COMUNIDAD_SORDA),
         ClickTextoQueContengaX.elTextoContiene(PAQUETES_RELEVO_COMUNIDAD_SORDA),
         WaitForResponse.withText(ELIGE_TU_PAQUETE_IDEAL),

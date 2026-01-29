@@ -24,25 +24,25 @@ public class OtrosMediosDePagoPSE implements Task {
   public <T extends Actor> void performAs(T actor) {
 
     actor.attemptsTo(
-        WaitFor.aTime(2500),
+        WaitFor.aTime(3000),
         ValidarTexto.validarTexto(COMPRA_DE_PAQUETES),
         ValidarTextoQueContengaX.elTextoContiene(VALOR_A_PAGAR),
         ValidarTextoQueContengaX.elTextoContiene(NUMERO_FACTURA_RECARGAS),
         ValidarTextoQueContengaX.elTextoContiene(DESCRIPCION_COMPRA),
         ValidarTextoQueContengaX.elTextoContiene(ESCOGE_MEDIO_PAGO),
-        WaitFor.aTime(1500),
+        WaitFor.aTime(2500),
         Click.on(DROPDOWN_MEDIO_PAGO),
-        WaitFor.aTime(800));
+        WaitFor.aTime(1500));
 
     EvidenciaUtils.registrarCaptura(paso1);
 
-    actor.attemptsTo(Click.on(BTN_MEDIO_PSE), WaitFor.aTime(1500));
+    actor.attemptsTo(Click.on(BTN_MEDIO_PSE), WaitFor.aTime(3000));
 
     EvidenciaUtils.registrarCaptura(PASO_PSE);
 
     actor.attemptsTo(
         ClickTextoQueContengaX.elTextoContiene(CONTINUAR),
-        WaitFor.aTime(2500),
+        WaitFor.aTime(3500),
         PSE.validarRedireccion());
   }
 

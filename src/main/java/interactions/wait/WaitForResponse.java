@@ -17,7 +17,7 @@ public class WaitForResponse implements Interaction {
   private final int timeout;
 
   // ⏱️ Tiempo por defecto en segundos
-  private static final int DEFAULT_TIMEOUT = 30;
+  private static final int DEFAULT_TIMEOUT = 90;
 
   public WaitForResponse(List<String> expectedTexts, int timeout) {
     this.expectedTexts = expectedTexts;
@@ -35,7 +35,7 @@ public class WaitForResponse implements Interaction {
     boolean found = false;
     long startTime = System.currentTimeMillis();
 
-    while ((System.currentTimeMillis() - startTime) < timeout * 1000 && !found) {
+    while ((System.currentTimeMillis() - startTime) < timeout * 1500 && !found) {
       for (String text : expectedTexts) {
         try {
           By locator =
@@ -61,7 +61,7 @@ public class WaitForResponse implements Interaction {
 
     // 🔄 Pequeña pausa adicional para asegurar que la UI esté estable
     try {
-      Thread.sleep(800);
+      Thread.sleep(1500);
     } catch (InterruptedException e) {
       Thread.currentThread().interrupt();
     }

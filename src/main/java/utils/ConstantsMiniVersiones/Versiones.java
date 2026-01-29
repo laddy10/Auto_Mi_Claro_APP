@@ -16,7 +16,7 @@ public class Versiones {
 
   public static final String MINI_VERSION_PAGA_TU_FACTURA_CONSTANT = "Ver 1.1.15 (2026-01-09)";
 
-  public static final String MINI_VERSION_RECARGAS_Y_PAQUETES_CONSTANT = "Ver 1.2.2 (2025-12-22)";
+  public static final String MINI_VERSION_RECARGAS_Y_PAQUETES_CONSTANT = "Ver 1.2.4 (2026-01-20)";
 
   public static final String MINI_VERSION_NECESITAS_AYUDA_CONSTANT = "Ver 1.0.41 (2025-06-25)";
 

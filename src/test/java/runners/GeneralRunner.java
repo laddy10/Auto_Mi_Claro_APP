@@ -15,8 +15,7 @@ import utils.DataToFeature;
     glue = {"stepDefinitions", "utils", "hooks", "listeners"},
     snippets = SnippetType.CAMELCASE,
     plugin = {"pretty"},
-    tags = "@PRE107_MANTENIMIENTO")
-
+    tags = "@SA033")
 public class GeneralRunner {
   @BeforeSuite
   public static void generateFeatureFiles() throws InvalidFormatException, IOException {

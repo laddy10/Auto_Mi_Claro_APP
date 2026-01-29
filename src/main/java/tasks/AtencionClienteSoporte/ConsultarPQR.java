@@ -40,8 +40,8 @@ public class ConsultarPQR implements Task {
 
       actor.attemptsTo(
           ClickTextoQueContengaX.elTextoContiene(user.getNumero())
-         // WaitForResponse.withText(CLARO_COLOMBIA_PQR)
-      );
+          // WaitForResponse.withText(CLARO_COLOMBIA_PQR)
+          );
     }
 
     public static Performable ejecutar() {

@@ -1,6 +1,6 @@
 Feature: Ingresar al modulo pagos y consultas en Prepago
 
-  @PRE012_MANTENIMIENTO @PREPAGO
+  @PRE012 @PREPAGO
   Scenario: Arma tu paquete - redirección pago Tarjeta C O D
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -15,7 +15,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   VALIDAR DIRECCIONAMIENTO TARJETA CREDITO DEBITO
 
 
-  @PRE013_MANTENIMIENTO @PREPAGO
+  @PRE013 @PREPAGO
   Scenario: Arma tu paquete - redirección pago PSE
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO

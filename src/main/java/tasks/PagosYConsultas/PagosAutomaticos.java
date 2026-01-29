@@ -40,8 +40,8 @@ public class PagosAutomaticos implements Task {
         ValidarTextoQueContengaX.elTextoContiene(SELECCIONA_QUE_SERVICIO_DESEAS_INSCRIBIR),
         ValidarTextoQueContengaX.elTextoContiene(VER_HISTORIAL),
         ValidarTextoQueContengaX.elTextoContiene(SELECCIONAR_TODAS));
-        //ScrollHastaTexto.conTexto(user.getNumero().replace(" ", "")),
-        //ValidarTextoQueContengaX.elTextoContiene(user.getNumero().replace(" ", "")));
+    // ScrollHastaTexto.conTexto(user.getNumero().replace(" ", "")),
+    // ValidarTextoQueContengaX.elTextoContiene(user.getNumero().replace(" ", "")));
 
     EvidenciaUtils.registrarCaptura(paso3);
 

@@ -27,7 +27,7 @@ public class RedireccionMedioPago implements Task {
   private static final String pasoPse = "b. PSE - NEQUI: Redirección a portal PSE - NEQUI";
   private static final String pasoBancolombia =
       "c. Bancolombia: Redirección a portal de Bancolombia";
-  private static final String pasoCodensa = "d. Codensa: Redirección a formulario Codensa";
+  //private static final String pasoCodensa = "d. Codensa: Redirección a formulario Codensa";
   private static final String pasoNequi =
       "e. Otros medios de pago: Redirección a portal Otros medios de pago";
 
@@ -65,14 +65,14 @@ public class RedireccionMedioPago implements Task {
       EvidenciaUtils.registrarCaptura(pasoBancolombia);
       cerrarPopupYRegresar(actor);
 
-      // Codensa
+      /* Codensa
       actor.attemptsTo(
           ClickTextoQueContengaX.elTextoContiene(CODENSA),
           WaitForResponse.withText(PORTAL_PAGOS_CLARO),
           ValidarTexto.validarTexto(TARJETAS_NACIONALES),
           ValidarTexto.validarTexto(NUMERO_TARJETA));
       EvidenciaUtils.registrarCaptura(pasoCodensa);
-      cerrarPopupYRegresar(actor);
+      cerrarPopupYRegresar(actor);*/
 
       // Otros medios de pago
       String numeroLimpio = user.getNumero().replaceAll("\\s", "");

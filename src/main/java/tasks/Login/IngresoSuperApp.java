@@ -143,12 +143,13 @@ public class IngresoSuperApp implements Task {
       actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(INICIAR_SESION));
     }
 
-    if (isVisible(actor,BTN_CONTINUAR )) {
-      actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(CONTINUAR),
-              Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
-              ClickElementByText.clickElementByText(CONTINUAR),
-              WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
-    }else{
+    if (isVisible(actor, BTN_CONTINUAR)) {
+      actor.attemptsTo(
+          ClickTextoQueContengaX.elTextoContiene(CONTINUAR),
+          Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
+          ClickElementByText.clickElementByText(CONTINUAR),
+          WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
+    } else {
       loginConEmail(actor);
     }
   }
@@ -187,9 +188,7 @@ public class IngresoSuperApp implements Task {
     }
 
     try {
-      actor.attemptsTo(
-              ClickElementByText.clickElementByText(CONTINUAR)
-      );
+      actor.attemptsTo(ClickElementByText.clickElementByText(CONTINUAR));
     } catch (Exception e) {
       // No existe CONTINUAR → continúa el flujo normal
     }
