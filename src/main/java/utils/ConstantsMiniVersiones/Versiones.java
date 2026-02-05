@@ -12,9 +12,9 @@ public class Versiones {
 
   public static final String MINI_VERSION_AMAZON_PRIME_CONSTANT = "Ver 1.4.28 (2025-08-20)";
 
-  public static final String MINI_VERSION_DISNEY_CONSTANT = "Ver 1.0.62 (2025-08-20)";
+  public static final String MINI_VERSION_DISNEY_CONSTANT = "Ver 1.0.65 (2026-02-04)";
 
-  public static final String MINI_VERSION_PAGA_TU_FACTURA_CONSTANT = "Ver 1.1.15 (2026-01-09)";
+  public static final String MINI_VERSION_PAGA_TU_FACTURA_CONSTANT = "Ver 1.1.15 (2026-02-03)";
 
   public static final String MINI_VERSION_RECARGAS_Y_PAQUETES_CONSTANT = "Ver 1.2.4 (2026-01-20)";
 
