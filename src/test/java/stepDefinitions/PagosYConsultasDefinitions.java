@@ -31,7 +31,7 @@ import tasks.Prepago.RecargasyPaquetes.SeleccionLineaPrepago;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
-public class PagosYConsultasDefinitions {
+public class PagosYConsultasDefinitions  {
 
   private final User user = TestDataProvider.getRealUser();
 

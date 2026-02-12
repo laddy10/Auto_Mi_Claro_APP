@@ -112,6 +112,7 @@ dependencies {
 
     // Local libraries
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'org.testng:testng:7.1.0'
 }
 
 // Forzar versiones específicas

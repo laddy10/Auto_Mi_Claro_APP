@@ -125,7 +125,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   DIRECCIONAMIENTO OTROS MEDIOS DE PAGO PSE
 
 
-  @PRE102_MANTENIMIENTO @PREPAGO
+  @PRE102 @PREPAGO
   Scenario: Recargas y Paquetes - Paquetes - Recorrido paquetes todo incluído con redes
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -136,7 +136,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     Then  SELECCIONAR EL TIPO DE PAQUETE TODO INCLUIDO CON REDES
 
 
-  @PRE103_MANTENIMIENTO @PREPAGO
+  @PRE103 @PREPAGO
   Scenario: Recargas y Paquetes - Paquetes - Recorrido paquetes todo incluído sin redes
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -147,7 +147,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     Then  REALIZA LA VALIDACIÓN DE PAQUETES TODO INCLUIDO SIN REDES
 
 
-  @PRE104_MANTENIMIENTO @PREPAGO
+  @PRE104 @PREPAGO
   Scenario: Recargas y Paquetes - Paquetes - Recorrido paquetes de datos
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -158,7 +158,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   REALIZA LA VALIDACIÓN DE PAQUETES DE DATOS
 
 
-  @PRE105_MANTENIMIENTO @PREPAGO
+  @PRE105 @PREPAGO
   Scenario: Recargas y Paquetes - Paquetes - Recorrido paquetes de voz
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -169,7 +169,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     Then  REALIZA RECORRIDO COMPLETO PAQUETES DE VOZ
 
 
-  @PRE106_MANTENIMIENTO @PREPAGO
+  @PRE106 @PREPAGO
   Scenario: Recargas y Paquetes - Paquetes - Recorrido paquetes de apps
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -181,7 +181,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
 
 
 
-  @PRE107_MANTENIMIENTO  @PREPAGO
+  @PRE107_HALLAZGO  @PREPAGO
   Scenario: Recargas y Paquetes - Paquetes - Recorrido paquetes relevo comunidad sorda
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO

@@ -5,6 +5,8 @@ import static userinterfaces.PagosyConsultasPrePage.LBL_VER_DETALLE_1;
 import static userinterfaces.PagosyConsultasPrePage.LBL_VER_DETALLE_2;
 import static utils.AndroidObject.scrollCorto2;
 import static utils.Constants.*;
+import static utils.ConstantsPaquetes.*;
+import static utils.ConstantsPaquetes.PAQUETES_TODO_INCLUIDO;
 
 import interactions.Click.ClickElementByText;
 import interactions.Scroll.Scroll;
@@ -38,12 +40,12 @@ public class TodoIncluidoSinRedes implements Task {
         ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto("10 GB"),
         ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto("$ 12.000"),
+        ValidarTexto.validarTexto(PRECIO_$13000),
         ValidarTexto.validarTexto("Min ILIMITADOS"),
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
         Click.on(LBL_VER_DETALLE_1),
-        ValidarTexto.validarTexto(
-            "Este paquete incluye 10GB+ Minutos y SMS ilimitados todo destino, No incluye redes sociales. Vig 7 dias"));
+        ValidarTexto.validarTexto(TODO_INCLUIDO_7DIAS_10GB)
+    );
 
     EvidenciaUtils.registrarCaptura(paso2);
 
@@ -56,12 +58,12 @@ public class TodoIncluidoSinRedes implements Task {
         ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto("20 GB"),
         ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto("$ 22.000"),
+        ValidarTexto.validarTexto(PRECIO_$23000),
         ValidarTexto.validarTexto("Min ILIMITADOS"),
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
         Click.on(LBL_VER_DETALLE_1),
-        ValidarTexto.validarTexto(
-            "Este paquete Todo Incluido incluye 20GB, ilimitados en Minutos y SMS , Vigencia 15 dias"));
+        ValidarTexto.validarTexto(TODO_INCLUIDO_15DIAS_20GB)
+    );
 
     EvidenciaUtils.registrarCaptura(paso3);
 
@@ -71,13 +73,13 @@ public class TodoIncluidoSinRedes implements Task {
         ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto("30 GB"),
         ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto("$ 32.000"),
+        ValidarTexto.validarTexto(PRECIO_$33000),
         ValidarTexto.validarTexto("Min ILIMITADOS"),
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
         Click.on(LBL_VER_DETALLE_2),
         Scroll.scrollUnaVista(),
-        ValidarTexto.validarTexto(
-            "Este paquete Todo Incluido incluye 30GB, ilimitados en Minutos y SMS , Vigencia 30 dias"));
+        ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_30GB)
+    );
 
     EvidenciaUtils.registrarCaptura(paso4);
   }

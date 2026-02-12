@@ -82,4 +82,8 @@ public class MediosPagoPage {
           .located(
               By.xpath(
                   "//android.view.View[@text=\"Medios de pago online\"]/android.view.View[1]"));
+  public static final Target TXT_INGRESAR_NUMERO_DOCUMENTO_DAVIPLATA =
+          Target.the("Caja de texto ingresar documento")
+                  .located(By.xpath("//android.widget.TextView[@text=\"Escribe el número de documento\"]"));
+
 }

@@ -5,6 +5,8 @@ import static userinterfaces.PagosyConsultasPrePage.LBL_VER_DETALLE_1;
 import static userinterfaces.PagosyConsultasPrePage.LBL_VER_DETALLE_2;
 import static utils.AndroidObject.scrollCorto2;
 import static utils.Constants.*;
+import static utils.ConstantsPaquetes.*;
+import static utils.ConstantsPaquetes.PAQUETES_DE_DATOS;
 
 import interactions.Click.ClickElementByText;
 import interactions.Click.ClickTextoQueContengaX;
@@ -19,108 +21,109 @@ import utils.EvidenciaUtils;
 
 public class PaquetesDeDatos implements Task {
 
-  private static final String paso1 = "Seleccionar Paquetes de datos";
-  private static final String paso2 = "Validar paquete ilimitado 2 horas";
-  private static final String paso3 = "Validar paquete 200MB sin redes";
-  private static final String paso4 = "Validar paquete 400MB con WhatsApp";
-  private static final String paso5 = "Ir a segunda página de paquetes de datos";
-  private static final String paso6 = "Validar paquete 800MB";
-  private static final String paso7 = "Validar paquete 2GB";
+    private static final String paso1 = "Seleccionar Paquetes de datos";
+    private static final String paso2 = "Validar paquete ilimitado 2 horas";
+    private static final String paso3 = "Validar paquete 200MB sin redes";
+    private static final String paso4 = "Validar paquete 400MB con WhatsApp";
+    private static final String paso5 = "Ir a segunda página de paquetes de datos";
+    private static final String paso6 = "Validar paquete 800MB";
+    private static final String paso7 = "Validar paquete 2GB";
 
-  @Override
-  public <T extends Actor> void performAs(T actor) {
+    @Override
+    public <T extends Actor> void performAs(T actor) {
 
-    // Paso 1: Seleccionar categoría
-    EvidenciaUtils.registrarCaptura(paso1);
+        // Paso 1: Seleccionar categoría
+        EvidenciaUtils.registrarCaptura(paso1);
 
-    actor.attemptsTo(
-        ClickTextoQueContengaX.elTextoContiene(PAQUETES_DE_DATOS),
-        WaitForResponse.withText(ELIGE_TU_PAQUETE_IDEAL));
+        actor.attemptsTo(
+                ClickTextoQueContengaX.elTextoContiene(PAQUETES_DE_DATOS),
+                WaitForResponse.withText(ELIGE_TU_PAQUETE_IDEAL));
 
-    // Paso 2: Validar paquete ilimitado
-    actor.attemptsTo(
-        ValidarTexto.validarTexto(LABEL_PAQUETES),
-        ValidarTexto.validarTexto("Ilimitada"),
-        ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto("$ 5.500"),
-        ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
-        ValidarTexto.validarTexto("Navegación ilimitada, Vigencia 2 horas"));
+        // Paso 2: Validar paquete ilimitado
+        actor.attemptsTo(
+                ValidarTexto.validarTexto(LABEL_PAQUETES),
+                ValidarTexto.validarTexto("Ilimitada"),
+                ValidarTexto.validarTexto(PRECIO),
+                ValidarTexto.validarTexto(PRECIO_$6000),
+                ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
+                ValidarTexto.validarTexto(NAVEGACION_ILIMITADA_2H)
+        );
 
-    EvidenciaUtils.registrarCaptura(paso2);
+        EvidenciaUtils.registrarCaptura(paso2);
 
     /*    actor.attemptsTo(
             ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE)
     );*/
 
-    // Paso 3: Validar paquete 200MB  OJO EL SCROLL ES MUY LARGO
-    scrollCorto2(actor, "Apps incluidas");
+        // Paso 3: Validar paquete 200MB  OJO EL SCROLL ES MUY LARGO
+        scrollCorto2(actor, "Apps incluidas");
 
-    actor.attemptsTo(
-        ValidarTexto.validarTexto(LABEL_PAQUETES),
-        ValidarTexto.validarTexto("200 MB"),
-        ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto("$ 1.500"),
-        ValidarTexto.validarTexto("Apps incluidas"),
-        Click.on(LBL_VER_DETALLE_1),
-        ValidarTexto.validarTexto(
-            "Navegación 200MB +WhatsApp sin descontar de la capacidad incluida, vigencia 1 dia."));
+        actor.attemptsTo(
+                ValidarTexto.validarTexto(LABEL_PAQUETES),
+                ValidarTexto.validarTexto("200 MB"),
+                ValidarTexto.validarTexto(PRECIO),
+                ValidarTexto.validarTexto(PRECIO_$2000),
+                ValidarTexto.validarTexto("Apps incluidas"),
+                Click.on(LBL_VER_DETALLE_1),
+                ValidarTexto.validarTexto(NAVEGACION_200MB_1DIA)
+        );
 
-    EvidenciaUtils.registrarCaptura(paso3);
+        EvidenciaUtils.registrarCaptura(paso3);
 
-    // Paso 4: Validar paquete 400MB
+        // Paso 4: Validar paquete 400MB
 
-    actor.attemptsTo(
-        Scroll.scrollUnaVista(),
-        ValidarTexto.validarTexto(LABEL_PAQUETES),
-        ValidarTexto.validarTexto("400 MB"),
-        ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto("$ 2.500"),
-        ValidarTexto.validarTexto("Apps incluidas"),
-        Click.on(LBL_VER_DETALLE_2),
-        ValidarTexto.validarTexto(
-            "Navegación 400MB+WhatsApp, Facebook y Twitter sin descontar de la capacidad incluida, Vigencia 1 dia"));
+        actor.attemptsTo(
+                Scroll.scrollUnaVista(),
+                ValidarTexto.validarTexto(LABEL_PAQUETES),
+                ValidarTexto.validarTexto("400 MB"),
+                ValidarTexto.validarTexto(PRECIO),
+                ValidarTexto.validarTexto(PRECIO_$3000),
+                ValidarTexto.validarTexto("Apps incluidas"),
+                Click.on(LBL_VER_DETALLE_2),
+                ValidarTexto.validarTexto(NAVEGACION_400MB_1DIA)
+        );
 
-    EvidenciaUtils.registrarCaptura(paso4);
+        EvidenciaUtils.registrarCaptura(paso4);
 
-    // Paso 5: Ir a segunda página
-    Scroll.scrollUnaVista();
+        // Paso 5: Ir a segunda página
+        Scroll.scrollUnaVista();
 
-    EvidenciaUtils.registrarCaptura(paso5);
+        EvidenciaUtils.registrarCaptura(paso5);
 
-    actor.attemptsTo(
-        ClickTextoQueContengaX.elTextoContiene(ULTIMO),
-        WaitForResponse.withText(ELIGE_TU_PAQUETE_IDEAL));
+        actor.attemptsTo(
+                ClickTextoQueContengaX.elTextoContiene(ULTIMO),
+                WaitForResponse.withText(ELIGE_TU_PAQUETE_IDEAL));
 
-    // Paso 6: Validar paquete 800MB
-    actor.attemptsTo(
-        ValidarTexto.validarTexto(LABEL_PAQUETES),
-        ValidarTexto.validarTexto("800 MB"),
-        ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto("$ 4.500"),
-        ValidarTexto.validarTexto("Apps incluidas"),
-        ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
-        ValidarTexto.validarTexto(
-            "Navegación 800MB+WhatsApp, Facebook y Twitter sin descontar de la capacidad incluida, Vigencia 3 Días"));
+        // Paso 6: Validar paquete 800MB
+        actor.attemptsTo(
+                ValidarTexto.validarTexto(LABEL_PAQUETES),
+                ValidarTexto.validarTexto("800 MB"),
+                ValidarTexto.validarTexto(PRECIO),
+                ValidarTexto.validarTexto(PRECIO_$5000),
+                ValidarTexto.validarTexto("Apps incluidas"),
+                ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
+                ValidarTexto.validarTexto(NAVEGACION_800MB_3DIAS)
+        );
 
-    EvidenciaUtils.registrarCaptura(paso6);
+        EvidenciaUtils.registrarCaptura(paso6);
 
-    // Paso 7: Validar paquete 2GB
+        // Paso 7: Validar paquete 2GB
 
-    actor.attemptsTo(
-        Scroll.scrollUnaVista(),
-        ValidarTexto.validarTexto(LABEL_PAQUETES),
-        ValidarTexto.validarTexto("2 GB"),
-        ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto("$ 7.500"),
-        ValidarTexto.validarTexto("Apps incluidas"),
-        Click.on(LBL_VER_DETALLE_2),
-        ValidarTexto.validarTexto(
-            "Navegación 2GB+WhatsApp, Facebook y Twitter sin descontar de la capacidad incluida, Vigencia 7 Dias"));
+        actor.attemptsTo(
+                Scroll.scrollUnaVista(),
+                ValidarTexto.validarTexto(LABEL_PAQUETES),
+                ValidarTexto.validarTexto("2 GB"),
+                ValidarTexto.validarTexto(PRECIO),
+                ValidarTexto.validarTexto(PRECIO_$8000),
+                ValidarTexto.validarTexto("Apps incluidas"),
+                Click.on(LBL_VER_DETALLE_2),
+                ValidarTexto.validarTexto(NAVEGACION_2GB_7DIAS)
+        );
 
-    EvidenciaUtils.registrarCaptura(paso7);
-  }
+        EvidenciaUtils.registrarCaptura(paso7);
+    }
 
-  public static Performable validar() {
-    return instrumented(PaquetesDeDatos.class);
-  }
+    public static Performable validar() {
+        return instrumented(PaquetesDeDatos.class);
+    }
 }

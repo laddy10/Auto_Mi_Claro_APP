@@ -6,7 +6,7 @@ import java.io.IOException;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.runner.RunWith;
-import utils.BeforeSuite;
+import org.testng.annotations.BeforeSuite;
 import utils.DataToFeature;
 
 @RunWith(CucumberWithSerenity.class)
@@ -15,7 +15,7 @@ import utils.DataToFeature;
     glue = {"stepDefinitions", "utils", "hooks", "listeners"},
     snippets = SnippetType.CAMELCASE,
     plugin = {"pretty"},
-    tags = "@SA033")
+    tags = "@PRE110")
 public class GeneralRunner {
   @BeforeSuite
   public static void generateFeatureFiles() throws InvalidFormatException, IOException {

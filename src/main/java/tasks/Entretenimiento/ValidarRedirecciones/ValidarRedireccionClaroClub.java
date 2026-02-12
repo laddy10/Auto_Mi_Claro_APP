@@ -33,10 +33,18 @@ public class ValidarRedireccionClaroClub implements Task {
     // ✅ Nueva condición: si está visible el botón de cerrar (BTN_CLOSE), hace clic.
 
     actor.attemptsTo(
-        WaitFor.aTime(2000), Scroll.scrollUnaVista(), Click.on(BTN_CLOSE), WaitFor.aTime(1000));
+        WaitFor.aTime(2000),
+            Scroll.scrollUnaVista(),
+            Click.on(BTN_CLOSE_CLARO_CLUB),
+            WaitFor.aTime(1000)
+    );
 
     // Flujo principal
-    actor.attemptsTo(WaitFor.aTime(8000), ValidarTextoQueContengaX.elTextoContiene("Categorías"));
+    actor.attemptsTo(
+            WaitFor.aTime(8000),
+            ValidarTextoQueContengaX.elTextoContiene("Categorías")
+    );
+
     EvidenciaUtils.registrarCaptura(paso1);
 
     actor.attemptsTo(Click.on(MENU_CATEGORIAS));

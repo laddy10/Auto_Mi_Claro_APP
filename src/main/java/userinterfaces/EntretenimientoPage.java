@@ -349,4 +349,7 @@ public class EntretenimientoPage {
       Target.the("Botón Escucha gratis")
           .locatedBy(
               "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.Button");
+  public static final Target BTN_CLOSE_CLARO_CLUB =
+          Target.the("Botón Close Claro Club")
+                  .located(By.xpath("//android.widget.Button[@content-desc=\"Close\"]"));
 }
