@@ -2,6 +2,7 @@ package tasks.Entretenimiento;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static userinterfaces.EntretenimientoPage.*;
+import static utils.AdbUtils.ejecutarAdbTap;
 import static utils.Constants.*;
 
 import interactions.Scroll.ScrollHorizontalYValidar;
@@ -24,35 +25,37 @@ import utils.EvidenciaUtils;
  */
 public class SeleccionaPlanEstandarDisney implements Task {
 
-  private static final String PLAN_DISNEY_ESTANDAR = "Disney+ Premium";
-  private static final String paso = "Seleccionar Plan Estándar Disney+";
+    private static final String PLAN_DISNEY_ESTANDAR = "Disney+ Premium";
+    private static final String paso = "Seleccionar Plan Estándar Disney+";
 
-  @Override
-  public <T extends Actor> void performAs(T actor) {
-    actor.attemptsTo(
-        // Espera inicial para cargar la interfaz
-        WaitForResponse.withText("Disney+"),
-        WaitFor.aTime(5000),
-        // Scroll horizontal hasta encontrar el plan Disney+ Estándar
-        ScrollHorizontalYValidar.scrollIzquierdaYValidar(ELEGIR_PLAN),
+    @Override
+    public <T extends Actor> void performAs(T actor) {
+        actor.attemptsTo(
+                // Espera inicial para cargar la interfaz
+                WaitForResponse.withText("Disney+"),
+                WaitFor.aTime(5000),
+                // Scroll horizontal hasta encontrar el plan Disney+ Estándar
+                ScrollHorizontalYValidar.scrollIzquierdaYValidar(ELEGIR_PLAN),
 
-        // Validar que el plan está visible (opcional pero recomendado)
-        ValidarTextoQueContengaX.elTextoContiene(ELEGIR_PLAN));
+                // Validar que el plan está visible (opcional pero recomendado)
+                ValidarTextoQueContengaX.elTextoContiene(ELEGIR_PLAN));
 
-    // Captura de evidencia después del scroll
-    EvidenciaUtils.registrarCaptura(paso + " - Plan encontrado");
+        // Captura de evidencia después del scroll
+        EvidenciaUtils.registrarCaptura(paso + " - Plan encontrado");
 
-    actor.attemptsTo(
+  /*  actor.attemptsTo(
         // Click en el botón Elegir Plan
-        Click.on(BTN_ELEGIR_PLAN_PREMIUM));
-  }
+        Click.on(BTN_ELEGIR_PLAN_PREMIUM)); ¨*/
 
-  /**
-   * Factory method siguiendo el patrón del proyecto
-   *
-   * @return Performable task para seleccionar plan Disney+ Estándar
-   */
-  public static Performable seleccionar() {
-    return instrumented(SeleccionaPlanEstandarDisney.class);
-  }
+        ejecutarAdbTap(352, 1146);  // Simula un toque en las coordenadas
+    }
+
+    /**
+     * Factory method siguiendo el patrón del proyecto
+     *
+     * @return Performable task para seleccionar plan Disney+ Estándar
+     */
+    public static Performable seleccionar() {
+        return instrumented(SeleccionaPlanEstandarDisney.class);
+    }
 }

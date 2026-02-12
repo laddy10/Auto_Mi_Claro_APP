@@ -9,6 +9,7 @@ import static utils.ConstantsMiniVersiones.Versiones.*;
 
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarTextoQueContengaX;
+import interactions.validations.VerificarVersionModulo;
 import interactions.wait.WaitFor;
 import interactions.wait.WaitForResponse;
 import models.User;
@@ -46,7 +47,7 @@ public class ValidarVersionMiniProgramaAmazonPrime implements Task {
     actor.attemptsTo(
         WaitForResponse.withText("Ver"),
         ValidarTextoQueContengaX.elTextoContiene(AMAZON_PRIME),
-        ValidarTextoQueContengaX.elTextoContiene(MINI_VERSION_AMAZON_PRIME_CONSTANT));
+            VerificarVersionModulo.conLaEsperada(MINI_VERSION_AMAZON_PRIME_CONSTANT));
     EvidenciaUtils.registrarCaptura(paso3);
     // **********************************************************************************
     actor.attemptsTo(Click.on(BTN_VOLVER));

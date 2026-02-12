@@ -25,6 +25,7 @@ public class ValidarTerminosCondicionesDisneyEstandar implements Task {
   @Override
   public <T extends Actor> void performAs(T actor) {
     actor.attemptsTo(
+
         WaitForResponse.withText(ESCRIBIR_CODIGO_VENDEDOR),
         ValidarTexto.validarTexto(ESCRIBIR_CODIGO_VENDEDOR),
         WaitFor.aTime(2000));

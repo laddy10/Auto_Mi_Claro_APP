@@ -10,7 +10,7 @@ public class Versiones {
 
   public static final String MINI_VERSION_NETFLIX_CONSTANT = "Versión 1.2.4 (2026-01-28)";
 
-  public static final String MINI_VERSION_AMAZON_PRIME_CONSTANT = "Versión 1.4.28 (2025-08-20)";
+  public static final String MINI_VERSION_AMAZON_PRIME_CONSTANT = "Versión 1.4.32 (2026-02-04)";
 
   public static final String MINI_VERSION_DISNEY_CONSTANT = "Versión 1.0.65 (2026-02-04)";
 

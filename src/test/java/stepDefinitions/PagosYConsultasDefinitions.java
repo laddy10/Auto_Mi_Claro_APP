@@ -484,4 +484,11 @@ public class PagosYConsultasDefinitions  {
 
     ReportHooks.setLinea(user.getNumero());
   }
+
+  @And("INGRESAR LINEA POSTPAGO SERVICIO FAMILIA ACTIVO")
+  public void ingresarLineaPostpagoServicioActivo() {
+    theActorInTheSpotlight().attemptsTo(IngresarLineaPostpagoServicioActivo.ingresarLineaPostpagoServicioActivo());
+
+    ReportHooks.setLinea(user.getNumero());
+  }
 }

@@ -315,6 +315,7 @@ public class Constants {
   public static final String AGREGAR_ELEGIDO = "Agregar elegido";
   public static final String TERMINOS_Y_CONDICIONES_CLARO = "Términos y Condiciones - Mi Claro";
   public static final String ELEGIDOS_TODO_DESTINO_TITULO = "ELEGIDOS TODO DESTINO";
+  public static final String NUMERO_DE_CUENTA_FAMILIA = "Numero de cuenta";
 
   // Constantes para Aplicaciones Elegibles
   public static final String COMPRAR_APLICACIONES = "Comprar aplicaciones";
