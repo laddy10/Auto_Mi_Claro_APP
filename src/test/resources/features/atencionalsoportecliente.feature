@@ -19,7 +19,7 @@ Feature: Ingresar al módulo de Atención al cliente y soporte
     And   INGRESA A LA OPCION SOPORTE HOGAR
     Then  SELECCIONA WHATSAPP Y VALIDA REDIRECCION
 
-  @SA056 @POSTPAGO
+  @SA056 
   Scenario: Consultar PQR
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -40,7 +40,7 @@ Feature: Ingresar al módulo de Atención al cliente y soporte
     And   MANEJA PERMISOS DE UBICACION
     Then  VERIFICA QUE ESTE PRESENTE EL MAPA
 
-  @SA058 @POSTPAGO
+  @SA058 
   Scenario: ¿Necesitas ayuda?
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -51,7 +51,7 @@ Feature: Ingresar al módulo de Atención al cliente y soporte
     And   DESPLAZA HASTA LINEA Y SELECCIONA VER DETALLE NECESITAS AYUDA
     Then  VERIFICA REDIRECCION A CLAROBOT
 
-  @SA080 @POSTPAGO
+  @SA080 
   Scenario: Estado de servicios técnicos Claro
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO

@@ -1,6 +1,6 @@
 Feature: Ingresar al modulo pagos y consultas en Prepago
 
-  @PRE012 @PREPAGO
+  @PRE012 
   Scenario: Arma tu paquete - redirección pago Tarjeta C O D
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -15,7 +15,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   VALIDAR DIRECCIONAMIENTO TARJETA CREDITO DEBITO
 
 
-  @PRE013 @PREPAGO
+  @PRE013 
   Scenario: Arma tu paquete - redirección pago PSE
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -30,7 +30,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   VALIDAR DIRECCIONAMIENTO PSE
 
 
-  @PRE015 @PREPAGO
+  @PRE015 
   Scenario: Arma tu paquete - redirección pago Bancolombia
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -45,7 +45,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   VALIDAR DIRECCIONAMIENTO BANCOLOMBIA
 
 
-  @PRE016 @PREPAGO
+  @PRE016 
   Scenario: Arma tu paquete - redirección pago Daviplata
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -75,7 +75,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   VALIDAR DIRECCIONAMIENTO TARJETA CREDITO DEBITO
 
 
-  @PRE018_MANTENIMIENTO @PREPAGO
+  @PRE018
   Scenario: Arma tu paquete - redirección Otros medios de pago - TCD - Condensa - Bancolombia
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -90,7 +90,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   VALIDAR DIRECCIONAMIENTO OTROS MEDIOS DE PAGO
 
 
-  @PRE020 @PREPAGO
+  @PRE020 
   Scenario: Ingresar a recargas y paquetes y validar gestionar compras recurrentes
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -99,7 +99,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     Then  GESTIONA COMPRAS RECURRENTES
 
 
-  @PRE040 @PREPAGO
+  @PRE040 
   Scenario: Adquirir productos en prepago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -110,7 +110,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     Then  VALIDA REDIRECCIONAMIENTO A PAGINA CLARO
 
 
-  @PRE101 @PREPAGO
+  @PRE101 
   Scenario: Arma tu paquete - redirección Otros medios de pago - PSE
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -125,7 +125,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   DIRECCIONAMIENTO OTROS MEDIOS DE PAGO PSE
 
 
-  @PRE102 @PREPAGO
+  @PRE102 
   Scenario: Recargas y Paquetes - Paquetes - Recorrido paquetes todo incluído con redes
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -136,7 +136,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     Then  SELECCIONAR EL TIPO DE PAQUETE TODO INCLUIDO CON REDES
 
 
-  @PRE103 @PREPAGO
+  @PRE103 
   Scenario: Recargas y Paquetes - Paquetes - Recorrido paquetes todo incluído sin redes
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -147,7 +147,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     Then  REALIZA LA VALIDACIÓN DE PAQUETES TODO INCLUIDO SIN REDES
 
 
-  @PRE104 @PREPAGO
+  @PRE104 
   Scenario: Recargas y Paquetes - Paquetes - Recorrido paquetes de datos
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -158,7 +158,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   REALIZA LA VALIDACIÓN DE PAQUETES DE DATOS
 
 
-  @PRE105 @PREPAGO
+  @PRE105 
   Scenario: Recargas y Paquetes - Paquetes - Recorrido paquetes de voz
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -169,7 +169,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     Then  REALIZA RECORRIDO COMPLETO PAQUETES DE VOZ
 
 
-  @PRE106 @PREPAGO
+  @PRE106 
   Scenario: Recargas y Paquetes - Paquetes - Recorrido paquetes de apps
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -181,7 +181,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
 
 
 
-  @PRE107_HALLAZGO  @PREPAGO
+  @PRE107
   Scenario: Recargas y Paquetes - Paquetes - Recorrido paquetes relevo comunidad sorda
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO

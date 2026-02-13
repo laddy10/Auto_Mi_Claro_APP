@@ -1,6 +1,6 @@
 Feature: Ingresar al módulo de Atención al cliente y soporte con lìneas prepago
 
-  @PRE063 @PREPAGO
+  @PRE063 
   Scenario: Consultar PQR Prepago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -11,7 +11,7 @@ Feature: Ingresar al módulo de Atención al cliente y soporte con lìneas prepa
     And   DESPLAZA HASTA LINEA Y SELECCIONA VER DETALLE CONSULTA PQR PRE
     Then  VERIFICA REDIRECCION CORRECTA A PAGINA CLARO
 
-  @PRE065 @PREPAGO
+  @PRE065 
   Scenario: ¿Necesitas ayuda? Prepago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -23,7 +23,7 @@ Feature: Ingresar al módulo de Atención al cliente y soporte con lìneas prepa
     Then  VERIFICA REDIRECCION A CLAROBOT
 
 
-  @PRE108 @PREPAGO
+  @PRE108 
   Scenario: Estado de servicios técnicos Comcel Prepago
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO

@@ -1,5 +1,6 @@
 package tasks.PagosYConsultas.DetalleDeTuPlan;
 
+import interactions.Click.ClickElementByText;
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.wait.WaitForResponse;
 import models.User;
@@ -26,7 +27,8 @@ public class IngresarLineaPostpagoServicioActivo implements Task {
         EvidenciaUtils.registrarCaptura(paso1);
 
         actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene(user.getNumeroFamiliayAmigos()),
+                ClickElementByText.clickElementByText(LINEA + " " + user.getNumeroFamiliayAmigos() + " " + VER_DETALLE),
+               // ClickTextoQueContengaX.elTextoContiene(user.getNumeroFamiliayAmigos()),
                 WaitForResponse.withAnyText(
                         FAMILIA_Y_AMIGOS_OPCION, ADELANTA_SALDO_LABEL, COMPRA_POR_CATEGORIA, CLARO_COLOMBIA));
     }
