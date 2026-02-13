@@ -4,6 +4,7 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
+import interactions.Click.ClickTextoRobusto;
 import interactions.wait.WaitForResponse;
 import models.User;
 import net.serenitybdd.screenplay.Actor;
@@ -15,41 +16,42 @@ import utils.TestDataProvider;
 
 public class NecesitasAyudaPRE implements Task {
 
-  private static final String paso1 = "Ingresar a ¿Necesitas ayuda?";
-
-  @Override
-  public <T extends Actor> void performAs(T actor) {
-    EvidenciaUtils.registrarCaptura(paso1);
-
-    actor.attemptsTo(
-        ClickTextoQueContengaX.elTextoContiene(NECESITAS_AYUDA), WaitForResponse.withText(PREPAGO));
-  }
-
-  public static Performable ingresar() {
-    return instrumented(NecesitasAyudaPRE.class);
-  }
-
-  public static class SeleccionarLineaYVerDetalle implements Task {
-    private final User user = TestDataProvider.getRealUser();
+    private static final String paso1 = "Ingresar a ¿Necesitas ayuda?";
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-      EvidenciaUtils.registrarCaptura("Seleccionar línea y Continuar - Necesitas ayuda");
-      actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(PREPAGO));
+        EvidenciaUtils.registrarCaptura(paso1);
 
-      AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumeroPrepago() + " " + CONTINUAR);
-
-      actor.attemptsTo(
-          ClickTextoQueContengaX.elTextoContiene(user.getNumeroPrepago()),
-          WaitForResponse.withAnyText(CLAROBOT));
+        actor.attemptsTo(
+                ClickTextoQueContengaX.elTextoContiene(NECESITAS_AYUDA), WaitForResponse.withText(PREPAGO));
     }
 
-    public static Performable ejecutar() {
-      return instrumented(SeleccionarLineaYVerDetalle.class);
+    public static Performable ingresar() {
+        return instrumented(NecesitasAyudaPRE.class);
     }
-  }
 
-  public static Performable seleccionarLineaYVerDetalle() {
-    return SeleccionarLineaYVerDetalle.ejecutar();
-  }
+    public static class SeleccionarLineaYVerDetalle implements Task {
+        private final User user = TestDataProvider.getRealUser();
+
+        @Override
+        public <T extends Actor> void performAs(T actor) {
+            EvidenciaUtils.registrarCaptura("Seleccionar línea y Continuar - Necesitas ayuda");
+            actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(PREPAGO));
+
+            AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumeroPrepago() + " " + CONTINUAR);
+
+            actor.attemptsTo(
+                    ClickTextoRobusto.en(LINEA + " " + user.getNumeroPrepago() + " " + CONTINUAR),
+                    //ClickTextoQueContengaX.elTextoContiene(user.getNumeroPrepago()),
+                    WaitForResponse.withAnyText(CLAROBOT));
+        }
+
+        public static Performable ejecutar() {
+            return instrumented(SeleccionarLineaYVerDetalle.class);
+        }
+    }
+
+    public static Performable seleccionarLineaYVerDetalle() {
+        return SeleccionarLineaYVerDetalle.ejecutar();
+    }
 }

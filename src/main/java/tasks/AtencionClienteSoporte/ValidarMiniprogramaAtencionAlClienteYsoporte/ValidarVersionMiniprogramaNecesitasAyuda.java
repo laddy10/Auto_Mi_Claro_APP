@@ -10,6 +10,7 @@ import static utils.ConstantsMiniVersiones.Versiones.MINI_VERSION_NECESITAS_AYUD
 
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarTextoQueContengaX;
+import interactions.validations.VerificarVersionModulo;
 import interactions.wait.WaitFor;
 import interactions.wait.WaitForResponse;
 import models.User;
@@ -41,7 +42,7 @@ public class ValidarVersionMiniprogramaNecesitasAyuda implements Task {
     actor.attemptsTo(
         WaitForResponse.withText("Ver"),
         ValidarTextoQueContengaX.elTextoContiene(NECESITAS_AYUDA),
-        ValidarTextoQueContengaX.elTextoContiene(MINI_VERSION_NECESITAS_AYUDA_CONSTANT));
+            VerificarVersionModulo.conLaEsperada(MINI_VERSION_NECESITAS_AYUDA_CONSTANT));
     EvidenciaUtils.registrarCaptura(paso3);
     // **********************************************************************************
     actor.attemptsTo(Click.on(BTN_VOLVER));

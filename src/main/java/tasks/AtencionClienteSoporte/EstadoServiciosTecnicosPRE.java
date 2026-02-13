@@ -6,6 +6,9 @@ import static utils.Constants.*;
 import interactions.Click.ClickElementByText;
 import interactions.Click.ClickLineaCuenta;
 import interactions.Click.ClickTextoQueContengaX;
+import interactions.Click.ClickTextoRobusto;
+import interactions.Scroll.ScrollHastaTexto;
+import interactions.wait.WaitFor;
 import interactions.wait.WaitForResponse;
 import models.User;
 import net.serenitybdd.screenplay.Actor;
@@ -38,14 +41,18 @@ public class EstadoServiciosTecnicosPRE implements Task {
         @Override
         public <T extends Actor> void performAs(T actor) {
             EvidenciaUtils.registrarCaptura("Seleccionar línea y ver detalle");
-            actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(PREPAGO));
-            AndroidObject.scrollCorto2(actor, user.getNumeroPrepago() + " " + VER_DETALLE);
+            actor.attemptsTo(
+                    ClickTextoQueContengaX.elTextoContiene(PREPAGO),
+                    ScrollHastaTexto.conTexto(user.getNumeroPrepago() + " " + VER_DETALLE)
+            );
 
+           // AndroidObject.scrollCorto2(actor, user.getNumeroPrepago() + " " + VER_DETALLE);
 
 
             actor.attemptsTo(
-                    //ClickLineaCuenta.conNumero("350 767 1166"),
-                    ClickElementByText.clickElementByText(LINEA + " " + user.getNumeroPrepago() + " " + VER_DETALLE),
+                    WaitFor.aTime(3000),
+                    ClickTextoQueContengaX.elTextoContiene(user.getNumeroPrepago()),
+                    //ClickElementByText.clickElementByText(user.getNumeroPrepago() + " " + VER_DETALLE),
                     WaitForResponse.withText(ORDENES_DE_SERVICIO));
         }
 

@@ -21,7 +21,7 @@ public class IngresarLineaPostpagoServicioActivo implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
 
-        AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumeroFamiliayAmigos() + " " + VER_DETALLE);
+       // AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumeroFamiliayAmigos() + " " + VER_DETALLE);
 
         EvidenciaUtils.registrarCaptura(paso1);
 

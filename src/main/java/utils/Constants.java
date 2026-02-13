@@ -568,6 +568,7 @@ public class Constants {
   public static final String PAISES_DESTINO_BELGICA = "Países de destino";
   public static final String TIPO_PAQUETE_DATOS = "Tipo de paquete";
   public static final String PAQUETE_ROAMING = "PAQUETE ROAMING";
+  public static final String DISFRUTA_DE_TIEMPO_CON_MICLARO = "Disfruta más de tu tiempo con Mi Claro";
 
   // ENTRETENIMIENTO
 
