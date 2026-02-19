@@ -7,11 +7,13 @@ import models.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Click;
 import utils.AndroidObject;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static userinterfaces.PagosYConsultasPage.LBL_LINEA_VER_DETALLE;
 import static utils.Constants.*;
 
 public class IngresarLineaPostpagoServicioActivo implements Task {
@@ -22,12 +24,14 @@ public class IngresarLineaPostpagoServicioActivo implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
 
-       // AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumeroFamiliayAmigos() + " " + VER_DETALLE);
+        AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumeroFamiliayAmigos() + " " + VER_DETALLE);
 
         EvidenciaUtils.registrarCaptura(paso1);
 
+
         actor.attemptsTo(
-                ClickElementByText.clickElementByText(LINEA + " " + user.getNumeroFamiliayAmigos() + " " + VER_DETALLE),
+                Click.on(LBL_LINEA_VER_DETALLE),
+               // ClickElementByText.clickElementByText(LINEA + " " + user.getNumeroFamiliayAmigos() + " " + VER_DETALLE),
                // ClickTextoQueContengaX.elTextoContiene(user.getNumeroFamiliayAmigos()),
                 WaitForResponse.withAnyText(
                         FAMILIA_Y_AMIGOS_OPCION, ADELANTA_SALDO_LABEL, COMPRA_POR_CATEGORIA, CLARO_COLOMBIA));

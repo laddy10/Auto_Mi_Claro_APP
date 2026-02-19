@@ -1,7 +1,10 @@
 package userinterfaces;
 
+import io.appium.java_client.MobileBy;
+import models.User;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
+import utils.TestDataProvider;
 
 public class PagosyConsultasPrePage {
 
@@ -36,4 +39,15 @@ public class PagosyConsultasPrePage {
   public static final Target BTN_CERRAR_POPUP =
           Target.the("Botón X para cerrar popup")
                   .located(By.id("ins-mob-png-close"));
+
+  private static final User user = TestDataProvider.getRealUser();
+
+  public static final Target LBL_LINEA_ELEGIR = Target.the("Linea prepago")
+          .located(
+                  MobileBy.AndroidUIAutomator(
+                          "new UiSelector()"
+                                  + ".resourceId(\"btn_account\")"
+                                  + ".textContains(\"" + user.getNumeroPrepago() + "\")"
+                  )
+          );
 }

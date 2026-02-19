@@ -9,6 +9,7 @@ import interactions.Scroll.ScrollHorizontalYValidar;
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
 import interactions.wait.WaitForResponse;
+import interactions.wait.WaitForTextContains;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -32,8 +33,7 @@ public class SeleccionaPlanEstandarDisney implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 // Espera inicial para cargar la interfaz
-                WaitForResponse.withText("Disney+"),
-                WaitFor.aTime(5000),
+                WaitForTextContains.withAnyTextContains("Todos los canales de ESPN"),
                 // Scroll horizontal hasta encontrar el plan Disney+ Estándar
                 ScrollHorizontalYValidar.scrollIzquierdaYValidar(ELEGIR_PLAN),
 
@@ -45,9 +45,9 @@ public class SeleccionaPlanEstandarDisney implements Task {
 
   /*  actor.attemptsTo(
         // Click en el botón Elegir Plan
-        Click.on(BTN_ELEGIR_PLAN_PREMIUM)); ¨*/
+        Click.on(BTN_ELEGIR_PLAN_PREMIUM)); */
 
-        ejecutarAdbTap(352, 1146);  // Simula un toque en las coordenadas
+        ejecutarAdbTap(523, 1786);  // Simula un toque en las coordenadas
     }
 
     /**

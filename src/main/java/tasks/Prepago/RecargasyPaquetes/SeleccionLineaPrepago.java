@@ -1,6 +1,7 @@
 package tasks.Prepago.RecargasyPaquetes;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static userinterfaces.PagosyConsultasPrePage.LBL_LINEA_ELEGIR;
 import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
@@ -9,6 +10,7 @@ import models.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Click;
 import utils.AndroidObject;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
@@ -35,6 +37,7 @@ public class SeleccionLineaPrepago implements Task {
     EvidenciaUtils.registrarCaptura(paso2);
 
     actor.attemptsTo(
+            Click.on(LBL_LINEA_ELEGIR),
         ClickTextoQueContengaX.elTextoContiene(user.getNumeroPrepago()),
         WaitForResponse.withText(ARMA_TU_PAQUETE));
   }

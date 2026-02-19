@@ -1,7 +1,10 @@
 package userinterfaces;
 
+import io.appium.java_client.MobileBy;
+import models.User;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
+import utils.TestDataProvider;
 
 public class PagosYConsultasPage {
 
@@ -166,4 +169,16 @@ public class PagosYConsultasPage {
           .located(
               By.xpath(
                   "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]"));
+
+  private static final User user = TestDataProvider.getRealUser();
+
+  public static final Target LBL_LINEA_VER_DETALLE = Target.the("Linea postpago")
+          .located(
+                  MobileBy.AndroidUIAutomator(
+                          "new UiSelector()"
+                                  + ".resourceId(\"btn_account\")"
+                                  + ".textContains(\"" + user.getNumeroFamiliayAmigos() + "\")"
+                  )
+          );
+
 }

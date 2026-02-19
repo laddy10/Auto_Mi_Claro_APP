@@ -8,7 +8,7 @@ public class Versiones {
 
   public static final String MINI_VERSION_CLARO_MUSICA_CONSTANT = "Versión 1.4.4 (2025-03-03)";
 
-  public static final String MINI_VERSION_NETFLIX_CONSTANT = "Versión 1.2.4 (2026-01-28)";
+  public static final String MINI_VERSION_NETFLIX_CONSTANT = "Versión 1.2.5 (2026-02-16)";
 
   public static final String MINI_VERSION_AMAZON_PRIME_CONSTANT = "Versión 1.4.32 (2026-02-04)";
 
