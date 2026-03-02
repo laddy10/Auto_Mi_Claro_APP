@@ -1,6 +1,7 @@
 package tasks.Prepago.RecargasyPaquetes;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static utils.AndroidObject.scrollCortoSinCentrar;
 import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
@@ -23,7 +24,7 @@ public class SeleccionarLaLineaEnPrepago implements Task {
 
     actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(PREPAGO));
 
-    AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumeroPrepago() + " " + VER_DETALLE);
+    scrollCortoSinCentrar(actor, LINEA + " " + user.getNumeroPrepago() + " " + VER_DETALLE);
 
     EvidenciaUtils.registrarCaptura(paso2);
 

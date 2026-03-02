@@ -455,6 +455,10 @@ public class Constants {
   public static final String NUESTROS_SERVICIOS = "Nuestros servicios";
   public static final String COMPRA_POR_CATEGORIA = "Compra por categoría";
   public static final String CLARO_COLOMBIA_PQR = "Peticiones, Quejas y Recursos";
+  public static final String TE_PUEDE_INTERESAR = "Te puede interesar";
+  public static final String ESTRENA_CELULAR = "Estrena celular";
+  public static final String PORTATILES = "Portátiles";
+  public static final String TELEVISORES = "Televisores";
 
   // Constantes para eSIM Claro
   public static final String ESIM_CLARO = "eSIM Claro";

@@ -28,25 +28,25 @@ public class ValidarPaginaClaro implements Task {
       Click.on(BTN_CERRAR_POPUP);
       actor.attemptsTo(WaitFor.aTime(2000));
     }
+
     System.out.println("PopUp Cerrado Correctamente 📍");
 
     if (LBL_MENSAJE_COOKIES.resolveFor(actor).isVisible()) {
       actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(ENTENDIDO), WaitFor.aTime(2000));
     } else {
       EvidenciaUtils.registrarCaptura(paso1);
-      return;
     }
 
     actor.attemptsTo(
         ValidarTexto.validarTexto(COMPRA_POR_CATEGORIA),
-        ScrollHastaTexto.conTexto(NUESTROS_SERVICIOS));
+        ScrollHastaTexto.conTexto(TE_PUEDE_INTERESAR));
 
     EvidenciaUtils.registrarCaptura(paso2);
 
     actor.attemptsTo(
-        ValidarTextoQueContengaX.elTextoContiene(PASATE_A_POSTPAGO),
-        ValidarTextoQueContengaX.elTextoContiene(RENUEVA_TU_HOGAR),
-        ValidarTextoQueContengaX.elTextoContiene(SERVICIOS_HOGAR));
+        ValidarTextoQueContengaX.elTextoContiene(ESTRENA_CELULAR),
+        ValidarTextoQueContengaX.elTextoContiene(PORTATILES),
+        ValidarTextoQueContengaX.elTextoContiene(TELEVISORES));
   }
 
   public static Performable validarRedireccionamiento() {

@@ -1,6 +1,7 @@
 package tasks.AtencionClienteSoporte;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static utils.AndroidObject.scrollCortoSinCentrar;
 import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
@@ -38,11 +39,10 @@ public class NecesitasAyudaPRE implements Task {
             EvidenciaUtils.registrarCaptura("Seleccionar línea y Continuar - Necesitas ayuda");
             actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(PREPAGO));
 
-            AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumeroPrepago() + " " + CONTINUAR);
+            scrollCortoSinCentrar(actor, LINEA + " " + user.getNumeroPrepago() + " " + CONTINUAR);
 
             actor.attemptsTo(
-                    ClickTextoRobusto.en(LINEA + " " + user.getNumeroPrepago() + " " + CONTINUAR),
-                    //ClickTextoQueContengaX.elTextoContiene(user.getNumeroPrepago()),
+                    ClickTextoQueContengaX.elTextoContiene(user.getNumeroPrepago()),
                     WaitForResponse.withAnyText(CLAROBOT));
         }
 
