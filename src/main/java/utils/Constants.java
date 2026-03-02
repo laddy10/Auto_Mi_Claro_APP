@@ -695,7 +695,7 @@ public class Constants {
   public static final String PAQUETES_RELEVO_COMUNIDAD_SORDA = "Paquetes Relevo comunidad sorda";
 
   // Constantes para Atención al cliente y soporte
-  public static final String ATENCION_AL_CLIENTE = "Atención al cliente";
+  public static final String ATENCION_AL_CLIENTE = "Atención al cliente y soporte";
   public static final String MEDICION_DE_RED = "Medición de red";
   public static final String AUTORIZO_MEDICION_CALIDAD_RED =
       "Autorizo la medición de calidad de la red móvil de datos.";

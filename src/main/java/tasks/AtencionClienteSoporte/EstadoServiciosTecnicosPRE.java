@@ -1,6 +1,7 @@
 package tasks.AtencionClienteSoporte;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static utils.AndroidObject.scrollCortoSinCentrar;
 import static utils.Constants.*;
 
 import interactions.Click.ClickElementByText;
@@ -42,17 +43,14 @@ public class EstadoServiciosTecnicosPRE implements Task {
         public <T extends Actor> void performAs(T actor) {
             EvidenciaUtils.registrarCaptura("Seleccionar línea y ver detalle");
             actor.attemptsTo(
-                    ClickTextoQueContengaX.elTextoContiene(PREPAGO),
-                    ScrollHastaTexto.conTexto(user.getNumeroPrepago() + " " + VER_DETALLE)
+                    ClickTextoQueContengaX.elTextoContiene(PREPAGO)
             );
 
-           // AndroidObject.scrollCorto2(actor, user.getNumeroPrepago() + " " + VER_DETALLE);
-
+            scrollCortoSinCentrar(actor, user.getNumeroPrepago() + " " + VER_DETALLE);
 
             actor.attemptsTo(
-                    WaitFor.aTime(3000),
+                    WaitFor.aTime(800),
                     ClickTextoQueContengaX.elTextoContiene(user.getNumeroPrepago()),
-                    //ClickElementByText.clickElementByText(user.getNumeroPrepago() + " " + VER_DETALLE),
                     WaitForResponse.withText(ORDENES_DE_SERVICIO));
         }
 

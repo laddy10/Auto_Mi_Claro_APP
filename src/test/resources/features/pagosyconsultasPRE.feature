@@ -60,7 +60,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   VALIDAR DIRECCIONAMIENTO DAVIPLATA
 
 
-  #@PRE017_INHABILITADO
+
   Scenario: Arma tu paquete - redirección pago Codensa
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -181,7 +181,6 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
 
 
 
-  #@PRE107_INHABILITADO
   Scenario: Recargas y Paquetes - Paquetes - Recorrido paquetes relevo comunidad sorda
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO

@@ -33,7 +33,7 @@ public class ValidarRedireccionClaroClub implements Task {
     // ✅ Nueva condición: si está visible el botón de cerrar (BTN_CLOSE), hace clic.
 
     actor.attemptsTo(
-        WaitFor.aTime(2000),
+        WaitFor.aTime(6000),
             Scroll.scrollUnaVista(),
             Click.on(BTN_CLOSE_CLARO_CLUB),
             WaitFor.aTime(1000)

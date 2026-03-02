@@ -13,7 +13,7 @@ import utils.AndroidObject;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
-public class ConsultarPQR implements Task {
+public class ConsultarPQR extends AndroidObject implements Task {
 
   private static final String paso1 = "Ingresar a Consultar PQR";
 
@@ -36,7 +36,8 @@ public class ConsultarPQR implements Task {
     public <T extends Actor> void performAs(T actor) {
       EvidenciaUtils.registrarCaptura("Seleccionar línea y ver detalle - PQR");
 
-      AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumero() + " " + VER_DETALLE);
+
+      scrollCortoSinCentrar(actor, LINEA + " " + user.getNumero() + " " + VER_DETALLE);
 
       actor.attemptsTo(
           ClickTextoQueContengaX.elTextoContiene(user.getNumero())

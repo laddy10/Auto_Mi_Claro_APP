@@ -88,7 +88,7 @@ Feature: Ingresar al modulo pagos y consultas
     And   SELECCIONA RECARGAS
     Then  VALIDA LA REDIRECCION A MEDIOS DE PAGO DISPONIBLES
 
-  #@SA014_INHABILITADO
+
   Scenario: Ingresar a recargas y paquetes y validar gestionar compras recurrentes
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
