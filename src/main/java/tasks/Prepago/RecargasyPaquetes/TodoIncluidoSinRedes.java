@@ -44,8 +44,7 @@ public class TodoIncluidoSinRedes implements Task {
         ValidarTexto.validarTexto("Min ILIMITADOS"),
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
         Click.on(LBL_VER_DETALLE_1),
-        ValidarTexto.validarTexto(TODO_INCLUIDO_7DIAS_10GB)
-    );
+        ValidarTexto.validarTexto(TODO_INCLUIDO_7DIAS_10GB));
 
     EvidenciaUtils.registrarCaptura(paso2);
 
@@ -62,8 +61,7 @@ public class TodoIncluidoSinRedes implements Task {
         ValidarTexto.validarTexto("Min ILIMITADOS"),
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
         Click.on(LBL_VER_DETALLE_1),
-        ValidarTexto.validarTexto(TODO_INCLUIDO_15DIAS_20GB)
-    );
+        ValidarTexto.validarTexto(TODO_INCLUIDO_15DIAS_20GB));
 
     EvidenciaUtils.registrarCaptura(paso3);
 
@@ -78,8 +76,7 @@ public class TodoIncluidoSinRedes implements Task {
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
         Click.on(LBL_VER_DETALLE_2),
         Scroll.scrollUnaVista(),
-        ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_30GB)
-    );
+        ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_30GB));
 
     EvidenciaUtils.registrarCaptura(paso4);
   }

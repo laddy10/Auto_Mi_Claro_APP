@@ -350,12 +350,12 @@ public class EntretenimientoPage {
           .locatedBy(
               "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.Button");
   public static final Target BTN_CLOSE_CLARO_CLUB =
-          Target.the("Botón Close Claro Club")
-                  .located(By.xpath("//android.widget.Button[@content-desc=\"Close\"]"));
+      Target.the("Botón Close Claro Club")
+          .located(By.xpath("//android.widget.Button[@content-desc=\"Close\"]"));
   public static final Target LBL_PERMITIR_ACTIVIDAD =
-          Target.the("Texto Permitir actividad de fondo").located(By.xpath("//*[@text='Permitir actividad de fondo']"));
+      Target.the("Texto Permitir actividad de fondo")
+          .located(By.xpath("//*[@text='Permitir actividad de fondo']"));
   public static final Target LBL_PERMITIR_NOTIFICACIONES =
-          Target.the("Texto ¿Permitir que Claro música te envíe notificaciones?").located(By.xpath("//*[@text='¿Permitir que Claro música te envíe notificaciones?']"));
-
-
+      Target.the("Texto ¿Permitir que Claro música te envíe notificaciones?")
+          .located(By.xpath("//*[@text='¿Permitir que Claro música te envíe notificaciones?']"));
 }

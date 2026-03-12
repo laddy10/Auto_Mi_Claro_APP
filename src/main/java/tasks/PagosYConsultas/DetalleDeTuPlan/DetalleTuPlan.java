@@ -61,7 +61,8 @@ public class DetalleTuPlan implements Task {
 
     EvidenciaUtils.registrarCaptura(paso3);
 
-    actor.attemptsTo( VerificarVersionModulo.conLaEsperada(MINI_VERSION_DETALLE_DE_TU_PLAN_CONSTANT));
+    actor.attemptsTo(
+        VerificarVersionModulo.conLaEsperada(MINI_VERSION_DETALLE_DE_TU_PLAN_CONSTANT));
 
     // Validar información detalle del plan
     actor.attemptsTo(

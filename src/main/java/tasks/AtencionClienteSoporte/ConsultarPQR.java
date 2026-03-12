@@ -36,7 +36,6 @@ public class ConsultarPQR extends AndroidObject implements Task {
     public <T extends Actor> void performAs(T actor) {
       EvidenciaUtils.registrarCaptura("Seleccionar línea y ver detalle - PQR");
 
-
       scrollCortoSinCentrar(actor, LINEA + " " + user.getNumero() + " " + VER_DETALLE);
 
       actor.attemptsTo(

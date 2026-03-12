@@ -42,7 +42,7 @@ public class ValidarVersionMiniprogramaNecesitasAyuda implements Task {
     actor.attemptsTo(
         WaitForResponse.withText("Ver"),
         ValidarTextoQueContengaX.elTextoContiene(NECESITAS_AYUDA),
-            VerificarVersionModulo.conLaEsperada(MINI_VERSION_NECESITAS_AYUDA_CONSTANT));
+        VerificarVersionModulo.conLaEsperada(MINI_VERSION_NECESITAS_AYUDA_CONSTANT));
     EvidenciaUtils.registrarCaptura(paso3);
     // **********************************************************************************
     actor.attemptsTo(Click.on(BTN_VOLVER));

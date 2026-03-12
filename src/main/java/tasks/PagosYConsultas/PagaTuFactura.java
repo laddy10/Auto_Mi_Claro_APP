@@ -13,9 +13,7 @@ import interactions.validations.ValidarTextoQueContengaX;
 import interactions.validations.VerificarVersionModulo;
 import interactions.wait.WaitFor;
 import interactions.wait.WaitForResponse;
-
 import java.util.List;
-
 import models.User;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.Actor;
@@ -27,55 +25,55 @@ import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
 public class PagaTuFactura implements Task {
-    private static final User user = TestDataProvider.getRealUser();
-    private static final String paso = "Ingreso a Paga y consulta tus facturas";
-    private static final String paso2 = "Seleccionar la linea " + user.getNumero();
-    private static final String paso3 = "Validar Mini Versión";
-    private static final String paso4 = "Validar datos de pago: Referencia, fechas y valor";
+  private static final User user = TestDataProvider.getRealUser();
+  private static final String paso = "Ingreso a Paga y consulta tus facturas";
+  private static final String paso2 = "Seleccionar la linea " + user.getNumero();
+  private static final String paso3 = "Validar Mini Versión";
+  private static final String paso4 = "Validar datos de pago: Referencia, fechas y valor";
 
-    @Override
-    public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene(PAGA_TU_FACTURA),
-                WaitForResponse.withText(POSTPAGO));
+  @Override
+  public <T extends Actor> void performAs(T actor) {
+    actor.attemptsTo(
+        ClickTextoQueContengaX.elTextoContiene(PAGA_TU_FACTURA),
+        WaitForResponse.withText(POSTPAGO));
 
-        EvidenciaUtils.registrarCaptura(paso);
+    EvidenciaUtils.registrarCaptura(paso);
 
-        actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(POSTPAGO));
+    actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(POSTPAGO));
 
-        AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumero() + " " + VER_DETALLE);
+    AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumero() + " " + VER_DETALLE);
 
-        EvidenciaUtils.registrarCaptura(paso2);
+    EvidenciaUtils.registrarCaptura(paso2);
 
-        actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
-                WaitForResponse.withText(PAGAR_FACTURA),
-                Click.on(BTN_TRES_PUNTOS_MAS),
-                ClickTextoQueContengaX.elTextoContiene(ACERCA_DE),
-                WaitFor.aTime(1000),
-                ValidarTexto.validarTexto(PAGA_TU_FACTURA),
-                ValidarTexto.validarTexto(DECLARACION_SERVICIO),
-                ValidarTextoQueContengaX.elTextoContiene(VER));
+    actor.attemptsTo(
+        ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
+        WaitForResponse.withText(PAGAR_FACTURA),
+        Click.on(BTN_TRES_PUNTOS_MAS),
+        ClickTextoQueContengaX.elTextoContiene(ACERCA_DE),
+        WaitFor.aTime(1000),
+        ValidarTexto.validarTexto(PAGA_TU_FACTURA),
+        ValidarTexto.validarTexto(DECLARACION_SERVICIO),
+        ValidarTextoQueContengaX.elTextoContiene(VER));
 
-        EvidenciaUtils.registrarCaptura(paso3);
+    EvidenciaUtils.registrarCaptura(paso3);
 
-        actor.attemptsTo(
-                VerificarVersionModulo.conLaEsperada(MINI_VERSION_PAGA_TU_FACTURA_CONSTANT),
-                Atras.irAtras(),
-                WaitForResponse.withText(PAGAR_FACTURA),
-                ValidarTextoQueContengaX.elTextoContiene(REFERENCIA_PAGO),
-                ValidarTextoQueContengaX.elTextoContiene(FECHA_DE_CARGA),
-                ValidarTextoQueContengaX.elTextoContiene(VALOR_A_PAGAR));
+    actor.attemptsTo(
+        VerificarVersionModulo.conLaEsperada(MINI_VERSION_PAGA_TU_FACTURA_CONSTANT),
+        Atras.irAtras(),
+        WaitForResponse.withText(PAGAR_FACTURA),
+        ValidarTextoQueContengaX.elTextoContiene(REFERENCIA_PAGO),
+        ValidarTextoQueContengaX.elTextoContiene(FECHA_DE_CARGA),
+        ValidarTextoQueContengaX.elTextoContiene(VALOR_A_PAGAR));
 
-        EvidenciaUtils.registrarCaptura(paso4);
+    EvidenciaUtils.registrarCaptura(paso4);
 
-        List<WebElementFacade> lblfechapagooportuno = LBL_FECHA_PAGO_OPORTUNO.resolveAllFor(actor);
-        if (!lblfechapagooportuno.isEmpty()) {
-            actor.attemptsTo(ValidarTextoQueContengaX.elTextoContiene(FECHA_PAGO_OPORTUNO));
-        }
+    List<WebElementFacade> lblfechapagooportuno = LBL_FECHA_PAGO_OPORTUNO.resolveAllFor(actor);
+    if (!lblfechapagooportuno.isEmpty()) {
+      actor.attemptsTo(ValidarTextoQueContengaX.elTextoContiene(FECHA_PAGO_OPORTUNO));
     }
+  }
 
-    public static Performable pagaTuFactura() {
-        return instrumented(PagaTuFactura.class);
-    }
+  public static Performable pagaTuFactura() {
+    return instrumented(PagaTuFactura.class);
+  }
 }

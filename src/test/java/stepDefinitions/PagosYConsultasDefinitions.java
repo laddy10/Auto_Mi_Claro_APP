@@ -8,7 +8,6 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import hooks.ReportHooks;
 import interactions.Click.ClickTextoQueContengaX;
-import interactions.Scroll.Scroll;
 import interactions.Scroll.ScrollHastaTexto;
 import interactions.comunes.Atras;
 import interactions.validations.ValidarTexto;
@@ -31,7 +30,7 @@ import tasks.Prepago.RecargasyPaquetes.SeleccionLineaPrepago;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
-public class PagosYConsultasDefinitions  {
+public class PagosYConsultasDefinitions {
 
   private final User user = TestDataProvider.getRealUser();
 
@@ -41,7 +40,7 @@ public class PagosYConsultasDefinitions  {
     theActorInTheSpotlight()
         .attemptsTo(
             ScrollHastaTexto.conTexto(DISFRUTA_DE_TIEMPO_CON_MICLARO),
-           // Scroll.scrollUnaVista(),
+            // Scroll.scrollUnaVista(),
             ClickTextoQueContengaX.elTextoContiene(VER_MAS));
     EvidenciaUtils.registrarCaptura(paso);
   }
@@ -487,7 +486,8 @@ public class PagosYConsultasDefinitions  {
 
   @And("INGRESAR LINEA POSTPAGO SERVICIO FAMILIA ACTIVO")
   public void ingresarLineaPostpagoServicioActivo() {
-    theActorInTheSpotlight().attemptsTo(IngresarLineaPostpagoServicioActivo.ingresarLineaPostpagoServicioActivo());
+    theActorInTheSpotlight()
+        .attemptsTo(IngresarLineaPostpagoServicioActivo.ingresarLineaPostpagoServicioActivo());
 
     ReportHooks.setLinea(user.getNumero());
   }

@@ -16,27 +16,21 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import utils.EvidenciaUtils;
 
-/**
- * Task para seleccionar Netflix
- */
+/** Task para seleccionar Netflix */
 public class SeleccionarNetflix implements Task {
 
-    private static final String paso = "Seleccionar Netflix";
+  private static final String paso = "Seleccionar Netflix";
 
-    @Override
-    public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(
-                ScrollHastaTexto.conTexto(TUS_PLATAFORMAS_FAVORITAS),
-                Scroll.scrollUnaVista()
-        );
+  @Override
+  public <T extends Actor> void performAs(T actor) {
+    actor.attemptsTo(ScrollHastaTexto.conTexto(TUS_PLATAFORMAS_FAVORITAS), Scroll.scrollUnaVista());
 
-        EvidenciaUtils.registrarCaptura(paso);
+    EvidenciaUtils.registrarCaptura(paso);
 
-        actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene(NETFLIX));
-    }
+    actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(NETFLIX));
+  }
 
-    public static Performable seleccionar() {
-        return instrumented(SeleccionarNetflix.class);
-    }
+  public static Performable seleccionar() {
+    return instrumented(SeleccionarNetflix.class);
+  }
 }

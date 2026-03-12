@@ -19,75 +19,68 @@ import utils.EvidenciaUtils;
 
 public class ValidarRedireccionClaroMusicaApp implements Task {
 
-    private static final String paso = "Validar redirección a la aplicación Claro Música";
+  private static final String paso = "Validar redirección a la aplicación Claro Música";
 
-    @Override
-    public <T extends Actor> void performAs(T actor) {
+  @Override
+  public <T extends Actor> void performAs(T actor) {
 
-        // Esperar a que la app cargue
-        try {
-            Thread.sleep(12000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        actor.attemptsTo(WaitFor.aTime(1000)); // medio segundo antes de validar
+    // Esperar a que la app cargue
+    try {
+      Thread.sleep(12000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    actor.attemptsTo(WaitFor.aTime(1000)); // medio segundo antes de validar
 
-
-        if (isVisible(actor, LBL_PERMITIR_NOTIFICACIONES)) {
-            actor.attemptsTo(
-                    ClickElementByText.clickElementByText(NO_PERMITIR)
-            );
-        }
-
-        // ✅ Nueva condición: Si aparece "Aceptar y continuar", hacer clic
-        if (isVisible(actor, BTN_ACEPTAR_CONTINUAR)) {
-            actor.attemptsTo(Click.on(BTN_ACEPTAR_CONTINUAR), WaitFor.aTime(1000));
-        }
-
-        // Si aparece el mensaje de alerta, hacer clic en confirmar
-        if (isVisible(actor, LBL_MENSAJE_ALERT)) {
-            actor.attemptsTo(Click.on(BTN_ALERT_CONFIRM));
-        } else {
-            actor.attemptsTo(WaitFor.aTime(1000));
-        }
-
-        // ✅ Nueva condición:Si ingresa a una sesión verifica el mensaje y continúa
-        if (isVisible(actor, MSJ_ALERTA_INGRESO)) {
-            if (isVisible(actor, BTN_ENTENDIDO)) {
-                actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(ENTENDIDO));
-            }
-            actor.attemptsTo((Performable) ValidarElemento.esVisible(LOGO_CLARO_MUSICA));
-        }
-
-        // Validar elementos visibles en Claro Música si no hay sesiòn iniciada
-
-        if (isVisible(actor, BTN_ESCUCHA_GRATIS)) {
-            actor.attemptsTo(
-                    ValidarTexto.validarTexto("Escucha gratis"), ValidarTexto.validarTexto("Entrar"));
-        }
-
-        if (isVisible(actor, LBL_PERMITIR_ACTIVIDAD)) {
-            actor.attemptsTo(
-                    ClickElementByText.clickElementByText(CANCELAR)
-            );
-        }
-
-        actor.attemptsTo(
-                ValidarTexto.validarTexto("Inicio"),
-                ValidarTexto.validarTexto("Mi Música"),
-                ValidarTexto.validarTexto("Buscar"),
-                ValidarTexto.validarTexto("Radios")
-        );
-
-
-        EvidenciaUtils.registrarCaptura(paso);
+    if (isVisible(actor, LBL_PERMITIR_NOTIFICACIONES)) {
+      actor.attemptsTo(ClickElementByText.clickElementByText(NO_PERMITIR));
     }
 
-    private <T extends Actor> boolean isVisible(T actor, Target element) {
-        return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
+    // ✅ Nueva condición: Si aparece "Aceptar y continuar", hacer clic
+    if (isVisible(actor, BTN_ACEPTAR_CONTINUAR)) {
+      actor.attemptsTo(Click.on(BTN_ACEPTAR_CONTINUAR), WaitFor.aTime(1000));
     }
 
-    public static Performable validar() {
-        return instrumented(ValidarRedireccionClaroMusicaApp.class);
+    // Si aparece el mensaje de alerta, hacer clic en confirmar
+    if (isVisible(actor, LBL_MENSAJE_ALERT)) {
+      actor.attemptsTo(Click.on(BTN_ALERT_CONFIRM));
+    } else {
+      actor.attemptsTo(WaitFor.aTime(1000));
     }
+
+    // ✅ Nueva condición:Si ingresa a una sesión verifica el mensaje y continúa
+    if (isVisible(actor, MSJ_ALERTA_INGRESO)) {
+      if (isVisible(actor, BTN_ENTENDIDO)) {
+        actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(ENTENDIDO));
+      }
+      actor.attemptsTo((Performable) ValidarElemento.esVisible(LOGO_CLARO_MUSICA));
+    }
+
+    // Validar elementos visibles en Claro Música si no hay sesiòn iniciada
+
+    if (isVisible(actor, BTN_ESCUCHA_GRATIS)) {
+      actor.attemptsTo(
+          ValidarTexto.validarTexto("Escucha gratis"), ValidarTexto.validarTexto("Entrar"));
+    }
+
+    if (isVisible(actor, LBL_PERMITIR_ACTIVIDAD)) {
+      actor.attemptsTo(ClickElementByText.clickElementByText(CANCELAR));
+    }
+
+    actor.attemptsTo(
+        ValidarTexto.validarTexto("Inicio"),
+        ValidarTexto.validarTexto("Mi Música"),
+        ValidarTexto.validarTexto("Buscar"),
+        ValidarTexto.validarTexto("Radios"));
+
+    EvidenciaUtils.registrarCaptura(paso);
+  }
+
+  private <T extends Actor> boolean isVisible(T actor, Target element) {
+    return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
+  }
+
+  public static Performable validar() {
+    return instrumented(ValidarRedireccionClaroMusicaApp.class);
+  }
 }

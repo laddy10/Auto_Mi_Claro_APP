@@ -16,33 +16,32 @@ import utils.TestDataProvider;
 
 public class SeleccionLineaPrepago extends AndroidObject implements Task {
 
-    private static final User user = TestDataProvider.getRealUser();
-    private static final String paso1 = "Ingresar a Recargas y paquetes";
-    private static final String paso2 = "Seleccionar línea prepago " + user.getNumeroPrepago();
-    ;
+  private static final User user = TestDataProvider.getRealUser();
+  private static final String paso1 = "Ingresar a Recargas y paquetes";
+  private static final String paso2 = "Seleccionar línea prepago " + user.getNumeroPrepago();
+  ;
 
-    @Override
-    public <T extends Actor> void performAs(T actor) {
+  @Override
+  public <T extends Actor> void performAs(T actor) {
 
-        EvidenciaUtils.registrarCaptura(paso1);
+    EvidenciaUtils.registrarCaptura(paso1);
 
-        actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene(RECARGAS_Y_PAQUETES),
-                WaitForResponse.withText(POSTPAGO),
-                ClickTextoQueContengaX.elTextoContiene(PREPAGO));
+    actor.attemptsTo(
+        ClickTextoQueContengaX.elTextoContiene(RECARGAS_Y_PAQUETES),
+        WaitForResponse.withText(POSTPAGO),
+        ClickTextoQueContengaX.elTextoContiene(PREPAGO));
 
+    scrollCortoSinCentrar(actor, LINEA + " " + user.getNumeroPrepago() + " " + ELEGIR);
 
-        scrollCortoSinCentrar(actor, LINEA + " " + user.getNumeroPrepago() + " " + ELEGIR);
+    EvidenciaUtils.registrarCaptura(paso2);
 
-        EvidenciaUtils.registrarCaptura(paso2);
+    actor.attemptsTo(
+        WaitFor.aTime(800),
+        ClickTextoQueContengaX.elTextoContiene(user.getNumeroPrepago()),
+        WaitForResponse.withText(ARMA_TU_PAQUETE));
+  }
 
-        actor.attemptsTo(
-                WaitFor.aTime(800),
-                ClickTextoQueContengaX.elTextoContiene(user.getNumeroPrepago()),
-                WaitForResponse.withText(ARMA_TU_PAQUETE));
-    }
-
-    public static Performable seleccionar() {
-        return instrumented(SeleccionLineaPrepago.class);
-    }
+  public static Performable seleccionar() {
+    return instrumented(SeleccionLineaPrepago.class);
+  }
 }

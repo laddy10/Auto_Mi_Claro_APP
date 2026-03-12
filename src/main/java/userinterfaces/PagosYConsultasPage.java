@@ -172,13 +172,13 @@ public class PagosYConsultasPage {
 
   private static final User user = TestDataProvider.getRealUser();
 
-  public static final Target LBL_LINEA_VER_DETALLE = Target.the("Linea postpago")
+  public static final Target LBL_LINEA_VER_DETALLE =
+      Target.the("Linea postpago")
           .located(
-                  MobileBy.AndroidUIAutomator(
-                          "new UiSelector()"
-                                  + ".resourceId(\"btn_account\")"
-                                  + ".textContains(\"" + user.getNumeroFamiliayAmigos() + "\")"
-                  )
-          );
-
+              MobileBy.AndroidUIAutomator(
+                  "new UiSelector()"
+                      + ".resourceId(\"btn_account\")"
+                      + ".textContains(\""
+                      + user.getNumeroFamiliayAmigos()
+                      + "\")"));
 }

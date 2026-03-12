@@ -10,32 +10,30 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ClickLineaCuenta implements Interaction {
 
-    private final String numeroLinea;
+  private final String numeroLinea;
 
-    public ClickLineaCuenta(String numeroLinea) {
-        this.numeroLinea = numeroLinea;
-    }
+  public ClickLineaCuenta(String numeroLinea) {
+    this.numeroLinea = numeroLinea;
+  }
 
-    @Override
-    public <T extends Actor> void performAs(T actor) {
+  @Override
+  public <T extends Actor> void performAs(T actor) {
 
-        WebDriverWait wait = new WebDriverWait(
-                BrowseTheWeb.as(actor).getDriver(), 15);
+    WebDriverWait wait = new WebDriverWait(BrowseTheWeb.as(actor).getDriver(), 15);
 
-        By locator = By.xpath(
-                "//android.widget.Button[@resource-id='btn_account' and " +
-                        "contains(@text,'" + numeroLinea + "')]"
-        );
+    By locator =
+        By.xpath(
+            "//android.widget.Button[@resource-id='btn_account' and "
+                + "contains(@text,'"
+                + numeroLinea
+                + "')]");
 
-        WebElement element = wait.until(
-                ExpectedConditions.elementToBeClickable(locator)
-        );
+    WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
 
+    element.click();
+  }
 
-        element.click();
-    }
-
-    public static ClickLineaCuenta conNumero(String numeroLinea) {
-        return new ClickLineaCuenta(numeroLinea);
-    }
+  public static ClickLineaCuenta conNumero(String numeroLinea) {
+    return new ClickLineaCuenta(numeroLinea);
+  }
 }

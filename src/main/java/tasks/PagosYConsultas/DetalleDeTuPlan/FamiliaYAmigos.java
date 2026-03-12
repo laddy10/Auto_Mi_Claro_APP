@@ -4,7 +4,6 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static utils.Constants.*;
 
 import interactions.Click.ClickElementByText;
-import interactions.Click.ClickTextoQueContengaX;
 import interactions.wait.WaitForResponse;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -21,7 +20,7 @@ public class FamiliaYAmigos implements Task {
     EvidenciaUtils.registrarCaptura(paso1);
 
     actor.attemptsTo(
-       // ClickTextoQueContengaX.elTextoContiene(FAMILIA_Y_AMIGOS),
+        // ClickTextoQueContengaX.elTextoContiene(FAMILIA_Y_AMIGOS),
         ClickElementByText.clickElementByText(FAMILIA_Y_AMIGOS),
         WaitForResponse.withText(ELIGE_EL_NUMERO_DE_CUENTA));
   }

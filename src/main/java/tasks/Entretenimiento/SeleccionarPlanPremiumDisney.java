@@ -2,13 +2,9 @@ package tasks.Entretenimiento;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static userinterfaces.EntretenimientoPage.*;
-import static utils.AdbUtils.ejecutarAdbTap;
 import static utils.Constants.*;
 
-import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarTextoQueContengaX;
-import interactions.wait.WaitFor;
-import interactions.wait.WaitForResponse;
 import interactions.wait.WaitForTextContains;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -16,31 +12,28 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import utils.EvidenciaUtils;
 
-/**
- * Task para seleccionar Plan Premium Disney+
- */
+/** Task para seleccionar Plan Premium Disney+ */
 public class SeleccionarPlanPremiumDisney implements Task {
 
-    private static final String paso = "Seleccionar Plan Premium Disney+";
+  private static final String paso = "Seleccionar Plan Premium Disney+";
 
-    @Override
-    public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(
-                WaitForTextContains.withAnyTextContains("Todos los canales de ESPN"),
-                ValidarTextoQueContengaX.elTextoContiene("Disney+ Premium")
+  @Override
+  public <T extends Actor> void performAs(T actor) {
+    actor.attemptsTo(
+        WaitForTextContains.withAnyTextContains("Todos los canales de ESPN"),
+        ValidarTextoQueContengaX.elTextoContiene("Disney+ Premium"));
+    EvidenciaUtils.registrarCaptura(paso);
+
+    actor.attemptsTo(
+        Click.on(BTN_ELEGIR_PLAN_PREMIUM)
+        // ClickTextoQueContengaX.elTextoContiene(ELEGIR_PLAN)
         );
-        EvidenciaUtils.registrarCaptura(paso);
 
-        actor.attemptsTo(
-                Click.on(BTN_ELEGIR_PLAN_PREMIUM)
-                //ClickTextoQueContengaX.elTextoContiene(ELEGIR_PLAN)
-        );
+    // ejecutarAdbTap(523, 1786);  // Simula un toque en las coordenadas
 
-       // ejecutarAdbTap(523, 1786);  // Simula un toque en las coordenadas
+  }
 
-    }
-
-    public static Performable seleccionar() {
-        return instrumented(SeleccionarPlanPremiumDisney.class);
-    }
+  public static Performable seleccionar() {
+    return instrumented(SeleccionarPlanPremiumDisney.class);
+  }
 }

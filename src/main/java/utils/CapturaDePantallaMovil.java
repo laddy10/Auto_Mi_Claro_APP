@@ -9,8 +9,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-
-import net.thucydides.core.webdriver.SerenityWebdriverManager;
 import net.thucydides.core.webdriver.ThucydidesWebDriverSupport;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -19,89 +17,88 @@ import org.openqa.selenium.WebDriver;
 
 public class CapturaDePantallaMovil {
 
-    private static final Logger LOGGER = Logger.getLogger(CapturaDePantallaMovil.class.getName());
-    private static final String CAPTURAS_DIR = "Capturas/";
+  private static final Logger LOGGER = Logger.getLogger(CapturaDePantallaMovil.class.getName());
+  private static final String CAPTURAS_DIR = "Capturas/";
 
-    public static String tomarCapturaPantalla(String nombreCaptura) {
-        String rutaDestino = "";
-        try {
-            // Obtener fecha y hora actual en formato seguro para nombres de archivo
-            //   String formattedDateTime =
-            // LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd_MM_yyyy_HH_mm_ss"));
-            String nombreNormalizado =
-                    nombreCaptura
-                            .toLowerCase()
-                            .replaceAll("[^a-z0-9]", "_"); // Reemplaza todo lo que no sea letra o número
+  public static String tomarCapturaPantalla(String nombreCaptura) {
+    String rutaDestino = "";
+    try {
+      // Obtener fecha y hora actual en formato seguro para nombres de archivo
+      //   String formattedDateTime =
+      // LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd_MM_yyyy_HH_mm_ss"));
+      String nombreNormalizado =
+          nombreCaptura
+              .toLowerCase()
+              .replaceAll("[^a-z0-9]", "_"); // Reemplaza todo lo que no sea letra o número
 
-            String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
-            String nombreArchivo = nombreNormalizado + "_" + timestamp + ".png";
-            rutaDestino = CAPTURAS_DIR + nombreArchivo;
-            //  rutaDestino = CAPTURAS_DIR + nombreArchivo;
+      String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
+      String nombreArchivo = nombreNormalizado + "_" + timestamp + ".png";
+      rutaDestino = CAPTURAS_DIR + nombreArchivo;
+      //  rutaDestino = CAPTURAS_DIR + nombreArchivo;
 
-            // Verificar si la carpeta Capturas/ existe, si no, crearla
-            File carpetaCapturas = new File(CAPTURAS_DIR);
-            if (!carpetaCapturas.exists()) {
-                carpetaCapturas.mkdirs();
-            }
+      // Verificar si la carpeta Capturas/ existe, si no, crearla
+      File carpetaCapturas = new File(CAPTURAS_DIR);
+      if (!carpetaCapturas.exists()) {
+        carpetaCapturas.mkdirs();
+      }
 
-            // Obtener el WebDriver actual y tomar la captura
-            WebDriver driver = ThucydidesWebDriverSupport.getDriver();
+      // Obtener el WebDriver actual y tomar la captura
+      WebDriver driver = ThucydidesWebDriverSupport.getDriver();
 
-            if (driver == null) {
-                LOGGER.severe("Driver es null. No se puede tomar captura.");
-                return null;
-            }
+      if (driver == null) {
+        LOGGER.severe("Driver es null. No se puede tomar captura.");
+        return null;
+      }
 
-            if (!(driver instanceof TakesScreenshot)) {
-                LOGGER.severe("El driver no soporta capturas.");
-                return null;
-            }
+      if (!(driver instanceof TakesScreenshot)) {
+        LOGGER.severe("El driver no soporta capturas.");
+        return null;
+      }
 
-            File captura = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+      File captura = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
-            if (captura == null || !captura.exists()) {
-                LOGGER.severe("La captura fue null o no existe.");
-                return null;
-            }
+      if (captura == null || !captura.exists()) {
+        LOGGER.severe("La captura fue null o no existe.");
+        return null;
+      }
 
+      // File captura = screenshotTaker.getScreenshotAs(OutputType.FILE);
+      File destinoTemporal = new File(CAPTURAS_DIR + "temp.png");
 
-            // File captura = screenshotTaker.getScreenshotAs(OutputType.FILE);
-            File destinoTemporal = new File(CAPTURAS_DIR + "temp.png");
+      // Guardar la captura temporalmente
+      FileUtils.copyFile(captura, destinoTemporal);
 
-            // Guardar la captura temporalmente
-            FileUtils.copyFile(captura, destinoTemporal);
+      // Cargar la imagen correctamente
+      BufferedImage imagen = ImageIO.read(destinoTemporal);
+      if (imagen == null) {
+        LOGGER.severe("No se pudo cargar la imagen, ImageIO.read() devolvió null.");
+        return "";
+      }
 
-            // Cargar la imagen correctamente
-            BufferedImage imagen = ImageIO.read(destinoTemporal);
-            if (imagen == null) {
-                LOGGER.severe("No se pudo cargar la imagen, ImageIO.read() devolvió null.");
-                return "";
-            }
+      // Crear una nueva imagen con el mismo tamaño
+      BufferedImage imagenConBorde =
+          new BufferedImage(imagen.getWidth(), imagen.getHeight(), BufferedImage.TYPE_INT_RGB);
+      Graphics2D g2d = imagenConBorde.createGraphics();
+      g2d.drawImage(imagen, 0, 0, null);
 
-            // Crear una nueva imagen con el mismo tamaño
-            BufferedImage imagenConBorde =
-                    new BufferedImage(imagen.getWidth(), imagen.getHeight(), BufferedImage.TYPE_INT_RGB);
-            Graphics2D g2d = imagenConBorde.createGraphics();
-            g2d.drawImage(imagen, 0, 0, null);
+      // Dibujar el borde rojo
+      g2d.setColor(Color.WHITE);
+      g2d.setStroke(new BasicStroke(5)); // Grosor del borde
+      g2d.drawRect(2, 2, imagen.getWidth() - 4, imagen.getHeight() - 4);
+      g2d.dispose();
 
-            // Dibujar el borde rojo
-            g2d.setColor(Color.WHITE);
-            g2d.setStroke(new BasicStroke(5)); // Grosor del borde
-            g2d.drawRect(2, 2, imagen.getWidth() - 4, imagen.getHeight() - 4);
-            g2d.dispose();
+      // Guardar la imagen con el borde
+      File destinoFinal = new File(rutaDestino);
+      ImageIO.write(imagenConBorde, "png", destinoFinal);
 
-            // Guardar la imagen con el borde
-            File destinoFinal = new File(rutaDestino);
-            ImageIO.write(imagenConBorde, "png", destinoFinal);
+      // Eliminar el archivo temporal
+      destinoTemporal.delete();
 
-            // Eliminar el archivo temporal
-            destinoTemporal.delete();
-
-            LOGGER.info("Captura de pantalla guardada con borde rojo: " + rutaDestino);
-        } catch (IOException e) {
-            LOGGER.log(
-                    Level.SEVERE, "Error al tomar o guardar la captura de pantalla: " + nombreCaptura, e);
-        }
-        return rutaDestino;
+      LOGGER.info("Captura de pantalla guardada con borde rojo: " + rutaDestino);
+    } catch (IOException e) {
+      LOGGER.log(
+          Level.SEVERE, "Error al tomar o guardar la captura de pantalla: " + nombreCaptura, e);
     }
+    return rutaDestino;
+  }
 }

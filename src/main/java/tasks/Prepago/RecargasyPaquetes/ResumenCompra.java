@@ -26,52 +26,52 @@ import utils.TestDataProvider;
 
 public class ResumenCompra implements Task {
 
-    private static final User user = TestDataProvider.getRealUser();
-    private static final String paso1 = "Validar resumen de la compra";
-    private static final String paso2 = "Ingresar y validar términos y condiciones";
-    private static final String paso3 = "Aceptar términos y condiciones";
+  private static final User user = TestDataProvider.getRealUser();
+  private static final String paso1 = "Validar resumen de la compra";
+  private static final String paso2 = "Ingresar y validar términos y condiciones";
+  private static final String paso3 = "Aceptar términos y condiciones";
 
-    @Override
-    public <T extends Actor> void performAs(T actor) {
+  @Override
+  public <T extends Actor> void performAs(T actor) {
 
-        // VALIDAR RESUMEN DE LA COMPRA
-        EvidenciaUtils.registrarCaptura(paso1);
+    // VALIDAR RESUMEN DE LA COMPRA
+    EvidenciaUtils.registrarCaptura(paso1);
 
-        actor.attemptsTo(
-                ValidarTexto.validarTexto(RESUMEN_COMPRA),
-                ValidarTexto.validarTexto(VIGENCIA_LABEL),
-                ValidarTexto.validarTexto(user.getDuracionPaqueteArmar()),
-                ValidarTextoQueContengaX.elTextoContiene(DATOS),
-                ValidarTexto.validarTexto(user.getCantidadDatosArmar()),
-                ValidarTexto.validarTexto(MIN_ILIMITADOS));
+    actor.attemptsTo(
+        ValidarTexto.validarTexto(RESUMEN_COMPRA),
+        ValidarTexto.validarTexto(VIGENCIA_LABEL),
+        ValidarTexto.validarTexto(user.getDuracionPaqueteArmar()),
+        ValidarTextoQueContengaX.elTextoContiene(DATOS),
+        ValidarTexto.validarTexto(user.getCantidadDatosArmar()),
+        ValidarTexto.validarTexto(MIN_ILIMITADOS));
 
-        // INGRESAR A TÉRMINOS Y CONDICIONES
-        actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene(TERMINOS_Y_CONDICIONES_RECARGAS),
-                WaitForResponse.withText(ABRIR_DOCUMENTO));
+    // INGRESAR A TÉRMINOS Y CONDICIONES
+    actor.attemptsTo(
+        ClickTextoQueContengaX.elTextoContiene(TERMINOS_Y_CONDICIONES_RECARGAS),
+        WaitForResponse.withText(ABRIR_DOCUMENTO));
 
-        EvidenciaUtils.registrarCaptura(paso2);
+    EvidenciaUtils.registrarCaptura(paso2);
 
-        actor.should(
-                seeThat(
-                        ValidateInformationText.validateInformationText(LBL_DOCUMENTO_TERMINOS_Y_CONDICIONES)));
+    actor.should(
+        seeThat(
+            ValidateInformationText.validateInformationText(LBL_DOCUMENTO_TERMINOS_Y_CONDICIONES)));
 
-        // REGRESAR Y PROCEDER AL PAGO
-        actor.attemptsTo(
-                Atras.irAtras(),
-                WaitForResponse.withText(RESUMEN_COMPRA),
-                Click.on(CHECK_ACEPTAR_TERMINOS_CONDICIONES2),
-                WaitFor.aTime(2000));
+    // REGRESAR Y PROCEDER AL PAGO
+    actor.attemptsTo(
+        Atras.irAtras(),
+        WaitForResponse.withText(RESUMEN_COMPRA),
+        Click.on(CHECK_ACEPTAR_TERMINOS_CONDICIONES2),
+        WaitFor.aTime(2000));
 
-        EvidenciaUtils.registrarCaptura(paso3);
+    EvidenciaUtils.registrarCaptura(paso3);
 
-        actor.attemptsTo(
-                Click.on(BTN_PAGAR),
-                WaitForTextContains.withAnyTextContains(PORTAL_PAGOS_CLARO, OPERACION_EXITOSA, CODIGO_SEGURIDAD_SMS)
-        );
-    }
+    actor.attemptsTo(
+        Click.on(BTN_PAGAR),
+        WaitForTextContains.withAnyTextContains(
+            PORTAL_PAGOS_CLARO, OPERACION_EXITOSA, CODIGO_SEGURIDAD_SMS));
+  }
 
-    public static Performable validar() {
-        return instrumented(ResumenCompra.class);
-    }
+  public static Performable validar() {
+    return instrumented(ResumenCompra.class);
+  }
 }

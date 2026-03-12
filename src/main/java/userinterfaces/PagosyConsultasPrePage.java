@@ -37,17 +37,17 @@ public class PagosyConsultasPrePage {
                   "(//android.widget.ImageView[@resource-id=\"com.clarocolombia.miclaro:id/page\"])[1]"));
 
   public static final Target BTN_CERRAR_POPUP =
-          Target.the("Botón X para cerrar popup")
-                  .located(By.id("ins-mob-png-close"));
+      Target.the("Botón X para cerrar popup").located(By.id("ins-mob-png-close"));
 
   private static final User user = TestDataProvider.getRealUser();
 
-  public static final Target LBL_LINEA_ELEGIR = Target.the("Linea prepago")
+  public static final Target LBL_LINEA_ELEGIR =
+      Target.the("Linea prepago")
           .located(
-                  MobileBy.AndroidUIAutomator(
-                          "new UiSelector()"
-                                  + ".resourceId(\"btn_account\")"
-                                  + ".textContains(\"" + user.getNumeroPrepago() + "\")"
-                  )
-          );
+              MobileBy.AndroidUIAutomator(
+                  "new UiSelector()"
+                      + ".resourceId(\"btn_account\")"
+                      + ".textContains(\""
+                      + user.getNumeroPrepago()
+                      + "\")"));
 }

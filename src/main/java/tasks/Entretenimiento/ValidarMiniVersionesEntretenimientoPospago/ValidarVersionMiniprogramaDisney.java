@@ -22,44 +22,42 @@ import utils.AndroidObject;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
-/**
- * Task para seleccionar Plan Estándar Disney+
- */
+/** Task para seleccionar Plan Estándar Disney+ */
 public class ValidarVersionMiniprogramaDisney implements Task {
 
-    private static final User user = TestDataProvider.getRealUser();
-    private static final String paso = "Esperar desaparición del texto 'Espera un momento'";
-    private static final String paso2 = "Ingresar al menú de tres puntos y seleccionar 'Acerca de'";
-    private static final String paso3 = "Validar versión de mini app Disney+";
-    private static final String paso4 =
-            "Seleccionar la línea postpago y Hacer scroll a la línea del usuario y ver detalle";
+  private static final User user = TestDataProvider.getRealUser();
+  private static final String paso = "Esperar desaparición del texto 'Espera un momento'";
+  private static final String paso2 = "Ingresar al menú de tres puntos y seleccionar 'Acerca de'";
+  private static final String paso3 = "Validar versión de mini app Disney+";
+  private static final String paso4 =
+      "Seleccionar la línea postpago y Hacer scroll a la línea del usuario y ver detalle";
 
-    @Override
-    public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(
-                WaitUntil.the(LBL_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds(),
-                WaitFor.aTime(1000));
-        EvidenciaUtils.registrarCaptura(paso);
-        // **********************************************************************************
-        actor.attemptsTo(Click.on(BTN_TRES_PUNTOS_MAS));
-        EvidenciaUtils.registrarCaptura(paso2);
-        actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene("Acerca de"));
-        // **********************************************************************************
-        actor.attemptsTo(
-                WaitForResponse.withText("Ver"),
-                ValidarTextoQueContengaX.elTextoContiene(DISNEY_PLUS),
-                VerificarVersionModulo.conLaEsperada(MINI_VERSION_DISNEY_CONSTANT));
-        EvidenciaUtils.registrarCaptura(paso3);
-        // **********************************************************************************
-        actor.attemptsTo(Click.on(BTN_VOLVER));
-        // **********************************************************************************
-        EvidenciaUtils.registrarCaptura(paso4);
-        actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(POSTPAGO));
-        AndroidObject.scrollCorto2(actor, CUENTA + " " + user.getNumero() + " " + VER_DETALLE);
-        actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(user.getNumero()));
-    }
+  @Override
+  public <T extends Actor> void performAs(T actor) {
+    actor.attemptsTo(
+        WaitUntil.the(LBL_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds(),
+        WaitFor.aTime(1000));
+    EvidenciaUtils.registrarCaptura(paso);
+    // **********************************************************************************
+    actor.attemptsTo(Click.on(BTN_TRES_PUNTOS_MAS));
+    EvidenciaUtils.registrarCaptura(paso2);
+    actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene("Acerca de"));
+    // **********************************************************************************
+    actor.attemptsTo(
+        WaitForResponse.withText("Ver"),
+        ValidarTextoQueContengaX.elTextoContiene(DISNEY_PLUS),
+        VerificarVersionModulo.conLaEsperada(MINI_VERSION_DISNEY_CONSTANT));
+    EvidenciaUtils.registrarCaptura(paso3);
+    // **********************************************************************************
+    actor.attemptsTo(Click.on(BTN_VOLVER));
+    // **********************************************************************************
+    EvidenciaUtils.registrarCaptura(paso4);
+    actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(POSTPAGO));
+    AndroidObject.scrollCorto2(actor, CUENTA + " " + user.getNumero() + " " + VER_DETALLE);
+    actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(user.getNumero()));
+  }
 
-    public static Performable validar() {
-        return instrumented(ValidarVersionMiniprogramaDisney.class);
-    }
+  public static Performable validar() {
+    return instrumented(ValidarVersionMiniprogramaDisney.class);
+  }
 }

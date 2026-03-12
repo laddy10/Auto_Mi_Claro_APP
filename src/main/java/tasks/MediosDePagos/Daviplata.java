@@ -16,44 +16,44 @@ import utils.EvidenciaUtils;
 
 public class Daviplata implements Task {
 
-    private static final String paso1 = "Validar formulario Daviplata";
-    private static final String paso2 = "Validar tipos de documento";
-    private static final String paso3 = "Documento: Cédula de extranjería";
-    private static final String paso4 = "Documento: Cédula de ciudadanía";
+  private static final String paso1 = "Validar formulario Daviplata";
+  private static final String paso2 = "Validar tipos de documento";
+  private static final String paso3 = "Documento: Cédula de extranjería";
+  private static final String paso4 = "Documento: Cédula de ciudadanía";
 
-    @Override
-    public <T extends Actor> void performAs(T actor) {
+  @Override
+  public <T extends Actor> void performAs(T actor) {
 
-        // VALIDAR FORMULARIO DAVIPLATA
-        EvidenciaUtils.registrarCaptura(paso1);
+    // VALIDAR FORMULARIO DAVIPLATA
+    EvidenciaUtils.registrarCaptura(paso1);
 
-        actor.attemptsTo(
-                ValidarTextoQueContengaX.elTextoContiene(INGRESA_DOCUMENTO_ASOCIADO),
-                ValidarTextoQueContengaX.elTextoContiene(CODIGO_SEGURIDAD_SMS),
-                ValidarTexto.validarTexto(TIPO_DE_DOCUMENTO),
-                ValidarTexto.validarTexto(NUMERO_DE_DOCUMENTO));
+    actor.attemptsTo(
+        ValidarTextoQueContengaX.elTextoContiene(INGRESA_DOCUMENTO_ASOCIADO),
+        ValidarTextoQueContengaX.elTextoContiene(CODIGO_SEGURIDAD_SMS),
+        ValidarTexto.validarTexto(TIPO_DE_DOCUMENTO),
+        ValidarTexto.validarTexto(NUMERO_DE_DOCUMENTO));
 
-        // Volver a desplegar para validar la segunda opción
-        actor.attemptsTo(Click.on(BTN_TIPO_DOCUMENTO_DAVIPLATA), WaitFor.aTime(1000));
+    // Volver a desplegar para validar la segunda opción
+    actor.attemptsTo(Click.on(BTN_TIPO_DOCUMENTO_DAVIPLATA), WaitFor.aTime(1000));
 
-        EvidenciaUtils.registrarCaptura(paso2);
+    EvidenciaUtils.registrarCaptura(paso2);
 
-        actor.attemptsTo(
-                ClickTextoQueContengaX.elTextoContiene(CEDULA_DE_EXTRANJERIA), WaitFor.aTime(1000));
+    actor.attemptsTo(
+        ClickTextoQueContengaX.elTextoContiene(CEDULA_DE_EXTRANJERIA), WaitFor.aTime(1000));
 
-        EvidenciaUtils.registrarCaptura(paso3);
+    EvidenciaUtils.registrarCaptura(paso3);
 
-        // Regresar a Cédula de ciudadanía para continuar
-        actor.attemptsTo(
-                Click.on(BTN_TIPO_DOCUMENTO_DAVIPLATA_2),
-                WaitFor.aTime(1000),
-                ClickTextoQueContengaX.elTextoContiene(CEDULA_DE_CIUDADANIA),
-                WaitFor.aTime(1000));
+    // Regresar a Cédula de ciudadanía para continuar
+    actor.attemptsTo(
+        Click.on(BTN_TIPO_DOCUMENTO_DAVIPLATA_2),
+        WaitFor.aTime(1000),
+        ClickTextoQueContengaX.elTextoContiene(CEDULA_DE_CIUDADANIA),
+        WaitFor.aTime(1000));
 
-        EvidenciaUtils.registrarCaptura(paso4);
-    }
+    EvidenciaUtils.registrarCaptura(paso4);
+  }
 
-    public static Performable validarRedireccion() {
-        return instrumented(Daviplata.class);
-    }
+  public static Performable validarRedireccion() {
+    return instrumented(Daviplata.class);
+  }
 }

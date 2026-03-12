@@ -47,7 +47,7 @@ public class ValidarVersionMiniProgramaAmazonPrime implements Task {
     actor.attemptsTo(
         WaitForResponse.withText("Ver"),
         ValidarTextoQueContengaX.elTextoContiene(AMAZON_PRIME),
-            VerificarVersionModulo.conLaEsperada(MINI_VERSION_AMAZON_PRIME_CONSTANT));
+        VerificarVersionModulo.conLaEsperada(MINI_VERSION_AMAZON_PRIME_CONSTANT));
     EvidenciaUtils.registrarCaptura(paso3);
     // **********************************************************************************
     actor.attemptsTo(Click.on(BTN_VOLVER));

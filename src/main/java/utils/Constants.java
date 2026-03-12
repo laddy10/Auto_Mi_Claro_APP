@@ -572,7 +572,8 @@ public class Constants {
   public static final String PAISES_DESTINO_BELGICA = "Países de destino";
   public static final String TIPO_PAQUETE_DATOS = "Tipo de paquete";
   public static final String PAQUETE_ROAMING = "PAQUETE ROAMING";
-  public static final String DISFRUTA_DE_TIEMPO_CON_MICLARO = "Disfruta más de tu tiempo con Mi Claro";
+  public static final String DISFRUTA_DE_TIEMPO_CON_MICLARO =
+      "Disfruta más de tu tiempo con Mi Claro";
 
   // ENTRETENIMIENTO
 
@@ -753,10 +754,6 @@ public class Constants {
   public static final String CERRAR_SESION = "Cerrar sesión";
   public static final String SI_CERRAR = "Si, cerrar";
 
-
-
-  public static final String CODIGO_6_DIGITOS_DAVIPLATA = "Ingresa el codigo de 6 dígitos que DaviPlata envió a tu número de celular. No compartas esta información con nadie";
-
-
-
+  public static final String CODIGO_6_DIGITOS_DAVIPLATA =
+      "Ingresa el codigo de 6 dígitos que DaviPlata envió a tu número de celular. No compartas esta información con nadie";
 }

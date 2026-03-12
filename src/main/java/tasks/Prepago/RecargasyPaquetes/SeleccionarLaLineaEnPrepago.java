@@ -9,7 +9,6 @@ import models.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import utils.AndroidObject;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
