@@ -17,9 +17,9 @@ public class SeleccionarClaroClubEnExploraYCompra implements Task {
   @Override
   public <T extends Actor> void performAs(T actor) {
 
-    actor.attemptsTo(ScrollHastaTexto.conTexto(CLARO_CLUB), WaitFor.aTime(3000));
+    actor.attemptsTo(ScrollHastaTexto.conTexto(CUPONES), WaitFor.aTime(3000));
     EvidenciaUtils.registrarCaptura(paso);
-    actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(CLARO_CLUB));
+    actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(CUPONES));
   }
 
   public static Performable seleccionar() {

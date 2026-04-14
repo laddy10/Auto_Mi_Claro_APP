@@ -6,6 +6,7 @@ import static userinterfaces.PagosyConsultasPrePage.LBL_MENSAJE_COOKIES;
 import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
+import interactions.Scroll.Scroll;
 import interactions.Scroll.ScrollHastaTexto;
 import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;
@@ -38,15 +39,12 @@ public class ValidarPaginaClaro implements Task {
     }
 
     actor.attemptsTo(
-        ValidarTexto.validarTexto(COMPRA_POR_CATEGORIA),
-        ScrollHastaTexto.conTexto(TE_PUEDE_INTERESAR));
+        ScrollHastaTexto.conTexto(COMPRA_POR_CATEGORIA));
 
     EvidenciaUtils.registrarCaptura(paso2);
 
     actor.attemptsTo(
-        ValidarTextoQueContengaX.elTextoContiene(ESTRENA_CELULAR),
-        ValidarTextoQueContengaX.elTextoContiene(PORTATILES),
-        ValidarTextoQueContengaX.elTextoContiene(TELEVISORES));
+            ScrollHastaTexto.conTexto(LOS_MAS_VENDIDOS));
   }
 
   public static Performable validarRedireccionamiento() {

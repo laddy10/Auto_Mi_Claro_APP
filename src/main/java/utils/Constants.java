@@ -459,6 +459,7 @@ public class Constants {
   public static final String ESTRENA_CELULAR = "Estrena celular";
   public static final String PORTATILES = "Portátiles";
   public static final String TELEVISORES = "Televisores";
+  public static final String LOS_MAS_VENDIDOS = "Los más vendidos";
 
   // Constantes para eSIM Claro
   public static final String ESIM_CLARO = "eSIM Claro";
@@ -597,6 +598,7 @@ public class Constants {
   public static final String DISNEY_PLUS = "Disney+";
   public static final String HOTGO = "HotGo";
   public static final String RED_NOTICIAS = "RED + NOTICIAS";
+  public static final String CUPONES = "Cupones";
 
   // Elegir Plan
   public static final String ELEGIR_PLAN = "Elegir plan";

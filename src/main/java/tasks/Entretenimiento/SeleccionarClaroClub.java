@@ -20,7 +20,7 @@ public class SeleccionarClaroClub implements Task {
     EvidenciaUtils.registrarCaptura(paso);
     actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(VER_MAS));
     EvidenciaUtils.registrarCaptura(paso2);
-    actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(CLARO_CLUB));
+    actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(CUPONES));
   }
 
   public static Performable seleccionar() {

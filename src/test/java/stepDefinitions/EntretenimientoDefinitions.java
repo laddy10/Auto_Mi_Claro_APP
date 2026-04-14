@@ -81,7 +81,7 @@ public class EntretenimientoDefinitions {
   // ===========================================
   // SA070 - Claro Club
   // ===========================================
-  @And("^SELECCIONA EL BOTON CLARO CLUB EN EXPLORA Y COMPRA$")
+  @And("^SELECCIONA EL BOTON CUPONES EN EXPLORA Y COMPRA$")
   public void seleccionaBotonClaroClubEnExploraYCompra() {
     theActorInTheSpotlight().attemptsTo(SeleccionarClaroClubEnExploraYCompra.seleccionar());
   }

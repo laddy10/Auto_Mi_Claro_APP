@@ -56,7 +56,9 @@ public class ValidarVersionMiniProgramaClaroClubPre implements Task {
     actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(PREPAGO));
     AndroidObject.scrollCorto2(actor, LINEA + " " + LINEA_PREPAGO + " " + VER_DETALLE);
     EvidenciaUtils.registrarCaptura(paso4);
-    actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(LINEA_PREPAGO));
+    actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(LINEA_PREPAGO),
+            WaitFor.aTime(4000)
+    );
   }
 
   public static Performable validar() {

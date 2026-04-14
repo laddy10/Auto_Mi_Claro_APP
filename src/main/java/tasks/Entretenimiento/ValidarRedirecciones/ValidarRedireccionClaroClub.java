@@ -1,8 +1,11 @@
 package tasks.Entretenimiento.ValidarRedirecciones;
 
+import static interactions.wait.WaitElement.isVisible;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static userinterfaces.EntretenimientoPage.*;
+import static utils.Constants.NO_PERMITIR;
 
+import interactions.Click.ClickElementByText;
 import interactions.Scroll.Scroll;
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
@@ -32,11 +35,11 @@ public class ValidarRedireccionClaroClub implements Task {
 
     // ✅ Nueva condición: si está visible el botón de cerrar (BTN_CLOSE), hace clic.
 
-    actor.attemptsTo(
-        WaitFor.aTime(6000),
-        Scroll.scrollUnaVista(),
-        Click.on(BTN_CLOSE_CLARO_CLUB),
-        WaitFor.aTime(1000));
+    actor.attemptsTo(WaitFor.aTime(6000));
+    if (isVisible(actor, BTN_CLOSE_CLARO_CLUB)) {
+      actor.attemptsTo(Click.on(BTN_CLOSE_CLARO_CLUB),
+              WaitFor.aTime(1000));
+    }
 
     // Flujo principal
     actor.attemptsTo(WaitFor.aTime(8000), ValidarTextoQueContengaX.elTextoContiene("Categorías"));
