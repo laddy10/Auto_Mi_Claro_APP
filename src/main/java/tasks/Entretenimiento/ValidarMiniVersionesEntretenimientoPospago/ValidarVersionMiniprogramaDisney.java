@@ -36,7 +36,7 @@ public class ValidarVersionMiniprogramaDisney implements Task {
   public <T extends Actor> void performAs(T actor) {
     actor.attemptsTo(
         WaitUntil.the(LBL_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds(),
-        WaitFor.aTime(1000));
+        WaitFor.aTime(5000));
     EvidenciaUtils.registrarCaptura(paso);
     // **********************************************************************************
     actor.attemptsTo(Click.on(BTN_TRES_PUNTOS_MAS));

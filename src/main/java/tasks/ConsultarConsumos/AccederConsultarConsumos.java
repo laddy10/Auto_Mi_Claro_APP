@@ -18,8 +18,6 @@ public class AccederConsultarConsumos implements Task {
   @Override
   public <T extends Actor> void performAs(T actor) {
     actor.attemptsTo(
-        ScrollHastaTexto.conTexto(PAGOS_Y_CONSULTAS),
-        ClickTextoQueContengaX.elTextoContiene(VER_MAS),
         ScrollHastaTexto.conTexto(CONSULTAR_CONSUMOS),
         ClickTextoQueContengaX.elTextoContiene(CONSULTAR_CONSUMOS),
         WaitFor.aTime(3000));

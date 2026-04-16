@@ -203,6 +203,7 @@ Feature: Ingresar al modulo pagos y consultas
   Scenario: Ingresar a consultar consumos y validar información detallada
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
+    And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA AL MODULO CONSULTAR CONSUMOS
     And   DESPLAZARSE HASTA EL NUMERO Y SELECCIONAR VER DETALLE
     And   ESPERA A QUE INGRESE A LA OPCION
