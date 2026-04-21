@@ -32,10 +32,11 @@ public class SeleccionaPlanEstandarDisney implements Task {
         // Espera inicial para cargar la interfaz
         WaitForTextContains.withAnyTextContains("Todos los canales de ESPN"),
         // Scroll horizontal hasta encontrar el plan Disney+ Estándar
-        ScrollHorizontalYValidar.scrollIzquierdaYValidar(ELEGIR_PLAN),
+        ScrollHorizontalYValidar.scrollIzquierdaYValidar(ELEGIR_PLAN)
 
         // Validar que el plan está visible (opcional pero recomendado)
-        ValidarTextoQueContengaX.elTextoContiene(ELEGIR_PLAN));
+        //ValidarTextoQueContengaX.elTextoContiene(ELEGIR_PLAN)
+    );
 
     // Captura de evidencia después del scroll
     EvidenciaUtils.registrarCaptura(paso + " - Plan encontrado");

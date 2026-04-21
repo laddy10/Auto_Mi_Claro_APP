@@ -613,7 +613,7 @@ public class Constants {
 
   // Disney+ (para futuras implementaciones)
   public static final String DISNEY_PLUS_TITULO = "Disney+";
-  public static final String PLAN_ESTANDAR = "Plan Estándar";
+  public static final String PLAN_ESTANDAR = "Con descarga de contenido";
   public static final String PLAN_PREMIUM = "Plan Premium";
 
   // WIN Play, HotGo, etc. (para futuras implementaciones)

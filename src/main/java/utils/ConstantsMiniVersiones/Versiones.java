@@ -27,7 +27,7 @@ public class Versiones {
   public static final String MINI_VERSION_CONSULTAR_PQR_CONSTANT = "Versión 1.4.13 (2025-11-11)";
 
   public static final String MINI_VERSION_DETALLE_DE_TU_PLAN_CONSTANT =
-      "Versión 1.1.113 (2025-12-03)";
+      "Versión 1.1.126 (2026-03-04)";
 
   public static final String MINI_VERSION_ADQUIRIR_PRODUCTOS_CONSTANT =
       "Versión 1.0.311 (2026-04-08)";

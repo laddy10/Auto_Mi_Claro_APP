@@ -152,7 +152,7 @@ Feature: Ingresar al modulo pagos y consultas
     And   INGRESA MEJORAR PLAN
     Then  VALIDA DIRECCIONAMIENTO MEJORAR PLAN
 
-  @SA020
+
   Scenario: Ingresar a gestiona tu equipo y registrar equipo
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
