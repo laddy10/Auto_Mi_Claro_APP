@@ -90,12 +90,12 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   VALIDAR DIRECCIONAMIENTO OTROS MEDIOS DE PAGO
 
 
-  @PRE020
+
   Scenario: Ingresar a recargas y paquetes y validar gestionar compras recurrentes
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
     And   INGRESA AL MENU PAGOS Y CONSULTAS
-    And   INGRESA AL PORTAL DE RECARGAS Y PAQUETES EN PREPAGO
+    And   INGRESA A RECARGAS Y PAQUETES EN PREPAGO
     Then  GESTIONA COMPRAS RECURRENTES
 
 

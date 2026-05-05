@@ -39,7 +39,7 @@ public class EntretenimientoPage {
 
   public static final Target BTN_ELEGIR_PLAN_PREMIUM =
       Target.the("Botón para elegir plan")
-          .located(By.xpath("//android.widget.Button[@text=\"Elegir plan\"]"));
+          .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button"));
 
   public static final Target BTN_ELEGIR_PLAN_ESTANDAR =
       Target.the("Segundo botón 'Elegir plan'")

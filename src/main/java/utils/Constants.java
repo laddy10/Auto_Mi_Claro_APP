@@ -599,6 +599,8 @@ public class Constants {
   public static final String HOTGO = "HotGo";
   public static final String RED_NOTICIAS = "RED + NOTICIAS";
   public static final String CUPONES = "Cupones";
+  public static final String PRECIO_STANDAR = "49.900/mes\n" +
+          "IVA incluido";
 
   // Elegir Plan
   public static final String ELEGIR_PLAN = "Elegir plan";

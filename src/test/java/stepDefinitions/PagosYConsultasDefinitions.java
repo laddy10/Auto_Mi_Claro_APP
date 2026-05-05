@@ -65,7 +65,7 @@ public class PagosYConsultasDefinitions {
     ReportHooks.setLinea(user.getNumero());
   }
 
-  @And("INGRESA AL PORTAL DE RECARGAS Y PAQUETES EN PREPAGO")
+  @And("INGRESA A RECARGAS Y PAQUETES EN PREPAGO")
   public void ingresaPortalRecargasPrepago() {
     theActorInTheSpotlight()
         .attemptsTo(SeleccionLineaPrepago.seleccionar(), ValidarInfoRecargas.validarInfoRecargas());

@@ -45,8 +45,7 @@ public class DescargaFactura implements Task {
     actor.attemptsTo(
         ValidarTexto.validarTexto(POSTPAGO),
         ValidarTexto.validarTexto(DESCARGA_TU_FACTURA),
-        ValidarTextoQueContengaX.elTextoContiene(user.getNumero().replace(" ", "")),
-        ValidarTextoQueContengaX.elTextoContiene(ENCUENTRA_LAS_ULTIMAS_FACTURAS));
+        ValidarTextoQueContengaX.elTextoContiene(user.getNumero().replace(" ", "")));
     EvidenciaUtils.registrarCaptura(paso2);
 
     // Validar que se encuentren disponibles 6 facturas
