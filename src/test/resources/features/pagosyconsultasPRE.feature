@@ -30,6 +30,18 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   VALIDAR DIRECCIONAMIENTO PSE
 
 
+  Scenario: Arma tu paquete - redirección pagar con mi saldo
+    Given EL USUARIO ABRE LA SUPER APP
+    When  REALIZA EL INGRESO
+    And   INGRESA AL MENU PAGOS Y CONSULTAS
+    And   SELECCIONA LINEA PREPAGO
+    And   VALIDAR LA MINI VERSION DE RECARGAS
+    And   ARMA PAQUETE PERSONALIZADO
+    And   VALIDA PAQUETE SELECCIONADO
+    Then  VALIDA LA REDIRECCION A MEDIOS DE PAGO DISPONIBLES
+    And   INGRESAR A PAGAR CON MI SALDO
+    And   VALIDAR EL RESUMEN DE LA COMPRA
+
   @PRE015
   Scenario: Arma tu paquete - redirección pago Bancolombia
     Given EL USUARIO ABRE LA SUPER APP

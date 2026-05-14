@@ -1,16 +1,20 @@
 package stepDefinitions;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static utils.Constants.*;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import interactions.Click.ClickTextoQueContengaX;
+import interactions.Scroll.ScrollHastaTexto;
 import tasks.Entretenimiento.*;
 import tasks.Entretenimiento.RutasDeAcceso.*;
 import tasks.Entretenimiento.ValidarMiniVersionesEntretenimientoPospago.*;
 import tasks.Entretenimiento.ValidarMiniVersionesEntretenimientoPrepago.*;
 import tasks.Entretenimiento.ValidarRedirecciones.*;
 import tasks.Entretenimiento.ValidarTC.*;
+import utils.EvidenciaUtils;
 
 /**
  * Step Definitions para el módulo Entretenimiento Mantiene la consistencia con el estilo existente
@@ -26,6 +30,16 @@ public class EntretenimientoDefinitions {
   public void seleccionaBotonEntretenimiento() {
     theActorInTheSpotlight().attemptsTo(AccederEntretenimiento.acceder());
   }
+  @And("^INGRESA A DISNEY EN LA OPCION MUNDIAL$")
+  public void desplazarseopcionmundial() {
+    theActorInTheSpotlight()
+            .attemptsTo(
+                    ScrollHastaTexto.conTexto(EXPLORA_Y_COMPRA), ClickTextoQueContengaX.elTextoContiene(DISNEY_PLUS));
+
+    EvidenciaUtils.registrarCaptura("Menú mundial");
+  }
+
+
 
   @When("^SELECCIONA EL BOTON VER MAS EN SECCION TUS SERVCICOS FAVORITOS$")
   public void seleccionaVerMasEnTusServiciosFavoritos() {

@@ -40,5 +40,5 @@ public class Versiones {
   public static final String MINI_VERSION_FAMILIA_Y_AMIGOS_CONSTANT =
       "Versión 1.0.261 (2025-07-11)";
 
-  public static final String MINI_VERSION_RECARGAS_Y_PAQUETES_PRE = "Versión 1.2.4 (2026-01-20)";
+  public static final String MINI_VERSION_RECARGAS_Y_PAQUETES_PRE = "Versión 1.2.21 (2026-05-13)";
 }
