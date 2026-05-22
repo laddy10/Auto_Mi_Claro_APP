@@ -234,6 +234,7 @@ public class TodoIncluidoConRedes implements Task {
         ValidarTexto.validarTexto("Min ILIMITADOS"),
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
         ValidarTexto.validarTexto("Apps incluidas"),
+        Scroll.scrollUnaVista(),
         Click.on(LBL_VER_DETALLE_2),
         ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_18GB));
 
