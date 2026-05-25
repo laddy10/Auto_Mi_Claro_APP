@@ -118,7 +118,7 @@ public class PagosYConsultasPage {
       Target.the("Check Tiktok")
           .located(
               By.xpath(
-                  "//android.view.View[@resource-id=\"__react-content\"]/android.view.View/android.view.View[2]/android.widget.ToggleButton/android.widget.CheckBox"));
+                  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[3]/android.widget.Switch/android.widget.TextView"));
   public static final Target TXT_ESCRIBIR_PAIS =
       Target.the("Caja de texto Escribe el país de destino")
           .located(By.xpath("//android.widget.TextView[@text=\"Escribe el país de destino\"]"));

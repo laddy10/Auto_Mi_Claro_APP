@@ -67,6 +67,7 @@ public class DetalleTuPlan implements Task {
     // Validar información detalle del plan
     actor.attemptsTo(
         Atras.irAtras(),
+        WaitFor.aTime(4000),
         ValidarTexto.validarTexto(CONSULTA_LA_FACTURA_DE_TU_PLAN_POSTPAGO),
         ValidarTexto.validarTexto(VER_FACTURA),
         //ValidarTexto.validarTexto(TU_PLAN),

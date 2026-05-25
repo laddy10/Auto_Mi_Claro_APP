@@ -143,7 +143,7 @@ Feature: Ingresar al modulo pagos y consultas
 
 
 
-  @SA019
+
   Scenario: Ingresar a Mejorar plan desde Detalle de tu plan
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
