@@ -44,14 +44,14 @@ public class SeleccionaPlanEstandarDisney implements Task {
     // Captura de evidencia después del scroll
     EvidenciaUtils.registrarCaptura(paso + " - Plan encontrado");
 
-    actor.attemptsTo(
+    /*actor.attemptsTo(
     //Click en el botón Elegir Plan
     Click.on(BTN_ELEGIR_PLAN_PREMIUM)
     );
 
     //ejecutarAdbTap(302, 1732); // Simula un toque en las coordenadas
 
-    actor.attemptsTo(WaitFor.aTime(3000));
+    actor.attemptsTo(WaitFor.aTime(3000));*/
   }
 
   /**

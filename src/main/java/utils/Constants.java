@@ -599,7 +599,7 @@ public class Constants {
   public static final String HOTGO = "HotGo";
   public static final String RED_NOTICIAS = "RED + NOTICIAS";
   public static final String CUPONES = "Cupones";
-  public static final String PRECIO_STANDAR = "49.900/mes\n" +
+  public static final String PRECIO_STANDAR = "36.900/mes\n" +
           "IVA incluido";
 
   // Elegir Plan
