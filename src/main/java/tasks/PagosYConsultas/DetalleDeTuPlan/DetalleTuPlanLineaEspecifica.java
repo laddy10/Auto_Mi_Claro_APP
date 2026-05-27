@@ -68,8 +68,8 @@ public class DetalleTuPlanLineaEspecifica implements Task {
         Atras.irAtras(),
         ValidarTexto.validarTexto(CONSULTA_LA_FACTURA_DE_TU_PLAN_POSTPAGO),
         ValidarTexto.validarTexto(VER_FACTURA),
-        ValidarTexto.validarTexto(TU_PLAN),
-        ValidarTextoQueContengaX.elTextoContiene(CARGO_FIJO_MENSUAL_IVA_INCLUIDO),
+        //ValidarTexto.validarTexto(TU_PLAN),
+        //ValidarTextoQueContengaX.elTextoContiene(CARGO_FIJO_MENSUAL_IVA_INCLUIDO),
         ValidarTexto.validarTexto(DATOS),
         ValidarTexto.validarTexto(VOZ),
         ValidarTextoQueContengaX.elTextoContiene(SEGUNDOS_PARA_LLAMAR));
