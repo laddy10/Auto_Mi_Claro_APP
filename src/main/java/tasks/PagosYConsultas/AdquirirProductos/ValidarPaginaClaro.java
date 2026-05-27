@@ -25,6 +25,8 @@ public class ValidarPaginaClaro implements Task {
   @Override
   public <T extends Actor> void performAs(T actor) {
 
+    actor.attemptsTo(WaitFor.aTime(6000));
+
     if (BTN_CERRAR_POPUP.resolveFor(actor).isVisible()) {
       Click.on(BTN_CERRAR_POPUP);
       actor.attemptsTo(WaitFor.aTime(2000));

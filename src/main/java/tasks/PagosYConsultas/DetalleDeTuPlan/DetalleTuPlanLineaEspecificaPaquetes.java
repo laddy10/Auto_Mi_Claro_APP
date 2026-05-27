@@ -79,6 +79,7 @@ public class DetalleTuPlanLineaEspecificaPaquetes implements Task {
         ValidarTexto.validarTexto(LARGA_DISTANCIA_INTERNACIONAL),
         ValidarTexto.validarTexto(ILIMITADO),
         ValidarTexto.validarTexto(DESCRIPCION_DEL_PLAN),
+        Scroll.scrollUnaVista(),
         ValidarTexto.validarTexto(FAMILIA_Y_AMIGOS),
         ValidarTexto.validarTexto(APLICACIONES_ELEGIBLES),
         Scroll.scrollUnaVista(),
