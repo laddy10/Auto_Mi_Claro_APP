@@ -26,8 +26,10 @@ public class AtencionClienteSoporteDefinitions {
 
   @And("^DESPLAZA HASTA LA OPCION ATENCION AL CLIENTE Y SOPORTE$")
   public void desplazaHastaAtencionClienteSoporte() {
-    theActorInTheSpotlight()
-        .attemptsTo(ScrollHastaTexto.conTexto(ATENCION_AL_CLIENTE), Scroll.scrollUnaVista());
+    theActorInTheSpotlight().attemptsTo(
+                Scroll.scrollUnaVista(),
+                ScrollHastaTexto.conTexto(ATENCION_AL_CLIENTE),
+                Scroll.scrollUnaVista());
     EvidenciaUtils.registrarCaptura("Desplazarse hasta Atención al cliente y soporte");
   }
 

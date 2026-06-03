@@ -25,7 +25,11 @@ public class PagosyConsultasPrePage {
   public static final Target LBL_VER_DETALLE_3 =
       Target.the("Texto Ver detalle del paquete 3")
           .located(By.xpath("(//android.widget.Button[@text=\"Ver detalle del paquete\"])[3]"));
-
+  public static final Target LBL_VER_DETALLE_4 =
+          Target.the("Texto Ver detalle del paquete 3")
+                  .located(By.xpath("public static final Target LBL_VER_DETALLE_3 =\n" +
+                          "      Target.the(\"Texto Ver detalle del paquete 3\")\n" +
+                          "          .located(By.xpath(\"(//android.widget.Button[@text=\\\"Ver detalle del paquete\\\"])[3]\"));"));
   public static final Target LBL_MENSAJE_COOKIES =
       Target.the("Texto Información importante")
           .located(By.xpath("//android.widget.TextView[@text=\"Información importante\"]"));

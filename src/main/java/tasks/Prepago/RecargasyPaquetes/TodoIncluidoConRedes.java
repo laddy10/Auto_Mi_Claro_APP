@@ -2,6 +2,7 @@ package tasks.Prepago.RecargasyPaquetes;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static userinterfaces.PagosyConsultasPrePage.LBL_VER_DETALLE_2;
+import static userinterfaces.PagosyConsultasPrePage.LBL_VER_DETALLE_4;
 import static utils.AndroidObject.scrollCorto2;
 import static utils.Constants.*;
 import static utils.Constants.ULTIMO;
@@ -55,31 +56,33 @@ public class TodoIncluidoConRedes implements Task {
 
     actor.attemptsTo(
         ValidarTexto.validarTexto(LABEL_PAQUETES),
-        ValidarTexto.validarTexto("400 MB"),
+        ValidarTexto.validarTexto("2 GB"),
         ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto(PRECIO_$5000),
+        ValidarTexto.validarTexto(PRECIO_$11000),
         ValidarTexto.validarTexto("Min ILIMITADOS"),
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
         ValidarTexto.validarTexto("Apps incluidas"),
-        ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
-        ValidarTexto.validarTexto(TODO_INCLUIDO_3DIAS_400MB));
+        ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE));
+        scrollCorto2(actor, "Comprar");
+        actor.attemptsTo(ValidarTexto.validarTexto(TODO_INCLUIDO_7DIAS_400MB));
 
     EvidenciaUtils.registrarCaptura(paso2);
 
     // PASO 2: Validar y explorar segundo paquete 50 MB
 
-    scrollCorto2(actor, PRECIO_$2500);
+    scrollCorto2(actor, PRECIO_$15000);
 
     actor.attemptsTo(
         ValidarTexto.validarTexto(LABEL_PAQUETES),
-        ValidarTexto.validarTexto("50 MB"),
+        ValidarTexto.validarTexto("3.5 GB"),
         ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto(PRECIO_$2500),
-        ValidarTexto.validarTexto("50 min"),
+        ValidarTexto.validarTexto(PRECIO_$15000),
+        ValidarTexto.validarTexto("Min ILIMITADOS"),
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
         ValidarTexto.validarTexto("Apps incluidas"),
-        ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
-        ValidarTexto.validarTexto(TODO_INCLUIDO_1DIAS_50MIN));
+            ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE));
+        scrollCorto2(actor, "Comprar");
+        actor.attemptsTo(ValidarTexto.validarTexto(TODO_INCLUIDO_10DIAS_1_3_5GB));
 
     EvidenciaUtils.registrarCaptura(paso3);
 
@@ -88,13 +91,14 @@ public class TodoIncluidoConRedes implements Task {
     actor.attemptsTo(
         Scroll.scrollUnaVista(),
         ValidarTexto.validarTexto(LABEL_PAQUETES),
-        ValidarTexto.validarTexto("400MB"),
+        ValidarTexto.validarTexto("400 MB"),
         ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto(PRECIO_$6000),
+        ValidarTexto.validarTexto(PRECIO_$5000),
         ValidarTexto.validarTexto("Min ILIMITADOS"),
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
         ValidarTexto.validarTexto("Apps incluidas"),
         Click.on(LBL_VER_DETALLE_2),
+        Scroll.scrollUnaVista(),
         ValidarTexto.validarTexto(TODO_INCLUIDO_3DIAS_400MB_4BENEFICIARIOS));
 
     EvidenciaUtils.registrarCaptura(paso4);
@@ -109,7 +113,7 @@ public class TodoIncluidoConRedes implements Task {
         ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto("1.4 GB"),
         ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto(PRECIO_$9000),
+        ValidarTexto.validarTexto(PRECIO_$8000),
         ValidarTexto.validarTexto("Min ILIMITADOS"),
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
         ValidarTexto.validarTexto("Apps incluidas"),
@@ -119,24 +123,9 @@ public class TodoIncluidoConRedes implements Task {
     EvidenciaUtils.registrarCaptura(paso6);
 
     // PASO 5: Validar y explorar quinto paquete 1.4GB
-    scrollCorto2(actor, PRECIO_$8000);
+    scrollCorto2(actor, PRECIO_$9000);
 
     actor.attemptsTo(
-        ValidarTexto.validarTexto(LABEL_PAQUETES),
-        ValidarTexto.validarTexto("1.4 GB"),
-        ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto(PRECIO_$8000),
-        ValidarTexto.validarTexto("Min ILIMITADOS"),
-        ValidarTexto.validarTexto("SMS ILIMITADOS"),
-        ValidarTexto.validarTexto("Apps incluidas"),
-        ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
-        ValidarTexto.validarTexto(TODO_INCLUIDO_6DIAS_1_4GB));
-
-    EvidenciaUtils.registrarCaptura(paso7);
-
-    // PASO :6 Validar y explorar sexto paquete 2GB
-    actor.attemptsTo(
-        Scroll.scrollUnaVista(),
         ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto("2 GB"),
         ValidarTexto.validarTexto(PRECIO),
@@ -144,8 +133,23 @@ public class TodoIncluidoConRedes implements Task {
         ValidarTexto.validarTexto("Min ILIMITADOS"),
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
         ValidarTexto.validarTexto("Apps incluidas"),
-        Click.on(LBL_VER_DETALLE_2),
+        ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
         ValidarTexto.validarTexto(TODO_INCLUIDO_7DIAS_2GB));
+
+    EvidenciaUtils.registrarCaptura(paso7);
+
+    // PASO :6 Validar y explorar sexto paquete 2GB
+    actor.attemptsTo(
+        Scroll.scrollUnaVista(),
+        ValidarTexto.validarTexto(LABEL_PAQUETES),
+        ValidarTexto.validarTexto("3.5 GB"),
+        ValidarTexto.validarTexto(PRECIO),
+        ValidarTexto.validarTexto(PRECIO_$13000),
+        ValidarTexto.validarTexto("Min ILIMITADOS"),
+        ValidarTexto.validarTexto("SMS ILIMITADOS"),
+        ValidarTexto.validarTexto("Apps incluidas"),
+        Click.on(LBL_VER_DETALLE_2),
+        ValidarTexto.validarTexto(TODO_INCLUIDO_3_5GB));
 
     EvidenciaUtils.registrarCaptura(paso8);
 
@@ -153,8 +157,23 @@ public class TodoIncluidoConRedes implements Task {
 
     EvidenciaUtils.registrarCaptura(paso9);
 
-    // PASO 8: Validar y explorar octavo paquete 80GB
 
+    actor.attemptsTo(
+            ClickTextoQueContengaX.elTextoContiene(ULTIMO),
+            WaitForResponse.withText(ELIGE_TIPO_PAQUETE),
+    // PASO 8: Validar y explorar octavo paquete 7.5GB
+
+            ValidarTexto.validarTexto(LABEL_PAQUETES),
+            ValidarTexto.validarTexto("7.5 GB"),
+            ValidarTexto.validarTexto(PRECIO),
+            ValidarTexto.validarTexto(PRECIO_$23000),
+            ValidarTexto.validarTexto("Min ILIMITADOS"),
+            ValidarTexto.validarTexto("SMS ILIMITADOS"),
+            ValidarTexto.validarTexto("Apps incluidas"),
+            ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
+            ValidarTexto.validarTexto(TODO_INCLUIDO_20DIAS_7_5GB));
+
+    /*
     actor.attemptsTo(
         ClickTextoQueContengaX.elTextoContiene(ULTIMO),
         WaitForResponse.withText(ELIGE_TIPO_PAQUETE),
@@ -166,16 +185,27 @@ public class TodoIncluidoConRedes implements Task {
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
         ValidarTexto.validarTexto("Apps incluidas"),
         ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
-        ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_80GB));
+        ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_80GB));*/
 
     EvidenciaUtils.registrarCaptura(paso10);
 
-    scrollCorto2(actor, PRECIO_$13000);
+    scrollCorto2(actor, PRECIO_$33000);
 
     actor.attemptsTo(
 
-        // PASO 7: Validar y explorar septimo paquete 3.5GB
-        ValidarTexto.validarTexto(LABEL_PAQUETES),
+        // PASO 7: Validar y explorar septimo paquete 12 GB
+
+            ValidarTexto.validarTexto(LABEL_PAQUETES),
+            ValidarTexto.validarTexto("12 GB"),
+            ValidarTexto.validarTexto(PRECIO),
+            ValidarTexto.validarTexto(PRECIO_$33000),
+            ValidarTexto.validarTexto("Min ILIMITADOS"),
+            ValidarTexto.validarTexto("SMS ILIMITADOS"),
+            ValidarTexto.validarTexto("Apps incluidas"),
+            ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
+            ValidarTexto.validarTexto(TODO_INCLUIDO_12GB));
+
+        /*ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto("3.5 GB"),
         ValidarTexto.validarTexto(PRECIO),
         ValidarTexto.validarTexto(PRECIO_$13000),
@@ -183,23 +213,23 @@ public class TodoIncluidoConRedes implements Task {
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
         ValidarTexto.validarTexto("Apps incluidas"),
         ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
-        ValidarTexto.validarTexto(TODO_INCLUIDO_3_5GB));
+        ValidarTexto.validarTexto(TODO_INCLUIDO_3_5GB));*/
 
     EvidenciaUtils.registrarCaptura(paso11);
 
-    // PASO 9: Validar y explorar noveno paquete 7.5GB
+    // PASO 9: Validar y explorar noveno paquete 18 GB
 
     actor.attemptsTo(
-        Scroll.scrollUnaVista(),
-        ValidarTexto.validarTexto(LABEL_PAQUETES),
-        ValidarTexto.validarTexto("7.5 GB"),
-        ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto(PRECIO_$23000),
-        ValidarTexto.validarTexto("Min ILIMITADOS"),
-        ValidarTexto.validarTexto("SMS ILIMITADOS"),
-        ValidarTexto.validarTexto("Apps incluidas"),
-        Click.on(LBL_VER_DETALLE_2),
-        ValidarTexto.validarTexto(TODO_INCLUIDO_20DIAS_7_5GB));
+            Scroll.scrollUnaVista(),
+            ValidarTexto.validarTexto(LABEL_PAQUETES),
+            ValidarTexto.validarTexto("18 GB"),
+            ValidarTexto.validarTexto(PRECIO),
+            ValidarTexto.validarTexto(PRECIO_$43000),
+            ValidarTexto.validarTexto("Min ILIMITADOS"),
+            ValidarTexto.validarTexto("SMS ILIMITADOS"),
+            ValidarTexto.validarTexto("Apps incluidas"),
+            ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
+            ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_18GB));
 
     EvidenciaUtils.registrarCaptura(paso12);
 
@@ -211,8 +241,20 @@ public class TodoIncluidoConRedes implements Task {
         ClickTextoQueContengaX.elTextoContiene(ULTIMO),
         WaitForResponse.withText(ELIGE_TIPO_PAQUETE),
 
-        // PASO 10: Validar y explorar decimo paquete 12 GB
-        ValidarTexto.validarTexto(LABEL_PAQUETES),
+        // PASO 10: Validar y explorar decimo paquete 80 GB
+
+                    WaitForResponse.withText(ELIGE_TIPO_PAQUETE),
+                    ValidarTexto.validarTexto(LABEL_PAQUETES),
+                    ValidarTexto.validarTexto("80 GB"),
+                    ValidarTexto.validarTexto(PRECIO),
+                    ValidarTexto.validarTexto(PRECIO_$100000),
+                    ValidarTexto.validarTexto("Min ILIMITADOS"),
+                    ValidarTexto.validarTexto("SMS ILIMITADOS"),
+                    ValidarTexto.validarTexto("Apps incluidas"),
+                    ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
+                    ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_80GB));
+
+       /* ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto("12 GB"),
         ValidarTexto.validarTexto(PRECIO),
         ValidarTexto.validarTexto(PRECIO_$33000),
@@ -220,25 +262,42 @@ public class TodoIncluidoConRedes implements Task {
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
         ValidarTexto.validarTexto("Apps incluidas"),
         ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
-        ValidarTexto.validarTexto(TODO_INCLUIDO_12GB));
+        ValidarTexto.validarTexto(TODO_INCLUIDO_12GB));*/
 
     EvidenciaUtils.registrarCaptura(paso14);
 
-    // PASO 11: Validar y explorar undecimo paquete 18 GB
+    // PASO 11: Validar y explorar undecimo paquete 50 MB
     actor.attemptsTo(
         Scroll.scrollUnaVista(),
         ValidarTexto.validarTexto(LABEL_PAQUETES),
-        ValidarTexto.validarTexto("18 GB"),
+        ValidarTexto.validarTexto("50 MB"),
         ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto(PRECIO_$43000),
-        ValidarTexto.validarTexto("Min ILIMITADOS"),
+        ValidarTexto.validarTexto(PRECIO_$2500),
+        ValidarTexto.validarTexto("50 min"),
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
         ValidarTexto.validarTexto("Apps incluidas"),
         Scroll.scrollUnaVista(),
-        Click.on(LBL_VER_DETALLE_2),
-        ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_18GB));
+            ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
+        ValidarTexto.validarTexto(TODO_INCLUIDO_1DIAS_50MIN));
 
     EvidenciaUtils.registrarCaptura(paso15);
+
+    actor.attemptsTo(Scroll.scrollUnaVista());
+
+    // PASO 12: Validar y explorar undecimo paquete 400 MB
+    actor.attemptsTo(
+            Scroll.scrollUnaVista(),
+            ValidarTexto.validarTexto(LABEL_PAQUETES),
+            ValidarTexto.validarTexto("400MB"),
+            ValidarTexto.validarTexto(PRECIO),
+            ValidarTexto.validarTexto(PRECIO_$6000),
+            ValidarTexto.validarTexto("Min ILIMITADOS"),
+            ValidarTexto.validarTexto("SMS ILIMITADOS"),
+            ValidarTexto.validarTexto("Apps incluidas"),
+            Scroll.scrollUnaVista(),
+            ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
+            ValidarTexto.validarTexto(TODO_INCLUIDO_3DIAS_400MB1));
+
   }
 
   public static Performable validar() {
