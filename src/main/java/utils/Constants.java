@@ -460,6 +460,7 @@ public class Constants {
   public static final String PORTATILES = "Portátiles";
   public static final String TELEVISORES = "Televisores";
   public static final String LOS_MAS_VENDIDOS = "Los más vendidos";
+  public static final String ESTO_ES_PARA_TI = "Esto es para ti";
 
   // Constantes para eSIM Claro
   public static final String ESIM_CLARO = "eSIM Claro";

@@ -6,10 +6,7 @@ import static userinterfaces.PagosyConsultasPrePage.LBL_MENSAJE_COOKIES;
 import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
-import interactions.Scroll.Scroll;
 import interactions.Scroll.ScrollHastaTexto;
-import interactions.validations.ValidarTexto;
-import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -46,7 +43,7 @@ public class ValidarPaginaClaro implements Task {
     EvidenciaUtils.registrarCaptura(paso2);
 
     actor.attemptsTo(
-            ScrollHastaTexto.conTexto(LOS_MAS_VENDIDOS));
+            ScrollHastaTexto.conTexto(ESTO_ES_PARA_TI));
   }
 
   public static Performable validarRedireccionamiento() {
