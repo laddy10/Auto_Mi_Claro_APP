@@ -351,7 +351,7 @@ public class EntretenimientoPage {
               "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.Button");
   public static final Target BTN_CLOSE_CLARO_CLUB =
       Target.the("Botón Close Claro Club")
-          .located(By.xpath("//android.widget.Button[@content-desc=\"Close\"]"));
+          .located(By.xpath("((//*[@class='com.google.android.material.navigation.NavigationView']/*/*[@class='android.view.View' and ./parent::*[@class='android.view.View']])[1]/*[@class='android.view.View'])[4]"));
   public static final Target LBL_PERMITIR_ACTIVIDAD =
       Target.the("Texto Permitir actividad de fondo")
           .located(By.xpath("//*[@text='Permitir actividad de fondo']"));
