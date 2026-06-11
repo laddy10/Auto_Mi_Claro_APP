@@ -11,10 +11,10 @@ public class ConstantsPaquetes {
 
   // PAQUETES TODO INCLUIDOS CON REDES
   public static final String TODO_INCLUIDO_3DIAS_400MB1 =
-          "Todo Incluido 400MB + WhatsApp, Facebook y Twitter + Salud en Linea 4 beneficiarios por 3 Dias";
+          "Todo incluido 3 Días con Minutos Ilimitados + 400MB";
 
   public static final String TODO_INCLUIDO_3DIAS_400MB =
-      "Todo incluido 3 Días con Minutos Ilimitados + 400MB";
+      "Todo Incluido 400MB + WhatsApp, Facebook y Twitter + Salud en Linea 4 beneficiarios por 3 Dias";
   public static final String TODO_INCLUIDO_7DIAS_400MB =
           "Paquete 7 Dias, minutos Ilimitados, mensajes Ilimitados, 2GB de navegacion, WFX No consumen datos y Win Sports";
   public static final String TODO_INCLUIDO_1DIAS_50MIN =
@@ -22,7 +22,9 @@ public class ConstantsPaquetes {
   public static final String TODO_INCLUIDO_3DIAS_400MB_4BENEFICIARIOS =
       "Todo incluido 3 Días con Minutos Ilimitados + 400MB";
   public static final String TODO_INCLUIDO_6DIAS_1_4GB_4BENEFICIARIOS =
-      "Este paquete incluye los servicios ilimitados de Minutos y SMS todo destino + 1.4GB + WhatsApp, Twitter y Facebook, sin descontar de la capacidad incluida, Vigencia 6 dias";
+      "Todo Incluido 1.4GB + WhatsApp, Facebook y Twitter + Salud en Linea 4 beneficiarios por 6 Dias";
+  public static final String TODO_INCLUIDO_6DIAS_1_4GB_4BENEFICIARIOS2 =
+          "Este paquete incluye los servicios ilimitados de Minutos y SMS todo destino + 1.4GB + WhatsApp, Twitter y Facebook, sin descontar de la capacidad incluida, Vigencia 6 dias";
   public static final String TODO_INCLUIDO_10DIAS_1_3_5GB =
           "Paquete 10 Dias, minutos Ilimitados, mensajes Ilimitados, 3.5GB de navegacion, WFX No consumen datos y Win Sports";
   public static final String TODO_INCLUIDO_6DIAS_1_4GB =
@@ -34,21 +36,28 @@ public class ConstantsPaquetes {
   public static final String TODO_INCLUIDO_30DIAS_80GB =
       "Este paquete Todo Incluido incluye 80GB, ilimitados de Minutos + WhatsApp, Facebook y Twitter, Vigencia 30 dias.";
   public static final String TODO_INCLUIDO_20DIAS_7_5GB =
-      "Este paquete incluye los servicios ilimitados de Minutos y SMS todo destino + 7.5GB + WhatsApp, Twitter y Facebook sin descontar de la capacidad incluida, Vigencia 20 dias";
+      "Paquete 20 Dias, minutos Ilimitados, mensajes Ilimitados, 7.5GB de navegacion, WFX No consumen datos y Win Sports";
   public static final String TODO_INCLUIDO_12GB =
-      "Este paquete incluye los servicios ilimitados de Minutos y SMS todo destino + 12GB + WhatsApp, Twitter y Facebook sin descontar de la capacidad";
+      "Paquete 30 Dias, minutos Ilimitados, mensajes Ilimitados, 12GB de navegacion, WFX No consumen datos y Win Sports";
   public static final String TODO_INCLUIDO_30DIAS_18GB =
-      "Este paquete incluye los servicios ilimitados de Minutos y SMS todo destino + 18GB + WhatsApp, Twitter y Facebook sin descontar de la capacidad incluida, Vigencia 30 días";
+      "Paquete 30 Dias, minutos Ilimitados, mensajes Ilimitados, 18GB de navegacion, WFX No consumen datos y Win Sports";
+  public static final String TODO_INCLUIDO_20DIAS_7_5GB2 =
+          "Este paquete incluye los servicios ilimitados de Minutos y SMS todo destino + 7.5GB + WhatsApp, Twitter y Facebook sin descontar de la capacidad incluida, Vigencia 20 dias";
 
   // PAQUETES TODO INCLUIDO SIN REDES
   public static final String TODO_INCLUIDO_7DIAS_10GB =
       "Este paquete incluye 10GB+ Minutos y SMS ilimitados todo destino, No incluye redes sociales. Vig 7 dias";
   public static final String TODO_INCLUIDO_15DIAS_20GB =
-      "Este paquete Todo Incluido incluye 20GB, ilimitados en Minutos y SMS , Vigencia 15 dias";
+      "Paquete 15 Dias, minutos Ilimitados, mensajes Ilimitados, 20GB de navegacion, No incluye redes y Win Sports";
   public static final String TODO_INCLUIDO_30DIAS_30GB =
-      "Este paquete Todo Incluido incluye 30GB, ilimitados en Minutos y SMS , Vigencia 30 dias";
+      "Paquete 30 Dias, minutos Ilimitados, mensajes Ilimitados, 30GB de navegacion, No incluye redes y Win Sports";
   public static final String TODO_INCLUIDO_7DIAS_10GB_WIN =
           "Paquete 7 Dias, minutos Ilimitados, mensajes Ilimitados, 10GB de navegacion, No incluye redes y Win Sports";
+  public static final String TODO_INCLUIDO_15DIAS_20GBTD =
+          "Este paquete Todo Incluido incluye 20GB, ilimitados en Minutos y SMS , Vigencia 15 dias";
+  public static final String TODO_INCLUIDO_30DIAS_30GBTD =
+          "Este paquete Todo Incluido incluye 30GB, ilimitados en Minutos y SMS , Vigencia 30 dias";
+
   // PAQUETES DE DATOS
   public static final String NAVEGACION_ILIMITADA_2H = "Navegación ilimitada, Vigencia 2 horas";
   public static final String NAVEGACION_200MB_1DIA =
@@ -91,8 +100,11 @@ public class ConstantsPaquetes {
   public static final String PRECIO_$15000 = "$ 15.000";
   public static final String PRECIO_$100000 = "$ 100.000";
   public static final String PRECIO_$23000 = "$ 23.000";
+  public static final String PRECIO_$25000 = "$ 25.000";
   public static final String PRECIO_$33000 = "$ 33.000";
+  public static final String PRECIO_$35000 = "$ 35.000";
   public static final String PRECIO_$43000 = "$ 43.000";
+  public static final String PRECIO_$45000 = "$ 45.000";
   public static final String PRECIO_$2000 = "$ 2.000";
   public static final String PRECIO_$3000 = "$ 3.000";
   public static final String PRECIO_$6500 = "$ 6.500";

@@ -26,7 +26,9 @@ public class TodoIncluidoSinRedes implements Task {
   private static final String paso2 = "Validar primer paquete 10 GB";
   private static final String paso3 = "Validar segundo paquete 20 GB";
   private static final String paso4 = "Validar tercer paquete 30 GB";
-
+  private static final String paso5 = "Validar cuarto paquete 10 GB";
+  private static final String paso6 = "Validar cuarto paquete 20 GB";
+  private static final String paso7 = "Validar cuarto paquete 30 GB";
   @Override
   public <T extends Actor> void performAs(T actor) {
 
@@ -49,10 +51,22 @@ public class TodoIncluidoSinRedes implements Task {
             Click.on(LBL_VER_DETALLE_1),
             ValidarTexto.validarTexto(TODO_INCLUIDO_7DIAS_10GB_WIN));
 
+    EvidenciaUtils.registrarCaptura(paso2);
 
-    // Paso 2: Validar segundo paquete 10 GB
-
+    // Paso 2: Validar segundo paquete 30 GB
     actor.attemptsTo(
+            ScrollHastaTexto.conTexto(PRECIO_$35000),
+            ValidarTexto.validarTexto(LABEL_PAQUETES),
+            ValidarTexto.validarTexto("30 GB"),
+            ValidarTexto.validarTexto(PRECIO),
+            ValidarTexto.validarTexto(PRECIO_$35000),
+            ValidarTexto.validarTexto("Min ILIMITADOS"),
+            ValidarTexto.validarTexto("SMS ILIMITADOS"),
+            Scroll.scrollUnaVista(),
+            ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
+            ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_30GB));
+
+  /*  actor.attemptsTo(
             ScrollHastaTexto.conTexto(PRECIO_$13000),
         ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto("10 GB"),
@@ -61,30 +75,41 @@ public class TodoIncluidoSinRedes implements Task {
         ValidarTexto.validarTexto("Min ILIMITADOS"),
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
         Click.on(LBL_VER_DETALLE_1),
-        ValidarTexto.validarTexto(TODO_INCLUIDO_7DIAS_10GB));
+        ValidarTexto.validarTexto(TODO_INCLUIDO_7DIAS_10GB));*/
 
-    EvidenciaUtils.registrarCaptura(paso2);
+    EvidenciaUtils.registrarCaptura(paso3);
 
     // Paso 3: Validar paquete 20 GB
     actor.attemptsTo(
-            ScrollHastaTexto.conTexto(PRECIO_$23000),
+            ScrollHastaTexto.conTexto(PRECIO_$25000),
         ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto("20 GB"),
         ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto(PRECIO_$23000),
+        ValidarTexto.validarTexto(PRECIO_$25000),
         ValidarTexto.validarTexto("Min ILIMITADOS"),
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
         Click.on(LBL_VER_DETALLE_1),
         ValidarTexto.validarTexto(TODO_INCLUIDO_15DIAS_20GB));
 
-    EvidenciaUtils.registrarCaptura(paso3);
+    EvidenciaUtils.registrarCaptura(paso4);
     actor.attemptsTo(
             Scroll.scrollUnaVista(),
             ClickTextoQueContengaX.elTextoContiene(ULTIMO),
             WaitForResponse.withText(ELIGE_TIPO_PAQUETE),
 
-    // Paso 4: Validar tercer paquete 30 GB
 
+    // Paso 5: Validar cuarto paquete 10 GB
+
+                    ValidarTexto.validarTexto(LABEL_PAQUETES),
+                    ValidarTexto.validarTexto("10 GB"),
+                    ValidarTexto.validarTexto(PRECIO),
+                    ValidarTexto.validarTexto(PRECIO_$13000),
+                    ValidarTexto.validarTexto("Min ILIMITADOS"),
+                    ValidarTexto.validarTexto("SMS ILIMITADOS"),
+                    Click.on(LBL_VER_DETALLE_1),
+                    ValidarTexto.validarTexto(TODO_INCLUIDO_7DIAS_10GB));
+
+    /*
         Scroll.scrollUnaVista(),
         ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto("30 GB"),
@@ -94,9 +119,42 @@ public class TodoIncluidoSinRedes implements Task {
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
             ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
         Scroll.scrollUnaVista(),
-        ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_30GB));
+        ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_30GB));*/
 
-    EvidenciaUtils.registrarCaptura(paso4);
+    EvidenciaUtils.registrarCaptura(paso5);
+
+    // Paso 4: Validar quinto paquete 20 GB
+
+    actor.attemptsTo(
+            ScrollHastaTexto.conTexto(PRECIO_$23000),
+            ValidarTexto.validarTexto(LABEL_PAQUETES),
+            ValidarTexto.validarTexto("20 GB"),
+            ValidarTexto.validarTexto(PRECIO),
+            ValidarTexto.validarTexto(PRECIO_$23000),
+            ValidarTexto.validarTexto("Min ILIMITADOS"),
+            ValidarTexto.validarTexto("SMS ILIMITADOS"),
+            Scroll.scrollUnaVista(),
+            ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
+            ValidarTexto.validarTexto(TODO_INCLUIDO_15DIAS_20GBTD));
+
+    EvidenciaUtils.registrarCaptura(paso6);
+
+// Paso 4: Validar paquete 30 GB
+
+    actor.attemptsTo(
+            ScrollHastaTexto.conTexto(PRECIO_$33000),
+            ValidarTexto.validarTexto(LABEL_PAQUETES),
+            ValidarTexto.validarTexto("30 GB"),
+            ValidarTexto.validarTexto(PRECIO),
+            ValidarTexto.validarTexto(PRECIO_$33000),
+            ValidarTexto.validarTexto("Min ILIMITADOS"),
+            ValidarTexto.validarTexto("SMS ILIMITADOS"),
+            Scroll.scrollUnaVista(),
+            ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
+            ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_30GBTD));
+
+    EvidenciaUtils.registrarCaptura(paso7);
+
   }
 
   public static Performable validar() {
