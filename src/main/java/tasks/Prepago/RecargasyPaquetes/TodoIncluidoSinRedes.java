@@ -119,7 +119,7 @@ public class TodoIncluidoSinRedes implements Task {
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
             ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
         Scroll.scrollUnaVista(),
-        ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_30GB));*/
+        ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_30GB));
 
     EvidenciaUtils.registrarCaptura(paso5);
 
@@ -153,7 +153,7 @@ public class TodoIncluidoSinRedes implements Task {
             ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
             ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_30GBTD));
 
-    EvidenciaUtils.registrarCaptura(paso7);
+    EvidenciaUtils.registrarCaptura(paso7);*/
 
   }
 

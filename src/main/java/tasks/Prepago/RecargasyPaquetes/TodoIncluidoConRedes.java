@@ -241,38 +241,38 @@ public class TodoIncluidoConRedes implements Task {
 
         EvidenciaUtils.registrarCaptura(paso14);
 
-        // PASO 11: Validar y explorar undecimo paquete 3.5 GB
+        // PASO 11: Validar y explorar undecimo paquete 80 GB
 
         actor.attemptsTo(
                 Scroll.scrollUnaVista(),
                 ValidarTexto.validarTexto(LABEL_PAQUETES),
-                ValidarTexto.validarTexto("3.5 GB"),
+                ValidarTexto.validarTexto("80 GB"),
                 ValidarTexto.validarTexto(PRECIO),
-                ValidarTexto.validarTexto(PRECIO_$13000),
+                ValidarTexto.validarTexto(PRECIO_$100000),
                 ValidarTexto.validarTexto("Min ILIMITADOS"),
                 ValidarTexto.validarTexto("SMS ILIMITADOS"),
                 ValidarTexto.validarTexto("Apps incluidas"),
                 ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
-                ValidarTexto.validarTexto(TODO_INCLUIDO_3_5GB));
+                ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_80GB));
 
         EvidenciaUtils.registrarCaptura(paso15);
 
         actor.attemptsTo(Scroll.scrollUnaVista());
 
-        // PASO 12: Validar y explorar undecimo paquete 7.5 GB
+        // PASO 12: Validar y explorar undecimo paquete 50 MB
 
         actor.attemptsTo(
                 Scroll.scrollUnaVista(),
                 ValidarTexto.validarTexto(LABEL_PAQUETES),
-                ValidarTexto.validarTexto("7.5 GB"),
+                ValidarTexto.validarTexto("50 MB"),
                 ValidarTexto.validarTexto(PRECIO),
-                ValidarTexto.validarTexto(PRECIO_$23000),
-                ValidarTexto.validarTexto("Min ILIMITADOS"),
+                ValidarTexto.validarTexto(PRECIO_$2500),
+                ValidarTexto.validarTexto("50 min"),
                 ValidarTexto.validarTexto("SMS ILIMITADOS"),
                 ValidarTexto.validarTexto("Apps incluidas"),
                 Scroll.scrollUnaVista(),
                 ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
-                ValidarTexto.validarTexto(TODO_INCLUIDO_20DIAS_7_5GB2));
+                ValidarTexto.validarTexto(TODO_INCLUIDO_1DIAS_50MIN));
     }
 
     public static Performable validar() {
