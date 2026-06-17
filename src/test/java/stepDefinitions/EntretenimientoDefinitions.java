@@ -34,7 +34,7 @@ public class EntretenimientoDefinitions {
   public void desplazarseopcionmundial() {
     theActorInTheSpotlight()
             .attemptsTo(
-                    ScrollHastaTexto.conTexto(EXPLORA_Y_COMPRA), ClickTextoQueContengaX.elTextoContiene(DISNEY_PLUS));
+                    ScrollHastaTexto.conTexto(TU_LUGAR_PARA_FUTBOL), ClickTextoQueContengaX.elTextoContiene(DISNEY_PLUS));
 
     EvidenciaUtils.registrarCaptura("Menú mundial");
   }

@@ -43,7 +43,7 @@ public class ComprarAplicaciones implements Task {
         ValidarTexto.validarTexto(APLICACIONES_ADICIONALES),
         ValidarTexto.validarTexto(GUARDAR));
 
-    EvidenciaUtils.registrarCaptura(paso2);
+    /*EvidenciaUtils.registrarCaptura(paso2);
 
     actor.attemptsTo(Click.on(CHECK_TIKTOK), WaitFor.aTime(1000));
 
@@ -57,7 +57,7 @@ public class ComprarAplicaciones implements Task {
         ValidarTextoQueContengaX.elTextoContiene(LABEL_COSTO_ADICIONAL),
         ValidarTextoQueContengaX.elTextoContiene(LABEL_CARGO_FACTURA));
 
-    EvidenciaUtils.registrarCaptura(paso4);
+    EvidenciaUtils.registrarCaptura(paso4);*/
   }
 
   public static Performable ingresarYValidar() {

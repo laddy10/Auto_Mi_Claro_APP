@@ -41,7 +41,7 @@ public class PagosyConsultasPrePage {
                   "(//android.widget.ImageView[@resource-id=\"com.clarocolombia.miclaro:id/page\"])[1]"));
 
   public static final Target BTN_CERRAR_POPUP =
-      Target.the("Botón X para cerrar popup").located(By.id("ins-mob-png-close"));
+      Target.the("Botón X para cerrar popup").located(By.xpath("//android.widget.Button[@content-desc=\"Cerrar\"]"));
 
   private static final User user = TestDataProvider.getRealUser();
 

@@ -167,6 +167,7 @@ public class Constants {
   public static final String REGISTRAR = "Registrar";
   public static final String CANCELAR = "Cancelar";
   public static final String EQUIPO_REGISTRADO = "El equipo ya se encuentra registrado.";
+  public static final String SOLO_UNA_VEZ = "SOLO UNA VEZ";
 
   // Reportar por robo o pérdida
   public static final String REPORTAR_POR_ROBO_PERDIDA_TITULO = "Reportar por robo o pérdida";
@@ -762,4 +763,7 @@ public class Constants {
 
   public static final String CODIGO_6_DIGITOS_DAVIPLATA =
       "Ingresa el codigo de 6 dígitos que DaviPlata envió a tu número de celular. No compartas esta información con nadie";
+
+
+  public static final String TU_LUGAR_PARA_FUTBOL = "Tu lugar para vivir el fútbol";
 }
