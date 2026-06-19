@@ -79,6 +79,7 @@ public class Constants {
       "Encuentra las últimas 6 facturas de tu cuenta postpago";
   public static final String ESTE_ARCHIVO_ESTA_PROTEGIDO = "Este archivo está protegido";
   public static final String ABRIR = "Abrir";
+  public static final String ABRIR2 = "ABRIR";
   public static final String TOTAL_A_PAGAR = "TOTAL A PAGAR:";
   public static final String FACTURA_POR_CORREO_ELECTRONICO = "Factura por correo electrónico";
   public static final String ULTIMOS_PAGOS = "Últimos pagos";

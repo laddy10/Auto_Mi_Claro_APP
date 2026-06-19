@@ -71,6 +71,10 @@ public class ValidarRedireccionClaroMusicaApp implements Task {
       actor.attemptsTo(ClickElementByText.clickElementByText(CANCELAR));
     }
 
+    if (isVisible(actor, TXT_ABRIR)) {
+      actor.attemptsTo(ClickElementByText.clickElementByText(ABRIR2));
+    }
+
     actor.attemptsTo(
         ValidarTexto.validarTexto("Inicio"),
         ValidarTexto.validarTexto("Mi Música"),
