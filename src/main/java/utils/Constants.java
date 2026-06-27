@@ -96,6 +96,7 @@ public class Constants {
       "Tu factura estará disponible 7 días después de la fecha de corte";
   public static final String GERENCIA_DCT = "GERENCIA GERENCIA DCT";
   public static final String PAGA_AQUI = "Paga aquí";
+  public static final String ACEPTAR_CONTINUAR = "Aceptar y continuar";
 
   public static final String VALOR_TOTAL_A_PAGAR = "Valor total a pagar";
   public static final String FECHA_LIMITE_PAGO = "Fecha límite de pago";
@@ -604,6 +605,8 @@ public class Constants {
   public static final String CUPONES = "Cupones";
   public static final String PRECIO_STANDAR = "36.900/mes\n" +
           "IVA incluido";
+  public static final String TIENDA_CLARO = "Tienda Claro";
+  public static final String PERMITIR = "Permitir";
 
   // Elegir Plan
   public static final String ELEGIR_PLAN = "Elegir plan";
@@ -761,6 +764,7 @@ public class Constants {
   public static final String CERRAR_SESION = "Cerrar sesión";
   public static final String SI_CERRAR = "Si, cerrar";
   public static final String UTILIDADES = "UTILIDADES";
+  public static final String CONTINUAR_SIN_CONTRASENA = "Continuar sin contraseña";
 
   public static final String CODIGO_6_DIGITOS_DAVIPLATA =
       "Ingresa el codigo de 6 dígitos que DaviPlata envió a tu número de celular. No compartas esta información con nadie";

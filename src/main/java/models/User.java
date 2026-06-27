@@ -17,6 +17,8 @@ public class User {
   private String cantidadDatosArmar;
   private String imei;
   private String referencia;
+  private String emailClaroMusica;
+  private String passwordClaroMusica;
 
   public String getEmail() {
     return email;
@@ -132,6 +134,22 @@ public class User {
 
   public void setImei(String imei) {
     this.imei = imei;
+  }
+
+  public String getEmailClaroMusica() {
+    return emailClaroMusica;
+  }
+
+  public void SetemailClaroMusica(String emailClaroMusica) {
+    this.emailClaroMusica = emailClaroMusica;
+  }
+
+  public String getpasswordClaroMusica() {
+    return passwordClaroMusica;
+  }
+
+  public void SetpasswordClaroMusica(String passwordClaroMusica) {
+    this.passwordClaroMusica = passwordClaroMusica;
   }
 
   public User() {}

@@ -4,6 +4,7 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
+import interactions.Scroll.Scroll;
 import interactions.Scroll.ScrollHastaTexto;
 import interactions.wait.WaitFor;
 import net.serenitybdd.screenplay.Actor;
@@ -17,7 +18,9 @@ public class SeleccionarClaroClubEnExploraYCompra implements Task {
   @Override
   public <T extends Actor> void performAs(T actor) {
 
-    actor.attemptsTo(ScrollHastaTexto.conTexto(CUPONES), WaitFor.aTime(3000));
+    actor.attemptsTo(ScrollHastaTexto.conTexto(EXPLORA_Y_COMPRA),
+            Scroll.scrollUnaVista(),
+            Scroll.scrollUnaVista());
     EvidenciaUtils.registrarCaptura(paso);
     actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(CUPONES));
   }

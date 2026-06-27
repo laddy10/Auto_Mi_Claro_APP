@@ -105,7 +105,7 @@ Feature: Ingresar al módulo de entretenimiento
   Scenario: Explora y Compra Redirección de Claro Club
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
-    And   SELECCIONA EL BOTON CLARO CLUB EN EXPLORA Y COMPRA
+    And   SELECCIONA EL BOTON CUPONES EN EXPLORA Y COMPRA
     And   VALIDA VERSION DE MINIPROGRAMA CLARO CLUB
     Then  VALIDA REDIRECCION CLARO CLUB
 

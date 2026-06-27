@@ -32,6 +32,9 @@ public class Versiones {
   public static final String MINI_VERSION_ADQUIRIR_PRODUCTOS_CONSTANT =
       "Versión 1.0.311 (2026-04-08)";
 
+  public static final String MINI_VERSION_TIENDA_CLARO =
+          "Versión 1.0.102 (2025-10-22)";
+
   public static final String MINI_VERSION_CONSULTAR_CONSUMOS_CONSTANT =
       "Versión 1.0.365 (2025-07-30)";
 

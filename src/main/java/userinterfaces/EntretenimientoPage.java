@@ -367,4 +367,31 @@ public class EntretenimientoPage {
   public static final Target TXT_ABRIR=
           Target.the("Texto Abrir")
                   .located(By.xpath("//*[@text='ABRIR']"));
+  public static final Target TXT_BIENVENIDO=
+          Target.the("Texto ¡Bienvenido al nuevo Claro música!")
+                  .located(By.xpath("//*[@text='¡Bienvenido al nuevo Claro música!']"));
+  public static final Target TXT_ENTRAR=
+          Target.the("Texto entrar")
+                  .located(By.xpath("//*[@text='Entrar']"));
+  public static final Target TXT_INGRESA_CON_NUMERO=
+          Target.the("Texto entrar")
+                  .located(By.xpath("//*[@text='Ingresa con tu número claro']"));
+  public static final Target BTN_CORREO=
+          Target.the("Botón correo electrónico")
+                  .located(By.id("email_login_button"));
+  public static final Target TBX_CORREO=
+          Target.the("Textbox correo")
+                  .located(By.id("email_text_field"));
+  public static final Target BTN_ENTRAR_CLARO_MUSICA=
+          Target.the("Botón entrar con correo en claro música")
+                  .located(By.id("password_confirm_button"));
+  public static final Target TBX_CONTRASENA =
+          Target.the("Textbox contraseña claro música")
+                  .located(By.id("password_text_field"));
+  public static final Target TXT_BIENVENIDO_GRATIS=
+          Target.the("Texto ¡Bienvenido al nuevo Claro música Grátis!")
+                  .located(By.xpath("//*[@text='¡Bienvenido al nuevo Claro música Grátis!']"));
+  public static final Target TXT_BIENVENIDO_ILIMITADO=
+          Target.the("Texto ¡Bienvenido a Ilimitado!")
+                  .located(By.xpath("//*[@text='¡Bienvenido a Ilimitado!']"));
 }

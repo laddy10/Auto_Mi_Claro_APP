@@ -8,6 +8,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import hooks.ReportHooks;
 import interactions.Click.ClickTextoQueContengaX;
+import interactions.Scroll.Scroll;
 import interactions.Scroll.ScrollHastaTexto;
 import interactions.comunes.Atras;
 import interactions.validations.ValidarTexto;
@@ -39,8 +40,8 @@ public class PagosYConsultasDefinitions {
     final String paso = "Menu Pagos y consultas";
     theActorInTheSpotlight()
         .attemptsTo(
-            ScrollHastaTexto.conTexto(DISFRUTA_DE_TIEMPO_CON_MICLARO),
-            // Scroll.scrollUnaVista(),
+            ScrollHastaTexto.conTexto(PAGOS_Y_CONSULTAS),
+            Scroll.scrollUnaVista(),
             ClickTextoQueContengaX.elTextoContiene(VER_MAS));
     EvidenciaUtils.registrarCaptura(paso);
   }

@@ -2,23 +2,30 @@ package tasks.Entretenimiento.ValidarRedirecciones;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static userinterfaces.EntretenimientoPage.*;
+import static userinterfaces.LoginPage.TXT_USERNAME;
 import static utils.Constants.*;
 
 import interactions.Click.ClickElementByText;
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarElemento;
 import interactions.validations.ValidarTexto;
+import interactions.wait.WaitElement;
 import interactions.wait.WaitFor;
+import models.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.questions.Presence;
 import net.serenitybdd.screenplay.targets.Target;
+import org.openqa.selenium.By;
 import utils.EvidenciaUtils;
+import utils.TestDataProvider;
 
 public class ValidarRedireccionClaroMusicaApp implements Task {
 
+  private final User user = TestDataProvider.getRealUser();
   private static final String paso = "Validar redirección a la aplicación Claro Música";
 
   @Override
@@ -73,6 +80,39 @@ public class ValidarRedireccionClaroMusicaApp implements Task {
 
     if (isVisible(actor, TXT_ABRIR)) {
       actor.attemptsTo(ClickElementByText.clickElementByText(ABRIR2));
+    }
+
+    if (isVisible(actor, TXT_BIENVENIDO)) {
+      actor.attemptsTo(ClickElementByText.clickElementByText(ACEPTAR_CONTINUAR));
+    }
+
+    if (isVisible(actor, TXT_ENTRAR)) {
+      actor.attemptsTo(ClickElementByText.clickElementByText(ENTRAR));
+    }
+
+    if (isVisible(actor, TXT_INGRESA_CON_NUMERO)) {
+      actor.attemptsTo(
+              Click.on(BTN_CORREO),
+              WaitElement.isEnable(TBX_CORREO),
+              Enter.theValue(user.getEmailClaroMusica()).into(TBX_CORREO),
+              WaitElement.isEnable(TBX_CONTRASENA),
+              Enter.theValue(user.getpasswordClaroMusica()).into(TBX_CONTRASENA),
+              Click.on(BTN_ENTRAR_CLARO_MUSICA),
+              WaitElement.isEnable(LOGO_CLARO_MUSICA),
+              WaitFor.aTime(3000)
+      );
+    }
+
+    if (isVisible(actor, LBL_PERMITIR_NOTIFICACIONES)) {
+      actor.attemptsTo(ClickElementByText.clickElementByText(PERMITIR));
+    }
+
+    if (isVisible(actor, TXT_BIENVENIDO_GRATIS)) {
+      actor.attemptsTo(ClickElementByText.clickElementByText(ENTENDIDO));
+    }
+
+    if (isVisible(actor, TXT_BIENVENIDO_ILIMITADO)) {
+      actor.attemptsTo(ClickElementByText.clickElementByText(ENTENDIDO));
     }
 
     actor.attemptsTo(

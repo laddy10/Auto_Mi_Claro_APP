@@ -70,7 +70,7 @@ public class PaquetesApps implements Task {
         ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto(PRECIO),
         ValidarTexto.validarTexto(PRECIO_$6500),
-        Click.on(LBL_VER_DETALLE_3),
+        Click.on(LBL_VER_DETALLE_2),
         Scroll.scrollUnaVista(),
         ValidarTexto.validarTexto(SALUD_EN_LINEA_30DIAS_4BENEFICIARIOS));
 

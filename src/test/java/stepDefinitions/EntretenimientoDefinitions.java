@@ -7,6 +7,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import interactions.Click.ClickTextoQueContengaX;
+import interactions.Scroll.Scroll;
 import interactions.Scroll.ScrollHastaTexto;
 import tasks.Entretenimiento.*;
 import tasks.Entretenimiento.RutasDeAcceso.*;
@@ -34,7 +35,9 @@ public class EntretenimientoDefinitions {
   public void desplazarseopcionmundial() {
     theActorInTheSpotlight()
             .attemptsTo(
-                    ScrollHastaTexto.conTexto(TU_LUGAR_PARA_FUTBOL), ClickTextoQueContengaX.elTextoContiene(DISNEY_PLUS));
+                    ScrollHastaTexto.conTexto(TU_LUGAR_PARA_FUTBOL),
+                    Scroll.scrollUnaVista(),
+                    ClickTextoQueContengaX.elTextoContiene(DISNEY_PLUS));
 
     EvidenciaUtils.registrarCaptura("Menú mundial");
   }
