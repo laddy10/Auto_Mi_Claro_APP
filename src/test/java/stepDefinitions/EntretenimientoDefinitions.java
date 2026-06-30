@@ -37,7 +37,7 @@ public class EntretenimientoDefinitions {
             .attemptsTo(
                     ScrollHastaTexto.conTexto(TU_LUGAR_PARA_FUTBOL),
                     Scroll.scrollUnaVista(),
-                    ClickTextoQueContengaX.elTextoContiene(DISNEY_PLUS));
+                    ClickTextoQueContengaX.elTextoContiene(DISNEY));
 
     EvidenciaUtils.registrarCaptura("Menú mundial");
   }

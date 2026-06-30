@@ -600,6 +600,7 @@ public class Constants {
   public static final String NETFLIX_TITULO = "Netflix";
   public static final String WIN_PLAY = "Win Play";
   public static final String DISNEY_PLUS = "Disney+";
+  public static final String DISNEY = "Ir a Disney+";
   public static final String HOTGO = "HotGo";
   public static final String RED_NOTICIAS = "RED + NOTICIAS";
   public static final String CUPONES = "Cupones";
