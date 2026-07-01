@@ -171,7 +171,7 @@ public class PagosYConsultasPage {
                                   "//*[contains(@text,'Hazlo todo en línea')]/following::*[contains(@text,'Ver más')][1]"));
   public static final Target LBL_PAGA_TU_FACTURA =
           Target.the("Texto Paga tu factura")
-                  .located(By.xpath("//*[contains(@text,'Paga tu factura')]"));
+                  .located(By.xpath("//*[contains(@text,'factura')]"));
 
   public static final Target CUADRO_RESUMEN =
       Target.the("Cuadro de ver resumen del paquete")

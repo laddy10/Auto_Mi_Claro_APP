@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import net.serenitybdd.core.Serenity;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.questions.Presence;
@@ -180,6 +181,27 @@ public class AndroidObject extends Excepciones {
     } catch (Exception e) {
       return false;
     }
+  }
+
+  /**
+   * Verifica la presencia de un Target con reintentos cortos, para tolerar
+   * pantallas que aún están terminando de renderizar contenido.
+   */
+  public static <T extends Actor> boolean existeConReintentos(
+          T actor, Target target, int intentos, long esperaMs) {
+    for (int i = 1; i <= intentos; i++) {
+      List<WebElementFacade> elementos = target.resolveAllFor(actor);
+      if (!elementos.isEmpty()) {
+        System.out.println("✅ '" + target + "' encontrado en intento #" + i);
+        return true;
+      }
+      try {
+        Thread.sleep(esperaMs);
+      } catch (InterruptedException ignored) {
+      }
+    }
+    System.out.println("⚠️ '" + target + "' no encontrado tras " + intentos + " intentos.");
+    return false;
   }
 
   private static void swipeUp(AppiumDriver<?> driver) {

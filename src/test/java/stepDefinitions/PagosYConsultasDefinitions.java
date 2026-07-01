@@ -2,12 +2,14 @@ package stepDefinitions;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static userinterfaces.AtencionClienteSoportePage.BTN_SI_PERMITIR;
-import static userinterfaces.PagosYConsultasPage.*;
+import static userinterfaces.PagosYConsultasPage.LBL_ELEGIR_OTRO_MEDIO_PAGO;
+import static userinterfaces.PagosYConsultasPage.LBL_PAGA_TU_FACTURA;
 import static utils.Constants.*;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import hooks.ReportHooks;
+import interactions.Click.ClickTextoCercanoA;
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.Scroll;
 import interactions.Scroll.ScrollHastaTexto;
@@ -32,6 +34,7 @@ import tasks.PagosYConsultas.eSIM.MiniprogramaEsim;
 import tasks.PagosYConsultas.eSIM.SeleccionarLineaPostEsim;
 import tasks.PagosYConsultas.eSIM.ValidarOpcionesEsim;
 import tasks.Prepago.RecargasyPaquetes.SeleccionLineaPrepago;
+import utils.AndroidObject;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
@@ -44,16 +47,10 @@ public class PagosYConsultasDefinitions {
     final String paso = "Menu Pagos y consultas";
 
     theActorInTheSpotlight()
-            .attemptsTo(ScrollHastaTexto.conTexto(HAZLO_TODO_EN_LINEA));
-
-    List<WebElementFacade> pagaTuFactura =
-            LBL_PAGA_TU_FACTURA.resolveAllFor(theActorInTheSpotlight());
-
-    if (pagaTuFactura.isEmpty()) {
-      theActorInTheSpotlight().attemptsTo(Scroll.scrollUnaVista());
-    } else {
-      theActorInTheSpotlight().attemptsTo(Click.on(BTN_VER_MAS_PAGOS_Y_CONSULTAS));
-    }
+            .attemptsTo(
+                    ScrollHastaTexto.conTexto(HAZLO_TODO_EN_LINEA),
+                    ScrollHastaTexto.conTexto(PAGA_TU_FACTURA),
+                    ClickTextoQueContengaX.elTextoContiene(VER_MAS));
 
     EvidenciaUtils.registrarCaptura(paso);
   }
