@@ -134,6 +134,7 @@ public class Constants {
   public static final String SEGUNDOS_PARA_LLAMAR =
       "Segundos para llamar a cualquier operador móvil o fijo nacional.";
   public static final String SMS = "SMS";
+  public static final String HAZLO_TODO_EN_LINEA = "Hazlo todo en línea";
 
   // Constantes para validaciones del plan móvil
   public static final String LARGA_DISTANCIA_INTERNACIONAL = "Larga Distancia Internacional";

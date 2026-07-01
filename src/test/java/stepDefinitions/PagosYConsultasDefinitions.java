@@ -40,7 +40,7 @@ public class PagosYConsultasDefinitions {
     final String paso = "Menu Pagos y consultas";
     theActorInTheSpotlight()
         .attemptsTo(
-            ScrollHastaTexto.conTexto(PAGOS_Y_CONSULTAS),
+            ScrollHastaTexto.conTexto(HAZLO_TODO_EN_LINEA),
             Scroll.scrollUnaVista(),
             ClickTextoQueContengaX.elTextoContiene(VER_MAS));
     EvidenciaUtils.registrarCaptura(paso);
