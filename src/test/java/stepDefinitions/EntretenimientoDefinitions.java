@@ -36,7 +36,7 @@ public class EntretenimientoDefinitions {
     theActorInTheSpotlight()
             .attemptsTo(
                     ScrollHastaTexto.conTexto(CADA_PARTIDO),
-                    Scroll.scrollUnaVista(),
+                    //Scroll.scrollUnaVista(),
                     ClickTextoQueContengaX.elTextoContiene(DISNEY));
 
     EvidenciaUtils.registrarCaptura("Menú mundial");
