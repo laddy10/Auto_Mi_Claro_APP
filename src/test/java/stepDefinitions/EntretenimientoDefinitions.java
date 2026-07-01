@@ -35,7 +35,7 @@ public class EntretenimientoDefinitions {
   public void desplazarseopcionmundial() {
     theActorInTheSpotlight()
             .attemptsTo(
-                    ScrollHastaTexto.conTexto(TU_LUGAR_PARA_FUTBOL),
+                    ScrollHastaTexto.conTexto(CADA_PARTIDO),
                     Scroll.scrollUnaVista(),
                     ClickTextoQueContengaX.elTextoContiene(DISNEY));
 

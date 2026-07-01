@@ -773,4 +773,6 @@ public class Constants {
 
 
   public static final String TU_LUGAR_PARA_FUTBOL = "Tu lugar para vivir el fútbol";
+  public static final String CADA_PARTIDO = "Cada partido, cada gol, cada emoción";
+  public static final String OFERTAS_IMPERDIBLES = "Ofertas imperdibles de nuestros aliados";
 }
