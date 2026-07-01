@@ -164,6 +164,11 @@ public class PagosYConsultasPage {
       Target.the("Texto Elegir otro medio de pago")
           .located(By.xpath("//*[@text='Elegir otro medio de pago']"));
 
+  public static final Target BTN_VER_MAS_PAGOS_Y_CONSULTAS =
+          Target.the("Botón Ver más - módulo Pagos y consultas")
+                  .located(
+                          By.xpath(
+                                  "//*[contains(@text,'Hazlo todo en línea')]/following::*[contains(@text,'Ver más')][1]"));
   public static final Target LBL_PAGA_TU_FACTURA =
           Target.the("Texto Paga tu factura")
                   .located(By.xpath("//*[contains(@text,'Paga tu factura')]"));
