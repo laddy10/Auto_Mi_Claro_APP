@@ -1,7 +1,9 @@
 package stepDefinitions;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static userinterfaces.AtencionClienteSoportePage.BTN_SI_PERMITIR;
 import static userinterfaces.PagosYConsultasPage.LBL_ELEGIR_OTRO_MEDIO_PAGO;
+import static userinterfaces.PagosYConsultasPage.LBL_PAGA_TU_FACTURA;
 import static utils.Constants.*;
 
 import cucumber.api.java.en.And;
@@ -18,6 +20,9 @@ import interactions.wait.WaitForResponse;
 import java.util.List;
 import models.User;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.questions.Presence;
 import tasks.PagosYConsultas.*;
 import tasks.PagosYConsultas.AdquirirProductos.MiniprogramaAdquirirProductos;
 import tasks.PagosYConsultas.AdquirirProductos.ValidarPaginaClaro;
@@ -38,11 +43,19 @@ public class PagosYConsultasDefinitions {
   @And("^INGRESA AL MENU PAGOS Y CONSULTAS$")
   public void menuPagosYConsultas() {
     final String paso = "Menu Pagos y consultas";
+
     theActorInTheSpotlight()
-        .attemptsTo(
-            ScrollHastaTexto.conTexto(HAZLO_TODO_EN_LINEA),
-            Scroll.scrollUnaVista(),
-            ClickTextoQueContengaX.elTextoContiene(VER_MAS));
+            .attemptsTo(ScrollHastaTexto.conTexto(HAZLO_TODO_EN_LINEA));
+
+    List<WebElementFacade> pagaTuFactura =
+            LBL_PAGA_TU_FACTURA.resolveAllFor(theActorInTheSpotlight());
+
+    if (pagaTuFactura.isEmpty()) {
+      theActorInTheSpotlight().attemptsTo(Scroll.scrollUnaVista());
+    } else {
+      theActorInTheSpotlight().attemptsTo(ClickTextoQueContengaX.elTextoContiene(VER_MAS));
+    }
+
     EvidenciaUtils.registrarCaptura(paso);
   }
 

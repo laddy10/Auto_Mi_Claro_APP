@@ -164,6 +164,10 @@ public class PagosYConsultasPage {
       Target.the("Texto Elegir otro medio de pago")
           .located(By.xpath("//*[@text='Elegir otro medio de pago']"));
 
+  public static final Target LBL_PAGA_TU_FACTURA =
+          Target.the("Texto Paga tu factura")
+                  .located(By.xpath("//*[contains(@text,'Paga tu factura')]"));
+
   public static final Target CUADRO_RESUMEN =
       Target.the("Cuadro de ver resumen del paquete")
           .located(
