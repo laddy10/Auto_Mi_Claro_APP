@@ -375,7 +375,7 @@ public class EntretenimientoPage {
                   .located(By.xpath("//*[@text='Entrar']"));
   public static final Target TXT_INGRESA_CON_NUMERO=
           Target.the("Texto entrar")
-                  .located(By.xpath("//*[@text='Ingresa con tu número claro']"));
+                  .located(By.xpath("//*[@text='Ingresa con tu número Claro']"));
   public static final Target BTN_CORREO=
           Target.the("Botón correo electrónico")
                   .located(By.id("email_login_button"));
