@@ -381,13 +381,13 @@ public class EntretenimientoPage {
                   .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]"));
   public static final Target TBX_CORREO=
           Target.the("Textbox correo")
-                  .located(By.id("email_text_field"));
+                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText"));
   public static final Target BTN_ENTRAR_CLARO_MUSICA=
           Target.the("Botón entrar con correo en claro música")
                   .located(By.id("password_confirm_button"));
   public static final Target TBX_CONTRASENA =
           Target.the("Textbox contraseña claro música")
-                  .located(By.id("password_text_field"));
+                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText"));
   public static final Target TXT_BIENVENIDO_GRATIS=
           Target.the("Texto ¡Bienvenido al nuevo Claro música Grátis!")
                   .located(By.xpath("//*[@text='¡Bienvenido al nuevo Claro música Grátis!']"));
