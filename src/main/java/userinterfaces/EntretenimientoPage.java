@@ -378,7 +378,7 @@ public class EntretenimientoPage {
                   .located(By.xpath("//*[@text='Ingresa con tu número Claro']"));
   public static final Target BTN_CORREO=
           Target.the("Botón correo electrónico")
-                  .located(By.id("email_login_button"));
+                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]"));
   public static final Target TBX_CORREO=
           Target.the("Textbox correo")
                   .located(By.id("email_text_field"));
