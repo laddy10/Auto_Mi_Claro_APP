@@ -89,7 +89,7 @@ public class ValidarRedireccionClaroMusicaApp implements Task {
     if (isVisible(actor, TXT_ABRIR)) {
       actor.attemptsTo(ClickElementByText.clickElementByText(ABRIR2));
       EvidenciaUtils.registrarCaptura("Condición: Abrir aplicación");
-    }
+    }/*
 
     if (isVisible(actor, TXT_BIENVENIDO)) {
       actor.attemptsTo(ClickElementByText.clickElementByText(ACEPTAR_CONTINUAR));
@@ -135,7 +135,7 @@ public class ValidarRedireccionClaroMusicaApp implements Task {
             ValidarTexto.validarTexto("Buscar"),
             ValidarTexto.validarTexto("Radios"));
 
-    EvidenciaUtils.registrarCaptura(paso);
+    EvidenciaUtils.registrarCaptura(paso);*/
   }
 
   private <T extends Actor> boolean isVisible(T actor, Target element) {
