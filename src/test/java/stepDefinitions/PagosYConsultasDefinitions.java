@@ -49,7 +49,7 @@ public class PagosYConsultasDefinitions {
     theActorInTheSpotlight()
             .attemptsTo(
                     ScrollHastaTexto.conTexto(HAZLO_TODO_EN_LINEA),
-                    ScrollHastaTexto.conTexto(DISFRUTA_DE_TIEMPO_CON_MICLARO),
+                    ScrollHastaTexto.conTexto(EXPLORA_Y_COMPRA),
                     ClickTextoQueContengaX.elTextoContiene(VER_MAS));
 
     EvidenciaUtils.registrarCaptura(paso);
