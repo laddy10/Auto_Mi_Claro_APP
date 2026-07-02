@@ -748,4 +748,57 @@ public class AndroidObject extends Excepciones {
       System.out.println("Error en scroll horizontal izquierda: " + e.getMessage());
     }
   }
+
+  public void UnScrollAbajoCorto(Actor actor) {
+    WebDriver driver = androidDriver(actor);
+    try {
+      if (!(driver instanceof AppiumDriver)) {
+        return;
+      }
+      AppiumDriver<?> appium = (AppiumDriver<?>) driver;
+
+      org.openqa.selenium.Dimension size = appium.manage().window().getSize();
+      int width = size.width;
+      int height = size.height;
+
+      // Mismo punto de partida que UnScrollAbajo, pero mitad de recorrido:
+      // 75% -> 55% (20%) en vez de 75% -> 35% (40%)
+      int startX = width / 2;
+      int startY = (int) (height * 0.75);
+      int endY = (int) (height * 0.55);
+
+      try {
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence swipe = new Sequence(finger, 1);
+        swipe.addAction(
+                finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY));
+        swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        swipe.addAction(
+                finger.createPointerMove(
+                        Duration.ofMillis(600), PointerInput.Origin.viewport(), startX, endY));
+        swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+        appium.perform(Collections.singletonList(swipe));
+      } catch (Exception w3cEx) {
+        try {
+          new TouchAction<>(appium)
+                  .press(PointOption.point(startX, startY))
+                  .waitAction(WaitOptions.waitOptions(Duration.ofMillis(600)))
+                  .moveTo(PointOption.point(startX, endY))
+                  .release()
+                  .perform();
+        } catch (Exception touchEx) {
+          // ambos intentos fallaron -> no rompemos el flujo
+        }
+      }
+
+      try {
+        Thread.sleep(600);
+      } catch (InterruptedException ignored) {
+      }
+
+    } catch (Exception e) {
+      // no propagamos la excepción para no romper la automatización
+    }
+  }
 }
