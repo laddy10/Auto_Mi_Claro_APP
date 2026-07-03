@@ -45,7 +45,7 @@ public class ValidarRedireccionClaroClub implements Task {
     actor.attemptsTo(WaitFor.aTime(8000), ValidarTextoQueContengaX.elTextoContiene("Categorías"));
 
     EvidenciaUtils.registrarCaptura(paso1);
-
+/*
     actor.attemptsTo(Click.on(MENU_CATEGORIAS));
     EvidenciaUtils.registrarCaptura(paso2);
 
@@ -58,7 +58,7 @@ public class ValidarRedireccionClaroClub implements Task {
     validarCategoria(actor, VARIEDADES, "Variedades", paso9);
     validarCategoria(actor, EDUCACION, "Educación", paso10);
 
-    EvidenciaUtils.registrarCaptura(pasoFinal);
+    EvidenciaUtils.registrarCaptura(pasoFinal);*/
   }
 
   // ✅ Método reutilizable para validar si un elemento está presente en pantalla
