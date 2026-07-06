@@ -34,6 +34,10 @@ public class IngresoSuperApp implements Task {
 
   @Override
   public <T extends Actor> void performAs(T actor) {
+
+    // Cierra el banner publicitario si aparece, antes de cualquier otra validación
+    maybeCerrarPublicidad(actor);
+
     // Manejo del popup de sesión abierta en otro dispositivo
     if (isVisibleFast(actor, LBL_SESION_ABIERTA)) {
       actor.attemptsTo(ClickElementByText.clickElementByText(CONTINUAR), WaitFor.aTime(6000));
@@ -87,6 +91,12 @@ public class IngresoSuperApp implements Task {
     EvidenciaUtils.registrarCaptura(paso);
   }
 
+  private <T extends Actor> void maybeCerrarPublicidad(T actor) {
+    if (isVisibleFast(actor, BTN_CERRAR_PUBLICIDAD)) {
+      EvidenciaUtils.registrarCaptura("Banner publicitario detectado - cerrando");
+      actor.attemptsTo(Click.on(BTN_CERRAR_PUBLICIDAD), WaitFor.aTime(500));
+    }
+  }
   /** Ruta común para iniciar sesión + validar login. */
   private <T extends Actor> void loginViaIniciar(T actor) {
     iniciarSesion(actor);

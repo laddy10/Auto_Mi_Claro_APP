@@ -143,4 +143,8 @@ public class LoginPage {
   public static final Target LBL_NOMBRE_USUARIO =
       Target.the("Label que contiene el nombre de usuario")
           .located(By.id("com.clarocolombia.miclaro:id/profile_welcome_title"));
+
+  public static final Target BTN_CERRAR_PUBLICIDAD =
+          Target.the("Botón cerrar banner publicitario")
+                  .located(By.xpath("//android.widget.ImageButton[@content-desc=\"Close\"]"));
 }
