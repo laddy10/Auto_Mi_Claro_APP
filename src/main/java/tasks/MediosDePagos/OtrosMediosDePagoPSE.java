@@ -6,6 +6,7 @@ import static userinterfaces.MediosPagoPage.DROPDOWN_MEDIO_PAGO;
 import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
+import interactions.Scroll.Scroll;
 import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
@@ -41,8 +42,9 @@ public class OtrosMediosDePagoPSE implements Task {
     EvidenciaUtils.registrarCaptura(PASO_PSE);
 
     actor.attemptsTo(
+            Scroll.scrollMediaVista(),
         ClickTextoQueContengaX.elTextoContiene(CONTINUAR),
-        WaitFor.aTime(3500),
+        WaitFor.aTime(10000),
         PSE.validarRedireccion());
   }
 

@@ -81,7 +81,7 @@ public class MediosPagoPage {
       Target.the("Bton Por medio de PSE")
           .located(
               By.xpath(
-                  "//android.view.View[@text=\"Medios de pago online\"]/android.view.View[1]"));
+                  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View[2]/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]"));
   public static final Target TXT_INGRESAR_NUMERO_DOCUMENTO_DAVIPLATA =
       Target.the("Caja de texto ingresar documento")
           .located(By.xpath("//android.widget.TextView[@text=\"Escribe el número de documento\"]"));

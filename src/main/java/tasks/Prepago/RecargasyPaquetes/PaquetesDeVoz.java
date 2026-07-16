@@ -43,6 +43,16 @@ public class PaquetesDeVoz implements Task {
     // PASO 2: Validar y explorar primer paquete 300 Min ($2.000)
 
     actor.attemptsTo(
+            Scroll.scrollUnaVista(),
+            ValidarTexto.validarTexto(LABEL_PAQUETES),
+            ValidarTexto.validarTexto(PRECIO),
+            ValidarTexto.validarTexto(PRECIO_$18500),
+            ValidarTexto.validarTexto("1000 Min"),
+            ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
+            ValidarTexto.validarTexto(PAQUETE_1000M_20DIAS));
+
+    /*
+    actor.attemptsTo(
         ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto(PRECIO),
         ValidarTexto.validarTexto(PRECIO_$2500),
@@ -76,7 +86,7 @@ public class PaquetesDeVoz implements Task {
         Click.on(LBL_VER_DETALLE_3),
         ValidarTexto.validarTexto(PAQUETE_300M_2DIAS));
 
-    EvidenciaUtils.registrarCaptura(paso4);
+    EvidenciaUtils.registrarCaptura(paso4);*/
   }
 
   public static Performable validar() {

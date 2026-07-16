@@ -93,10 +93,13 @@ public class ConstantsPaquetes {
   public static final String PRECIO_$5000 = "$ 5.000";
   public static final String PRECIO_$2500 = "$ 2.500";
   public static final String PRECIO_$6000 = "$ 6.000";
+  public static final String PRECIO_$7000 = "$ 7.000";
   public static final String PRECIO_$9000 = "$ 9.000";
   public static final String PRECIO_$8000 = "$ 8.000";
+  public static final String PRECIO_$10000 = "$ 10.000";
   public static final String PRECIO_$11000 = "$ 11.000";
   public static final String PRECIO_$13000 = "$ 13.000";
+  public static final String PRECIO_$14000 = "$ 14.000";
   public static final String PRECIO_$15000 = "$ 15.000";
   public static final String PRECIO_$100000 = "$ 100.000";
   public static final String PRECIO_$23000 = "$ 23.000";
@@ -109,6 +112,7 @@ public class ConstantsPaquetes {
   public static final String PRECIO_$3000 = "$ 3.000";
   public static final String PRECIO_$6500 = "$ 6.500";
   public static final String PRECIO_$17500 = "$ 17.500";
+  public static final String PRECIO_$18500 = "$ 18.500";
   public static final String PRECIO_$16500 = "$ 16.500";
   public static final String PRECIO_$31500 = "$ 31.500";
   public static final String PRECIO_$3500 = "$ 3.500";

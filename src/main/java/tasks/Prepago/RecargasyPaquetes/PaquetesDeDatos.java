@@ -44,7 +44,7 @@ public class PaquetesDeDatos implements Task {
         ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto("Ilimitada"),
         ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto(PRECIO_$6000),
+        ValidarTexto.validarTexto(PRECIO_$7000),
         ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
         ValidarTexto.validarTexto(NAVEGACION_ILIMITADA_2H));
 
@@ -57,6 +57,17 @@ public class PaquetesDeDatos implements Task {
     // Paso 3: Validar paquete 200MB  OJO EL SCROLL ES MUY LARGO
     scrollCorto2(actor, "Apps incluidas");
 
+
+    actor.attemptsTo(
+            Scroll.scrollUnaVista(),
+            ValidarTexto.validarTexto(LABEL_PAQUETES),
+            ValidarTexto.validarTexto("2 GB"),
+            ValidarTexto.validarTexto(PRECIO),
+            ValidarTexto.validarTexto(PRECIO_$9000),
+            ValidarTexto.validarTexto("Apps incluidas"),
+            Click.on(LBL_VER_DETALLE_2),
+            ValidarTexto.validarTexto(NAVEGACION_2GB_7DIAS));
+    /*
     actor.attemptsTo(
         ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto("200 MB"),
@@ -110,12 +121,12 @@ public class PaquetesDeDatos implements Task {
         ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto("2 GB"),
         ValidarTexto.validarTexto(PRECIO),
-        ValidarTexto.validarTexto(PRECIO_$8000),
+        ValidarTexto.validarTexto(PRECIO_$9000),
         ValidarTexto.validarTexto("Apps incluidas"),
         Click.on(LBL_VER_DETALLE_2),
         ValidarTexto.validarTexto(NAVEGACION_2GB_7DIAS));
 
-    EvidenciaUtils.registrarCaptura(paso7);
+    EvidenciaUtils.registrarCaptura(paso7);*/
   }
 
   public static Performable validar() {

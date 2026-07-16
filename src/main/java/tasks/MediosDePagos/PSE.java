@@ -51,7 +51,10 @@ public class PSE implements Task {
         ValidarTextoQueContengaX.elTextoContiene(CORREO_ELECTRONICO));
 
     // SELECCIONAR BANCO
-    actor.attemptsTo(Click.on(DROPDOWN_BANCO), WaitFor.aTime(2000));
+    actor.attemptsTo(
+            WaitFor.aTime(3000),
+            Click.on(DROPDOWN_BANCO),
+            WaitFor.aTime(2000));
 
     EvidenciaUtils.registrarCaptura(paso2);
 

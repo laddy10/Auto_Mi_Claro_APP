@@ -88,6 +88,7 @@ public class TodoIncluidoSinRedes implements Task {
         ValidarTexto.validarTexto(PRECIO_$25000),
         ValidarTexto.validarTexto("Min ILIMITADOS"),
         ValidarTexto.validarTexto("SMS ILIMITADOS"),
+        Scroll.scrollUnaVista(),
         Click.on(LBL_VER_DETALLE_1),
         ValidarTexto.validarTexto(TODO_INCLUIDO_15DIAS_20GB));
 
@@ -103,7 +104,7 @@ public class TodoIncluidoSinRedes implements Task {
                     ValidarTexto.validarTexto(LABEL_PAQUETES),
                     ValidarTexto.validarTexto("10 GB"),
                     ValidarTexto.validarTexto(PRECIO),
-                    ValidarTexto.validarTexto(PRECIO_$13000),
+                    ValidarTexto.validarTexto(PRECIO_$14000),
                     ValidarTexto.validarTexto("Min ILIMITADOS"),
                     ValidarTexto.validarTexto("SMS ILIMITADOS"),
                     Click.on(LBL_VER_DETALLE_1),
