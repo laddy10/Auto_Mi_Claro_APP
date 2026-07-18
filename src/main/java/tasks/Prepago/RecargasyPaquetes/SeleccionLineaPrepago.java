@@ -38,7 +38,7 @@ public class SeleccionLineaPrepago extends AndroidObject implements Task {
     actor.attemptsTo(
         WaitFor.aTime(800),
         ClickTextoQueContengaX.elTextoContiene(user.getNumeroPrepago()),
-        WaitForResponse.withText(ARMA_TU_PAQUETE));
+        WaitForResponse.withText(COMPRA_PAQUETES_Y_RECARGAS));
   }
 
   public static Performable seleccionar() {

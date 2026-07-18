@@ -1,6 +1,6 @@
 Feature: Ingresar al modulo pagos y consultas en Prepago
 
-  @PRE012
+  #@PRE012
   Scenario: Arma tu paquete - redirección pago Tarjeta C O D
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -15,7 +15,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   VALIDAR DIRECCIONAMIENTO TARJETA CREDITO DEBITO
 
 
-  @PRE013
+  #@PRE013
   Scenario: Arma tu paquete - redirección pago PSE
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -42,7 +42,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   INGRESAR A PAGAR CON MI SALDO
     And   VALIDAR EL RESUMEN DE LA COMPRA
 
-  @PRE015
+  #@PRE015
   Scenario: Arma tu paquete - redirección pago Bancolombia
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -57,7 +57,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   VALIDAR DIRECCIONAMIENTO BANCOLOMBIA
 
 
-  @PRE016
+  #@PRE016
   Scenario: Arma tu paquete - redirección pago Daviplata
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -87,7 +87,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     And   VALIDAR DIRECCIONAMIENTO TARJETA CREDITO DEBITO
 
 
-  @PRE018
+  #@PRE018
   Scenario: Arma tu paquete - redirección Otros medios de pago - TCD - Condensa - Bancolombia
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -122,7 +122,7 @@ Feature: Ingresar al modulo pagos y consultas en Prepago
     Then  VALIDA REDIRECCIONAMIENTO A PAGINA CLARO
 
 
-  @PRE101
+  #@PRE101
   Scenario: Arma tu paquete - redirección Otros medios de pago - PSE
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO

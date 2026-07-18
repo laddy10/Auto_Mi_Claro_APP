@@ -9,6 +9,7 @@ import interactions.Click.ClickTextoQueContengaX;
 import interactions.comunes.Atras;
 import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;
+import interactions.validations.VerificarVersionModulo;
 import interactions.wait.WaitForResponse;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -31,7 +32,7 @@ public class ValidarInfoRecargas implements Task {
 
     EvidenciaUtils.registrarCaptura(paso);
 
-    actor.attemptsTo(ValidarTexto.validarTexto(MINI_VERSION_RECARGAS_Y_PAQUETES_CONSTANT));
+    actor.attemptsTo(VerificarVersionModulo.conLaEsperada(MINI_VERSION_RECARGAS_Y_PAQUETES_CONSTANT));
 
     actor.attemptsTo(Atras.irAtras());
   }
