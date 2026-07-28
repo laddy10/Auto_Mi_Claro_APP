@@ -202,7 +202,7 @@ public class TodoIncluidoConRedes implements Task {
 
                 // PASO 9: Validar y explorar noveno paquete 18 GB
 
-                Scroll.scrollUnaVista(),
+                ScrollHastaTexto.conTexto(PRECIO_$45000),
                 ValidarTexto.validarTexto(LABEL_PAQUETES),
                 ValidarTexto.validarTexto("18 GB"),
                 ValidarTexto.validarTexto(PRECIO),

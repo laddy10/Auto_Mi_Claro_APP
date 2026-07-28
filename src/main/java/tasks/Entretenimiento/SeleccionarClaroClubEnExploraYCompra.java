@@ -18,9 +18,8 @@ public class SeleccionarClaroClubEnExploraYCompra implements Task {
   @Override
   public <T extends Actor> void performAs(T actor) {
 
-    actor.attemptsTo(ScrollHastaTexto.conTexto(EXPLORA_Y_COMPRA),
-            Scroll.scrollUnaVista(),
-            Scroll.scrollUnaVista());
+    actor.attemptsTo(ScrollHastaTexto.conTexto("Apps de Claro recomendadas"),
+    Scroll.scrollMediaVista());
     EvidenciaUtils.registrarCaptura(paso);
     actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(CUPONES));
   }
