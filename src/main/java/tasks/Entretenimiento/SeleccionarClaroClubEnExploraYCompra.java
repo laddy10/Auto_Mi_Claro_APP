@@ -20,7 +20,7 @@ public class SeleccionarClaroClubEnExploraYCompra implements Task {
 
     actor.attemptsTo(ScrollHastaTexto.conTexto(EXPLORA_Y_COMPRA),
             Scroll.scrollUnaVista(),
-            Scroll.scrollMediaVista());
+            Scroll.scrollUnaVista());
     EvidenciaUtils.registrarCaptura(paso);
     actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(CUPONES));
   }

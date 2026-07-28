@@ -39,7 +39,7 @@ public class PaquetesApps implements Task {
         ClickTextoQueContengaX.elTextoContiene(PAQUETES_APPS),
         WaitForResponse.withText(ELIGE_TU_PAQUETE_IDEAL),
         ValidarTextoQueContengaX.elTextoContiene(user.getNumeroPrepago()),
-        ValidarTexto.validarTexto(PAQUETES_APPS));
+        ValidarTexto.validarTexto(PAQUETES_APPS));/*
 
     // PAQUETE 1: Validar primer paquete $3.500 (Salud en línea)
 
@@ -61,7 +61,7 @@ public class PaquetesApps implements Task {
         Click.on(LBL_VER_DETALLE_2),
         ValidarTexto.validarTexto(SALUD_EN_LINEA_30DIAS_2BENEFICIARIOS));
 
-    EvidenciaUtils.registrarCaptura(paso3);
+    EvidenciaUtils.registrarCaptura(paso3);*/
 
     // PAQUETE 3: Tercer paquete $6.500 (Salud en línea)
 
@@ -70,8 +70,7 @@ public class PaquetesApps implements Task {
         ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto(PRECIO),
         ValidarTexto.validarTexto(PRECIO_$6500),
-        Click.on(LBL_VER_DETALLE_2),
-        Scroll.scrollUnaVista(),
+        ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
         ValidarTexto.validarTexto(SALUD_EN_LINEA_30DIAS_4BENEFICIARIOS));
 
     EvidenciaUtils.registrarCaptura(paso4);

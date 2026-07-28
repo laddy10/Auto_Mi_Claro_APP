@@ -28,7 +28,7 @@ public class SeleccionLineaPrepago extends AndroidObject implements Task {
 
     actor.attemptsTo(
         ClickTextoQueContengaX.elTextoContiene(RECARGAS_Y_PAQUETES),
-        WaitForResponse.withText(POSTPAGO),
+        WaitForResponse.withText(PREPAGO),
         ClickTextoQueContengaX.elTextoContiene(PREPAGO));
 
     scrollCortoSinCentrar(actor, LINEA + " " + user.getNumeroPrepago() + " " + ELEGIR);
