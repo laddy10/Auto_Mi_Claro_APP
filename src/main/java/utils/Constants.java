@@ -32,9 +32,11 @@ public class Constants {
   public static final String VALOR_A_PAGAR = "Valor a pagar";
   public static final String FECHA_PAGO_OPORTUNO = "Fecha de pago oportuno:";
   public static final String ELEGIR_OTRO_MEDIO_PAGO = "Elegir otro medio de pago";
+  public static final String ELIGE_METODO_PAGO = "Elige un método de pago";
   public static final String TARJETA_C_D = "Tarjeta de crédito/débito";
   public static final String BOTON_BANCOLOMBIA = "Bancolombia";
   public static final String CODENSA = "Codensa";
+  public static final String PSE1 = "PSE";
   public static final String OTROS_MEDIOS = "Otros medios";
   public static final String DAVIPLATA = "Daviplata";
   public static final String AGREGAR_TARJETA = "Agregar tarjeta";

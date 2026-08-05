@@ -55,7 +55,7 @@ public class MediosPagoPage {
       Target.the("Boton PSE de recargas y paquetes")
           .located(
               By.xpath(
-                  "//android.view.View[@resource-id=\"__react-content\"]/android.view.View/android.widget.TextView[4]"));
+                  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.widget.TextView[5]"));
   public static final Target LBL_PAQUETE_INSTALADO =
       Target.the("Texto paquete activo").located(By.xpath("//*[contains(@text, 'fue instalado')]"));
 

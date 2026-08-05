@@ -190,4 +190,8 @@ public class PagosYConsultasPage {
                       + ".textContains(\""
                       + user.getNumeroFamiliayAmigos()
                       + "\")"));
+
+  public static final Target BTN_PSE_NEQUI =
+          Target.the("Botón PSE y nequi")
+                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View[2]/android.view.View"));
 }
