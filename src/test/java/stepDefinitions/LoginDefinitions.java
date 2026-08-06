@@ -17,9 +17,7 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import tasks.Login.*;
-import utils.EvidenciaUtils;
-import utils.TestDataProvider;
-import utils.WordAppium;
+import utils.*;
 
 public class LoginDefinitions {
 
@@ -80,4 +78,40 @@ public class LoginDefinitions {
               ValidateLocatorsWithOllama.using(xmlFileName, locatorsOrTexts, maxLocatorsToSend)
       );
   }*/
+
+  // NOTA: NO se usa MyDriver.getDriver() (devuelve null porque el driver lo crea Serenity con
+// 'webdriver.driver = appium', no MyDriver). AppReset obtiene el driver real desde el actor.
+
+  // Solo selecciona la cuenta activa (no toca la UI).
+  @When("^EL USUARIO CAMBIA A LA CUENTA \"(.*)\"$")
+  public void elUsuarioCambiaALaCuenta(String id) {
+    CuentaManager.activarCuenta(id);
+  }
+
+  // Reinicia la app por completo (limpia sesion) y deja la cuenta objetivo activa.
+// Despues usa el ingreso normal (REALIZA EL INGRESO / ...CON CORREO / ...CON CEDULA).
+  @When("^EL USUARIO REINICIA LA APP CON LA CUENTA \"(.*)\"$")
+  public void elUsuarioReiniciaLaAppConLaCuenta(String id) {
+    CuentaManager.activarCuenta(id);
+    AppReset.reiniciarApp(theActorCalled("actor"));
+    theActorCalled("actor")
+            .attemptsTo(
+                    WaitUntil.the(LOADING_SPLASH, isNotPresent()),
+                    WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(40).seconds(),
+                    WaitFor.aTime(2000));
+  }
+
+  // (Opcional) Si resetApp no limpia la sesion recordada, usa esta variante que REINSTALA la app.
+// Solo cambia AppReset.reiniciarApp(...) por AppReset.reinstalarApp(...) en el step de arriba,
+// o crea este step aparte:
+  @When("^EL USUARIO REINSTALA LA APP CON LA CUENTA \"(.*)\"$")
+  public void elUsuarioReinstalaLaAppConLaCuenta(String id) {
+    CuentaManager.activarCuenta(id);
+    AppReset.reinstalarApp(theActorCalled("actor"));
+    theActorCalled("actor")
+            .attemptsTo(
+                    WaitUntil.the(LOADING_SPLASH, isNotPresent()),
+                    WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(60).seconds(),
+                    WaitFor.aTime(2000));
+  }
 }

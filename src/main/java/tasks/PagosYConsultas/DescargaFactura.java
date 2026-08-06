@@ -1,7 +1,10 @@
 package tasks.PagosYConsultas;
 
+import static interactions.wait.WaitElement.isVisible;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static userinterfaces.LoginPage.LBL_SESION_ABIERTA;
+import static userinterfaces.LoginPage.LBL_TUS_SERVICIOS_FAVORITOS;
 import static userinterfaces.PagosYConsultasPage.*;
 import static utils.Constants.*;
 
@@ -19,6 +22,8 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.questions.Presence;
+import net.serenitybdd.screenplay.targets.Target;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
@@ -72,12 +77,24 @@ public class DescargaFactura implements Task {
 
     actor.attemptsTo(ClickElementByText.clickElementByText(ABRIR));
 
+    if(isVisible(actor, TXT_CONTRASENA_FACTURA)) {
+      actor.attemptsTo(
+              Click.on(TXT_CONTRASENA_FACTURA),
+              WaitFor.aTime(5000),
+              Enter.theValue(user.getContrasena()).into(TXT_CONTRASENA_FACTURA),
+              ClickElementByText.clickElementByText(ABRIR));
+    }
+
     // Verificar apertura de factura
     actor.attemptsTo(WaitFor.aTime(3000));
 
     actor.should(seeThat(ValidateInformationText.validateInformationText(URL_FACTURA_DESCARGADA)));
 
     EvidenciaUtils.registrarCaptura(paso6);
+  }
+
+  private <T extends Actor> boolean isVisible(T actor, Target element) {
+    return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
   }
 
   public static Performable descargarFactura() {

@@ -434,3 +434,10 @@ Feature: Ingresar al modulo pagos y consultas
     Given EL USUARIO ABRE LA SUPER APP
     And   INGRESA MEJORAR PLAN
     Then  VALIDA DIRECCIONAMIENTO MEJORAR PLAN
+
+  @SA200
+  Scenario: Ingreso limpio con cuenta secundaria
+    Given EL USUARIO ABRE LA SUPER APP
+    When  EL USUARIO REINICIA LA APP CON LA CUENTA "secundaria"
+    And   REALIZA EL INGRESO
+  # ... el caso continúa; user.getNumero() etc. ya son de la secundaria ...
