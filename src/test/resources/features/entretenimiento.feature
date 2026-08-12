@@ -55,7 +55,7 @@ Feature: Ingresar al módulo de entretenimiento
     And   VALIDA TERMINOS Y CONDICIONES DISNEY PREMIUM
     Then  VALIDA REDIRECCIONAMIENTO ID ClARO
 
-  @SA069 
+  @SA069
   Scenario: Ingresar a entretenimiento y validar Amazon Prime con términos y condiciones
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO

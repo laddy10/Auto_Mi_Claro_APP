@@ -26,7 +26,7 @@ import utils.TestDataProvider;
 public class ValidarVersionMiniProgramaAmazonPrime implements Task {
 
   private static final User user = TestDataProvider.getRealUser();
-  private static final String LINEA_NUMERO = "310 262 8443";
+  private static final String LINEA_NUMERO = "310 263 5941";
   private static final String paso = "Esperar desaparición del texto 'Espera un momento'";
   private static final String paso2 = "Ingresar al menú de tres puntos y seleccionar 'Acerca de'";
   private static final String paso3 = "Validar versión de mini app Amazon Prime";

@@ -1,7 +1,10 @@
 package tasks.PagosYConsultas;
 
+import static interactions.wait.WaitElement.isVisible;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static userinterfaces.LoginPage.LBL_SESION_ABIERTA;
+import static userinterfaces.LoginPage.LBL_TUS_SERVICIOS_FAVORITOS;
 import static userinterfaces.PagosYConsultasPage.*;
 import static utils.Constants.*;
 
@@ -89,6 +92,10 @@ public class DescargaFactura implements Task {
 
     EvidenciaUtils.registrarCaptura(paso6);
   }
+  private <T extends Actor> boolean isVisible(T actor, Target element) {
+    return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
+  }
+
   private <T extends Actor> boolean isVisible(T actor, Target element) {
     return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
   }
