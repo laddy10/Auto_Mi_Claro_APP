@@ -13,10 +13,10 @@ import utils.EstadoPrueba;
 import utils.WordAppium;
 
 /**
- * Hooks consolidados de Cucumber
+ * Hooks consolidados de Cucumber.
  *
- * <p>Responsabilidades: - Inicializar actores de Serenity - Registrar OllamaStepListener - Generar
- * reportes Word - Tracking de pasos y estado
+ * <p>Responsabilidades: inicializar actores de Serenity, registrar OllamaStepListener, generar
+ * reportes Word y tracking de pasos/estado.
  */
 public class ReportHooks {
 
@@ -34,19 +34,18 @@ public class ReportHooks {
     lineaUsada = linea;
   }
 
-  @Before(order = 0) // ✅ Ejecutar PRIMERO
+  @Before(order = 0)
   public void initScenario(Scenario scenario) {
     System.out.println("\n══════════════════════════════════════════════════════");
     System.out.println("🚀 Iniciando escenario: " + scenario.getName());
     System.out.println("══════════════════════════════════════════════════════");
 
-    // 🔹 Inicializar estado de prueba
     EstadoPrueba.inicio = System.currentTimeMillis();
     pasosEjecutados.clear();
     EstadoPrueba.fallo = false;
     EstadoPrueba.pasoFallido = "";
+    EstadoPrueba.descripcionError = ""; // 🔹 limpiar el error del escenario anterior
 
-    // 🔹 Registrar el listener de Ollama solo una vez
     if (!listenerRegistrado) {
       try {
         OllamaStepListener ollamaListener = new OllamaStepListener();
@@ -59,15 +58,13 @@ public class ReportHooks {
       }
     }
 
-    // 🔹 Inicializar actores de Serenity
     OnStage.setTheStage(new OnlineCast());
   }
 
-  @After(order = 1) // ✅ Ejecutar DESPUÉS de otros @After
+  @After(order = 1)
   public void generarReporteFinal(Scenario scenario) {
     EstadoPrueba.fin = System.currentTimeMillis();
 
-    // Detectar fallo y último paso fallido
     if (scenario.isFailed()) {
       EstadoPrueba.fallo = true;
       EstadoPrueba.pasoFallido = !pasosEjecutados.isEmpty() ? ultimoPaso : "Paso no identificado";
@@ -99,5 +96,6 @@ public class ReportHooks {
     pasosEjecutados.clear();
     EstadoPrueba.fallo = false;
     EstadoPrueba.pasoFallido = "";
+    EstadoPrueba.descripcionError = "";
   }
 }

@@ -14,12 +14,13 @@ import java.util.regex.Pattern;
 import models.User;
 
 /**
- * Administra los usuarios de prueba (real-user.json) y la cuenta activa.
+ * Administra los usuarios de prueba (real-user.json) y la cuenta activa. Mantiene UNA instancia viva
+ * de User: al cambiar de cuenta copia por reflexión los campos, así las clases con
+ * {@code static final User user} siguen viendo los datos de la cuenta activa sin refactor.
  *
- * <p>Mantiene UNA instancia viva y compartida de {@link User}: al cambiar de cuenta copia por
- * reflexión los campos de la cuenta objetivo dentro de esa misma instancia, de modo que incluso las
- * clases con {@code private static final User user = TestDataProvider.getRealUser();} siguen viendo
- * los datos de la cuenta activa (número, cédula, etc.) sin refactor.
+ * <p>Además lleva un REGISTRO de la última cuenta con la que se inició sesión ("ultimaCuentaLogueada")
+ * que persiste durante toda la corrida. Sirve para identificar de forma CONFIABLE qué cuenta está en
+ * la app sin tener que leer/adivinar el saludo del home (que puede ser igual entre cuentas).
  */
 public class CuentaManager {
 
@@ -31,6 +32,9 @@ public class CuentaManager {
   private static Map<String, User> pool;
   private static final User USUARIO_ACTUAL = new User();
   private static String idActual = null;
+
+  // Última cuenta con la que se hizo login (persiste toda la corrida; null = desconocido).
+  private static String ultimaCuentaLogueada = null;
 
   private CuentaManager() {}
 
@@ -126,6 +130,18 @@ public class CuentaManager {
     return pool().get(id == null ? CUENTA_POR_DEFECTO : id.trim().toLowerCase());
   }
 
+  // ─── Registro de la última cuenta logueada (identificación confiable) ───
+
+  public static void setUltimaCuentaLogueada(String id) {
+    ultimaCuentaLogueada = (id == null ? null : id.trim().toLowerCase());
+    System.out.println("\uD83D\uDCDD [CuentaManager] Última cuenta logueada: " + ultimaCuentaLogueada);
+  }
+
+  public static String getUltimaCuentaLogueada() {
+    return ultimaCuentaLogueada;
+  }
+
+  /** Cambia SOLO la cuenta activa a "principal" (no toca el registro de última logueada). */
   public static void reset() {
     activarCuenta(CUENTA_POR_DEFECTO);
   }

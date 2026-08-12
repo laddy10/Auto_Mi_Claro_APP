@@ -6,8 +6,8 @@ import cucumber.api.java.Before;
 import utils.CuentaManager;
 
 /**
- * (Opcional) Selecciona la cuenta segun el tag @cuenta_&lt;id&gt; del escenario. Sin tag, arranca con
- * "principal". Util si prefieres marcar el escenario en vez de usar el step de cambio.
+ * Selecciona la cuenta del escenario segun el tag @cuenta_<id> (por ejemplo @cuenta_secundaria).
+ * Sin tag, arranca con "principal". Alternativa: el step EL USUARIO CAMBIA A LA CUENTA "...".
  */
 public class CuentaHooks {
 

@@ -156,4 +156,7 @@ public class LoginPage {
                                   + " or contains(@text,'sesión abierta en otro dispositivo')"
                                   + " or contains(@text,'cerrado tu sesión en Mi Claro')"
                                   + " or contains(@text,'Ingresa de nuevo para administrar')]");
+  public static final Target BTN_CERRAR_MENU =
+          Target.the("Botón cerrar menú principal")
+                  .located(By.xpath("com.clarocolombia.miclaro:id/iv_close"));
 }

@@ -51,7 +51,7 @@ Feature: Ingresar al modulo pagos y consultas
     Then  VALIDA DETALLE ULTIMA FACTURACION
 
 
-  @SA010
+  @SA010 @cuenta_secundaria
   Scenario: Ingresar a paga tu factura y validar historial de pagos
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -272,8 +272,8 @@ Feature: Ingresar al modulo pagos y consultas
     When  REALIZA EL INGRESO
     And   INGRESA AL MENU PAGOS Y CONSULTAS
     And   INGRESA A ADQUIRIR PRODUCTOS
-    And   VALIDA VERSION DE MINIPROGRAMA ADQUIRIR
     And   SELECCIONA LINEA POSTPAGO
+    And   VALIDA VERSION DE MINIPROGRAMA ADQUIRIR
     Then  VALIDA REDIRECCIONAMIENTO A PAGINA CLARO
 
 
@@ -435,9 +435,8 @@ Feature: Ingresar al modulo pagos y consultas
     And   INGRESA MEJORAR PLAN
     Then  VALIDA DIRECCIONAMIENTO MEJORAR PLAN
 
-  @SA200
-  Scenario: Ingreso limpio con cuenta secundaria
+  @SA200 @cuenta_secundaria
+  Scenario: Caso con cuenta secundaria
     Given EL USUARIO ABRE LA SUPER APP
-    When  EL USUARIO REINICIA LA APP CON LA CUENTA "secundaria"
-    And   REALIZA EL INGRESO
-  # ... el caso continúa; user.getNumero() etc. ya son de la secundaria ...
+    When  EL USUARIO INICIA SESION SEGUN CUENTA
+    And   INGRESA AL MENU PAGOS Y CONSULTAS

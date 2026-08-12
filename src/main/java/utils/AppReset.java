@@ -4,12 +4,9 @@ import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.screenplay.Actor;
 
 /**
- * Reinicia por completo la app (limpia sesión/datos) para escenarios que deben iniciar de cero,
- * incluso cuando la capability global es {@code noReset=true}.
- *
- * <p>IMPORTANTE: obtiene el driver REAL desde el actor ({@link AndroidObject#androidDriver}), porque
- * en este proyecto Serenity crea el driver con {@code webdriver.driver = appium} (no con MyDriver).
- * Por eso {@code MyDriver.getDriver()} devuelve null y no debe usarse aquí.
+ * Reinicia por completo la app (limpia sesión/datos) aunque la capability global sea noReset=true.
+ * Obtiene el driver REAL desde el actor (AndroidObject.androidDriver): el driver lo crea Serenity con
+ * webdriver.driver=appium (no MyDriver), por eso MyDriver.getDriver() es null y no se usa aquí.
  */
 public class AppReset {
 
@@ -17,12 +14,10 @@ public class AppReset {
 
   private AppReset() {}
 
-  /** Reinicia la app usando el driver del actor (resetApp; si falla, reinstala). */
   public static void reiniciarApp(Actor actor) {
     reiniciarApp(obtenerDriver(actor));
   }
 
-  /** Alternativa MAS FUERTE: reinstala la app (usar si resetApp no limpia la sesion recordada). */
   public static void reinstalarApp(Actor actor) {
     reinstalar(obtenerDriver(actor));
   }
@@ -38,7 +33,7 @@ public class AppReset {
       try {
         driver.activateApp(PACKAGE);
       } catch (Throwable ignore) {
-        // resetApp normalmente relanza la app; activateApp es solo por si acaso
+        // resetApp normalmente relanza la app
       }
       System.out.println("\u267B\uFE0F [AppReset] App reiniciada con resetApp() (sesion limpia).");
     } catch (Throwable t) {
