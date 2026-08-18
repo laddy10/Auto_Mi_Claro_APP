@@ -2,8 +2,7 @@ package stepDefinitions;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static userinterfaces.AtencionClienteSoportePage.BTN_SI_PERMITIR;
-import static userinterfaces.PagosYConsultasPage.LBL_ELEGIR_OTRO_MEDIO_PAGO;
-import static userinterfaces.PagosYConsultasPage.LBL_PAGA_TU_FACTURA;
+import static userinterfaces.PagosYConsultasPage.*;
 import static utils.Constants.*;
 
 import cucumber.api.java.en.And;
@@ -24,6 +23,10 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.questions.Presence;
+import tasks.MediosDePagos.Bancolombia;
+import tasks.MediosDePagos.PSEPagaTuFactua;
+import tasks.MediosDePagos.TarjetaCreditoDebito;
+import tasks.MediosDePagos.TarjetasPagaTuFactura;
 import tasks.PagosYConsultas.*;
 import tasks.PagosYConsultas.AdquirirProductos.MiniprogramaAdquirirProductos;
 import tasks.PagosYConsultas.AdquirirProductos.ValidarPaginaClaro;
@@ -501,5 +504,44 @@ public class PagosYConsultasDefinitions {
         .attemptsTo(IngresarLineaPostpagoServicioActivo.ingresarLineaPostpagoServicioActivo());
 
     ReportHooks.setLinea(user.getNumero());
+  }
+
+  @And("^SELECCIONA METODO DE PAGO PSE$")
+  public void botonPseNequi() {
+    theActorInTheSpotlight().attemptsTo(
+            Click.on(BTN_PSE_NEQUI),
+            WaitFor.aTime(2000),
+            Click.on(BTN_PAGAR_PAGA_FACTURA)
+    );
+  }
+  @And("^SELECCIONA METODO DE PAGO TARJETA$")
+  public void botonPagoTajeta() {
+    theActorInTheSpotlight().attemptsTo(
+            ClickTextoQueContengaX.elTextoContiene(TARJETA_C_D),
+            WaitFor.aTime(2000)
+    );
+  }
+  @And("^SELECCIONA METODO DE PAGO BANCOLOMBIA$")
+  public void botonPagoBancolombia() {
+    theActorInTheSpotlight().attemptsTo(
+            ClickTextoQueContengaX.elTextoContiene(BOTON_BANCOLOMBIA),
+            WaitFor.aTime(2000),
+            Click.on(BTN_PAGAR_PAGA_FACTURA)
+    );
+  }
+
+  @Then("^VALIDA REDIRECCION A PSE$")
+  public void validaDireccionamientoPSEPagaTuFactura() {
+    theActorInTheSpotlight().attemptsTo(PSEPagaTuFactua.validarRedireccionPSEPagaTuFactura());
+  }
+
+  @Then("^VALIDA REDIRECCION A BANCOLOMBIA$")
+  public void validaDireccionamientoBancolombiaPagaTuFactura() {
+    theActorInTheSpotlight().attemptsTo(Bancolombia.validarRedireccion());
+  }
+
+  @Then("^VALIDA REDIRECCION A PAGO CON TARJETA$")
+  public void validaDireccionamientoTarjetaPagaTuFactura() {
+    theActorInTheSpotlight().attemptsTo(TarjetasPagaTuFactura.validarRedireccion());
   }
 }

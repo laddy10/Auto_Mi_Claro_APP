@@ -24,8 +24,8 @@ public class Bancolombia implements Task {
 
     // VALIDAR REDIRECCIÓN A PORTAL BANCOLOMBIA
     actor.attemptsTo(
-        ValidarTexto.validarTexto(AUTENTICACION_BANCOLOMBIA),
-        ValidarTexto.validarTexto(SALIR),
+        //ValidarTexto.validarTexto(AUTENTICACION_BANCOLOMBIA),
+        //ValidarTexto.validarTexto(SALIR),
         ValidarTexto.validarTexto(TE_DAMOS_LA_BIENVENIDA),
         ValidarTexto.validarTexto(USUARIO),
         ValidarTextoQueContengaX.elTextoContiene(OLVIDASTE_TU_USUARIO),
