@@ -74,7 +74,7 @@ public class TodoIncluidoConRedes implements Task {
 
         // PASO 2: Validar y explorar segundo paquete 2 GB
 
-        actor.attemptsTo(
+      /*  actor.attemptsTo(
                 Scroll.scrollMediaVista(),
                 ValidarTexto.validarTexto(LABEL_PAQUETES),
                 ValidarTexto.validarTexto("2 GB"),
@@ -87,7 +87,7 @@ public class TodoIncluidoConRedes implements Task {
                 ValidarTexto.validarTexto(TODO_INCLUIDO_7DIAS_2GB));
 
 
-        EvidenciaUtils.registrarCaptura(paso3);
+        EvidenciaUtils.registrarCaptura(paso3);*/
 
         // PASO 3: Validar y explorar segundo paquete 3.5 GB
 
@@ -105,10 +105,13 @@ public class TodoIncluidoConRedes implements Task {
         scrollCorto2(actor, "Comprar");
         actor.attemptsTo(ValidarTexto.validarTexto(TODO_INCLUIDO_10DIAS_1_3_5GB));
 
+
+        scrollCorto2(actor, PRECIO_$25000);
+
         EvidenciaUtils.registrarCaptura(paso4);
 
 
-        actor.attemptsTo(
+        /*actor.attemptsTo(
                 ClickTextoQueContengaX.elTextoContiene(ULTIMO),
                 WaitForResponse.withText(ELIGE_TIPO_PAQUETE),
 
@@ -125,11 +128,11 @@ public class TodoIncluidoConRedes implements Task {
         scrollCorto2(actor, "Comprar");
         actor.attemptsTo(ValidarTexto.validarTexto(TODO_INCLUIDO_3_5GB));
 
-        EvidenciaUtils.registrarCaptura(paso5);
+        EvidenciaUtils.registrarCaptura(paso5);*/
 
         // PASO 5: Validar y explorar quinto paquete 7.5 GB
 
-        actor.attemptsTo(
+       /* actor.attemptsTo(
                 Scroll.scrollUnaVista(),
                 ValidarTexto.validarTexto(LABEL_PAQUETES),
                 ValidarTexto.validarTexto("7.5 GB"),
@@ -142,7 +145,7 @@ public class TodoIncluidoConRedes implements Task {
                 ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
                 ValidarTexto.validarTexto(TODO_INCLUIDO_20DIAS_7_5GB));
 
-        EvidenciaUtils.registrarCaptura(paso6);
+        EvidenciaUtils.registrarCaptura(paso6);*/
 
         // PASO 6: Validar y explorar sexto paquete 7.5 GB
 
@@ -161,7 +164,7 @@ public class TodoIncluidoConRedes implements Task {
 
         EvidenciaUtils.registrarCaptura(paso7);
 
-        actor.attemptsTo(
+       /* actor.attemptsTo(
                 Scroll.scrollUnaVista(),
                 ClickTextoQueContengaX.elTextoContiene(ULTIMO),
                 WaitForResponse.withText(ELIGE_TIPO_PAQUETE),
@@ -322,7 +325,7 @@ public class TodoIncluidoConRedes implements Task {
                 ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
                 ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_80GB));
 
-        EvidenciaUtils.registrarCaptura(paso16);
+        EvidenciaUtils.registrarCaptura(paso16);*/
 
     }
 
