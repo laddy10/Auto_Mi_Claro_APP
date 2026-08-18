@@ -52,7 +52,6 @@ public class GestionCuenta implements Task {
 
   @Override
   public <T extends Actor> void performAs(T actor) {
-    actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(MUNDO_CLARO));
     String targetId = CuentaManager.getIdCuentaActiva();
     String objetivo = user.getNombreUsuario();
     EvidenciaUtils.registrarCaptura("Gestión de cuenta | objetivo: " + targetId + " (" + objetivo + ")");

@@ -5,6 +5,7 @@ import interactions.Scroll.ScrollHastaTexto;
 import interactions.validations.ValidarTexto;
 import interactions.wait.WaitElement;
 import interactions.wait.WaitFor;
+import interactions.wait.WaitForResponse;
 import interactions.wait.WaitForTextContains;
 import models.User;
 import net.serenitybdd.screenplay.Actor;
@@ -42,7 +43,7 @@ public class PSEPagaTuFactua implements Task {
                 ClickTextoQueContengaX.elTextoContiene(BANCO_AV_VILLAS),
                 Enter.theValue(user.getEmail()).into(TXT_ESCRIBE_CORREO),
                 ClickTextoQueContengaX.elTextoContiene(IR_A_PSE),
-                WaitFor.aTime(6000),
+                WaitForResponse.withText(INGRESO_BANCO),
                 ValidarTexto.validarTexto(INGRESO_BANCO)
         );
 
