@@ -662,8 +662,11 @@ public class Constants {
   public static final String LABEL_RECARGAS = "RECARGAS";
 
   public static final String CEDULA_CIUDADANIA = "Cédula de Ciudadanía";
+  public static final String CEDULA_CIUDADANIA2 = "Cédula de ciudadanía";
   public static final String CEDULA_EXTRANJERIA = "Cédula de Extranjería";
+  public static final String CEDULA_EXTRANJERIA2 = "Cédula de extranjería";
   public static final String PASAPORTE = "Pasaporte";
+  public static final String NIT = "NIT";
   public static final String NUMERO_IDENTIFICACION_TRIBUTARIA =
       "Número de Identificación Tributaria";
   public static final String GUARDAR_DATOS_TARJETA = "Guardar los datos de mi tarjeta";
@@ -777,4 +780,10 @@ public class Constants {
   public static final String TU_LUGAR_PARA_FUTBOL = "Tu lugar para vivir el fútbol";
   public static final String CADA_PARTIDO = "Cada partido, cada gol, cada emoción";
   public static final String OFERTAS_IMPERDIBLES = "Ofertas imperdibles de nuestros aliados";
+
+  // Constantes medios de pago para paga tu factua
+  public static final String PAGO_PSE = "Pago PSE";
+  public static final String IR_A_PSE = "Ir a PSE";
+  public static final String INGRESO_BANCO = "Ingresa para realizar tu pago PSE";
+
 }

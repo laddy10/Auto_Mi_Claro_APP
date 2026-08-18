@@ -3,7 +3,9 @@ package tasks.Login;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotPresent;
 import static userinterfaces.LoginPage.*;
+import static utils.Constants.MUNDO_CLARO;
 
+import interactions.Click.ClickTextoQueContengaX;
 import io.appium.java_client.android.AndroidDriver;
 import java.util.concurrent.TimeUnit;
 import models.User;
@@ -50,6 +52,7 @@ public class GestionCuenta implements Task {
 
   @Override
   public <T extends Actor> void performAs(T actor) {
+    actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(MUNDO_CLARO));
     String targetId = CuentaManager.getIdCuentaActiva();
     String objetivo = user.getNombreUsuario();
     EvidenciaUtils.registrarCaptura("Gestión de cuenta | objetivo: " + targetId + " (" + objetivo + ")");
