@@ -96,10 +96,6 @@ public class DescargaFactura implements Task {
     return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
   }
 
-  private <T extends Actor> boolean isVisible(T actor, Target element) {
-    return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
-  }
-
   public static Performable descargarFactura() {
     return instrumented(DescargaFactura.class);
   }
