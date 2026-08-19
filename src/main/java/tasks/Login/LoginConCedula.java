@@ -9,6 +9,7 @@ import static utils.Constants.*;
 
 import interactions.Click.ClickElementByText;
 import interactions.comunes.Atras;
+import interactions.input.IngresarPasswordSeguro;
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.validations.ValidateInformationText;
 import interactions.wait.WaitFor;
@@ -76,7 +77,7 @@ public class LoginConCedula implements Task {
       actor.attemptsTo(
           Enter.theValue(user.getCedula()).into(TXT_USERNAME),
           ClickElementByText.clickElementByText(CONTINUAR),
-          Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
+         IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()),
           ClickElementByText.clickElementByText(CONTINUAR),
           WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
     }
@@ -90,7 +91,7 @@ public class LoginConCedula implements Task {
   private <T extends Actor> void iniciarSesion(T actor) {
     actor.attemptsTo(
         ClickElementByText.clickElementByText(CONTINUAR),
-        Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
+       IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()),
         ClickElementByText.clickElementByText(CONTINUAR),
         WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
   }
@@ -120,7 +121,7 @@ public class LoginConCedula implements Task {
         ValidarTextoQueContengaX.elTextoContiene(VERSION),
         Enter.theValue(user.getCedula()).into(TXT_USERNAME),
         ClickElementByText.clickElementByText(CONTINUAR),
-        Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
+       IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()),
         ClickElementByText.clickElementByText(CONTINUAR),
         WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
   }

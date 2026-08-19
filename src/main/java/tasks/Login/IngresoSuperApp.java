@@ -8,6 +8,7 @@ import static utils.Constants.*;
 import interactions.Click.ClickElementByText;
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.comunes.Atras;
+import interactions.input.IngresarPasswordSeguro;
 import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitElement;
 import interactions.wait.WaitFor;
@@ -118,7 +119,7 @@ public class IngresoSuperApp implements Task {
         WaitElement.isEnable(TXT_USERNAME),
         Enter.theValue(user.getEmail()).into(TXT_USERNAME),
         ClickElementByText.clickElementByText(CONTINUAR),
-        Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
+        IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()),
         ClickElementByText.clickElementByText(CONTINUAR),
         WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
     validarLogin(actor);
@@ -128,7 +129,7 @@ public class IngresoSuperApp implements Task {
     actor.attemptsTo(
         Enter.theValue(user.getCedula()).into(TXT_USERNAME),
         ClickElementByText.clickElementByText(CONTINUAR),
-        Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
+        IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()),
         ClickElementByText.clickElementByText(CONTINUAR),
         WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
     validarLogin(actor);
@@ -143,7 +144,7 @@ public class IngresoSuperApp implements Task {
   private <T extends Actor> void SesiónCerradaPorSeguridad(T actor) {
     actor.attemptsTo(
         ClickElementByText.clickElementByText(CONTINUAR),
-        Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
+        IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()),
         ClickElementByText.clickElementByText(CONTINUAR),
         WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
   }
@@ -156,7 +157,7 @@ public class IngresoSuperApp implements Task {
     if (isVisible(actor, BTN_CONTINUAR)) {
       actor.attemptsTo(
           ClickTextoQueContengaX.elTextoContiene(CONTINUAR),
-          Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
+          IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()),
           ClickElementByText.clickElementByText(CONTINUAR),
           WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
     } else {

@@ -159,4 +159,19 @@ public class LoginPage {
   public static final Target BTN_CERRAR_MENU =
           Target.the("Botón cerrar menú principal")
                   .located(By.xpath("com.clarocolombia.miclaro:id/iv_close"));
+
+  public static final Target TXT_OTRA_CUENTA =
+          Target.the("Texto 'Ingresar con otra cuenta'")
+                  .locatedBy(
+                          "//*[contains(@text,'Ingresar con otra cuenta')"
+                                  + " or contains(@text,'Iniciar sesión con otra cuenta')]");
+
+  public static final Target OPCION_CORREO =
+          Target.the("Opción Correo electrónico").locatedBy("//*[@text='Correo electrónico']");
+
+  public static final Target PANTALLA_CONTRASENA =
+          Target.the("Pantalla de contraseña")
+                  .locatedBy(
+                          "//*[contains(@text,'Ingresa con tu') and contains(@text,'contraseña')"
+                                  + " or contains(@text,'Olvidé la contraseña')]");
 }
