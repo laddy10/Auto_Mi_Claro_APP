@@ -155,7 +155,7 @@ public class ReingresoRelogin implements Task {
 
     // 3) Correo.
     AndroidObject.existeConReintentos(actor, TXT_USERNAME, 20, 500);
-    actor.attemptsTo(IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()));
+    actor.attemptsTo(Enter.theValue(user.getEmail()).into(TXT_USERNAME));
     EvidenciaUtils.registrarCaptura("Correo digitado: " + user.getEmail());
     clickTextoSeguro(actor, CONTINUAR);
     if (isVisibleFast(actor, LBL_SESION_ABIERTA)) {
