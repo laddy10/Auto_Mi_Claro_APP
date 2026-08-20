@@ -6,6 +6,7 @@ null/
 
 # Gradle files
 .gradle
+.gradle/
 build/
 gradlew.bat
 # Compiled class file
