@@ -120,8 +120,11 @@ public class IngresoSuperApp implements Task {
         Enter.theValue(user.getEmail()).into(TXT_USERNAME),
         ClickElementByText.clickElementByText(CONTINUAR),
         IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()),
-        ClickElementByText.clickElementByText(CONTINUAR),
-        WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
+        ClickElementByText.clickElementByText(CONTINUAR));
+    if (isVisibleFast(actor, LBL_SESION_ABIERTA)) {
+      actor.attemptsTo(ClickElementByText.clickElementByText(CONTINUAR), WaitFor.aTime(6000));
+    }
+    actor.attemptsTo(WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
     validarLogin(actor);
   }
 
@@ -204,7 +207,7 @@ public class IngresoSuperApp implements Task {
       // No existe CONTINUAR → continúa el flujo normal
     }
     actor.attemptsTo(
-        Enter.theValue(user.getPassword()).into(TXT_PASSWORD),
+        IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()),
         ClickElementByText.clickElementByText(CONTINUAR),
         WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
   }

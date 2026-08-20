@@ -8,7 +8,9 @@ import static userinterfaces.LoginPage.*;
 import static utils.Constants.*;
 
 import interactions.Click.ClickElementByText;
+import interactions.input.IngresarPasswordSeguro;
 import interactions.validations.ValidateInformationText;
+import interactions.wait.WaitFor;
 import io.appium.java_client.android.AndroidDriver;
 import java.util.concurrent.TimeUnit;
 import models.User;
@@ -153,16 +155,22 @@ public class ReingresoRelogin implements Task {
 
     // 3) Correo.
     AndroidObject.existeConReintentos(actor, TXT_USERNAME, 20, 500);
-    actor.attemptsTo(Enter.theValue(user.getEmail()).into(TXT_USERNAME));
+    actor.attemptsTo(IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()));
     EvidenciaUtils.registrarCaptura("Correo digitado: " + user.getEmail());
     clickTextoSeguro(actor, CONTINUAR);
+    if (isVisibleFast(actor, LBL_SESION_ABIERTA)) {
+      actor.attemptsTo(ClickElementByText.clickElementByText(CONTINUAR), WaitFor.aTime(6000));
+    }
 
     // 4) Contraseña.
     AndroidObject.existeConReintentos(actor, PANTALLA_CONTRASENA, 15, 500);
     AndroidObject.existeConReintentos(actor, TXT_PASSWORD, 10, 500);
-    actor.attemptsTo(Enter.theValue(user.getPassword()).into(TXT_PASSWORD));
+    actor.attemptsTo(IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()));
     EvidenciaUtils.registrarCaptura("Contraseña digitada: ******** (oculta)");
     clickTextoSeguro(actor, CONTINUAR);
+    if (isVisibleFast(actor, LBL_SESION_ABIERTA)) {
+      actor.attemptsTo(ClickElementByText.clickElementByText(CONTINUAR), WaitFor.aTime(6000));
+    }
 
     try {
       actor.attemptsTo(
@@ -308,5 +316,13 @@ public class ReingresoRelogin implements Task {
 
   public static Performable paraCuentaActiva() {
     return instrumented(ReingresoRelogin.class);
+  }
+
+  private <T extends Actor> boolean isVisibleFast(T actor, Target element) {
+    try {
+      return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
+    } catch (Exception e) {
+      return false;
+    }
   }
 }
