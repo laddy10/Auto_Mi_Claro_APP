@@ -119,7 +119,7 @@ public class LoginOrquestado implements Task {
             .forNoMoreThan(10)
             .seconds(),
         Click.on(TXT_USERNAME),
-            IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()));
+            Enter.theValue(user.getEmail()).into(TXT_USERNAME));
     EvidenciaUtils.registrarCaptura("Correo digitado: " + (user.getEmail()));
 
     EvidenciaUtils.registrarCaptura("Acción: Continuar (correo)");
@@ -152,7 +152,7 @@ public class LoginOrquestado implements Task {
             .forNoMoreThan(10)
             .seconds(),
         Click.on(TXT_USERNAME),
-            IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()));
+            Enter.theValue(user.getCedula()).into(TXT_USERNAME));
     EvidenciaUtils.registrarCaptura("Documento digitado: " + (user.getCedula()));
 
     EvidenciaUtils.registrarCaptura("Acción: Continuar (documento)");
