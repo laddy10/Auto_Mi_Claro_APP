@@ -8,6 +8,7 @@ import static utils.Constants.*; // ← aquí tienes tus textos (INICIAR_SESION,
                                  // CONTINUAR, PERFIL, CERRAR_SESION, SI_CERRAR, etc.)
 
 import interactions.Click.ClickElementByText;
+import interactions.input.IngresarPasswordSeguro;
 import interactions.validations.ValidateInformationText;
 import interactions.wait.WaitForResponse;
 import models.User;
@@ -118,7 +119,7 @@ public class LoginOrquestado implements Task {
             .forNoMoreThan(10)
             .seconds(),
         Click.on(TXT_USERNAME),
-        Enter.theValue(user.getEmail()).into(TXT_USERNAME));
+            IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()));
     EvidenciaUtils.registrarCaptura("Correo digitado: " + (user.getEmail()));
 
     EvidenciaUtils.registrarCaptura("Acción: Continuar (correo)");
@@ -151,7 +152,7 @@ public class LoginOrquestado implements Task {
             .forNoMoreThan(10)
             .seconds(),
         Click.on(TXT_USERNAME),
-        Enter.theValue(user.getCedula()).into(TXT_USERNAME));
+            IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()));
     EvidenciaUtils.registrarCaptura("Documento digitado: " + (user.getCedula()));
 
     EvidenciaUtils.registrarCaptura("Acción: Continuar (documento)");

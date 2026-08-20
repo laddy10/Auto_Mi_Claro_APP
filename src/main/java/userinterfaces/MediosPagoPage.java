@@ -120,5 +120,5 @@ public class MediosPagoPage {
                   .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View[8]/android.widget.EditText"));
   public static final Target TXT_NUMERO_DOCUMENTO2 =
           Target.the("Campo número documento")
-                  .located(By.xpath("(//*[@class='android.view.View' and ./parent::*[@id='myBody']]/*/*[@class='android.widget.EditText'])[3]"));
+                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText"));
 }
