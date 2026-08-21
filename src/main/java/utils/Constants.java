@@ -33,6 +33,7 @@ public class Constants {
   public static final String FECHA_PAGO_OPORTUNO = "Fecha de pago oportuno:";
   public static final String ELEGIR_OTRO_MEDIO_PAGO = "Elegir otro medio de pago";
   public static final String ELIGE_METODO_PAGO = "Elige un método de pago";
+  public static final String ELIGE_METODO_PAGO2 = "Elige el medio de pago";
   public static final String TARJETA_C_D = "Tarjeta de crédito/débito";
   public static final String BOTON_BANCOLOMBIA = "Bancolombia";
   public static final String CODENSA = "Codensa";
@@ -786,6 +787,8 @@ public class Constants {
   public static final String PAGO_PSE = "Pago PSE";
   public static final String IR_A_PSE = "Ir a PSE";
   public static final String INGRESO_BANCO = "Ingresa para realizar tu pago PSE";
+  public static final String REALIZA_PAGO_EN_LINEA = "Realiza el pago en línea";
+  public static final String INGRESO_BANCO1 = "Bienvenido a nuestro nuevo portal de pagos de servicios electrónicos.";
 
 
 }

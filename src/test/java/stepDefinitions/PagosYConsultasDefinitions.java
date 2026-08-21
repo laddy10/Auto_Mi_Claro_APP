@@ -510,8 +510,8 @@ public class PagosYConsultasDefinitions {
   public void botonPseNequi() {
     theActorInTheSpotlight().attemptsTo(
             Click.on(BTN_PSE_NEQUI),
-            WaitFor.aTime(2000),
-            Click.on(BTN_PAGAR_PAGA_FACTURA)
+            WaitFor.aTime(2000)
+            //Click.on(BTN_PAGAR_PAGA_FACTURA)
     );
   }
   @And("^SELECCIONA METODO DE PAGO TARJETA$")
@@ -525,8 +525,8 @@ public class PagosYConsultasDefinitions {
   public void botonPagoBancolombia() {
     theActorInTheSpotlight().attemptsTo(
             ClickTextoQueContengaX.elTextoContiene(BOTON_BANCOLOMBIA),
-            WaitFor.aTime(2000),
-            Click.on(BTN_PAGAR_PAGA_FACTURA)
+            WaitFor.aTime(2000)
+            //Click.on(BTN_PAGAR_PAGA_FACTURA)
     );
   }
 

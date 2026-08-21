@@ -52,7 +52,7 @@ public class TarjetasPagaTuFactura implements Task {
 
         // COMPLETAR RESTO DEL FORMULARIO
         actor.attemptsTo(
-               // Enter.theValue("12345674").into(TXT_NUMERO_DOCUMENTO2),
+                Enter.theValue("12345674").into(TXT_NUMERO_DOCUMENTO2),
                 Enter.theValue("12/30").into(TXT_FECHA_VENCIMIENTO),
                 Enter.theValue("123").into(TXT_CVV2),
                 Enter.theValue("pruebas@gmail.com").into(TXT_EMAIL2));
@@ -81,17 +81,17 @@ public class TarjetasPagaTuFactura implements Task {
 
     private <T extends Actor> void validarTiposDocumento(T actor) {
         String[] tiposDocumento = {
-                CEDULA_CIUDADANIA2, PASAPORTE, CEDULA_EXTRANJERIA2, NIT
+                CEDULA_CIUDADANIA, CEDULA_EXTRANJERIA2, PASAPORTE, NUMERO_IDENTIFICACION_TRIBUTARIA
         };
 
         for (String tipoDoc : tiposDocumento) {
             actor.attemptsTo(
                     Click.on(DROPDOWN_TIPO_DOCUMENTO2),
                     WaitFor.aTime(1000),
-                    ValidarTexto.validarTexto(CEDULA_CIUDADANIA2),
+                    ValidarTexto.validarTexto(CEDULA_CIUDADANIA),
+                    ValidarTexto.validarTexto(CEDULA_EXTRANJERIA),
                     ValidarTexto.validarTexto(PASAPORTE),
-                    ValidarTexto.validarTexto(CEDULA_EXTRANJERIA2),
-                    ValidarTexto.validarTexto(NIT),
+                    ValidarTexto.validarTexto(NUMERO_IDENTIFICACION_TRIBUTARIA),
                     ClickTextoQueContengaX.elTextoContiene(tipoDoc),
                     WaitFor.aTime(1000));
 

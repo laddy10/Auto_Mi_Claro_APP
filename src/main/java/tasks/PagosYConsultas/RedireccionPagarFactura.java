@@ -32,18 +32,18 @@ public class RedireccionPagarFactura implements Task {
 
       actor.attemptsTo(
           Click.on(BTN_PAGAR_FACTURA),
-          WaitForResponse.withText(ELIGE_METODO_PAGO)
+          WaitForResponse.withText(ELIGE_METODO_PAGO2)
           );
 
       EvidenciaUtils.registrarCaptura(paso2);
 
       actor.attemptsTo(
           ValidarTextoQueContengaX.elTextoContiene(TARJETA_C_D),
-          ValidarTextoQueContengaX.elTextoContiene(BOTON_BANCOLOMBIA));
-          // ValidarTextoQueContengaX.elTextoContiene(CODENSA),
-          //ValidarTextoQueContengaX.elTextoContiene(OTROS_MEDIOS));
+          ValidarTextoQueContengaX.elTextoContiene(BOTON_BANCOLOMBIA),
+          //ValidarTextoQueContengaX.elTextoContiene(PSE1));
+          ValidarTextoQueContengaX.elTextoContiene(OTROS_MEDIOS));
 
-      actor.should(seeThat(ValidateInformationText.validateInformationText(BTN_PSE_NEQUI)));
+     actor.should(seeThat(ValidateInformationText.validateInformationText(BTN_PSE_NEQUI)));
     }
   }
 
