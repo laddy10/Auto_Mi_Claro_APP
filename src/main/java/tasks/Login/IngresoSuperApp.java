@@ -211,8 +211,11 @@ public class IngresoSuperApp implements Task {
     }
     actor.attemptsTo(
         IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()),
-        ClickElementByText.clickElementByText(CONTINUAR),
-        WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
+        ClickElementByText.clickElementByText(CONTINUAR));
+    if (isVisibleFast(actor, LBL_SESION_ABIERTA)) {
+      actor.attemptsTo(ClickElementByText.clickElementByText(CONTINUAR), WaitFor.aTime(6000));
+    }
+    actor.attemptsTo(WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
   }
 
   private <T extends Actor> void validarLogin(T actor) {
