@@ -3,9 +3,7 @@ package tasks.Login;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotPresent;
 import static userinterfaces.LoginPage.*;
-import static utils.Constants.MUNDO_CLARO;
 
-import interactions.Click.ClickTextoQueContengaX;
 import io.appium.java_client.android.AndroidDriver;
 import java.util.concurrent.TimeUnit;
 import models.User;
@@ -27,24 +25,20 @@ import utils.TestDataProvider;
 /**
  * Orquesta el inicio de sesión según la cuenta del escenario, minimizando reinicios.
  *
- * <p>Lógica:
+ * <p>OPTIMIZACIÓN DE TIEMPOS: durante TODO el login se baja el implicitWait a 2s (por defecto es 10s)
+ * y las esperas se hacen explícitas y acotadas. Así, cuando la app se cierra o cambia de pantalla, la
+ * validación falla en segundos en vez de colgarse 10-15 min. Al terminar se restaura a 10s.
  *
- * <ul>
- *   <li>HAY sesión: abre el menú (iv_menu), lee el usuario (profile_welcome_title) y lo compara con
- *       el {@code nombreUsuario} de la cuenta objetivo (real-user.json). Aplica a AMBAS cuentas:
- *       <ul>
- *         <li>Coincide -> cierra el menú (iv_close) y CONTINÚA, sin reinicio.
- *         <li>No coincide -> reinicia y entra con la cuenta objetivo.
- *       </ul>
- *   <li>NO hay sesión (popup "por seguridad…", bienvenida o app recién abierta): reingresa SIN
- *       reiniciar con {@link ReingresoRelogin} (compara el correo recordado 'relogin_account' con el
- *       objetivo: si coincide -> Continuar; si no -> "Ingresar con otra cuenta" y login con la
- *       objetivo).
- * </ul>
+ * <p>Como todos los sub-pasos (menú, reset, PreparacionApp, IngresoSuperApp, ReingresoRelogin) corren
+ * dentro de esta tarea, heredan el implicitWait bajo; por eso NO deben manejar el implicitWait ellos
+ * mismos.
  */
 public class GestionCuenta implements Task {
 
   private final User user = TestDataProvider.getRealUser();
+  private static final String PRINCIPAL = "principal";
+  private static final int IMPLICIT_LOGIN = 2; // segundos, durante el login
+  private static final int IMPLICIT_NORMAL = 10; // segundos, valor normal
 
   private static final Target BTN_CERRAR_MENU =
       Target.the("Cerrar menú del perfil")
@@ -52,43 +46,43 @@ public class GestionCuenta implements Task {
 
   @Override
   public <T extends Actor> void performAs(T actor) {
-    actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(MUNDO_CLARO));
+    AndroidDriver driver = obtenerDriver(actor);
+    setImplicit(driver, IMPLICIT_LOGIN);
+    try {
+      ejecutar(actor);
+    } finally {
+      setImplicit(driver, IMPLICIT_NORMAL);
+    }
+  }
+
+  private <T extends Actor> void ejecutar(T actor) {
     String targetId = CuentaManager.getIdCuentaActiva();
     String objetivo = user.getNombreUsuario();
     EvidenciaUtils.registrarCaptura("Gestión de cuenta | objetivo: " + targetId + " (" + objetivo + ")");
 
-    AndroidDriver driver = obtenerDriver(actor);
-    setImplicit(driver, 1);
-    boolean sesion;
-    String actual = "";
-    try {
-      esperarEstado(actor);
-      sesion = haySesion(actor);
-      if (sesion) {
-        cerrarPublicidad(actor); // por si un banner tapa el ícono de menú
-        actual = leerUsuarioDelMenu(actor);
-      }
-    } finally {
-      setImplicit(driver, 10);
-    }
+    // Cierra pantallas de arranque (carrusel "Omitir", condiciones, permisos, publicidad) por si la
+    // app se abrió en alguna de ellas, aunque este caso no haya pedido reinicio.
+    actor.attemptsTo(PreparacionApp.preparar());
+
+    esperarEstado(actor);
+    boolean sesion = haySesion(actor);
 
     if (sesion) {
+      String actual = leerUsuarioDelMenu(actor);
       EvidenciaUtils.registrarCaptura("Usuario en menú: '" + actual + "' | objetivo: '" + objetivo + "'");
       if (coincideNombre(actual, objetivo)) {
-        // Cuenta correcta (principal o secundaria) -> cerrar menú y continuar, SIN reinicio.
         cerrarMenu(actor);
         EvidenciaUtils.registrarCaptura("Cuenta correcta. El caso continúa sin reinicio.");
         CuentaManager.setUltimaCuentaLogueada(targetId);
         return;
       }
-      // Otra cuenta -> reiniciar y entrar con la objetivo.
       EvidenciaUtils.registrarCaptura("Es otra cuenta. Reiniciando para entrar con '" + targetId + "'.");
       reiniciarYEntrar(actor);
       CuentaManager.setUltimaCuentaLogueada(targetId);
       return;
     }
 
-    // No hay sesión -> reingreso SIN reinicio (usa relogin_account para decidir Continuar / otra cuenta).
+    // No hay sesión -> reingreso SIN reinicio.
     EvidenciaUtils.registrarCaptura("Sin sesión -> reingreso sin reinicio para '" + targetId + "'.");
     actor.attemptsTo(ReingresoRelogin.paraCuentaActiva());
     CuentaManager.setUltimaCuentaLogueada(targetId);
@@ -96,7 +90,6 @@ public class GestionCuenta implements Task {
 
   // ─────────────────────────── pasos ───────────────────────────
 
-  /** Abre el menú (iv_menu), lee el nombre de usuario (profile_welcome_title) y lo devuelve. */
   private <T extends Actor> String leerUsuarioDelMenu(T actor) {
     if (!visible(actor, MENU_USUARIO)) {
       return "";
@@ -115,7 +108,6 @@ public class GestionCuenta implements Task {
     return "";
   }
 
-  /** Cierra el menú con el botón X (iv_close) para volver al home sin salir de la app. */
   private <T extends Actor> void cerrarMenu(T actor) {
     for (int i = 0; i < 3; i++) {
       if (visible(actor, BTN_CERRAR_MENU)) {
@@ -130,6 +122,8 @@ public class GestionCuenta implements Task {
 
   private <T extends Actor> void reiniciarYEntrar(T actor) {
     AppReset.reiniciarApp(actor);
+    // resetApp reinicia la app; reafirmamos el implicitWait bajo por si la sesión lo reajustó.
+    setImplicit(obtenerDriver(actor), IMPLICIT_LOGIN);
     esperarSplash(actor);
     actor.attemptsTo(PreparacionApp.preparar());
     actor.attemptsTo(IngresoSuperApp.ingresoSuperApp());
@@ -158,7 +152,6 @@ public class GestionCuenta implements Task {
     }
   }
 
-  /** Sesión activa = home logueado (encabezado del usuario o "Tus servicios favoritos"). */
   private <T extends Actor> boolean haySesion(T actor) {
     if (visible(actor, LBL_ENCABEZADO_USUARIO)) {
       return true;
@@ -172,13 +165,6 @@ public class GestionCuenta implements Task {
       // no logueado
     }
     return false;
-  }
-
-  private <T extends Actor> void cerrarPublicidad(T actor) {
-    if (visible(actor, BTN_CERRAR_PUBLICIDAD)) {
-      actor.attemptsTo(Click.on(BTN_CERRAR_PUBLICIDAD));
-      dormir(500);
-    }
   }
 
   private boolean coincideNombre(String actual, String objetivo) {
