@@ -5,6 +5,7 @@ import static userinterfaces.LoginPage.*;
 import static utils.Constants.*;
 
 import interactions.Click.ClickElementByText;
+import io.appium.java_client.android.AndroidDriver;
 import models.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -23,20 +24,33 @@ import utils.TestDataProvider;
  * Reingreso cuando la sesión está cerrada (popup "por seguridad…") SIN reiniciar la app.
  *
  * <p>Corre dentro de {@code GestionCuenta} (implicitWait bajo), así que las esperas son rápidas y
- * acotadas: si la app se cierra o cambia de pantalla, falla en segundos en vez de colgarse minutos.
+ * acotadas.
  *
  * <ul>
- *   <li>Da clic en "Iniciar sesión" (popup y home).
- *   <li>Decide por el registro {@code ultimaCuentaLogueada}: si la recordada es la objetivo ->
- *       Continuar (IngresoSuperApp); si no -> "Ingresar con otra cuenta" (si aparece) y login por
- *       correo con la cuenta objetivo.
- *   <li>Tras la contraseña, {@code esperarIngreso} maneja los dos caminos (popup "sesión abierta en
- *       otro dispositivo" o ingreso directo) y los emergentes, esperando el home real.
+ *   <li>Clic en "Iniciar sesión" (popup y home).
+ *   <li>Decide por {@code ultimaCuentaLogueada}: si la recordada es la objetivo -> Continuar
+ *       (IngresoSuperApp); si no -> "Ingresar con otra cuenta" (si aparece) y login por correo.
+ *   <li>Tras la contraseña, {@code esperarIngreso} maneja "sesión abierta en otro dispositivo" o el
+ *       ingreso directo, esperando el home real.
  * </ul>
  */
 public class ReingresoRelogin implements Task {
 
   private final User user = TestDataProvider.getRealUser();
+
+  private static final Target TXT_OTRA_CUENTA =
+      Target.the("Texto 'Ingresar con otra cuenta'")
+          .locatedBy(
+              "//*[contains(@text,'Ingresar con otra cuenta')"
+                  + " or contains(@text,'Iniciar sesión con otra cuenta')]");
+  private static final Target OPCION_CORREO =
+      Target.the("Opción Correo electrónico").locatedBy("//*[@text='Correo electrónico']");
+  private static final Target PANTALLA_CONTRASENA =
+      Target.the("Pantalla de contraseña")
+          .locatedBy(
+              "//*[contains(@text,'Ingresa con tu') and contains(@text,'contraseña')"
+                  + " or contains(@text,'Olvidé la contraseña')]");
+
   @Override
   public <T extends Actor> void performAs(T actor) {
     String objetivo = CuentaManager.getIdCuentaActiva();
@@ -81,8 +95,7 @@ public class ReingresoRelogin implements Task {
     return visible(actor, LBL_NOS_ALEGRA_TENERTE_DE_VUELTA)
         || visible(actor, LBL_IDENTIFICADOR_USUARIO)
         || visible(actor, TXT_OTRA_CUENTA)
-        || visible(actor, BTN_OTROS_METODOS_INGRESO)
-        || visible(actor, TXT_USERNAME);
+        || visible(actor, BTN_OTROS_METODOS_INGRESO);
   }
 
   /** Entra por correo con la cuenta objetivo, robusto a las dos variantes de pantalla. */
@@ -122,52 +135,84 @@ public class ReingresoRelogin implements Task {
     EvidenciaUtils.registrarCaptura("Contraseña digitada: ******** (oculta)");
     clickTextoSeguro(actor, CONTINUAR);
 
-    // 5) Esperar el ingreso: maneja "sesión abierta en otro dispositivo", emergentes y espera el home.
+    // 5) Esperar el ingreso (maneja "sesión abierta en otro dispositivo" o ingreso directo).
     esperarIngreso(actor);
   }
 
   /**
-   * Espera robusta tras la contraseña. Cubre los dos caminos:
-   *
-   * <ul>
-   *   <li>Sale "Tienes una sesión abierta en otro dispositivo" -> Continuar.
-   *   <li>No sale y entra directo.
-   * </ul>
-   *
-   * Además cierra los emergentes y espera a que aparezca el home (no depende de que aparezca el logo
-   * de "Espera un momento", que a veces no alcanza a mostrarse).
+   * Espera tras la contraseña. Cubre los dos caminos y espera el HOME (no depende del logo "Espera un
+   * momento"). Solo maneja lo que puede aparecer en un REINGRESO (sin reinicio): el popup "sesión
+   * abierta en otro dispositivo" y la publicidad. Los permisos/condiciones NO aplican aquí (esos solo
+   * salen tras un reinicio limpio, y esos flujos usan IngresoSuperApp/PreparacionApp).
+   */
+  private static final long ESPERA_INGRESO_MS = 60_000L;
+
+  /**
+   * Espera post-contraseña: descarta los modales que aparecen ENCIMA del home tras el login
+   * (autorización de medición de velocidad, "sesión abierta en otro dispositivo", publicidad) y
+   * confirma la entrada al home. Detecta por page source para no depender del implicitWait.
    */
   private <T extends Actor> void esperarIngreso(T actor) {
-    long fin = System.currentTimeMillis() + 60000; // presupuesto 60s
+    long fin = System.currentTimeMillis() + ESPERA_INGRESO_MS;
     while (System.currentTimeMillis() < fin) {
-      if (visible(actor, LBL_ENCABEZADO_USUARIO)) {
-        EvidenciaUtils.registrarCaptura("Ingreso confirmado (home visible).");
-        return;
+      String xml = pageSource(actor);
+
+      // Modal "Autorización de medición de velocidad" (sale sobre el home) -> Aceptar.
+      if (contiene(xml, "medición de velocidad") || contiene(xml, "Medición de Velocidad")) {
+        clickTextoSeguro(actor, ACEPTAR_2); // "Aceptar"
+        dormir(800);
+        continue;
       }
-      boolean hizo = false;
-      if (visible(actor, LBL_SESION_ABIERTA)) {
-        EvidenciaUtils.registrarCaptura("Sesión abierta en otro dispositivo -> Continuar.");
-        clickTextoSeguro(actor, CONTINUAR);
-        hizo = true;
+
+      // Sesión abierta en otro dispositivo -> Continuar.
+      if (contiene(xml, "sesión abierta en otro dispositivo")) {
+        clickTextoSeguro(actor, CONTINUAR); // "Continuar"
+        dormir(800);
+        continue;
       }
-      hizo |= clicSi(actor, BTN_PERMISO_UBICACION, MIENTRAS_APP_ESTA_EN_USO);
-      hizo |= clicSi(actor, BTN_ACEPTAR_PERMISO, ACEPTAR_2);
-      hizo |= clicSi(actor, SMS_PERMISO_LLAMADAS, NO_PERMITIR);
-      hizo |= clicSi(actor, SMS_PERMISO_NOTIFICACIONES, NO_PERMITIR);
-      hizo |= clicSi(actor, BTN_OMITIR, OMITIR);
-      if (visible(actor, LBL_BIENVENIDA)) {
-        actor.attemptsTo(Click.on(CHECK_TC));
-        clickTextoSeguro(actor, CONTINUAR);
-        hizo = true;
-      }
-      hizo |= clicSi(actor, TXT_AUTORIZACION_VELOCIDAD, ACEPTAR_2);
+
+      // Banner publicitario sobre el home -> cerrar.
       if (visible(actor, BTN_CERRAR_PUBLICIDAD)) {
         actor.attemptsTo(Click.on(BTN_CERRAR_PUBLICIDAD));
-        hizo = true;
+        dormir(500);
+        continue;
       }
-      dormir(hizo ? 400 : 700);
+
+      // Home confirmado (señal real de éxito).
+      if (enHome(xml)) {
+        EvidenciaUtils.registrarCaptura(
+                "Login exitoso. Home confirmado para: " + CuentaManager.getIdCuentaActiva());
+        return;
+      }
+
+      dormir(1000);
     }
-    EvidenciaUtils.registrarCaptura("No se confirmó el ingreso al home tras la contraseña (timeout 60s).");
+
+    EvidenciaUtils.registrarCaptura("No se confirmó el ingreso al home tras la contraseña (timeout).");
+    throw new IllegalStateException(
+            "ReingresoRelogin: no se confirmó el home tras la contraseña para '"
+                    + CuentaManager.getIdCuentaActiva()
+                    + "'. Revisa modales post-login (velocidad / sesión abierta) o el locator del home.");
+  }
+
+  private boolean enHome(String xml) {
+    return contiene(xml, ":id/home_user_name_tv")
+            || contiene(xml, ":id/iv_menu")
+            || contiene(xml, ":id/card_mini_program_title_tv")
+            || contiene(xml, "Tus servicios favoritos");
+  }
+
+  private String pageSource(Actor actor) {
+    try {
+      AndroidDriver d = AndroidObject.androidDriver(actor);
+      return d == null ? null : d.getPageSource();
+    } catch (Exception e) {
+      return null;
+    }
+  }
+
+  private boolean contiene(String xml, String clave) {
+    return xml != null && xml.contains(clave);
   }
 
   private <T extends Actor> boolean hayIngresarOtraCuenta(T actor) {
@@ -192,7 +237,7 @@ public class ReingresoRelogin implements Task {
 
   // ─────────────────────────── utilidades ───────────────────────────
 
-  /** Escribe en un campo esperando (acotado) a que esté presente y HABILITADO, para no colgarse. */
+  /** Escribe esperando (acotado) a que el campo esté presente y HABILITADO, para no colgarse. */
   private <T extends Actor> void escribir(T actor, Target campo, String valor, String etiqueta) {
     if (!esperarHabilitado(actor, campo, 12000)) {
       throw new IllegalStateException(
@@ -223,25 +268,9 @@ public class ReingresoRelogin implements Task {
         return Text.of(LBL_IDENTIFICADOR_USUARIO).viewedBy(actor).asString();
       }
     } catch (Exception ignore) {
-      // fallback
-    }
-    try {
-      Target correo = Target.the("Correo visible").locatedBy("//*[contains(@text,'@')]");
-      if (visible(actor, correo)) {
-        return Text.of(correo).viewedBy(actor).asString();
-      }
-    } catch (Exception ignore) {
-      // vacío
+      // (no visible)
     }
     return "(no visible)";
-  }
-
-  private <T extends Actor> boolean clicSi(T actor, Target elemento, String texto) {
-    if (visible(actor, elemento)) {
-      clickTextoSeguro(actor, texto);
-      return true;
-    }
-    return false;
   }
 
   private <T extends Actor> void clickTextoSeguro(T actor, String texto) {

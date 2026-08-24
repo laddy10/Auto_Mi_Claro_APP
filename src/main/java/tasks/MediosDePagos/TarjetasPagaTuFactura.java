@@ -52,7 +52,7 @@ public class TarjetasPagaTuFactura implements Task {
 
         // COMPLETAR RESTO DEL FORMULARIO
         actor.attemptsTo(
-                Enter.theValue("12345674").into(TXT_NUMERO_DOCUMENTO2),
+                //Enter.theValue("12345674").into(TXT_NUMERO_DOCUMENTO2),
                 Enter.theValue("12/30").into(TXT_FECHA_VENCIMIENTO),
                 Enter.theValue("123").into(TXT_CVV2),
                 Enter.theValue("pruebas@gmail.com").into(TXT_EMAIL2));
