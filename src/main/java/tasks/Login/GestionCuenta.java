@@ -3,9 +3,7 @@ package tasks.Login;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotPresent;
 import static userinterfaces.LoginPage.*;
-import static utils.Constants.MUNDO_CLARO;
 
-import interactions.Click.ClickTextoQueContengaX;
 import io.appium.java_client.android.AndroidDriver;
 import java.util.concurrent.TimeUnit;
 import models.User;
@@ -27,24 +25,33 @@ import utils.TestDataProvider;
 /**
  * Orquesta el inicio de sesión según la cuenta del escenario, minimizando reinicios.
  *
- * <p>Lógica:
+ * <p>Estrategia: un único bucle acotado (deadline + máximo de pasadas). En cada pasada lee el page
+ * source UNA vez y decide:
  *
  * <ul>
- *   <li>HAY sesión: abre el menú (iv_menu), lee el usuario (profile_welcome_title) y lo compara con
- *       el {@code nombreUsuario} de la cuenta objetivo (real-user.json). Aplica a AMBAS cuentas:
- *       <ul>
- *         <li>Coincide -> cierra el menú (iv_close) y CONTINÚA, sin reinicio.
- *         <li>No coincide -> reinicia y entra con la cuenta objetivo.
- *       </ul>
- *   <li>NO hay sesión (popup "por seguridad…", bienvenida o app recién abierta): reingresa SIN
- *       reiniciar con {@link ReingresoRelogin} (compara el correo recordado 'relogin_account' con el
- *       objetivo: si coincide -> Continuar; si no -> "Ingresar con otra cuenta" y login con la
- *       objetivo).
+ *   <li>Home logueado -> lee el usuario del menú y CONTINÚA (si coincide) o reinicia (si es otra
+ *       cuenta).
+ *   <li>Relogin / bienvenida / home deslogueado -> reingreso SIN reinicio con {@link
+ *       ReingresoRelogin}.
+ *   <li>Pantalla de arranque (carrusel/condiciones/publicidad) -> cierra UNA con {@link
+ *       PreparacionApp} y reintenta.
  * </ul>
+ *
+ * <p>Si tras el presupuesto ({@code DEADLINE_MS} / {@code MAX_PASADAS}) no se reconoce ningún estado,
+ * lanza una excepción clara en vez de colgarse: así el escenario falla en segundos, dispara el
+ * error.png y la sección "RESULTADO: FALLIDO" del reporte Word.
+ *
+ * <p>La detección se hace por page source (una lectura por pasada) y NO depende del implicitWait,
+ * que Serenity re-aplica por interacción y hace que cada búsqueda ausente cueste el valor completo.
  */
 public class GestionCuenta implements Task {
 
   private final User user = TestDataProvider.getRealUser();
+
+  private static final int IMPLICIT_LOGIN = 2; // s, durante el login
+  private static final int IMPLICIT_NORMAL = 10; // s, valor normal
+  private static final long DEADLINE_MS = 60_000L; // techo duro del escenario
+  private static final int MAX_PASADAS = 12; // tope de iteraciones del orquestador
 
   private static final Target BTN_CERRAR_MENU =
       Target.the("Cerrar menú del perfil")
@@ -52,45 +59,125 @@ public class GestionCuenta implements Task {
 
   @Override
   public <T extends Actor> void performAs(T actor) {
+    AndroidDriver driver = obtenerDriver(actor);
+    setImplicit(driver, IMPLICIT_LOGIN);
+    try {
+      ejecutar(actor);
+    } finally {
+      setImplicit(driver, IMPLICIT_NORMAL);
+    }
+  }
+
+  // ─────────────────────────── orquestación ───────────────────────────
+
+  private <T extends Actor> void ejecutar(T actor) {
     String targetId = CuentaManager.getIdCuentaActiva();
     String objetivo = user.getNombreUsuario();
-    EvidenciaUtils.registrarCaptura("Gestión de cuenta | objetivo: " + targetId + " (" + objetivo + ")");
+    EvidenciaUtils.registrarCaptura(
+        "Gestión de cuenta | objetivo: " + targetId + " (" + objetivo + ")");
 
-    AndroidDriver driver = obtenerDriver(actor);
-    setImplicit(driver, 1);
-    boolean sesion;
-    String actual = "";
-    try {
-      esperarEstado(actor);
-      sesion = haySesion(actor);
-      if (sesion) {
+    long fin = System.currentTimeMillis() + DEADLINE_MS;
+    int pasada = 0;
+
+    while (System.currentTimeMillis() < fin && pasada < MAX_PASADAS) {
+      pasada++;
+      String xml = pageSource(actor); // UNA lectura por pasada
+
+      // 1) Home con sesión (caso "sesión principal abierta") -> resolver cuenta y SALIR.
+      if (esHomeLogueado(xml)) {
         cerrarPublicidad(actor); // por si un banner tapa el ícono de menú
-        actual = leerUsuarioDelMenu(actor);
-      }
-    } finally {
-      setImplicit(driver, 10);
-    }
-
-    if (sesion) {
-      EvidenciaUtils.registrarCaptura("Usuario en menú: '" + actual + "' | objetivo: '" + objetivo + "'");
-      if (coincideNombre(actual, objetivo)) {
-        // Cuenta correcta (principal o secundaria) -> cerrar menú y continuar, SIN reinicio.
-        cerrarMenu(actor);
-        EvidenciaUtils.registrarCaptura("Cuenta correcta. El caso continúa sin reinicio.");
+        String actual = leerUsuarioDelMenu(actor);
+        EvidenciaUtils.registrarCaptura(
+            "Usuario en menú: '" + actual + "' | objetivo: '" + objetivo + "'");
+        if (coincideNombre(actual, objetivo)) {
+          cerrarMenu(actor);
+          EvidenciaUtils.registrarCaptura("Cuenta correcta. Continúa sin reinicio.");
+          CuentaManager.setUltimaCuentaLogueada(targetId);
+          return;
+        }
+        EvidenciaUtils.registrarCaptura(
+            "Es otra cuenta. Reiniciando para entrar con '" + targetId + "'.");
+        reiniciarYEntrar(actor);
         CuentaManager.setUltimaCuentaLogueada(targetId);
         return;
       }
-      // Otra cuenta -> reiniciar y entrar con la objetivo.
-      EvidenciaUtils.registrarCaptura("Es otra cuenta. Reiniciando para entrar con '" + targetId + "'.");
-      reiniciarYEntrar(actor);
-      CuentaManager.setUltimaCuentaLogueada(targetId);
-      return;
+
+      // 2) Relogin (sesión cerrada / bienvenida / home deslogueado) -> reingreso sin reinicio.
+      if (esRelogin(xml)) {
+        EvidenciaUtils.registrarCaptura(
+            "Sin sesión -> reingreso sin reinicio para '" + targetId + "'.");
+        actor.attemptsTo(ReingresoRelogin.paraCuentaActiva());
+        CuentaManager.setUltimaCuentaLogueada(targetId);
+        return;
+      }
+
+      // 3) Pantallas de arranque (carrusel/condiciones/publicidad) -> cerrar UNA y reintentar.
+      if (hayPantallaArranque(xml)) {
+        actor.attemptsTo(PreparacionApp.preparar());
+        dormir(600);
+        continue;
+      }
+
+      // Nada reconocido aún: espera corta y reintenta.
+      dormir(1000);
     }
 
-    // No hay sesión -> reingreso SIN reinicio (usa relogin_account para decidir Continuar / otra cuenta).
-    EvidenciaUtils.registrarCaptura("Sin sesión -> reingreso sin reinicio para '" + targetId + "'.");
-    actor.attemptsTo(ReingresoRelogin.paraCuentaActiva());
-    CuentaManager.setUltimaCuentaLogueada(targetId);
+    // Ningún estado conocido dentro del presupuesto -> FALLA CLARA (no cuelga).
+    EvidenciaUtils.registrarCaptura("Estado no reconocido tras " + pasada + " pasadas.");
+    throw new IllegalStateException(
+        "GestionCuenta: no se reconoció ningún estado (home/relogin/arranque) para la cuenta '"
+            + targetId
+            + "'. Revisa el locator del home (home_user_name_tv) contra el page source real.");
+  }
+
+  // ─────────────────────────── detección por page source ───────────────────────────
+
+  /** Home logueado: encabezado del usuario, ícono de menú, "Tus servicios favoritos" o el saludo. */
+  private boolean esHomeLogueado(String xml) {
+    return contieneAlguno(
+        xml,
+        ":id/home_user_name_tv",
+        ":id/iv_menu",
+        ":id/card_mini_program_title_tv",
+        "Tus servicios favoritos",
+        "Hola,");
+  }
+
+  /** Sesión cerrada / bienvenida / home deslogueado. */
+  private boolean esRelogin(String xml) {
+    return contieneAlguno(
+        xml,
+        "¡Nos alegra tenerte de vuelta!",
+        "Tu sesión se ha cerrado por seguridad",
+        "Otros métodos de ingreso",
+        "Ingresar con otra cuenta",
+        "Iniciar sesión");
+  }
+
+  /** Pantallas de arranque que cierra PreparacionApp. */
+  private boolean hayPantallaArranque(String xml) {
+    return contieneAlguno(xml, "Omitir", "OMITIR", "Aceptar", "ACEPTAR");
+  }
+
+  private boolean contieneAlguno(String xml, String... claves) {
+    if (xml == null || xml.isEmpty()) {
+      return false;
+    }
+    for (String c : claves) {
+      if (xml.contains(c)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private String pageSource(Actor actor) {
+    try {
+      AndroidDriver d = AndroidObject.androidDriver(actor);
+      return d == null ? null : d.getPageSource();
+    } catch (Exception e) {
+      return null;
+    }
   }
 
   // ─────────────────────────── pasos ───────────────────────────
@@ -127,11 +214,35 @@ public class GestionCuenta implements Task {
     EvidenciaUtils.registrarCaptura("No se encontró el botón cerrar menú (iv_close).");
   }
 
+  private <T extends Actor> void cerrarPublicidad(T actor) {
+    if (visible(actor, BTN_CERRAR_PUBLICIDAD)) {
+      actor.attemptsTo(Click.on(BTN_CERRAR_PUBLICIDAD));
+      dormir(500);
+    }
+  }
+
   private <T extends Actor> void reiniciarYEntrar(T actor) {
     AppReset.reiniciarApp(actor);
     esperarSplash(actor);
-    actor.attemptsTo(PreparacionApp.preparar());
+    prepararArranque(actor); // cierra la secuencia de pantallas tras el reinicio
     actor.attemptsTo(IngresoSuperApp.ingresoSuperApp());
+  }
+
+  /** Barrido acotado de pantallas de arranque tras un reinicio (carrusel, condiciones, permiso). */
+  private <T extends Actor> void prepararArranque(T actor) {
+    long fin = System.currentTimeMillis() + 20_000L;
+    for (int i = 0; i < 8 && System.currentTimeMillis() < fin; i++) {
+      String xml = pageSource(actor);
+      if (esHomeLogueado(xml) || esRelogin(xml)) {
+        return; // ya salimos de las pantallas de arranque
+      }
+      if (hayPantallaArranque(xml)) {
+        actor.attemptsTo(PreparacionApp.preparar());
+        dormir(600);
+      } else {
+        dormir(800);
+      }
+    }
   }
 
   private <T extends Actor> void esperarSplash(T actor) {
@@ -145,40 +256,7 @@ public class GestionCuenta implements Task {
     dormir(1500);
   }
 
-  private <T extends Actor> void esperarEstado(T actor) {
-    long fin = System.currentTimeMillis() + 12000;
-    while (System.currentTimeMillis() < fin) {
-      if (haySesion(actor)
-          || visible(actor, LBL_INICIAR_SESION)
-          || visible(actor, LBL_NOS_ALEGRA_TENERTE_DE_VUELTA)) {
-        return;
-      }
-      dormir(500);
-    }
-  }
-
-  /** Sesión activa = home logueado (encabezado del usuario o "Tus servicios favoritos"). */
-  private <T extends Actor> boolean haySesion(T actor) {
-    if (visible(actor, LBL_ENCABEZADO_USUARIO)) {
-      return true;
-    }
-    try {
-      if (visible(actor, LBL_TUS_SERVICIOS_FAVORITOS)) {
-        String t = Text.of(LBL_TUS_SERVICIOS_FAVORITOS).viewedBy(actor).asString();
-        return t != null && t.contains("Tus servicios favoritos");
-      }
-    } catch (Exception ignore) {
-      // no logueado
-    }
-    return false;
-  }
-
-  private <T extends Actor> void cerrarPublicidad(T actor) {
-    if (visible(actor, BTN_CERRAR_PUBLICIDAD)) {
-      actor.attemptsTo(Click.on(BTN_CERRAR_PUBLICIDAD));
-      dormir(500);
-    }
-  }
+  // ─────────────────────────── comparación de nombre ───────────────────────────
 
   private boolean coincideNombre(String actual, String objetivo) {
     String a = norm(actual);
@@ -190,7 +268,9 @@ public class GestionCuenta implements Task {
   }
 
   private String norm(String s) {
-    return s == null ? "" : s.trim().toLowerCase().replaceAll(",", " ").replaceAll("\\s+", " ").trim();
+    return s == null
+        ? ""
+        : s.trim().toLowerCase().replaceAll(",", " ").replaceAll("\\s+", " ").trim();
   }
 
   // ─────────────────────────── utilidades ───────────────────────────

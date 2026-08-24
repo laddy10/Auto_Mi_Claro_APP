@@ -165,13 +165,18 @@ public class LoginPage {
                   .locatedBy(
                           "//*[contains(@text,'Ingresar con otra cuenta')"
                                   + " or contains(@text,'Iniciar sesión con otra cuenta')]");
-
   public static final Target OPCION_CORREO =
           Target.the("Opción Correo electrónico").locatedBy("//*[@text='Correo electrónico']");
-
   public static final Target PANTALLA_CONTRASENA =
           Target.the("Pantalla de contraseña")
                   .locatedBy(
                           "//*[contains(@text,'Ingresa con tu') and contains(@text,'contraseña')"
                                   + " or contains(@text,'Olvidé la contraseña')]");
+
+  public static final Target BTN_ACEPTAR_TXT =
+          Target.the("Botón Aceptar (condiciones / permiso ubicación)")
+                  .locatedBy("//*[contains(@text,'Aceptar') or contains(@text,'ACEPTAR')]");
+  public static final Target BTN_OMITIR_TXT =
+          Target.the("Botón Omitir (carrusel / publicidad)")
+                  .locatedBy("//*[contains(@text,'Omitir') or contains(@text,'OMITIR')]");
 }
