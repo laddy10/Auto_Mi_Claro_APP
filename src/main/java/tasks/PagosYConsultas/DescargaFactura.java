@@ -92,7 +92,6 @@ public class DescargaFactura implements Task {
 
     EvidenciaUtils.registrarCaptura(paso6);
   }
-
   private <T extends Actor> boolean isVisible(T actor, Target element) {
     return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
   }

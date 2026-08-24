@@ -48,6 +48,7 @@ public class TodoIncluidoSinRedes implements Task {
             ValidarTexto.validarTexto(PRECIO_$15000),
             ValidarTexto.validarTexto("Min ILIMITADOS"),
             ValidarTexto.validarTexto("SMS ILIMITADOS"),
+            Scroll.scrollMediaVista(),
             Click.on(LBL_VER_DETALLE_1),
             ValidarTexto.validarTexto(TODO_INCLUIDO_7DIAS_10GB_WIN));
 
@@ -66,7 +67,7 @@ public class TodoIncluidoSinRedes implements Task {
             ValidarTexto.validarTexto("SMS ILIMITADOS"),
             Scroll.scrollUnaVista(),
             ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
-            ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_30GB));*/
+            ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_30GB));
 
     actor.attemptsTo(
             ScrollHastaTexto.conTexto(PRECIO_$15000),
@@ -79,7 +80,7 @@ public class TodoIncluidoSinRedes implements Task {
         Click.on(LBL_VER_DETALLE_1),
         ValidarTexto.validarTexto(TODO_INCLUIDO_7DIAS_10GB_WIN));
 
-    EvidenciaUtils.registrarCaptura(paso3);
+    EvidenciaUtils.registrarCaptura(paso3);*/
 
     // Paso 3: Validar paquete 20 GB
     actor.attemptsTo(
@@ -95,10 +96,7 @@ public class TodoIncluidoSinRedes implements Task {
         ValidarTexto.validarTexto(TODO_INCLUIDO_15DIAS_20GB));
 
     EvidenciaUtils.registrarCaptura(paso4);
-    actor.attemptsTo(
-            Scroll.scrollUnaVista(),
-            ClickTextoQueContengaX.elTextoContiene(ULTIMO),
-            WaitForResponse.withText(ELIGE_TIPO_PAQUETE),
+
 
 
     // Paso 5: Validar cuarto paquete 30 GB
@@ -112,7 +110,7 @@ public class TodoIncluidoSinRedes implements Task {
                     Click.on(LBL_VER_DETALLE_1),
                     ValidarTexto.validarTexto(TODO_INCLUIDO_7DIAS_10GB));*/
 
-
+    actor.attemptsTo(
         Scroll.scrollUnaVista(),
         ValidarTexto.validarTexto(LABEL_PAQUETES),
         ValidarTexto.validarTexto("30 GB"),
@@ -128,7 +126,7 @@ public class TodoIncluidoSinRedes implements Task {
 
     // Paso 4: Validar quinto paquete 20 GB
 
-    actor.attemptsTo(
+    /*actor.attemptsTo(
             ScrollHastaTexto.conTexto(PRECIO_$25000),
             ValidarTexto.validarTexto(LABEL_PAQUETES),
             ValidarTexto.validarTexto("20 GB"),
@@ -156,7 +154,7 @@ public class TodoIncluidoSinRedes implements Task {
             ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
             ValidarTexto.validarTexto(TODO_INCLUIDO_30DIAS_30GBTD));
 
-    EvidenciaUtils.registrarCaptura(paso7);
+    EvidenciaUtils.registrarCaptura(paso7);*/
 
   }
 

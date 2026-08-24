@@ -1,10 +1,12 @@
 package tasks.MediosDePagos;
 
 import interactions.Click.ClickTextoQueContengaX;
+import interactions.Scroll.Scroll;
 import interactions.Scroll.ScrollHastaTexto;
 import interactions.validations.ValidarTexto;
 import interactions.wait.WaitElement;
 import interactions.wait.WaitFor;
+import interactions.wait.WaitForResponse;
 import interactions.wait.WaitForTextContains;
 import models.User;
 import net.serenitybdd.screenplay.Actor;
@@ -35,15 +37,16 @@ public class PSEPagaTuFactua implements Task {
         EvidenciaUtils.registrarCaptura(paso1);
 
         actor.attemptsTo(
-                ValidarTexto.validarTexto(PAGO_PSE),
+                ValidarTexto.validarTexto(REALIZA_PAGO_EN_LINEA),
                 Click.on(DOPDOWN_ENTIDAD_BANCARIA),
                 WaitFor.aTime(2000),
-                ScrollHastaTexto.conTexto(BANCO_AV_VILLAS),
-                ClickTextoQueContengaX.elTextoContiene(BANCO_AV_VILLAS),
-                Enter.theValue(user.getEmail()).into(TXT_ESCRIBE_CORREO),
-                ClickTextoQueContengaX.elTextoContiene(IR_A_PSE),
-                WaitFor.aTime(6000),
-                ValidarTexto.validarTexto(INGRESO_BANCO)
+                ScrollHastaTexto.conTexto(BANCO_POPULAR),
+                ClickTextoQueContengaX.elTextoContiene(BANCO_POPULAR),
+                //Enter.theValue(user.getEmail()).into(TXT_ESCRIBE_CORREO),
+                Scroll.scrollUnaVista(),
+                ClickTextoQueContengaX.elTextoContiene(PAGAR),
+                WaitForResponse.withText(INGRESO_BANCO1),
+                ValidarTexto.validarTexto(INGRESO_BANCO1)
         );
 
     }

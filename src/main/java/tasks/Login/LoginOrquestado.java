@@ -8,13 +8,16 @@ import static utils.Constants.*; // ← aquí tienes tus textos (INICIAR_SESION,
                                  // CONTINUAR, PERFIL, CERRAR_SESION, SI_CERRAR, etc.)
 
 import interactions.Click.ClickElementByText;
+import interactions.input.IngresarPasswordSeguro;
 import interactions.validations.ValidateInformationText;
+import interactions.wait.WaitFor;
 import interactions.wait.WaitForResponse;
 import models.User;
 import net.serenitybdd.screenplay.*;
 import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.matchers.WebElementStateMatchers;
 import net.serenitybdd.screenplay.questions.Presence;
+import net.serenitybdd.screenplay.targets.Target;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
@@ -118,7 +121,7 @@ public class LoginOrquestado implements Task {
             .forNoMoreThan(10)
             .seconds(),
         Click.on(TXT_USERNAME),
-        Enter.theValue(user.getEmail()).into(TXT_USERNAME));
+            Enter.theValue(user.getEmail()).into(TXT_USERNAME));
     EvidenciaUtils.registrarCaptura("Correo digitado: " + (user.getEmail()));
 
     EvidenciaUtils.registrarCaptura("Acción: Continuar (correo)");
@@ -129,8 +132,12 @@ public class LoginOrquestado implements Task {
         WaitUntil.the(TXT_PASSWORD, WebElementStateMatchers.isEnabled())
             .forNoMoreThan(10)
             .seconds(),
-        Enter.theValue(user.getPassword()).into(TXT_PASSWORD));
+            IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()));
     EvidenciaUtils.registrarCaptura("Contraseña digitada: ******** (oculta)");
+
+    if (isVisibleFast(actor, LBL_SESION_ABIERTA)) {
+      actor.attemptsTo(ClickElementByText.clickElementByText(CONTINUAR), WaitFor.aTime(6000));
+    }
 
     EvidenciaUtils.registrarCaptura("Acción: Continuar (contraseña)");
     actor.attemptsTo(
@@ -151,7 +158,7 @@ public class LoginOrquestado implements Task {
             .forNoMoreThan(10)
             .seconds(),
         Click.on(TXT_USERNAME),
-        Enter.theValue(user.getCedula()).into(TXT_USERNAME));
+            Enter.theValue(user.getCedula()).into(TXT_USERNAME));
     EvidenciaUtils.registrarCaptura("Documento digitado: " + (user.getCedula()));
 
     EvidenciaUtils.registrarCaptura("Acción: Continuar (documento)");
@@ -162,7 +169,7 @@ public class LoginOrquestado implements Task {
         WaitUntil.the(TXT_PASSWORD, WebElementStateMatchers.isEnabled())
             .forNoMoreThan(10)
             .seconds(),
-        Enter.theValue(user.getPassword()).into(TXT_PASSWORD));
+            IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()));
     EvidenciaUtils.registrarCaptura("Contraseña digitada: ******** (oculta)");
 
     EvidenciaUtils.registrarCaptura("Acción: Continuar (contraseña)");
@@ -279,6 +286,13 @@ public class LoginOrquestado implements Task {
           return;
         }
       }
+    }
+  }
+  private <T extends Actor> boolean isVisibleFast(T actor, Target element) {
+    try {
+      return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
+    } catch (Exception e) {
+      return false;
     }
   }
 }
