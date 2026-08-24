@@ -1,14 +1,12 @@
 package stepDefinitions;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
-import static userinterfaces.AtencionClienteSoportePage.BTN_SI_PERMITIR;
 import static userinterfaces.PagosYConsultasPage.*;
 import static utils.Constants.*;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import hooks.ReportHooks;
-import interactions.Click.ClickTextoCercanoA;
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.Scroll;
 import interactions.Scroll.ScrollHastaTexto;
@@ -20,12 +18,9 @@ import interactions.wait.WaitForResponse;
 import java.util.List;
 import models.User;
 import net.serenitybdd.core.pages.WebElementFacade;
-import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.questions.Presence;
 import tasks.MediosDePagos.Bancolombia;
-import tasks.MediosDePagos.PSEPagaTuFactua;
-import tasks.MediosDePagos.TarjetaCreditoDebito;
+import tasks.MediosDePagos.PSEPagaTuFactura;
 import tasks.MediosDePagos.TarjetasPagaTuFactura;
 import tasks.PagosYConsultas.*;
 import tasks.PagosYConsultas.AdquirirProductos.MiniprogramaAdquirirProductos;
@@ -37,7 +32,6 @@ import tasks.PagosYConsultas.eSIM.MiniprogramaEsim;
 import tasks.PagosYConsultas.eSIM.SeleccionarLineaPostEsim;
 import tasks.PagosYConsultas.eSIM.ValidarOpcionesEsim;
 import tasks.Prepago.RecargasyPaquetes.SeleccionLineaPrepago;
-import utils.AndroidObject;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
@@ -510,8 +504,8 @@ public class PagosYConsultasDefinitions {
   public void botonPseNequi() {
     theActorInTheSpotlight().attemptsTo(
             Click.on(BTN_PSE_NEQUI),
-            WaitFor.aTime(2000)
-            //Click.on(BTN_PAGAR_PAGA_FACTURA)
+            WaitFor.aTime(2000),
+            Click.on(BTN_PAGAR)
     );
   }
   @And("^SELECCIONA METODO DE PAGO TARJETA$")
@@ -525,14 +519,14 @@ public class PagosYConsultasDefinitions {
   public void botonPagoBancolombia() {
     theActorInTheSpotlight().attemptsTo(
             ClickTextoQueContengaX.elTextoContiene(BOTON_BANCOLOMBIA),
-            WaitFor.aTime(2000)
-            //Click.on(BTN_PAGAR_PAGA_FACTURA)
+            WaitFor.aTime(2000),
+            Click.on(BTN_PAGAR)
     );
   }
 
   @Then("^VALIDA REDIRECCION A PSE$")
   public void validaDireccionamientoPSEPagaTuFactura() {
-    theActorInTheSpotlight().attemptsTo(PSEPagaTuFactua.validarRedireccionPSEPagaTuFactura());
+    theActorInTheSpotlight().attemptsTo(PSEPagaTuFactura.validarRedireccionPSEPagaTuFactura());
   }
 
   @Then("^VALIDA REDIRECCION A BANCOLOMBIA$")

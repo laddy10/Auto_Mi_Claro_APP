@@ -90,7 +90,7 @@ public class MediosPagoPage {
 
   public static final Target DOPDOWN_ENTIDAD_BANCARIA =
           Target.the("Desplegar entidad bancaria")
-                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View[2]/android.view.View[2]/android.view.View/android.view.View[1]/android.view.View/android.view.View[2]"));
+                  .located(By.xpath("//*[@class='android.widget.EditText' and (./preceding-sibling::* | ./following-sibling::*)[@class='android.widget.Image']]"));
 
   public static final Target TXT_ESCRIBE_CORREO =
         Target.the("Textbox escribe correo electrónico")
