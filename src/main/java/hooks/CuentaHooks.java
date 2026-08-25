@@ -3,6 +3,7 @@ package hooks;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import utils.ContextoST;
 import utils.CuentaManager;
 
 /**
@@ -21,6 +22,9 @@ public class CuentaHooks {
 
   @After(order = 0)
   public void limpiarCuenta(Scenario scenario) {
+    // El registro va ANTES del reset: reset() devuelve la cuenta activa a "principal"
+    // y dejaria a ContextoST informando la cuenta equivocada.
+    ContextoST.registrarEscenario(scenario);
     CuentaManager.reset();
   }
 }
