@@ -27,7 +27,7 @@ public class EnviarFacturaPorCorreo implements Task {
     EvidenciaUtils.registrarCaptura(paso1);
     // Seleccionar "Factura por correo electrónico"
     actor.attemptsTo(
-        ScrollHastaTexto.conTexto(ULTIMOS_PAGOS),
+        ScrollHastaTexto.conTexto(FACTURA_POR_CORREO_ELECTRONICO),
         ClickTextoQueContengaX.elTextoContiene(FACTURA_POR_CORREO_ELECTRONICO),
         WaitForResponse.withText(POSTPAGO));
 

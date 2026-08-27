@@ -10,6 +10,7 @@ import static utils.Constants.*;
 
 import interactions.Click.ClickElementByText;
 import interactions.Click.ClickTextoQueContengaX;
+import interactions.Scroll.ScrollHastaTexto;
 import interactions.validations.ValidarCantidadFacturas;
 import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;
@@ -43,6 +44,7 @@ public class DescargaFactura implements Task {
 
     // Seleccionar "Descarga tu factura"
     actor.attemptsTo(
+            ScrollHastaTexto.conTexto(DESCARGA_TU_FACTURA),
         ClickTextoQueContengaX.elTextoContiene(DESCARGA_TU_FACTURA),
         WaitForResponse.withText(POSTPAGO));
 

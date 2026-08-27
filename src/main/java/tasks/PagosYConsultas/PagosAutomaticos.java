@@ -30,6 +30,7 @@ public class PagosAutomaticos implements Task {
 
     // Seleccionar "Pagos automáticos"
     actor.attemptsTo(
+            ScrollHastaTexto.conTexto(PAGOS_AUTOMATICOS),
         ClickTextoQueContengaX.elTextoContiene(PAGOS_AUTOMATICOS),
         WaitForResponse.withText(SELECCIONA_QUE_SERVICIO_DESEAS_INSCRIBIR));
 

@@ -30,7 +30,7 @@ public class DetalleUltimaFacturacion implements Task {
   public <T extends Actor> void performAs(T actor) {
 
     // Paso 1: Llegar a la sección de últimos pagos
-    actor.attemptsTo(ScrollHastaTexto.conTexto(ULTIMOS_PAGOS));
+    actor.attemptsTo(ScrollHastaTexto.conTexto(DETALLE_ULTIMA_FACTURACION));
     EvidenciaUtils.registrarCaptura(paso1);
 
     // Seleccionar "Detalle última facturación"
