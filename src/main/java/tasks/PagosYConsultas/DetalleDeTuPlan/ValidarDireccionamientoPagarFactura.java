@@ -4,6 +4,7 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static userinterfaces.PagosYConsultasPage.LBL_FECHA_PAGO_OPORTUNO;
 import static utils.Constants.*;
 
+import interactions.Scroll.Scroll;
 import interactions.validations.ValidarTexto;
 import interactions.validations.ValidarTextoQueContengaX;
 import java.util.List;
@@ -29,6 +30,7 @@ public class ValidarDireccionamientoPagarFactura implements Task {
         ValidarTextoQueContengaX.elTextoContiene(VALOR_A_PAGAR),
         ValidarTexto.validarTexto(PAGAR_FACTURA_BTN),
         ValidarTexto.validarTexto(PAGA_Y_CONOCE_TUS_SERVICIOS),
+            Scroll.scrollUnaVista(),
         ValidarTexto.validarTexto(DESCARGA_TU_FACTURA),
         ValidarTexto.validarTexto(PAGOS_AUTOMATICOS));
 

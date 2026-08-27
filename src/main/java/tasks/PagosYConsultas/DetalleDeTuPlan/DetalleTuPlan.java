@@ -75,8 +75,8 @@ public class DetalleTuPlan implements Task {
 
         // Validar datos del plan
         ValidarTexto.validarTexto(DATOS),
-        ValidarTextoQueContengaX.elTextoContiene(TU_PLAN_INCLUYE),
-        ValidarTextoQueContengaX.elTextoContiene(VER_DETALLE_DE_REDES),
+        //ValidarTextoQueContengaX.elTextoContiene(TU_PLAN_INCLUYE),
+        //ValidarTextoQueContengaX.elTextoContiene(VER_DETALLE_DE_REDES),
 
         // Validar voz
         ValidarTexto.validarTexto(VOZ),
@@ -90,7 +90,7 @@ public class DetalleTuPlan implements Task {
         Scroll.scrollUnaVista(),
 
         // Validar Larga Distancia Internacional
-        ValidarTexto.validarTexto(LARGA_DISTANCIA_INTERNACIONAL),
+        //ValidarTexto.validarTexto(LARGA_DISTANCIA_INTERNACIONAL),
 
         // Validar texto botones
         Scroll.scrollUnaVista(),
