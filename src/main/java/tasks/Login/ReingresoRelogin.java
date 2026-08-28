@@ -153,6 +153,7 @@ public class ReingresoRelogin implements Task {
    * confirma la entrada al home. Detecta por page source para no depender del implicitWait.
    */
   private <T extends Actor> void esperarIngreso(T actor) {
+    actor.attemptsTo(CerrarTiendaClaro.cerrarTiendaClaro());
     long fin = System.currentTimeMillis() + ESPERA_INGRESO_MS;
     while (System.currentTimeMillis() < fin) {
       String xml = pageSource(actor);

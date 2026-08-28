@@ -36,6 +36,8 @@ public class IngresoSuperApp implements Task {
   @Override
   public <T extends Actor> void performAs(T actor) {
 
+    System.out.println("pasa por aquí 1 🚩🚩🚩");
+
     // Cierra el banner publicitario si aparece, antes de cualquier otra validación
     maybeCerrarPublicidad(actor);
 
@@ -43,7 +45,7 @@ public class IngresoSuperApp implements Task {
     if (isVisibleFast(actor, LBL_SESION_ABIERTA)) {
       actor.attemptsTo(ClickElementByText.clickElementByText(CONTINUAR), WaitFor.aTime(6000));
     }
-
+    System.out.println("pasa por aquí 2 🚩🚩🚩");
     if (isVisible(actor, LBL_TUS_SERVICIOS_FAVORITOS)) {
       String encabezado = LBL_TUS_SERVICIOS_FAVORITOS.resolveFor(actor).getText();
 
@@ -57,7 +59,7 @@ public class IngresoSuperApp implements Task {
         EvidenciaUtils.registrarCaptura("Usuario sin sesión, se inicia login");
       }
     }
-
+    System.out.println("pasa por aquí 3 🚩🚩🚩");
     // 2. Elegir la ruta según prioridad usando if / else if
     if (isVisible(actor, LBL_SESION_CERRADA_POR_SEGURIDAD)) {
       EvidenciaUtils.registrarCaptura("Ruta: sesión cerrada por seguridad detectada");
@@ -68,26 +70,26 @@ public class IngresoSuperApp implements Task {
       EvidenciaUtils.registrarCaptura("Ruta: botón iniciar sesión visible");
       actor.attemptsTo(Click.on(LBL_INICIAR_SESION));
       loginViaIniciar(actor);
-
+      System.out.println("pasa por aquí 4 🚩🚩🚩");
     } else if (isVisible(actor, LBL_NOS_ALEGRA_TENERTE_DE_VUELTA)) {
       EvidenciaUtils.registrarCaptura("Ruta: mensaje de bienvenida detectado");
       loginViaIniciar(actor);
-
+      System.out.println("pasa por aquí 5 🚩🚩🚩");
     } else if (isVisible(actor, BTN_OTROS_METODOS_INGRESO) && isValidEmail(user.getEmail())) {
       EvidenciaUtils.registrarCaptura("Ruta: otros métodos + email válido");
       loginConEmail(actor);
-
+      System.out.println("pasa por aquí 6 🚩🚩🚩");
     } else if (isVisible(actor, TXT_USERNAME) && isValidCedula(user.getCedula())) {
       EvidenciaUtils.registrarCaptura("Ruta: campo usuario visible + cédula válida");
       loginConCedula(actor);
-
+      System.out.println("pasa por aquí 7 🚩🚩🚩");
     } else {
       EvidenciaUtils.registrarCaptura("Ruta: fallback - login desde cero completo");
       loginDesdeCeroCompleto(actor);
     }
 
     // 3. Validación final de que el login fue exitoso
-
+    System.out.println("pasa por aquí 8 🚩🚩🚩");
     actor.attemptsTo(ValidarTextoQueContengaX.elTextoContiene(TUS_SERVICIOS_FAVORITOS));
     EvidenciaUtils.registrarCaptura(paso);
   }
@@ -100,6 +102,7 @@ public class IngresoSuperApp implements Task {
   }
   /** Ruta común para iniciar sesión + validar login. */
   private <T extends Actor> void loginViaIniciar(T actor) {
+    System.out.println("pasa por aquí 11 🚩🚩🚩");
     iniciarSesion(actor);
     validarLogin(actor);
   }
@@ -113,6 +116,7 @@ public class IngresoSuperApp implements Task {
   }
 
   private <T extends Actor> void loginConEmail(T actor) {
+    System.out.println("pasa por aquí 15 🚩🚩🚩");
     actor.attemptsTo(
         ClickElementByText.clickElementByText(OTROS_METODOS_DE_INGRESO),
         ClickElementByText.clickElementByText(CORREO_ELECTRONICO),
@@ -153,10 +157,11 @@ public class IngresoSuperApp implements Task {
   }
 
   private <T extends Actor> void iniciarSesion(T actor) {
+    System.out.println("pasa por aquí 12 🚩🚩🚩");
     if (isVisible(actor, LBL_INICIAR_SESION)) {
       actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(INICIAR_SESION));
     }
-
+    System.out.println("pasa por aquí 13 🚩🚩🚩");
     if (isVisible(actor, BTN_CONTINUAR)) {
       actor.attemptsTo(
           ClickTextoQueContengaX.elTextoContiene(CONTINUAR),
@@ -166,6 +171,7 @@ public class IngresoSuperApp implements Task {
       if (isVisibleFast(actor, LBL_SESION_ABIERTA)) {
         actor.attemptsTo(ClickElementByText.clickElementByText(CONTINUAR), WaitFor.aTime(6000));
       }
+      System.out.println("pasa por aquí 14 🚩🚩🚩");
     } else {
       loginConEmail(actor);
     }
@@ -177,6 +183,7 @@ public class IngresoSuperApp implements Task {
     } else {
       actor.attemptsTo(ClickElementByText.clickElementByText(ACEPTAR_2));
     }
+    System.out.println("pasa por aquí 10 🚩🚩🚩");
   }
 
   private <T extends Actor> void aceptarPermisosIniciales(T actor) {
@@ -219,6 +226,9 @@ public class IngresoSuperApp implements Task {
   }
 
   private <T extends Actor> void validarLogin(T actor) {
+    // EMERGENCIA: cerrar Tienda Claro si se abrió sobre el home
+    actor.attemptsTo(CerrarTiendaClaro.cerrarTiendaClaro());
+    System.out.println("pasa por aquí 16 🚩🚩🚩");
     // Si ya está logueado, no continuar
     if (isUserAlreadyLoggedIn(actor)) {
       return;

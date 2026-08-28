@@ -179,4 +179,13 @@ public class LoginPage {
   public static final Target BTN_OMITIR_TXT =
           Target.the("Botón Omitir (carrusel / publicidad)")
                   .locatedBy("//*[contains(@text,'Omitir') or contains(@text,'OMITIR')]");
+
+  // === EMERGENCIA: Tienda Claro que se abre sobre el home con sesión iniciada ===
+  public static final Target LBL_TIENDA_CLARO =
+          Target.the("Texto Tecnología que te transforma (Tienda Claro)")
+                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.widget.TextView[3]"));
+
+  public static final Target BTN_CERRAR_TIENDA_CLARO =
+          Target.the("Botón X para cerrar la Tienda Claro")
+                  .located(By.xpath("//android.widget.TextView[@content-desc=\"Cerrar\"]"));
 }
