@@ -435,7 +435,7 @@ Feature: Ingresar al modulo pagos y consultas
     And   INGRESA AL PORTAL DE PAGA TU FACTURA
     And   VALIDAR REDIRECCION BOTON PAGAR FACTURA
 
-  @SA091 @cuenta_secundaria
+  @SA091
   Scenario: Ingresar a paga tu factura y Validar redireccionamiento a medio de pago PSE
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -445,7 +445,7 @@ Feature: Ingresar al modulo pagos y consultas
     And   SELECCIONA METODO DE PAGO PSE
     Then VALIDA REDIRECCION A PSE
 
-  @SA092 @cuenta_secundaria
+  @SA092
   Scenario: Ingresar a paga tu factura y Validar redireccionamiento a medio de pago con tarjetas
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
@@ -455,7 +455,7 @@ Feature: Ingresar al modulo pagos y consultas
     And   SELECCIONA METODO DE PAGO TARJETA
     Then  VALIDA REDIRECCION A PAGO CON TARJETA
 
-  @SA093 @cuenta_secundaria
+  @SA093
   Scenario: Ingresar a paga tu factura y Validar redireccionamiento a medio de pago Bancolombia
     Given EL USUARIO ABRE LA SUPER APP
     When  REALIZA EL INGRESO
