@@ -35,7 +35,7 @@ public class PSEPagaTuFactura implements Task {
                 WaitFor.aTime(2000),
                 ScrollHastaTexto.conTexto(BANCO_POPULAR),
                 ClickTextoQueContengaX.elTextoContiene(BANCO_POPULAR),
-                WaitFor.aTime(2000),
+                WaitFor.aTime(4000),
                 Enter.theValue(user.getEmail()).into(TXT_ESCRIBE_CORREO),
                 Scroll.scrollUnaVista(),
                 ClickTextoQueContengaX.elTextoContiene(IR_A_PSE),

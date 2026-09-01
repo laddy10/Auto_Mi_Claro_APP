@@ -31,6 +31,7 @@ public class AdministrarAplicacionesNoPermitido implements Task {
     EvidenciaUtils.registrarCaptura(paso2);
 
     actor.attemptsTo(
+
         ValidarTexto.validarTexto(TU_PLAN_NO_INCLUYE_ESTA_FUNCIONALIDAD),
         ValidarTexto.validarTexto(ACEPTAR_2),
         ClickTextoQueContengaX.elTextoContiene(ACEPTAR_2));

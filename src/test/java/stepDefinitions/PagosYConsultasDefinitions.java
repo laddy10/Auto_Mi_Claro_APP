@@ -160,7 +160,7 @@ public class PagosYConsultasDefinitions {
   public void validaDetalleTuPlan() {
     theActorInTheSpotlight().attemptsTo(DetalleTuPlan.validarDetalleTuPlan());
 
-    ReportHooks.setLinea(user.getNumero());
+    ReportHooks.setLinea(user.getNumeroFamiliayAmigos());
   }
 
   @Then("^VALIDA DETALLE DE TU PLAN PARA LINEA QUE NO PERMITE COMPRAR APLICACIONES$")

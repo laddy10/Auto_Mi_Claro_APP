@@ -25,7 +25,7 @@ import utils.TestDataProvider;
 public class DetalleTuPlan implements Task {
   private static final User user = TestDataProvider.getRealUser();
   private static final String paso1 = "Seleccionar Detalle de tu plan";
-  private static final String paso2 = "Seleccionar línea postpago " + user.getNumero();
+  private static final String paso2 = "Seleccionar línea postpago " + user.getNumeroFamiliayAmigos();
   private static final String paso3 = "Validar versión de miniprograma";
   private static final String paso4 = "Validar información detalle del plan";
   private static final String paso5 = "Validar opciones disponibles";
@@ -43,10 +43,10 @@ public class DetalleTuPlan implements Task {
     EvidenciaUtils.registrarCaptura(paso2);
 
     // Seleccionar línea postpago
-    AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumero() + " " + VER_DETALLE);
+    AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumeroFamiliayAmigos() + " " + VER_DETALLE);
 
     actor.attemptsTo(
-        ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
+        ClickTextoQueContengaX.elTextoContiene(user.getNumeroFamiliayAmigos()),
         WaitForResponse.withText(DETALLE_DE_TU_PLAN));
 
     // Validar versión de miniprograma

@@ -5,6 +5,7 @@ import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarTexto;
+import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitForResponse;
 import models.User;
 import net.serenitybdd.screenplay.Actor;
@@ -27,16 +28,15 @@ public class AplicacionesElegibles implements Task {
 
     actor.attemptsTo(
         ClickTextoQueContengaX.elTextoContiene(APLICACIONES_ELEGIBLES),
-        WaitForResponse.withText(COMPRAR_APLICACIONES));
+        WaitForResponse.withText(COMPRAR_APLICACIONES)
+    );
 
     // VALIDAR DIRECCIONAMIENTO APLICACIONES ELEGIBLES
     EvidenciaUtils.registrarCaptura(paso2);
 
     actor.attemptsTo(
         ValidarTexto.validarTexto(APLICACIONES_ELEGIBLES),
-        //  ValidarTextoQueContengaX.elTextoContiene(user.getNumero()),
-        ValidarTexto.validarTexto(COMPRAR_APLICACIONES),
-        ValidarTexto.validarTexto(ADMINISTRA_LAS_APLICACIONES_INCLUIDAS));
+        ValidarTextoQueContengaX.elTextoContiene(user.getNumeroFamiliayAmigos()));
   }
 
   public static Performable ingresarYValidar() {
