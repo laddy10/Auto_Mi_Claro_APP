@@ -1,5 +1,6 @@
 package userinterfaces;
 
+import io.appium.java_client.MobileBy;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 
@@ -94,7 +95,7 @@ public class MediosPagoPage {
 
   public static final Target TXT_ESCRIBE_CORREO =
         Target.the("Textbox escribe correo electrónico")
-                .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[3]/android.widget.EditText"));
+                .located(By.className("android.widget.EditText"));
 
   public static final Target TXT_NUMERO_TARJETA2 =
           Target.the("Campo número de tarjeta")
@@ -121,4 +122,8 @@ public class MediosPagoPage {
   public static final Target TXT_NUMERO_DOCUMENTO2 =
           Target.the("Campo número documento")
                   .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText"));
+  public static final Target TXT_ESCRIBE_CORREO_PSE =
+          Target.the("Textbox correo electrónico PSE")
+                  .located(MobileBy.AndroidUIAutomator(
+                          "new UiSelector().resourceId(\"pseEmail\")"));
 }

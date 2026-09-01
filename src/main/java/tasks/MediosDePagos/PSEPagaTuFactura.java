@@ -4,6 +4,7 @@ import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.Scroll;
 import interactions.Scroll.ScrollHastaTexto;
 import interactions.validations.ValidarTexto;
+import interactions.wait.WaitElement;
 import interactions.wait.WaitFor;
 import interactions.wait.WaitForResponse;
 import models.User;
@@ -36,7 +37,8 @@ public class PSEPagaTuFactura implements Task {
                 ScrollHastaTexto.conTexto(BANCO_POPULAR),
                 ClickTextoQueContengaX.elTextoContiene(BANCO_POPULAR),
                 WaitFor.aTime(4000),
-                Enter.theValue(user.getEmail()).into(TXT_ESCRIBE_CORREO),
+                WaitElement.isVisible(TXT_ESCRIBE_CORREO_PSE),
+                Enter.theValue(user.getEmail()).into(TXT_ESCRIBE_CORREO_PSE),
                 Scroll.scrollUnaVista(),
                 ClickTextoQueContengaX.elTextoContiene(IR_A_PSE),
                 WaitForResponse.withText(INGRESO_BANCO1),
