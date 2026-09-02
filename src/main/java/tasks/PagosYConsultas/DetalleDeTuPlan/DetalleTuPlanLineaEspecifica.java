@@ -23,7 +23,7 @@ import utils.EvidenciaUtils;
 
 public class DetalleTuPlanLineaEspecifica implements Task {
 
-  private static final String NUMERO_LINEA = "310 263 3858";
+  private static final String NUMERO_LINEA = "310 263 5941";
   private static final String paso1 = "Seleccionar Detalle de tu plan";
   private static final String paso2 = "Seleccionar línea postpago " + NUMERO_LINEA;
   private static final String paso3 = "Validar versión de miniprograma";

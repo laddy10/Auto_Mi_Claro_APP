@@ -35,8 +35,7 @@ public class AplicacionesElegibles implements Task {
     EvidenciaUtils.registrarCaptura(paso2);
 
     actor.attemptsTo(
-        ValidarTexto.validarTexto(APLICACIONES_ELEGIBLES),
-        ValidarTextoQueContengaX.elTextoContiene(user.getNumeroFamiliayAmigos()));
+        ValidarTexto.validarTexto(APLICACIONES_ELEGIBLES));
   }
 
   public static Performable ingresarYValidar() {

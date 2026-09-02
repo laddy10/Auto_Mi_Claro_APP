@@ -236,6 +236,11 @@ public class PagosYConsultasDefinitions {
     theActorInTheSpotlight().attemptsTo(AplicacionesElegibles.ingresarYValidar());
   }
 
+  @And("INGRESA APLICACIONES ELEGIBLES PERMITIDO")
+  public void ingresaAplicacionesElegiblesPermitido() {
+    theActorInTheSpotlight().attemptsTo(AplicacionesElegiblesPermitido.ingresarYValidarPermitido());
+  }
+
   @And("INGRESA Y VALIDA COMPRAR APLICACIONES")
   public void ingresaYValidaComprarAplicaciones() {
     theActorInTheSpotlight().attemptsTo(ComprarAplicaciones.ingresarYValidar());

@@ -14,7 +14,7 @@ import utils.EvidenciaUtils;
 
 public class AdministrarAplicacionesIncluidasPermitido implements Task {
 
-  private static final String NUMERO_LINEA = "310 263 3858";
+  private static final String NUMERO_LINEA = "310 263 5941";
   private static final String paso1 = "Ingresar Administra las aplicaciones incluidas";
   private static final String paso2 = "Validar direccionamiento administrar aplicaciones";
 

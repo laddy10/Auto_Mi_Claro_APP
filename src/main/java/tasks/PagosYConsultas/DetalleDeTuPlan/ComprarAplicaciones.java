@@ -39,7 +39,6 @@ public class ComprarAplicaciones implements Task {
 
     actor.attemptsTo(
         ValidarTexto.validarTexto(APLICACIONES_ELEGIBLES),
-        ValidarTextoQueContengaX.elTextoContiene(user.getNumero()),
         ValidarTexto.validarTexto(APLICACIONES_ADICIONALES),
         ValidarTexto.validarTexto(GUARDAR));
 
