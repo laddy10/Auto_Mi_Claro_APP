@@ -188,4 +188,9 @@ public class LoginPage {
   public static final Target BTN_CERRAR_TIENDA_CLARO =
           Target.the("Botón X para cerrar la Tienda Claro")
                   .located(By.xpath("//android.widget.TextView[@content-desc=\"Cerrar\"]"));
+
+  public static final Target LBL_ENTRETENIMIENTO =
+          Target.the("Texto Hecho para ti (Entretenimiento)")
+                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView"));
+
 }

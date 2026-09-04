@@ -1,15 +1,17 @@
 package tasks.Login;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static userinterfaces.LoginPage.BTN_CERRAR_TIENDA_CLARO;
-import static userinterfaces.LoginPage.LBL_TIENDA_CLARO;
+import static userinterfaces.LoginPage.*;
+import static utils.Constants.MUNDO_CLARO;
 
 import interactions.Click.ClickElementById;
+import interactions.Click.ClickTextoQueContengaX;
 import interactions.comunes.Atras;
 import interactions.wait.WaitFor;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.questions.Presence;
 import net.serenitybdd.screenplay.targets.Target;
 import utils.AndroidObject;
@@ -23,13 +25,13 @@ import utils.EvidenciaUtils;
  */
 public class CerrarTiendaClaro extends AndroidObject implements Task {
 
-    private static final String IV_CLOSE = "com.clarocolombia.miclaro:id/iv_close";
     private static final int MAX_INTENTOS = 3;
     private static final String paso = "Se cierra la Tienda Claro para continuar el caso";
+    private static final String paso1 = "Se cierra la entretenimiento para continuar el caso";
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        if (!tiendaVisible(actor)) {
+        /*if (!tiendaVisible(actor)) {
             return; // No hay tienda: no interrumpe el flujo normal
         }
 
@@ -39,17 +41,37 @@ public class CerrarTiendaClaro extends AndroidObject implements Task {
                         Atras.irAtras(),
                         WaitFor.aTime(1500));
             } else {
-                // Botón X aún no renderizado; da un respiro y reintenta la detección
                 actor.attemptsTo(WaitFor.aTime(1000));
             }
         }
 
-        EvidenciaUtils.registrarCaptura(paso);
-    }
+        EvidenciaUtils.registrarCaptura(paso);*/
+
+        //Validación si direcciona a entetenimiento después de
+        if (!entetenimientoVisible(actor)) {
+            return; // No hay edirección a entretenimiento: no interrumpe el flujo normal
+        }
+
+        for (int intento = 1; intento <= MAX_INTENTOS && entetenimientoVisible(actor); intento++) {
+            if (isVisible(actor, LBL_ENTRETENIMIENTO)) {
+                actor.attemptsTo(
+                        ClickTextoQueContengaX.elTextoContiene(MUNDO_CLARO),
+                        WaitFor.aTime(1500));
+            } else {
+                actor.attemptsTo(WaitFor.aTime(1000));
+            }
+        }
+
+        EvidenciaUtils.registrarCaptura(paso1);
+}
 
     private <T extends Actor> boolean tiendaVisible(T actor) {
         return isVisible(actor, LBL_TIENDA_CLARO);
     }
+
+    private <T extends Actor> boolean entetenimientoVisible(T actor) {
+        return isVisible(actor, LBL_ENTRETENIMIENTO);
+}
 
     public <T extends Actor> boolean isVisible(T actor, Target element) {
         try {
