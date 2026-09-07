@@ -135,6 +135,10 @@ public class ReingresoRelogin implements Task {
     EvidenciaUtils.registrarCaptura("Contraseña digitada: ******** (oculta)");
     clickTextoSeguro(actor, CONTINUAR);
 
+    if (isVisibleFast(actor, LBL_INGRESO_BIOMETRICO)) {
+      actor.attemptsTo(ClickElementByText.clickElementByText("En otro momento"));
+    }
+
     // 5) Esperar el ingreso (maneja "sesión abierta en otro dispositivo" o ingreso directo).
     esperarIngreso(actor);
   }
@@ -312,6 +316,14 @@ public class ReingresoRelogin implements Task {
       Thread.sleep(ms);
     } catch (InterruptedException e) {
       Thread.currentThread().interrupt();
+    }
+  }
+
+  private <T extends Actor> boolean isVisibleFast(T actor, Target element) {
+    try {
+      return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
+    } catch (Exception e) {
+      return false;
     }
   }
 

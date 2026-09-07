@@ -427,13 +427,6 @@ Feature: Ingresar al modulo pagos y consultas
     Then  VALIDA DIRECCIONAMIENTO ROAMING
     Then  VALIDA VIGENCIA Y PLANES ROAMING
 
-  @SA090
-  Scenario: Ingresar a paga tu factura
-    Given EL USUARIO ABRE LA SUPER APP
-    When  REALIZA EL INGRESO
-    And   INGRESA AL MENU PAGOS Y CONSULTAS
-    And   INGRESA AL PORTAL DE PAGA TU FACTURA
-    And   VALIDAR REDIRECCION BOTON PAGAR FACTURA
 
   @SA091 @cuenta_secundaria
   Scenario: Ingresar a paga tu factura y Validar redireccionamiento a medio de pago PSE

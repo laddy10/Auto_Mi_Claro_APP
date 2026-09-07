@@ -233,13 +233,15 @@ public class IngresoSuperApp implements Task {
     if (isUserAlreadyLoggedIn(actor)) {
       return;
     }
-
+    actor.attemptsTo(CerrarTiendaClaro.cerrarTiendaClaro());
+    System.out.println("pasa por aquí 17 🚩🚩🚩");
     maybeAceptarTerminos(actor);
     maybeManejarSesionAbierta(actor);
     maybeManejarBiometrico(actor);
     maybePermisoNotificaciones(actor);
     maybeAutorizarVelocidad(actor);
-
+// EMERGENCIA: cerrar Tienda Claro si se abrió sobre el home
+    actor.attemptsTo(CerrarTiendaClaro.cerrarTiendaClaro());
     // Validación final del login exitoso
     actor.attemptsTo(ValidarTextoQueContengaX.elTextoContiene(TUS_SERVICIOS_FAVORITOS));
   }

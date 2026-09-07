@@ -10,7 +10,7 @@ public class PagosYConsultasPage {
 
   public static final Target BTN_TRES_PUNTOS_MAS =
       Target.the("Boton de los 3 puntos para validar la mini versión")
-          .located(By.xpath("//android.widget.TextView[@content-desc=\"Más\"]"));
+          .located(By.xpath("(//android.widget.TextView[@content-desc=\" \"])[1]"));
   public static final Target BTN_PAGAR_FACTURA =
       Target.the("Boton Pagar factura")
           .located(By.xpath("//*[@text='Pagar factura' and @class='android.widget.Button']"));
