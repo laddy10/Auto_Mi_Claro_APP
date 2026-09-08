@@ -1,10 +1,13 @@
 package tasks.Login;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotPresent;
 import static userinterfaces.LoginPage.*;
 import static utils.Constants.*;
 
 import interactions.Click.ClickElementByText;
+import interactions.wait.WaitFor;
 import io.appium.java_client.android.AndroidDriver;
 import models.User;
 import net.serenitybdd.screenplay.Actor;
@@ -15,6 +18,7 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.questions.Presence;
 import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.targets.Target;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 import utils.AndroidObject;
 import utils.CuentaManager;
 import utils.EvidenciaUtils;
@@ -134,11 +138,6 @@ public class ReingresoRelogin implements Task {
     escribir(actor, TXT_PASSWORD, user.getPassword(), "contraseña");
     EvidenciaUtils.registrarCaptura("Contraseña digitada: ******** (oculta)");
     clickTextoSeguro(actor, CONTINUAR);
-
-    if (isVisibleFast(actor, LBL_INGRESO_BIOMETRICO)) {
-      actor.attemptsTo(ClickElementByText.clickElementByText("En otro momento"));
-    }
-
     // 5) Esperar el ingreso (maneja "sesión abierta en otro dispositivo" o ingreso directo).
     esperarIngreso(actor);
   }
@@ -175,7 +174,9 @@ public class ReingresoRelogin implements Task {
         dormir(800);
         continue;
       }
-
+      if (isVisibleFast(actor, LBL_INGRESO_BIOMETRICO)) {
+        actor.attemptsTo(ClickElementByText.clickElementByText("En otro momento"));
+      }
       // Banner publicitario sobre el home -> cerrar.
       if (visible(actor, BTN_CERRAR_PUBLICIDAD)) {
         actor.attemptsTo(Click.on(BTN_CERRAR_PUBLICIDAD));

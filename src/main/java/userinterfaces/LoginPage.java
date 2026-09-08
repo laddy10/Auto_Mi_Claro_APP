@@ -79,6 +79,9 @@ public class LoginPage {
   public static final Target LBL_INGRESO_BIOMETRICO =
           Target.the("Boton Activar ingreso biometrico")
                   .located(By.xpath("//*[@text='Activa el ingreso biométrico desde tu celular']"));
+  public static final Target LBL_INGRESO_BIOMETRICO2 =
+          Target.the("Boton Activar ingreso biometrico")
+                  .located(By.xpath("/hierarchy/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.TextView[1]"));
   public static final Target TXT_AUTORIZACION_VELOCIDAD =
           Target.the("Texto de Autorización de medición de velocidad")
                   .located(By.xpath("//*[@text='Autorización de medición de velocidad']"));
@@ -192,5 +195,8 @@ public class LoginPage {
   public static final Target LBL_ENTRETENIMIENTO =
           Target.the("Texto Hecho para ti (Entretenimiento)")
                   .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView"));
+  public static final Target LBL_PERMISO_ACCESO_UBICACION =
+          Target.the("Texto permispo de acceso a tu ubicación")
+                  .located(By.xpath("/hierarchy/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.TextView[1]"));
 
 }

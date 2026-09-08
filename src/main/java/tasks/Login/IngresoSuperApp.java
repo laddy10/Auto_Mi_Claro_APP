@@ -197,6 +197,10 @@ public class IngresoSuperApp implements Task {
   }
 
   private <T extends Actor> void loginDesdeCero(T actor) {
+    if (isVisibleFast(actor, LBL_PERMISO_ACCESO_UBICACION)) {
+      actor.attemptsTo(
+              ClickElementByText.clickElementByText(ACEPTAR_2));
+    }
     actor.attemptsTo(ClickElementByText.clickElementByText(INICIAR_SESION));
 
     ValidarTextoQueContengaX.elTextoContiene(VERSION);
