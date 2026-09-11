@@ -3,8 +3,10 @@ package stepDefinitions;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static utils.Constants.*;
 
+import cucumber.api.java.ast.Y;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.es.Entonces;
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.ScrollHastaTexto;
 import models.User;
@@ -16,7 +18,7 @@ public class ExplorayCompraDefinitions {
 
   private final User user = TestDataProvider.getRealUser();
 
-  @And("^INGRESA AL MENU EXPLORA Y COMPRA$")
+  @Y("^INGRESA AL MENU EXPLORA Y COMPRA$")
   public void ingresaAlMenuExploraYCompra() {
     theActorInTheSpotlight()
         .attemptsTo(
@@ -25,7 +27,7 @@ public class ExplorayCompraDefinitions {
     EvidenciaUtils.registrarCaptura("Menu Explora y compra");
   }
 
-  @Then("^DIRECCIONAMIENTO A CLARO PAY$")
+  @Entonces("^DIRECCIONAMIENTO A CLARO PAY$")
   public void direccionamientoAClaroPay() {
     theActorInTheSpotlight().attemptsTo(ClaroPay.validarDireccionamiento());
   }

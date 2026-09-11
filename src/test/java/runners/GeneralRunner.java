@@ -11,11 +11,11 @@ import utils.DataToFeature;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-    features = "src/test/resources/features",
-    glue = {"stepDefinitions", "utils", "hooks", "listeners"},
-    snippets = SnippetType.CAMELCASE,
-    plugin = {"pretty"},
-    tags = "@SA010")
+        features = "src/test/resources/features",
+        glue = {"stepDefinitions", "utils", "hooks", "listeners"},
+        snippets = SnippetType.CAMELCASE,
+        plugin = {"pretty"},
+        tags = "@SA004")
 
 public class GeneralRunner {
   @BeforeSuite

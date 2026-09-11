@@ -6,8 +6,9 @@ import static userinterfaces.PagosYConsultasPage.*;
 import static utils.Constants.*;
 import static utils.ConstantsMiniVersiones.Versiones.MINI_VERSION_RECARGAS_Y_PAQUETES_PRE;
 
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
+
+import cucumber.api.java.ast.Y;
+import cucumber.api.java.es.Entonces;
 import hooks.ReportHooks;
 import interactions.Click.ClickElementByText;
 import interactions.Click.ClickTextoQueContengaX;
@@ -27,14 +28,14 @@ public class PagosyConsultasPreDefinitions {
 
   private final User user = TestDataProvider.getRealUser();
 
-  @And("^SELECCIONA LINEA PREPAGO$")
+  @Y("^SELECCIONA LINEA PREPAGO$")
   public void seleccionaLineaPrepago() {
     theActorInTheSpotlight().attemptsTo(SeleccionLineaPrepago.seleccionar());
 
     ReportHooks.setLinea(user.getNumeroPrepago());
   }
 
-  @And("^VALIDAR LA MINI VERSION DE RECARGAS$")
+  @Y("^VALIDAR LA MINI VERSION DE RECARGAS$")
   public void validarMiniVersionRecargas() {
     theActorInTheSpotlight()
         .attemptsTo(
@@ -53,17 +54,17 @@ public class PagosyConsultasPreDefinitions {
     ReportHooks.setLinea(user.getNumeroPrepago());
   }
 
-  @And("^ARMA PAQUETE PERSONALIZADO$")
+  @Y("^ARMA PAQUETE PERSONALIZADO$")
   public void armaPaquetePersonalizado() {
     theActorInTheSpotlight().attemptsTo(ArmarPaquete.armar(), VerResumenPaquete.validarResumen());
   }
 
-  @And("^VALIDA PAQUETE SELECCIONADO$")
+  @Y("^VALIDA PAQUETE SELECCIONADO$")
   public void validaPaqueteSeleccionado() {
     theActorInTheSpotlight().attemptsTo(ValidarPaqueteSeleccionado.validarPaquete());
   }
 
-  @And("^INGRESAR A TARJETA CREDITO DEBITO$")
+  @Y("^INGRESAR A TARJETA CREDITO DEBITO$")
   public void ingresarTDC() {
     EvidenciaUtils.registrarCaptura("Seleccionar medio de pago: Tarjeta Crédito/débito");
 
@@ -73,17 +74,17 @@ public class PagosyConsultasPreDefinitions {
             WaitForResponse.withText(RESUMEN_COMPRA));
   }
 
-  @And("^VALIDAR EL RESUMEN DE LA COMPRA$")
+  @Y("^VALIDAR EL RESUMEN DE LA COMPRA$")
   public void validaResumenCompra() {
     theActorInTheSpotlight().attemptsTo(ResumenCompra.validar());
   }
 
-  @And("^VALIDAR DIRECCIONAMIENTO TARJETA CREDITO DEBITO$")
+  @Y("^VALIDAR DIRECCIONAMIENTO TARJETA CREDITO DEBITO$")
   public void direccionamientoTCD() {
     theActorInTheSpotlight().attemptsTo(TarjetaCreditoDebito.validarRedireccion());
   }
 
-  @And("^INGRESAR A PSE$")
+  @Y("^INGRESAR A PSE$")
   public void ingresarPSE() {
     EvidenciaUtils.registrarCaptura("Seleccionar PSE como medio de pago");
 
@@ -91,12 +92,12 @@ public class PagosyConsultasPreDefinitions {
         .attemptsTo(Click.on(BTN_PSE_RECARGAS), WaitForResponse.withText(RESUMEN_COMPRA));
   }
 
-  @And("^VALIDAR DIRECCIONAMIENTO PSE$")
+  @Y("^VALIDAR DIRECCIONAMIENTO PSE$")
   public void direccionamientoPSE() {
     theActorInTheSpotlight().attemptsTo(PSE.validarRedireccion());
   }
 
-  @And("^INGRESAR A PAGAR CON MI SALDO$")
+  @Y("^INGRESAR A PAGAR CON MI SALDO$")
   public void pagarConMiSaldo() {
     EvidenciaUtils.registrarCaptura("Seleccionar Pagar con mi saldo");
 
@@ -106,12 +107,12 @@ public class PagosyConsultasPreDefinitions {
             WaitForResponse.withText(RESUMEN_COMPRA));
   }
 
-  @And("^VALIDAR PAGO CON EL SALDO$")
+  @Y("^VALIDAR PAGO CON EL SALDO$")
   public void pagoConElSaldo() {
     theActorInTheSpotlight().attemptsTo(ValidarNotificacion.deCompra());
   }
 
-  @And("^INGRESAR A BANCOLOMBIA$")
+  @Y("^INGRESAR A BANCOLOMBIA$")
   public void ingresarBancolombia() {
     EvidenciaUtils.registrarCaptura("Seleccionar medio de pago: Bancolombia");
 
@@ -121,12 +122,12 @@ public class PagosyConsultasPreDefinitions {
             WaitForResponse.withText(RESUMEN_COMPRA));
   }
 
-  @And("^VALIDAR DIRECCIONAMIENTO BANCOLOMBIA$")
+  @Y("^VALIDAR DIRECCIONAMIENTO BANCOLOMBIA$")
   public void direccionamientoBancolombia() {
     theActorInTheSpotlight().attemptsTo(Bancolombia.validarRedireccion());
   }
 
-  @And("^INGRESAR A DAVIPLATA$")
+  @Y("^INGRESAR A DAVIPLATA$")
   public void ingresarDaviplata() {
     EvidenciaUtils.registrarCaptura("Seleccionar medio de pago: Daviplata");
 
@@ -136,12 +137,12 @@ public class PagosyConsultasPreDefinitions {
             WaitForResponse.withText(RESUMEN_COMPRA));
   }
 
-  @And("^VALIDAR DIRECCIONAMIENTO DAVIPLATA")
+  @Y("^VALIDAR DIRECCIONAMIENTO DAVIPLATA")
   public void direccionamientoDaviplata() {
     theActorInTheSpotlight().attemptsTo(Daviplata.validarRedireccion());
   }
 
-  @And("^INGRESAR A CODENSA$")
+  @Y("^INGRESAR A CODENSA$")
   public void ingresarCodensa() {
     EvidenciaUtils.registrarCaptura("Seleccionar medio de pago: Codensa");
 
@@ -151,7 +152,7 @@ public class PagosyConsultasPreDefinitions {
             WaitForResponse.withText(RESUMEN_COMPRA));
   }
 
-  @And("^INGRESAR A OTROS MEDIOS DE PAGO$")
+  @Y("^INGRESAR A OTROS MEDIOS DE PAGO$")
   public void ingresarOtrosMediosDePago() {
     EvidenciaUtils.registrarCaptura("Seleccionar medio de pago: Otros medios de pago");
 
@@ -161,21 +162,21 @@ public class PagosyConsultasPreDefinitions {
             WaitForResponse.withText(RESUMEN_COMPRA));
   }
 
-  @And("^DIRECCIONAMIENTO OTROS MEDIOS DE PAGO PSE$")
+  @Y("^DIRECCIONAMIENTO OTROS MEDIOS DE PAGO PSE$")
   public void direccionamientoOtrosMediosDePagoPSE() {
     theActorInTheSpotlight().attemptsTo(OtrosMediosDePagoPSE.validarOtrosMediosPSE());
 
     ReportHooks.setLinea(user.getNumeroPrepago());
   }
 
-  @And("^VALIDAR DIRECCIONAMIENTO OTROS MEDIOS DE PAGO$")
+  @Y("^VALIDAR DIRECCIONAMIENTO OTROS MEDIOS DE PAGO$")
   public void direccionamientoOtrosMediosDePago() {
     theActorInTheSpotlight().attemptsTo(OtrosMediosDePago.validarOtrosMedios());
 
     ReportHooks.setLinea(user.getNumeroPrepago());
   }
 
-  @And("^SELECCIONAR EL MENU PAQUETES$")
+  @Y("^SELECCIONAR EL MENU PAQUETES$")
   public void seleccionarPaquetes() {
     EvidenciaUtils.registrarCaptura("Ingresar a Paquetes");
 
@@ -192,37 +193,37 @@ public class PagosyConsultasPreDefinitions {
         .attemptsTo(Click.on(CBX_TIPO_PAQUETE_RECARGAS), WaitForResponse.withText(TIPO_PAQUETE));
   }
 
-  @Then("^SELECCIONAR EL TIPO DE PAQUETE TODO INCLUIDO CON REDES$")
+  @Entonces("^SELECCIONAR EL TIPO DE PAQUETE TODO INCLUIDO CON REDES$")
   public void seleccionarPaqueteTodoIncluidoRedes() {
     theActorInTheSpotlight().attemptsTo(TodoIncluidoConRedes.validar());
   }
 
-  @Then("REALIZA LA VALIDACIÓN DE PAQUETES TODO INCLUIDO SIN REDES")
+  @Entonces("REALIZA LA VALIDACIÓN DE PAQUETES TODO INCLUIDO SIN REDES")
   public void validarPaquetesTodoIncluidoSinRedes() {
     theActorInTheSpotlight().attemptsTo(TodoIncluidoSinRedes.validar());
   }
 
-  @And("REALIZA LA VALIDACIÓN DE PAQUETES DE DATOS")
+  @Y("REALIZA LA VALIDACIÓN DE PAQUETES DE DATOS")
   public void validarPaquetesDeDatos() {
     theActorInTheSpotlight().attemptsTo(PaquetesDeDatos.validar());
   }
 
-  @Then("^REALIZA RECORRIDO COMPLETO PAQUETES DE VOZ$")
+  @Entonces("^REALIZA RECORRIDO COMPLETO PAQUETES DE VOZ$")
   public void realizaRecorridoCompletoPaquetesDeVoz() {
     theActorInTheSpotlight().attemptsTo(PaquetesDeVoz.validar());
   }
 
-  @Then("^REALIZA RECORRIDO COMPLETO PAQUETES DE APPS$")
+  @Entonces("^REALIZA RECORRIDO COMPLETO PAQUETES DE APPS$")
   public void realizaRecorridoCompletoPaquetesDeApps() {
     theActorInTheSpotlight().attemptsTo(PaquetesApps.validar());
   }
 
-  @Then("^REALIZA RECORRIDO COMPLETO PAQUETES RELEVO COMUNIDAD SORDA$")
+  @Entonces("^REALIZA RECORRIDO COMPLETO PAQUETES RELEVO COMUNIDAD SORDA$")
   public void realizaRecorridoCompletoPaquetesRelevoComunidadSorda() {
     theActorInTheSpotlight().attemptsTo(PaquetesRelevoComunidadSorda.validar());
   }
 
-  @And("^SELECCIONAR LA LINEA EN PREPAGO$")
+  @Y("^SELECCIONAR LA LINEA EN PREPAGO$")
   public void seleccionarLineaEnPrepago() {
     theActorInTheSpotlight().attemptsTo(SeleccionarLaLineaEnPrepago.seleccionar());
 

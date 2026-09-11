@@ -1,5 +1,7 @@
 package utils;
 
+import net.serenitybdd.screenplay.targets.Target;
+
 public class Constants {
 
   public static final String CONTINUAR = "Continuar";
@@ -789,6 +791,6 @@ public class Constants {
   public static final String INGRESO_BANCO = "Ingresa para realizar tu pago PSE";
   public static final String REALIZA_PAGO_EN_LINEA = "Realiza el pago en línea";
   public static final String INGRESO_BANCO1 = "Bienvenido a nuestro nuevo portal de pagos de servicios electrónicos.";
-
+  public static final String IR_A_CINE = "Ir a cine";
 
 }

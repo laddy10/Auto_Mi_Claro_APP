@@ -2,8 +2,9 @@ package stepDefinitions;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
+
+import cucumber.api.java.ast.Y;
+import cucumber.api.java.es.Entonces;
 import tasks.ConsultarConsumos.*;
 
 /**
@@ -12,22 +13,22 @@ import tasks.ConsultarConsumos.*;
  */
 public class ConsultarConsumosDefinitions {
 
-  @And("^INGRESA AL MODULO CONSULTAR CONSUMOS$")
+  @Y("^INGRESA AL MODULO CONSULTAR CONSUMOS$")
   public void ingresaModuloConsultarConsumos() {
     theActorInTheSpotlight().attemptsTo(AccederConsultarConsumos.acceder());
   }
 
-  @And("^DESPLAZARSE HASTA EL NUMERO Y SELECCIONAR VER DETALLE$")
+  @Y("^DESPLAZARSE HASTA EL NUMERO Y SELECCIONAR VER DETALLE$")
   public void desplazarseHastaNumeroYSeleccionarVerDetalle() {
     theActorInTheSpotlight().attemptsTo(SeleccionarLineaYVerDetalle.seleccionar());
   }
 
-  @And("^ESPERA A QUE INGRESE A LA OPCION$")
+  @Y("^ESPERA A QUE INGRESE A LA OPCION$")
   public void esperaAQueIngreseALaOpcion() {
     theActorInTheSpotlight().attemptsTo(VerificarTextosDisponibles.verificar());
   }
 
-  @And("^VERIFICA LOS TEXTOS DISPONIBLES$")
+  @Y("^VERIFICA LOS TEXTOS DISPONIBLES$")
   public void verificaLosTextosDisponibles() {
     theActorInTheSpotlight().attemptsTo(VerificarTextosDisponibles.verificar());
   }
@@ -36,12 +37,12 @@ public class ConsultarConsumosDefinitions {
   // Consumo de Datos
   // ===========================================
 
-  @And("^SELECCIONA CONSUMO DE DATOS$")
+  @Y("^SELECCIONA CONSUMO DE DATOS$")
   public void seleccionaConsumoDeatos() {
     theActorInTheSpotlight().attemptsTo(ValidarConsumoDeDatos.validar());
   }
 
-  @And("^VALIDA LA INFORMACION DISPONIBLE DE DATOS$")
+  @Y("^VALIDA LA INFORMACION DISPONIBLE DE DATOS$")
   public void validaLaInformacionDisponibleDeDatos() {
     theActorInTheSpotlight().attemptsTo(ValidarInformacionDisponibleDatos.validar());
   }
@@ -50,12 +51,12 @@ public class ConsultarConsumosDefinitions {
   // Apps sin límite de consumo
   // ===========================================
 
-  @And("^REGRESA ATRAS Y SELECCIONA APPS SIN LIMITE DE CONSUMO$")
+  @Y("^REGRESA ATRAS Y SELECCIONA APPS SIN LIMITE DE CONSUMO$")
   public void regresaAtrasYSeleccionaAppsSinLimiteDeConsumo() {
     theActorInTheSpotlight().attemptsTo(ValidarAppsSinLimite.validar());
   }
 
-  @And("^VALIDA LA INFORMACION DISPONIBLE DE APPS$")
+  @Y("^VALIDA LA INFORMACION DISPONIBLE DE APPS$")
   public void validaLaInformacionDisponibleDeApps() {
     theActorInTheSpotlight().attemptsTo(ValidarAppsSinLimite.validar());
   }
@@ -64,12 +65,12 @@ public class ConsultarConsumosDefinitions {
   // Consumo de Voz
   // ===========================================
 
-  @And("^REGRESA ATRAS Y SELECCIONA CONSUMO DE VOZ$")
+  @Y("^REGRESA ATRAS Y SELECCIONA CONSUMO DE VOZ$")
   public void regresaAtrasYSeleccionaConsumoDeVoz() {
     theActorInTheSpotlight().attemptsTo(ValidarConsumoVoz.validar());
   }
 
-  @And("^VERIFICA MENSAJE AUN NO REGISTRAS CONSUMOS VOZ$")
+  @Y("^VERIFICA MENSAJE AUN NO REGISTRAS CONSUMOS VOZ$")
   public void verificaMensajeAunNoRegistrasConsumosVoz() {
     theActorInTheSpotlight().attemptsTo(ValidarConsumoVoz.validar());
   }
@@ -78,12 +79,12 @@ public class ConsultarConsumosDefinitions {
   // Consumo de SMS
   // ===========================================
 
-  @And("^REGRESA ATRAS Y SELECCIONA CONSUMO DE SMS$")
+  @Y("^REGRESA ATRAS Y SELECCIONA CONSUMO DE SMS$")
   public void regresaAtrasYSeleccionaConsumoDeSMS() {
     theActorInTheSpotlight().attemptsTo(ValidarConsumoSMS.validar());
   }
 
-  @And("^VERIFICA MENSAJE AUN NO REGISTRAS CONSUMOS SMS$")
+  @Y("^VERIFICA MENSAJE AUN NO REGISTRAS CONSUMOS SMS$")
   public void verificaMensajeAunNoRegistrasConsumosSMS() {
     theActorInTheSpotlight().attemptsTo(ValidarConsumoSMS.validar());
   }
@@ -92,12 +93,12 @@ public class ConsultarConsumosDefinitions {
   // Consumo Paquetes y Recargas
   // ===========================================
 
-  @And("^REGRESA ATRAS Y SELECCIONA CONSUMO PAQUETES Y RECARGAS$")
+  @Y("^REGRESA ATRAS Y SELECCIONA CONSUMO PAQUETES Y RECARGAS$")
   public void regresaAtrasYSeleccionaConsumoPaquetesYRecargas() {
     theActorInTheSpotlight().attemptsTo(ValidarConsumoPaquetesRecargas.validar());
   }
 
-  @And("^VERIFICA LA INFORMACION DISPONIBLE PAQUETES RECARGAS$")
+  @Y("^VERIFICA LA INFORMACION DISPONIBLE PAQUETES RECARGAS$")
   public void verificaLaInformacionDisponiblePaquetesRecargas() {
     theActorInTheSpotlight().attemptsTo(VerificarInformacionPaquetesRecargas.verificar());
   }
@@ -106,12 +107,12 @@ public class ConsultarConsumosDefinitions {
   // Opción Paquetes
   // ===========================================
 
-  @And("^VERIFICA OPCION PAQUETES$")
+  @Y("^VERIFICA OPCION PAQUETES$")
   public void verificaOpcionPaquetes() {
     theActorInTheSpotlight().attemptsTo(VerificarOpcionPaquetes.verificar());
   }
 
-  @And("^VALIDA MENSAJE AUN NO HAS ADQUIRIDO PAQUETES$")
+  @Y("^VALIDA MENSAJE AUN NO HAS ADQUIRIDO PAQUETES$")
   public void validaMensajeAunNoHasAdquiridoPaquetes() {
     theActorInTheSpotlight().attemptsTo(ValidarMensajeNoHasAdquiridoPaquetes.validar());
   }
@@ -120,12 +121,12 @@ public class ConsultarConsumosDefinitions {
   // Opción Recargas
   // ===========================================
 
-  @And("^VERIFICA OPCION RECARGAS$")
+  @Y("^VERIFICA OPCION RECARGAS$")
   public void verificaOpcionRecargas() {
     theActorInTheSpotlight().attemptsTo(VerificarOpcionRecargas.verificar());
   }
 
-  @And("^VALIDA MENSAJE AUN NO HAS HECHO RECARGAS$")
+  @Y("^VALIDA MENSAJE AUN NO HAS HECHO RECARGAS$")
   public void validaMensajeAunNoHasHechoRecargas() {
     theActorInTheSpotlight().attemptsTo(ValidarMensajeNoHasHechoRecargas.validar());
   }
@@ -134,12 +135,12 @@ public class ConsultarConsumosDefinitions {
   // Opción Consumo del mes
   // ===========================================
 
-  @And("^VERIFICA OPCION CONSUMO DEL MES$")
+  @Y("^VERIFICA OPCION CONSUMO DEL MES$")
   public void verificaOpcionConsumoDelMes() {
     theActorInTheSpotlight().attemptsTo(VerificarOpcionConsumoDelMes.verificar());
   }
 
-  @Then("^VALIDA MENSAJE EN ESTE MES NO REGISTRAS CONSUMOS$")
+  @Entonces("^VALIDA MENSAJE EN ESTE MES NO REGISTRAS CONSUMOS$")
   public void validaMensajeEnEsteMesNoRegistrasConsumos() {
     theActorInTheSpotlight().attemptsTo(ValidarMensajeNoRegistrasConsumos.validar());
   }

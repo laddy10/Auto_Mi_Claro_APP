@@ -2,6 +2,7 @@ package userinterfaces;
 
 import static utils.Constants.MIENTRAS_APP_ESTA_EN_USO;
 
+import io.appium.java_client.MobileBy;
 import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.screenplay.targets.Target;
 
@@ -199,4 +200,7 @@ public class LoginPage {
           Target.the("Texto permispo de acceso a tu ubicación")
                   .located(By.xpath("/hierarchy/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.TextView[1]"));
 
+  public static final Target LBL_COMERCIO =
+          Target.the("Textbox correo electrónico PSE")
+                  .located(MobileBy.AndroidUIAutomator("new UiSelector().resourceId(\"¿Qué quieres hoy?\")"));
 }

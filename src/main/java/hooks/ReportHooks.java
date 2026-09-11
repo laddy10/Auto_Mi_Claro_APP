@@ -9,6 +9,7 @@ import listeners.OllamaStepListener;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.thucydides.core.steps.StepEventBus;
+import utils.CuentaManager;
 import utils.EstadoPrueba;
 import utils.WordAppium;
 
@@ -78,13 +79,29 @@ public class ReportHooks {
     String estadoFinal = scenario.isFailed() ? "FAILED" : "PASSED";
     String pasoFallido = scenario.isFailed() ? EstadoPrueba.pasoFallido : null;
 
+    // 🟢 NUEVO: tag del caso (primero que empiece por @SA, sin el '@'); si no hay, el primero.
+    String idEscenario = obtenerTagCaso(scenario);
+
+    // 🟢 NUEVO: número real de la línea con la que se corre (cuenta activa en real-user.json).
+    String lineaPlan;
+    try {
+      lineaPlan = CuentaManager.getCuentaActiva().getNumero();
+    } catch (Exception e) {
+      lineaPlan = "Sin datos";
+    }
+    if (lineaPlan == null || lineaPlan.trim().isEmpty()) {
+      lineaPlan = "Sin datos";
+    }
+
     WordAppium.generarReporte(
-        scenario.getName(),
-        pasosEjecutados.toArray(new String[0]),
-        lineaUsada,
-        duracionFormato,
-        pasoFallido,
-        estadoFinal);
+            scenario.getName(),
+            pasosEjecutados.toArray(new String[0]),
+            lineaUsada,
+            duracionFormato,
+            pasoFallido,
+            estadoFinal,
+            idEscenario,   // 🟢 NUEVO
+            lineaPlan);    // 🟢 NUEVO
 
     System.out.println("══════════════════════════════════════════════════════");
     System.out.println("🏁 Escenario finalizado: " + scenario.getName());
@@ -97,5 +114,23 @@ public class ReportHooks {
     EstadoPrueba.fallo = false;
     EstadoPrueba.pasoFallido = "";
     EstadoPrueba.descripcionError = "";
+  }
+
+  /** Devuelve el tag del caso, sin '@'. Prioriza los que empiezan por SA; si no, el primero. */
+  private static String obtenerTagCaso(Scenario scenario) {
+    if (scenario == null || scenario.getSourceTagNames() == null) {
+      return "Sin tag";
+    }
+    String primero = null;
+    for (String tag : scenario.getSourceTagNames()) {
+      String limpio = tag.startsWith("@") ? tag.substring(1) : tag;
+      if (primero == null) {
+        primero = limpio;
+      }
+      if (limpio.toUpperCase().startsWith("SA")) {
+        return limpio; // p.ej. SA004
+      }
+    }
+    return (primero != null) ? primero : "Sin tag";
   }
 }

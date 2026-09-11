@@ -52,12 +52,14 @@ public class WordAppium {
   }
 
   public static void generarReporte(
-      String nombreEscenario,
-      String[] pasosEjecutados,
-      String numero,
-      String duracionFormato,
-      String pasoFallido,
-      String estadoFinal) {
+          String nombreEscenario,
+          String[] pasosEjecutados,
+          String numero,
+          String duracionFormato,
+          String pasoFallido,
+          String estadoFinal,
+          String idEscenario,   // 🟢 NUEVO: tag del caso (@SA004 -> SA004)
+          String lineaPlan) {   // 🟢 NUEVO: número real de la cuenta activa
 
     boolean fallo = "FAILED".equalsIgnoreCase(estadoFinal);
 
@@ -83,14 +85,22 @@ public class WordAppium {
         FileOutputStream fos = new FileOutputStream(rutaDestino)) {
 
       reemplazarTexto(doc, "{{ESCENARIO}}", nombreEscenario);
+      reemplazarTexto(doc, "{{ID}}", idEscenario);          // 🟢 NUEVO -> ID ESCENARIO
       reemplazarTexto(doc, "{{FECHA}}", FORMATTER.format(LocalDateTime.now()));
-      reemplazarTexto(doc, "{{LINEA}}", numero);
+      reemplazarTexto(doc, "{{LINEA}}", lineaPlan);         // 🟢 usa el número real de la cuenta
       reemplazarTexto(doc, "{{DURACION}}", duracionFormato);
       reemplazarTexto(doc, "{{ESTADO}}", fallo ? "FALLIDO" : "EXITOSO");
 
+      // 🟢 NUEVO: rellena {{CONCLUSION}} con un resumen legible para el usuario final:
+      // el flujo que se ejecutó, el paso donde falló y la causa del fallo.
+      String conclusion =
+          construirConclusion(
+              nombreEscenario, pasosEjecutados, pasoFallido, fallo, EstadoPrueba.descripcionError);
+      reemplazarConclusion(doc, conclusion);
+
       agregarPasosYCapturas(doc, pasosEjecutados, capturas);
 
-      // 🔴 Nuevo: sección de error (descripción + captura) cuando el caso falla.
+      // 🔴 Sección de error (descripción + captura) cuando el caso falla.
       if (fallo) {
         agregarSeccionError(doc, pasoFallido, EstadoPrueba.descripcionError);
       }
@@ -103,6 +113,183 @@ public class WordAppium {
     }
 
     eliminarCapturas(capturas);
+  }
+
+  // ===================================================================
+  // 🟢 NUEVO: construcción del texto de la conclusión
+  // ===================================================================
+
+  /**
+   * Arma el texto de la celda "CONCLUSIÓN DE PRUEBAS" con información útil para el usuario final.
+   *
+   * <p>En caso EXITOSO describe el flujo completo que se ejecutó. En caso FALLIDO describe el flujo
+   * recorrido hasta el error, el paso exacto donde falló y la causa técnica resumida.
+   */
+  private static String construirConclusion(
+      String nombreEscenario,
+      String[] pasosEjecutados,
+      String pasoFallido,
+      boolean fallo,
+      String descripcionError) {
+
+    String flujo = construirFlujo(pasosEjecutados);
+    int totalPasos = (pasosEjecutados == null) ? 0 : pasosEjecutados.length;
+
+    StringBuilder sb = new StringBuilder();
+    if (!fallo) {
+      sb.append("El flujo \"").append(nombreEscenario).append("\" se ejecutó correctamente.\n");
+      sb.append("Pasos realizados (").append(totalPasos).append("): ").append(flujo).append("\n");
+      sb.append("Todos los pasos se completaron sin errores.\n");
+      sb.append("Resultado: EXITOSO.");
+    } else {
+      sb.append("El flujo \"")
+          .append(nombreEscenario)
+          .append("\" no se completó: la ejecución se detuvo por un error.\n");
+      sb.append("Pasos realizados antes del fallo (")
+          .append(totalPasos)
+          .append("): ")
+          .append(flujo)
+          .append("\n");
+      String paso =
+          (pasoFallido == null || pasoFallido.trim().isEmpty())
+              ? "No se identificó el paso exacto."
+              : pasoFallido.trim();
+      sb.append("Paso donde falló: ").append(paso).append("\n");
+      sb.append("Causa del fallo: ").append(resumirCausa(descripcionError)).append("\n");
+      sb.append("Resultado: FALLIDO.");
+    }
+    return sb.toString();
+  }
+
+  /** Une los pasos ejecutados en un único texto legible, con tope para no desbordar la celda. */
+  private static String construirFlujo(String[] pasos) {
+    if (pasos == null || pasos.length == 0) {
+      return "No se registraron pasos.";
+    }
+    StringBuilder sb = new StringBuilder();
+    for (int i = 0; i < pasos.length; i++) {
+      if (i > 0) {
+        sb.append(" › ");
+      }
+      sb.append(pasos[i]);
+      if (sb.length() > 800) {
+        sb.append(" › … (+").append(pasos.length - i - 1).append(" pasos más)");
+        break;
+      }
+    }
+    return sb.toString();
+  }
+
+  /**
+   * Extrae una causa breve y legible del mensaje de error crudo (Selenium/Appium suelen adjuntar
+   * stack trace y metadatos que no aportan al usuario final).
+   */
+  private static String resumirCausa(String descripcionError) {
+    if (descripcionError == null || descripcionError.trim().isEmpty()) {
+      return "No se registró el detalle técnico del error.";
+    }
+    String msg = descripcionError.trim();
+
+    // Nos quedamos con la primera línea (el resumen de la excepción).
+    int salto = msg.indexOf('\n');
+    if (salto > 0) {
+      msg = msg.substring(0, salto).trim();
+    }
+
+    // Recortamos colas ruidosas típicas de Selenium/Appium.
+    String[] ruido = {
+      "Build info:", "Host info:", "System info:", "Driver info:", "Capabilities {", "For documentation"
+    };
+    for (String r : ruido) {
+      int idx = msg.indexOf(r);
+      if (idx > 0) {
+        msg = msg.substring(0, idx).trim();
+      }
+    }
+    return recortar(msg, 300);
+  }
+
+  // ===================================================================
+  // 🟢 NUEVO: reemplazo del marcador {{CONCLUSION}} con soporte multilínea
+  // ===================================================================
+
+  /**
+   * Reemplaza el marcador de conclusión. Acepta {@code {{CONCLUSION}}} y la variante acentuada
+   * {@code {{CONCLUSIÓN}}} por si la plantilla la usa. Soporta saltos de línea dentro de la celda.
+   */
+  private static void reemplazarConclusion(XWPFDocument doc, String valor) {
+    String[] marcadores = {"{{CONCLUSION}}", "{{CONCLUSIÓN}}"};
+    boolean hecho = false;
+    for (String marcador : marcadores) {
+      if (reemplazarMarcadorMultilinea(doc, marcador, valor)) {
+        hecho = true;
+      }
+    }
+    if (!hecho) {
+      LOGGER.warning(
+          "No se encontró el marcador de conclusión ({{CONCLUSION}}) en la plantilla del reporte.");
+    }
+  }
+
+  private static boolean reemplazarMarcadorMultilinea(
+      XWPFDocument doc, String marcador, String valor) {
+    boolean encontrado = false;
+    for (XWPFParagraph p : doc.getParagraphs()) {
+      if (reemplazarEnParrafo(p, marcador, valor)) {
+        encontrado = true;
+      }
+    }
+    for (XWPFTable t : doc.getTables()) {
+      for (XWPFTableRow row : t.getRows()) {
+        for (XWPFTableCell cell : row.getTableCells()) {
+          for (XWPFParagraph p : cell.getParagraphs()) {
+            if (reemplazarEnParrafo(p, marcador, valor)) {
+              encontrado = true;
+            }
+          }
+        }
+      }
+    }
+    return encontrado;
+  }
+
+  private static boolean reemplazarEnParrafo(XWPFParagraph p, String marcador, String valor) {
+    // Caso 1: el marcador está contenido completo en un único run (como los demás placeholders).
+    for (XWPFRun r : p.getRuns()) {
+      String texto = r.getText(0);
+      if (texto != null && texto.contains(marcador)) {
+        escribirConSaltos(r, texto.replace(marcador, valor));
+        return true;
+      }
+    }
+    // Caso 2: Word partió el marcador en varios runs -> reconstruimos el párrafo completo.
+    StringBuilder sb = new StringBuilder();
+    for (XWPFRun r : p.getRuns()) {
+      String t = r.getText(0);
+      if (t != null) {
+        sb.append(t);
+      }
+    }
+    String completo = sb.toString();
+    if (!completo.contains(marcador)) {
+      return false;
+    }
+    String reemplazado = completo.replace(marcador, valor);
+    for (int i = p.getRuns().size() - 1; i >= 0; i--) {
+      p.removeRun(i);
+    }
+    escribirConSaltos(p.createRun(), reemplazado);
+    return true;
+  }
+
+  /** Escribe el texto en el run convirtiendo cada '\n' en un salto de línea real de Word. */
+  private static void escribirConSaltos(XWPFRun run, String texto) {
+    String[] lineas = texto.split("\n", -1);
+    run.setText(lineas[0], 0); // reemplaza el texto existente del run
+    for (int i = 1; i < lineas.length; i++) {
+      run.addBreak();
+      run.setText(lineas[i]); // agrega el resto de las líneas
+    }
   }
 
   private static void agregarPasosYCapturas(XWPFDocument doc, String[] pasos, File[] capturas)
