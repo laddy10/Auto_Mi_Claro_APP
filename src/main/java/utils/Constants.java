@@ -470,6 +470,7 @@ public class Constants {
   public static final String TELEVISORES = "Televisores";
   public static final String LOS_MAS_VENDIDOS = "Los más vendidos";
   public static final String ESTO_ES_PARA_TI = "Esto es para ti";
+  public static final String ESTRENA_CELULARRES_TECNOLOGIA = "¡Estrena celulares y tecnología con el Aniversario Claro!";
 
   // Constantes para eSIM Claro
   public static final String ESIM_CLARO = "eSIM Claro";
@@ -689,6 +690,7 @@ public class Constants {
   public static final String BANCO_BBVA_COLOMBIA = "BANCO BBVA COLOMBIA S.A.";
   public static final String BANCO_DE_BOGOTA = "BANCO DE BOGOTA";
   public static final String BANCO_POPULAR = "BANCO POPULAR";
+  public static final String BANCO_DAVIVIENDA = "BANCO DAVIVIENDA";
   public static final String BANCO_SANTANDER_COLOMBIA = "BANCO SANTANDER COLOMBIA";
   public static final String PERSONA_NATURAL = "Persona Natural";
   public static final String PERSONA_JURIDICA = "Persona Jurídica";
@@ -792,5 +794,6 @@ public class Constants {
   public static final String REALIZA_PAGO_EN_LINEA = "Realiza el pago en línea";
   public static final String INGRESO_BANCO1 = "Bienvenido a nuestro nuevo portal de pagos de servicios electrónicos.";
   public static final String IR_A_CINE = "Ir a cine";
+  public static final String PAGOS_EN_LINEA = "Pagos en Línea y PSE";
 
 }

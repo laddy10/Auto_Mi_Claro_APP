@@ -34,15 +34,15 @@ public class PSEPagaTuFactura implements Task {
                 ValidarTexto.validarTexto(PAGO_PSE),
                 Click.on(DOPDOWN_ENTIDAD_BANCARIA),
                 WaitFor.aTime(2000),
-                ScrollHastaTexto.conTexto(BANCO_POPULAR),
-                ClickTextoQueContengaX.elTextoContiene(BANCO_POPULAR),
+                ScrollHastaTexto.conTexto(BANCO_DAVIVIENDA),
+                ClickTextoQueContengaX.elTextoContiene(BANCO_DAVIVIENDA),
                 WaitFor.aTime(4000),
                 WaitElement.isVisible(TXT_ESCRIBE_CORREO_PSE),
                 Enter.theValue(user.getEmail()).into(TXT_ESCRIBE_CORREO_PSE),
                 Scroll.scrollUnaVista(),
                 ClickTextoQueContengaX.elTextoContiene(IR_A_PSE),
-                WaitForResponse.withText(INGRESO_BANCO1),
-                ValidarTexto.validarTexto(INGRESO_BANCO1)
+                WaitForResponse.withText(PAGOS_EN_LINEA),
+                ValidarTexto.validarTexto(PAGOS_EN_LINEA)
         );
 
     }
