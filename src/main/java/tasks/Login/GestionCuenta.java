@@ -60,7 +60,7 @@ public class GestionCuenta implements Task {
   @Override
   public <T extends Actor> void performAs(T actor) {
     // EMERGENCIA: cerrar Tienda Claro si se abrió sobre el home
-    actor.attemptsTo(CerrarTiendaClaro.cerrarTiendaClaro());
+    //actor.attemptsTo(CerrarTiendaClaro.cerrarTiendaClaro());
     AndroidDriver driver = obtenerDriver(actor);
     setImplicit(driver, IMPLICIT_LOGIN);
     try {
