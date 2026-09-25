@@ -74,9 +74,17 @@ public class CerrarTiendaClaro extends AndroidObject implements Task {
         for (int intento = 1;
              intento <= MAX_INTENTOS && textoPresente(actor, IR_A_CINE);
              intento++) {
-            actor.attemptsTo(
-                    ClickTextoQueContengaX.elTextoContiene(MUNDO_CLARO),
-                    WaitFor.aTime(1500));
+
+            if (textoPresente(actor, MUNDO_CLARO)) {
+                actor.attemptsTo(
+                        ClickTextoQueContengaX.elTextoContiene(MUNDO_CLARO),
+                        WaitFor.aTime(1500));
+
+            } else if (textoPresente(actor, PAGOS_Y_MAS)) {
+                actor.attemptsTo(
+                        ClickTextoQueContengaX.elTextoContiene(PAGOS_Y_MAS),
+                        WaitFor.aTime(1500));
+            }
         }
 
         EvidenciaUtils.registrarCaptura(paso2);

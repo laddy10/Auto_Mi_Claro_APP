@@ -34,7 +34,7 @@ public class LoginConCedula implements Task {
   public <T extends Actor> void performAs(T actor) {
 
     // EMERGENCIA: cerrar Tienda Claro si se abrió sobre el home
-    //actor.attemptsTo(CerrarTiendaClaro.cerrarTiendaClaro());
+    actor.attemptsTo(CerrarTiendaClaro.cerrarTiendaClaro());
 
     if (isVisible(actor, LBL_ENCABEZADO_USUARIO)) {
       String textoVisible =

@@ -158,7 +158,7 @@ public class ReingresoRelogin implements Task {
   private <T extends Actor> void esperarIngreso(T actor) {
     long fin = System.currentTimeMillis() + ESPERA_INGRESO_MS;
     while (System.currentTimeMillis() < fin) {
-      //actor.attemptsTo(CerrarTiendaClaro.cerrarTiendaClaro());
+      actor.attemptsTo(CerrarTiendaClaro.cerrarTiendaClaro());
       String xml = pageSource(actor);
 
       // Modal "Autorización de medición de velocidad" (sale sobre el home) -> Aceptar.
