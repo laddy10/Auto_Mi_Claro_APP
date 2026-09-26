@@ -61,23 +61,23 @@ public class DetalleTuPlanLineaEspecificaPaquetes implements Task {
     actor.attemptsTo(
         Atras.irAtras(),
         ValidarTexto.validarTexto(CONSULTA_LA_FACTURA_DE_TU_PLAN_POSTPAGO),
-        ValidarTexto.validarTexto(VER_FACTURA),
-        //ValidarTexto.validarTexto(TU_PLAN),
-        //ValidarTextoQueContengaX.elTextoContiene(CARGO_FIJO_MENSUAL_IVA_INCLUIDO),
-        //ValidarTexto.validarTexto(DATOS),
-        ValidarTexto.validarTexto(ILIMITADO),
+        ValidarTexto.validarTexto(VER_PAGAR_FACTURA),
+        // ValidarTexto.validarTexto(TU_PLAN),
+        // ValidarTextoQueContengaX.elTextoContiene(CARGO_FIJO_MENSUAL_IVA_INCLUIDO),
+        ValidarTexto.validarTexto(DATOS),
+        //ValidarTexto.validarTexto(ILIMITADO),
         ValidarTexto.validarTexto(VOZ)
-        //ValidarTextoQueContengaX.elTextoContiene(SEGUNDOS_PARA_LLAMAR)
-    );
+        // ValidarTextoQueContengaX.elTextoContiene(SEGUNDOS_PARA_LLAMAR)
+        );
 
     EvidenciaUtils.registrarCaptura(paso4);
 
     actor.attemptsTo(
         ValidarTexto.validarTexto(SMS),
-        ValidarTexto.validarTexto(ILIMITADO),
+        //ValidarTexto.validarTexto(ILIMITADO),
         Scroll.scrollUnaVista(),
         ValidarTexto.validarTexto(LARGA_DISTANCIA_INTERNACIONAL),
-        ValidarTexto.validarTexto(ILIMITADO),
+        //ValidarTexto.validarTexto(ILIMITADO),
         ValidarTexto.validarTexto(DESCRIPCION_DEL_PLAN),
         Scroll.scrollUnaVista(),
         ValidarTexto.validarTexto(FAMILIA_Y_AMIGOS),

@@ -184,11 +184,11 @@ public class AndroidObject extends Excepciones {
   }
 
   /**
-   * Verifica la presencia de un Target con reintentos cortos, para tolerar
-   * pantallas que aún están terminando de renderizar contenido.
+   * Verifica la presencia de un Target con reintentos cortos, para tolerar pantallas que aún están
+   * terminando de renderizar contenido.
    */
   public static <T extends Actor> boolean existeConReintentos(
-          T actor, Target target, int intentos, long esperaMs) {
+      T actor, Target target, int intentos, long esperaMs) {
     for (int i = 1; i <= intentos; i++) {
       List<WebElementFacade> elementos = target.resolveAllFor(actor);
       if (!elementos.isEmpty()) {
@@ -771,22 +771,23 @@ public class AndroidObject extends Excepciones {
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         Sequence swipe = new Sequence(finger, 1);
         swipe.addAction(
-                finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY));
+            finger.createPointerMove(
+                Duration.ZERO, PointerInput.Origin.viewport(), startX, startY));
         swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
         swipe.addAction(
-                finger.createPointerMove(
-                        Duration.ofMillis(600), PointerInput.Origin.viewport(), startX, endY));
+            finger.createPointerMove(
+                Duration.ofMillis(600), PointerInput.Origin.viewport(), startX, endY));
         swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 
         appium.perform(Collections.singletonList(swipe));
       } catch (Exception w3cEx) {
         try {
           new TouchAction<>(appium)
-                  .press(PointOption.point(startX, startY))
-                  .waitAction(WaitOptions.waitOptions(Duration.ofMillis(600)))
-                  .moveTo(PointOption.point(startX, endY))
-                  .release()
-                  .perform();
+              .press(PointOption.point(startX, startY))
+              .waitAction(WaitOptions.waitOptions(Duration.ofMillis(600)))
+              .moveTo(PointOption.point(startX, endY))
+              .release()
+              .perform();
         } catch (Exception touchEx) {
           // ambos intentos fallaron -> no rompemos el flujo
         }

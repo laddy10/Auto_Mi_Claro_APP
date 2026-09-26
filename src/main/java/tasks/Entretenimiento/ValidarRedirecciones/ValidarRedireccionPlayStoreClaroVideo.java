@@ -2,9 +2,7 @@ package tasks.Entretenimiento.ValidarRedirecciones;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static userinterfaces.EntretenimientoPage.*;
-import static utils.Constants.SOLO_UNA_VEZ;
 
-import interactions.Click.ClickElementByText;
 import interactions.validations.ValidarTexto;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -34,17 +32,17 @@ public class ValidarRedireccionPlayStoreClaroVideo implements Task {
     }
 
     // Validar textos visibles en Play Store
-    actor.attemptsTo(
-        ValidarTexto.validarTexto("Claro video"));
+    actor.attemptsTo(ValidarTexto.validarTexto("Claro video"));
 
     if (isVisible(actor, TXT_DESINSTALAR)) {
       actor.attemptsTo(ValidarTexto.validarTexto("Desinstalar"));
-    }else if (isVisible(actor, TXT_ABRIR)){
+    } else if (isVisible(actor, TXT_ABRIR)) {
       actor.attemptsTo(ValidarTexto.validarTexto("ABRIR"));
     }
 
     EvidenciaUtils.registrarCaptura(paso);
   }
+
   private <T extends Actor> boolean isVisible(T actor, Target element) {
     return !Presence.of(element).viewedBy(actor).resolveAll().isEmpty();
   }

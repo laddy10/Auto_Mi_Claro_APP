@@ -26,10 +26,12 @@ public class PagosyConsultasPrePage {
       Target.the("Texto Ver detalle del paquete 3")
           .located(By.xpath("(//android.widget.Button[@text=\"Ver detalle del paquete\"])[3]"));
   public static final Target LBL_VER_DETALLE_4 =
-          Target.the("Texto Ver detalle del paquete 3")
-                  .located(By.xpath("public static final Target LBL_VER_DETALLE_3 =\n" +
-                          "      Target.the(\"Texto Ver detalle del paquete 3\")\n" +
-                          "          .located(By.xpath(\"(//android.widget.Button[@text=\\\"Ver detalle del paquete\\\"])[3]\"));"));
+      Target.the("Texto Ver detalle del paquete 3")
+          .located(
+              By.xpath(
+                  "public static final Target LBL_VER_DETALLE_3 =\n"
+                      + "      Target.the(\"Texto Ver detalle del paquete 3\")\n"
+                      + "          .located(By.xpath(\"(//android.widget.Button[@text=\\\"Ver detalle del paquete\\\"])[3]\"));"));
   public static final Target LBL_MENSAJE_COOKIES =
       Target.the("Texto Información importante")
           .located(By.xpath("//android.widget.TextView[@text=\"Información importante\"]"));
@@ -41,7 +43,8 @@ public class PagosyConsultasPrePage {
                   "(//android.widget.ImageView[@resource-id=\"com.clarocolombia.miclaro:id/page\"])[1]"));
 
   public static final Target BTN_CERRAR_POPUP =
-      Target.the("Botón X para cerrar popup").located(By.xpath("//android.widget.Button[@content-desc=\"Cerrar\"]"));
+      Target.the("Botón X para cerrar popup")
+          .located(By.xpath("//android.widget.Button[@content-desc=\"Cerrar\"]"));
 
   private static final User user = TestDataProvider.getRealUser();
 

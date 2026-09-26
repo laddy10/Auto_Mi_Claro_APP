@@ -51,10 +51,7 @@ public class PSE implements Task {
         ValidarTextoQueContengaX.elTextoContiene(CORREO_ELECTRONICO));
 
     // SELECCIONAR BANCO
-    actor.attemptsTo(
-            WaitFor.aTime(3000),
-            Click.on(DROPDOWN_BANCO),
-            WaitFor.aTime(2000));
+    actor.attemptsTo(WaitFor.aTime(3000), Click.on(DROPDOWN_BANCO), WaitFor.aTime(2000));
 
     EvidenciaUtils.registrarCaptura(paso2);
 
@@ -68,8 +65,7 @@ public class PSE implements Task {
         ValidarTexto.validarTexto(BANCO_AV_VILLAS),
         ValidarTexto.validarTexto(BANCO_BBVA_COLOMBIA),
         ScrollHastaTexto.conTexto(BANCO_DE_BOGOTA),
-        ValidarTexto.validarTexto(BANCO_DE_BOGOTA)
-    );
+        ValidarTexto.validarTexto(BANCO_DE_BOGOTA));
 
     EvidenciaUtils.registrarCaptura(paso3);
 

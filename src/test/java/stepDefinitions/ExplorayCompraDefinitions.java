@@ -4,8 +4,6 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static utils.Constants.*;
 
 import cucumber.api.java.ast.Y;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.es.Entonces;
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.ScrollHastaTexto;

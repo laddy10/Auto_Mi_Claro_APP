@@ -14,13 +14,14 @@ import java.util.regex.Pattern;
 import models.User;
 
 /**
- * Administra los usuarios de prueba (real-user.json) y la cuenta activa. Mantiene UNA instancia viva
- * de User: al cambiar de cuenta copia por reflexión los campos, así las clases con
- * {@code static final User user} siguen viendo los datos de la cuenta activa sin refactor.
+ * Administra los usuarios de prueba (real-user.json) y la cuenta activa. Mantiene UNA instancia
+ * viva de User: al cambiar de cuenta copia por reflexión los campos, así las clases con {@code
+ * static final User user} siguen viendo los datos de la cuenta activa sin refactor.
  *
- * <p>Además lleva un REGISTRO de la última cuenta con la que se inició sesión ("ultimaCuentaLogueada")
- * que persiste durante toda la corrida. Sirve para identificar de forma CONFIABLE qué cuenta está en
- * la app sin tener que leer/adivinar el saludo del home (que puede ser igual entre cuentas).
+ * <p>Además lleva un REGISTRO de la última cuenta con la que se inició sesión
+ * ("ultimaCuentaLogueada") que persiste durante toda la corrida. Sirve para identificar de forma
+ * CONFIABLE qué cuenta está en la app sin tener que leer/adivinar el saludo del home (que puede ser
+ * igual entre cuentas).
  */
 public class CuentaManager {
 
@@ -77,7 +78,8 @@ public class CuentaManager {
       try {
         f.set(destino, f.get(origen));
       } catch (IllegalAccessException e) {
-        System.err.println("\u26A0\uFE0F [CuentaManager] No se pudo copiar el campo " + f.getName());
+        System.err.println(
+            "\u26A0\uFE0F [CuentaManager] No se pudo copiar el campo " + f.getName());
       }
     }
   }
@@ -98,14 +100,22 @@ public class CuentaManager {
     User origen = p.get(id);
     if (origen == null) {
       System.err.println(
-          "\u26A0\uFE0F [CuentaManager] La cuenta '" + id + "' no existe. Se usa '" + CUENTA_POR_DEFECTO + "'.");
+          "\u26A0\uFE0F [CuentaManager] La cuenta '"
+              + id
+              + "' no existe. Se usa '"
+              + CUENTA_POR_DEFECTO
+              + "'.");
       id = CUENTA_POR_DEFECTO;
       origen = p.get(id);
     }
     copiarCampos(USUARIO_ACTUAL, origen);
     idActual = id;
     System.out.println(
-        "\uD83D\uDD00 [CuentaManager] Cuenta activa: " + id + " (usuario: " + USUARIO_ACTUAL.getNombreUsuario() + ")");
+        "\uD83D\uDD00 [CuentaManager] Cuenta activa: "
+            + id
+            + " (usuario: "
+            + USUARIO_ACTUAL.getNombreUsuario()
+            + ")");
   }
 
   public static void activarDesdeTags(Collection<String> tags) {
@@ -134,7 +144,8 @@ public class CuentaManager {
 
   public static void setUltimaCuentaLogueada(String id) {
     ultimaCuentaLogueada = (id == null ? null : id.trim().toLowerCase());
-    System.out.println("\uD83D\uDCDD [CuentaManager] Última cuenta logueada: " + ultimaCuentaLogueada);
+    System.out.println(
+        "\uD83D\uDCDD [CuentaManager] Última cuenta logueada: " + ultimaCuentaLogueada);
   }
 
   public static String getUltimaCuentaLogueada() {

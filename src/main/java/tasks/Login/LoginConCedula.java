@@ -80,7 +80,7 @@ public class LoginConCedula implements Task {
       actor.attemptsTo(
           Enter.theValue(user.getCedula()).into(TXT_USERNAME),
           ClickElementByText.clickElementByText(CONTINUAR),
-         IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()),
+          IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()),
           ClickElementByText.clickElementByText(CONTINUAR),
           WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
     }
@@ -94,7 +94,7 @@ public class LoginConCedula implements Task {
   private <T extends Actor> void iniciarSesion(T actor) {
     actor.attemptsTo(
         ClickElementByText.clickElementByText(CONTINUAR),
-       IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()),
+        IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()),
         ClickElementByText.clickElementByText(CONTINUAR),
         WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
   }
@@ -124,7 +124,7 @@ public class LoginConCedula implements Task {
         ValidarTextoQueContengaX.elTextoContiene(VERSION),
         Enter.theValue(user.getCedula()).into(TXT_USERNAME),
         ClickElementByText.clickElementByText(CONTINUAR),
-       IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()),
+        IngresarPasswordSeguro.en(TXT_PASSWORD, user.getPassword()),
         ClickElementByText.clickElementByText(CONTINUAR),
         WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
   }

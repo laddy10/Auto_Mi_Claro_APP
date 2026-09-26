@@ -33,13 +33,13 @@ public class LoginDefinitions {
   @Dado("EL USUARIO ABRE LA SUPER APP")
   public void abrirSuperApp() {
     theActorCalled("actor")
-            .attemptsTo(
-                    WaitUntil.the(LOADING_SPLASH, isNotPresent()),
-                    WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(40).seconds(),
-                    WaitFor.aTime(2000));
+        .attemptsTo(
+            WaitUntil.the(LOADING_SPLASH, isNotPresent()),
+            WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(40).seconds(),
+            WaitFor.aTime(2000));
   }
 
- /*@Cuando("^REALIZA EL INGRESO$")
+  /*@Cuando("^REALIZA EL INGRESO$")
   public void ingresoSuperApp() {
     theActorInTheSpotlight().attemptsTo(IngresoSuperApp.ingresoSuperApp());
   }*/
@@ -79,12 +79,13 @@ public class LoginDefinitions {
       );
   }*/
 
-// STEP DEFINITIONS para src/test/java/stepDefinitions/LoginDefinitions.java  (Cucumber antiguo -> regex)
-//
-// Imports a asegurar:
-//   import utils.CuentaManager;
-//   import tasks.Login.GestionCuenta;
-//   (theActorCalled ya se usa en abrirSuperApp)
+  // STEP DEFINITIONS para src/test/java/stepDefinitions/LoginDefinitions.java  (Cucumber antiguo ->
+  // regex)
+  //
+  // Imports a asegurar:
+  //   import utils.CuentaManager;
+  //   import tasks.Login.GestionCuenta;
+  //   (theActorCalled ya se usa en abrirSuperApp)
 
   // (Opcional) Selecciona la cuenta activa sin tocar la UI. Alternativa al tag @cuenta_<id>.
   @Cuando("^EL USUARIO CAMBIA A LA CUENTA \"(.*)\"$")
@@ -93,26 +94,26 @@ public class LoginDefinitions {
   }
 
   // Step principal: decide segun la cuenta del escenario (tag @cuenta_<id> o el step de arriba):
-//  - secundaria  -> reinicia la app y entra
-//  - principal y ya logueada como principal -> continua (sin reinicio)
-//  - principal y logueada como otra -> reinicia y entra con principal
-//  - principal y sin sesion -> inicia sesion con principal (sin reinicio)
+  //  - secundaria  -> reinicia la app y entra
+  //  - principal y ya logueada como principal -> continua (sin reinicio)
+  //  - principal y logueada como otra -> reinicia y entra con principal
+  //  - principal y sin sesion -> inicia sesion con principal (sin reinicio)
   @Cuando("^EL USUARIO INICIA SESION SEGUN CUENTA$")
   public void elUsuarioIniciaSesionSegunCuenta() {
     theActorCalled("actor").attemptsTo(GestionCuenta.segunCuenta());
   }
 
   // ─────────────────────────────────────────────────────────────────────────────
-// RECOMENDADO: para que TODOS los casos usen esta logica sin cambiar cada feature,
-// reemplaza el CUERPO de tu step de ingreso actual por la llamada al orquestador.
-// Ejemplo (ajusta al texto real de tu step):
-//
+  // RECOMENDADO: para que TODOS los casos usen esta logica sin cambiar cada feature,
+  // reemplaza el CUERPO de tu step de ingreso actual por la llamada al orquestador.
+  // Ejemplo (ajusta al texto real de tu step):
+  //
   @Cuando("^REALIZA EL INGRESO$")
   public void realizaElIngreso() {
     theActorCalled("actor").attemptsTo(GestionCuenta.segunCuenta());
   }
 
-// Asi, los escenarios de principal NO se reinician (rapidos) y los marcados con
-// @cuenta_secundaria si se reinician para entrar con la secundaria.
-// ─────────────────────────────────────────────────────────────────────────────
+  // Asi, los escenarios de principal NO se reinician (rapidos) y los marcados con
+  // @cuenta_secundaria si se reinician para entrar con la secundaria.
+  // ─────────────────────────────────────────────────────────────────────────────
 }

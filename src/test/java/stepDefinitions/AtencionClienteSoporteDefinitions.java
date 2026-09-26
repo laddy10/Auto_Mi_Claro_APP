@@ -4,7 +4,6 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static userinterfaces.AtencionClienteSoportePage.CHK_AUTORIZAR_MEDICION;
 import static utils.Constants.*;
 
-
 import cucumber.api.java.ast.Y;
 import cucumber.api.java.es.Entonces;
 import interactions.Click.ClickTextoQueContengaX;
@@ -27,10 +26,11 @@ public class AtencionClienteSoporteDefinitions {
 
   @Y("^DESPLAZA HASTA LA OPCION ATENCION AL CLIENTE Y SOPORTE$")
   public void desplazaHastaAtencionClienteSoporte() {
-    theActorInTheSpotlight().attemptsTo(
-                Scroll.scrollUnaVista(),
-                ScrollHastaTexto.conTexto(ATENCION_AL_CLIENTE),
-                Scroll.scrollUnaVista());
+    theActorInTheSpotlight()
+        .attemptsTo(
+            Scroll.scrollUnaVista(),
+            ScrollHastaTexto.conTexto(ATENCION_AL_CLIENTE),
+            Scroll.scrollUnaVista());
     EvidenciaUtils.registrarCaptura("Desplazarse hasta Atención al cliente y soporte");
   }
 

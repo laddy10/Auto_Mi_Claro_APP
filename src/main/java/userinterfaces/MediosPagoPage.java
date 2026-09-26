@@ -87,43 +87,60 @@ public class MediosPagoPage {
       Target.the("Caja de texto ingresar documento")
           .located(By.xpath("//android.widget.TextView[@text=\"Escribe el número de documento\"]"));
 
-  //Elementos medios de pago paa paga tu factua
+  // Elementos medios de pago paa paga tu factua
 
   public static final Target DOPDOWN_ENTIDAD_BANCARIA =
-          Target.the("Desplegar entidad bancaria")
-                  .located(By.xpath("//*[@class='android.widget.EditText' and (./preceding-sibling::* | ./following-sibling::*)[@class='android.widget.Image']]"));
+      Target.the("Desplegar entidad bancaria")
+          .located(
+              By.xpath(
+                  "//*[@class='android.widget.EditText' and (./preceding-sibling::* | ./following-sibling::*)[@class='android.widget.Image']]"));
 
   public static final Target TXT_ESCRIBE_CORREO =
-        Target.the("Textbox escribe correo electrónico")
-                .located(By.className("android.widget.EditText"));
+      Target.the("Textbox escribe correo electrónico")
+          .located(By.className("android.widget.EditText"));
 
   public static final Target TXT_NUMERO_TARJETA2 =
-          Target.the("Campo número de tarjeta")
-                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.widget.EditText"));
+      Target.the("Campo número de tarjeta")
+          .located(
+              By.xpath(
+                  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.widget.EditText"));
   public static final Target TXT_NOMBRE_TARJETA2 =
-          Target.the("Campo nombre tarjeta")
-                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText"));
+      Target.the("Campo nombre tarjeta")
+          .located(
+              By.xpath(
+                  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText"));
 
   public static final Target DROPDOWN_TIPO_DOCUMENTO2 =
-          Target.the("Dropdown tipo documento")
-                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[3]/android.view.View[2]"));
+      Target.the("Dropdown tipo documento")
+          .located(
+              By.xpath(
+                  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[3]/android.view.View[2]"));
   public static final Target TXT_FECHA_VENCIMIENTO =
-          Target.the("Campo fecha vencimiento")
-                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[5]/android.widget.EditText"));
+      Target.the("Campo fecha vencimiento")
+          .located(
+              By.xpath(
+                  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[5]/android.widget.EditText"));
   public static final Target TXT_CVV2 =
-          Target.the("Campo CVV")
-                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[6]/android.widget.EditText"));
+      Target.the("Campo CVV")
+          .located(
+              By.xpath(
+                  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[6]/android.widget.EditText"));
   public static final Target TXT_EMAIL2 =
-          Target.the("Campo Correo electrónico")
-                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[7]/android.widget.EditText"));
+      Target.the("Campo Correo electrónico")
+          .located(
+              By.xpath(
+                  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[7]/android.widget.EditText"));
   public static final Target TXT_TELEFONO2 =
-          Target.the("Campo teléfono")
-                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[8]/android.widget.EditText"));
+      Target.the("Campo teléfono")
+          .located(
+              By.xpath(
+                  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[8]/android.widget.EditText"));
   public static final Target TXT_NUMERO_DOCUMENTO2 =
-          Target.the("Campo número documento")
-                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText"));
+      Target.the("Campo número documento")
+          .located(
+              By.xpath(
+                  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText"));
   public static final Target TXT_ESCRIBE_CORREO_PSE =
-          Target.the("Textbox correo electrónico PSE")
-                  .located(MobileBy.AndroidUIAutomator(
-                          "new UiSelector().resourceId(\"pseEmail\")"));
+      Target.the("Textbox correo electrónico PSE")
+          .located(MobileBy.AndroidUIAutomator("new UiSelector().resourceId(\"pseEmail\")"));
 }

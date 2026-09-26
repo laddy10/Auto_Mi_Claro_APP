@@ -21,12 +21,12 @@ public class IngresarVerFactura implements Task {
 
     AndroidObject.UnScrollArribaInicio(actor);
 
-    actor.attemptsTo(ScrollHastaTexto.conTexto(VER_FACTURA));
+    actor.attemptsTo(ScrollHastaTexto.conTexto(VER_PAGAR_FACTURA));
 
     EvidenciaUtils.registrarCaptura(paso1);
 
     actor.attemptsTo(
-        ClickTextoQueContengaX.elTextoContiene(VER_FACTURA),
+        ClickTextoQueContengaX.elTextoContiene(VER_PAGAR_FACTURA),
         WaitForResponse.withText(PAGAR_FACTURA));
   }
 

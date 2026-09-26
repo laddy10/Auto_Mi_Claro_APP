@@ -3,12 +3,10 @@ package stepDefinitions;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static utils.Constants.*;
 
-
 import cucumber.api.java.ast.Y;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Entonces;
 import interactions.Click.ClickTextoQueContengaX;
-import interactions.Scroll.Scroll;
 import interactions.Scroll.ScrollHastaTexto;
 import tasks.Entretenimiento.*;
 import tasks.Entretenimiento.RutasDeAcceso.*;
@@ -32,18 +30,17 @@ public class EntretenimientoDefinitions {
   public void seleccionaBotonEntretenimiento() {
     theActorInTheSpotlight().attemptsTo(AccederEntretenimiento.acceder());
   }
+
   @Y("^INGRESA A DISNEY EN LA OPCION MUNDIAL$")
   public void desplazarseopcionmundial() {
     theActorInTheSpotlight()
-            .attemptsTo(
-                    ScrollHastaTexto.conTexto(CADA_PARTIDO),
-                    //Scroll.scrollUnaVista(),
-                    ClickTextoQueContengaX.elTextoContiene(DISNEY));
+        .attemptsTo(
+            ScrollHastaTexto.conTexto(CADA_PARTIDO),
+            // Scroll.scrollUnaVista(),
+            ClickTextoQueContengaX.elTextoContiene(DISNEY));
 
     EvidenciaUtils.registrarCaptura("Menú mundial");
   }
-
-
 
   @Cuando("^SELECCIONA EL BOTON VER MAS EN SECCION TUS SERVCICOS FAVORITOS$")
   public void seleccionaVerMasEnTusServiciosFavoritos() {

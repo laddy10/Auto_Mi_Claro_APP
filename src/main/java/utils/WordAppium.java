@@ -52,14 +52,14 @@ public class WordAppium {
   }
 
   public static void generarReporte(
-          String nombreEscenario,
-          String[] pasosEjecutados,
-          String numero,
-          String duracionFormato,
-          String pasoFallido,
-          String estadoFinal,
-          String idEscenario,   // 🟢 NUEVO: tag del caso (@SA004 -> SA004)
-          String lineaPlan) {   // 🟢 NUEVO: número real de la cuenta activa
+      String nombreEscenario,
+      String[] pasosEjecutados,
+      String numero,
+      String duracionFormato,
+      String pasoFallido,
+      String estadoFinal,
+      String idEscenario, // 🟢 NUEVO: tag del caso (@SA004 -> SA004)
+      String lineaPlan) { // 🟢 NUEVO: número real de la cuenta activa
 
     boolean fallo = "FAILED".equalsIgnoreCase(estadoFinal);
 
@@ -85,9 +85,9 @@ public class WordAppium {
         FileOutputStream fos = new FileOutputStream(rutaDestino)) {
 
       reemplazarTexto(doc, "{{ESCENARIO}}", nombreEscenario);
-      reemplazarTexto(doc, "{{ID}}", idEscenario);          // 🟢 NUEVO -> ID ESCENARIO
+      reemplazarTexto(doc, "{{ID}}", idEscenario); // 🟢 NUEVO -> ID ESCENARIO
       reemplazarTexto(doc, "{{FECHA}}", FORMATTER.format(LocalDateTime.now()));
-      reemplazarTexto(doc, "{{LINEA}}", lineaPlan);         // 🟢 usa el número real de la cuenta
+      reemplazarTexto(doc, "{{LINEA}}", lineaPlan); // 🟢 usa el número real de la cuenta
       reemplazarTexto(doc, "{{DURACION}}", duracionFormato);
       reemplazarTexto(doc, "{{ESTADO}}", fallo ? "FALLIDO" : "EXITOSO");
 
@@ -198,7 +198,12 @@ public class WordAppium {
 
     // Recortamos colas ruidosas típicas de Selenium/Appium.
     String[] ruido = {
-      "Build info:", "Host info:", "System info:", "Driver info:", "Capabilities {", "For documentation"
+      "Build info:",
+      "Host info:",
+      "System info:",
+      "Driver info:",
+      "Capabilities {",
+      "For documentation"
     };
     for (String r : ruido) {
       int idx = msg.indexOf(r);
@@ -320,7 +325,9 @@ public class WordAppium {
     }
   }
 
-  /** Agrega al final del reporte la descripción del error y la captura del fallo (Error/error.png). */
+  /**
+   * Agrega al final del reporte la descripción del error y la captura del fallo (Error/error.png).
+   */
   private static void agregarSeccionError(
       XWPFDocument doc, String pasoFallido, String descripcionError) {
 

@@ -5,7 +5,6 @@ import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.wait.WaitFor;
-import interactions.wait.WaitForResponse;
 import models.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -26,11 +25,10 @@ public class SeleccionarLineaPostpago implements Task {
 
     EvidenciaUtils.registrarCaptura(paso1);
 
-    actor.attemptsTo(
-        ClickTextoQueContengaX.elTextoContiene(user.getNumero()),
-            WaitFor.aTime(5000));
-        //WaitForResponse.withAnyText(
-          //  FAMILIA_Y_AMIGOS_OPCION, ADELANTA_SALDO_LABEL, COMPRA_POR_CATEGORIA, CLARO_COLOMBIA, CELULARES_TECNOLOGIA, ESTRENA_CELULARRES_TECNOLOGIA ));
+    actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(user.getNumero()), WaitFor.aTime(5000));
+    // WaitForResponse.withAnyText(
+    //  FAMILIA_Y_AMIGOS_OPCION, ADELANTA_SALDO_LABEL, COMPRA_POR_CATEGORIA, CLARO_COLOMBIA,
+    // CELULARES_TECNOLOGIA, ESTRENA_CELULARRES_TECNOLOGIA ));
   }
 
   public static Performable seleccionarLinea() {

@@ -128,7 +128,8 @@ public class IngresoSuperApp implements Task {
     if (isVisibleFast(actor, LBL_SESION_ABIERTA)) {
       actor.attemptsTo(ClickElementByText.clickElementByText(CONTINUAR), WaitFor.aTime(6000));
     }
-    actor.attemptsTo(WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
+    actor.attemptsTo(
+        WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
     validarLogin(actor);
   }
 
@@ -198,8 +199,7 @@ public class IngresoSuperApp implements Task {
 
   private <T extends Actor> void loginDesdeCero(T actor) {
     if (isVisibleFast(actor, LBL_PERMISO_ACCESO_UBICACION)) {
-      actor.attemptsTo(
-              ClickElementByText.clickElementByText(ACEPTAR_2));
+      actor.attemptsTo(ClickElementByText.clickElementByText(ACEPTAR_2));
     }
     actor.attemptsTo(ClickElementByText.clickElementByText(INICIAR_SESION));
 
@@ -226,7 +226,8 @@ public class IngresoSuperApp implements Task {
     if (isVisibleFast(actor, LBL_SESION_ABIERTA)) {
       actor.attemptsTo(ClickElementByText.clickElementByText(CONTINUAR), WaitFor.aTime(6000));
     }
-    actor.attemptsTo(WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
+    actor.attemptsTo(
+        WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(30).seconds());
   }
 
   private <T extends Actor> void validarLogin(T actor) {
@@ -244,7 +245,7 @@ public class IngresoSuperApp implements Task {
     maybeManejarBiometrico(actor);
     maybePermisoNotificaciones(actor);
     maybeAutorizarVelocidad(actor);
-// EMERGENCIA: cerrar Tienda Claro si se abrió sobre el home
+    // EMERGENCIA: cerrar Tienda Claro si se abrió sobre el home
     actor.attemptsTo(CerrarTiendaClaro.cerrarTiendaClaro());
     // Validación final del login exitoso
     actor.attemptsTo(ValidarTextoQueContengaX.elTextoContiene(TUS_SERVICIOS_FAVORITOS));

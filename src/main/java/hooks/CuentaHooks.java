@@ -16,8 +16,10 @@ public class CuentaHooks {
   public void seleccionarCuenta(Scenario scenario) {
     CuentaManager.activarDesdeTags(scenario.getSourceTagNames());
     System.out.println(
-        "\uD83D\uDC64 [CUENTA] Escenario '" + scenario.getName()
-            + "' inicia con la cuenta: " + CuentaManager.getIdCuentaActiva());
+        "\uD83D\uDC64 [CUENTA] Escenario '"
+            + scenario.getName()
+            + "' inicia con la cuenta: "
+            + CuentaManager.getIdCuentaActiva());
   }
 
   @After(order = 0)

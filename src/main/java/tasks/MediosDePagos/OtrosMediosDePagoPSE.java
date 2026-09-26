@@ -42,7 +42,7 @@ public class OtrosMediosDePagoPSE implements Task {
     EvidenciaUtils.registrarCaptura(PASO_PSE);
 
     actor.attemptsTo(
-            Scroll.scrollMediaVista(),
+        Scroll.scrollMediaVista(),
         ClickTextoQueContengaX.elTextoContiene(CONTINUAR),
         WaitFor.aTime(10000),
         PSE.validarRedireccion());

@@ -1,5 +1,9 @@
 package tasks.MediosDePagos;
 
+import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static userinterfaces.MediosPagoPage.*;
+import static utils.Constants.*;
+
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.Scroll;
 import interactions.Scroll.ScrollHastaTexto;
@@ -16,38 +20,32 @@ import net.serenitybdd.screenplay.actions.Enter;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
-import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static userinterfaces.MediosPagoPage.*;
-import static utils.Constants.*;
-
 public class PSEPagaTuFactura implements Task {
 
-    private static final User user = TestDataProvider.getRealUser();
-    private static final String paso1 = "Validar y completar formulario inicial";
+  private static final User user = TestDataProvider.getRealUser();
+  private static final String paso1 = "Validar y completar formulario inicial";
 
-    @Override
-    public <T extends Actor> void performAs(T actor) {
+  @Override
+  public <T extends Actor> void performAs(T actor) {
 
-        EvidenciaUtils.registrarCaptura(paso1);
+    EvidenciaUtils.registrarCaptura(paso1);
 
-        actor.attemptsTo(
-                ValidarTexto.validarTexto(PAGO_PSE),
-                Click.on(DOPDOWN_ENTIDAD_BANCARIA),
-                WaitFor.aTime(2000),
-                ScrollHastaTexto.conTexto(BANCO_DAVIVIENDA),
-                ClickTextoQueContengaX.elTextoContiene(BANCO_DAVIVIENDA),
-                WaitFor.aTime(4000),
-                WaitElement.isVisible(TXT_ESCRIBE_CORREO_PSE),
-                Enter.theValue(user.getEmail()).into(TXT_ESCRIBE_CORREO_PSE),
-                Scroll.scrollUnaVista(),
-                ClickTextoQueContengaX.elTextoContiene(IR_A_PSE),
-                WaitForResponse.withText(PAGOS_EN_LINEA),
-                ValidarTexto.validarTexto(PAGOS_EN_LINEA)
-        );
+    actor.attemptsTo(
+        ValidarTexto.validarTexto(PAGO_PSE),
+        Click.on(DOPDOWN_ENTIDAD_BANCARIA),
+        WaitFor.aTime(2000),
+        ScrollHastaTexto.conTexto(BANCO_DAVIVIENDA),
+        ClickTextoQueContengaX.elTextoContiene(BANCO_DAVIVIENDA),
+        WaitFor.aTime(4000),
+        WaitElement.isVisible(TXT_ESCRIBE_CORREO_PSE),
+        Enter.theValue(user.getEmail()).into(TXT_ESCRIBE_CORREO_PSE),
+        Scroll.scrollUnaVista(),
+        ClickTextoQueContengaX.elTextoContiene(IR_A_PSE),
+        WaitForResponse.withText(PAGOS_EN_LINEA),
+        ValidarTexto.validarTexto(PAGOS_EN_LINEA));
+  }
 
-    }
-
-    public static Performable validarRedireccionPSEPagaTuFactura() {
-        return instrumented(PSEPagaTuFactura.class);
-    }
+  public static Performable validarRedireccionPSEPagaTuFactura() {
+    return instrumented(PSEPagaTuFactura.class);
+  }
 }

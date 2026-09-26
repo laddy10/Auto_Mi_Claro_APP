@@ -2,18 +2,13 @@ package tasks.Entretenimiento;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static userinterfaces.EntretenimientoPage.*;
-import static utils.AdbUtils.ejecutarAdbTap;
 import static utils.Constants.*;
 
-import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.ScrollHorizontalYValidar;
-import interactions.validations.ValidarTextoQueContengaX;
-import interactions.wait.WaitFor;
 import interactions.wait.WaitForTextContains;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Click;
 import utils.EvidenciaUtils;
 
 /**
@@ -38,8 +33,8 @@ public class SeleccionaPlanEstandarDisney implements Task {
         ScrollHorizontalYValidar.scrollIzquierdaYValidar(PRECIO_STANDAR)
 
         // Validar que el plan está visible (opcional pero recomendado)
-        //ValidarTextoQueContengaX.elTextoContiene(ELEGIR_PLAN)
-    );
+        // ValidarTextoQueContengaX.elTextoContiene(ELEGIR_PLAN)
+        );
 
     // Captura de evidencia después del scroll
     EvidenciaUtils.registrarCaptura(paso + " - Plan encontrado");

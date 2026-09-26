@@ -1,8 +1,6 @@
 package tasks.Prepago.RecargasyPaquetes;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static userinterfaces.PagosyConsultasPrePage.LBL_VER_DETALLE_2;
-import static userinterfaces.PagosyConsultasPrePage.LBL_VER_DETALLE_3;
 import static utils.Constants.*;
 import static utils.ConstantsPaquetes.*;
 import static utils.ConstantsPaquetes.PAQUETES_DE_VOZ;
@@ -16,7 +14,6 @@ import models.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Click;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
@@ -43,13 +40,13 @@ public class PaquetesDeVoz implements Task {
     // PASO 2: Validar y explorar primer paquete 300 Min ($2.000)
 
     actor.attemptsTo(
-            Scroll.scrollUnaVista(),
-            ValidarTexto.validarTexto(LABEL_PAQUETES),
-            ValidarTexto.validarTexto(PRECIO),
-            ValidarTexto.validarTexto(PRECIO_$18500),
-            ValidarTexto.validarTexto("1000 Min"),
-            ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
-            ValidarTexto.validarTexto(PAQUETE_1000M_20DIAS));
+        Scroll.scrollUnaVista(),
+        ValidarTexto.validarTexto(LABEL_PAQUETES),
+        ValidarTexto.validarTexto(PRECIO),
+        ValidarTexto.validarTexto(PRECIO_$18500),
+        ValidarTexto.validarTexto("1000 Min"),
+        ClickElementByText.clickElementByText(VER_DETALLE_DEL_PAQUETE),
+        ValidarTexto.validarTexto(PAQUETE_1000M_20DIAS));
 
     /*
     actor.attemptsTo(

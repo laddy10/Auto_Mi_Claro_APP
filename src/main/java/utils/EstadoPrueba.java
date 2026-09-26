@@ -9,7 +9,8 @@ public class EstadoPrueba {
 
   /**
    * Guarda el mensaje del error la PRIMERA vez que ocurre en el escenario (la causa raíz). Las
-   * llamadas posteriores no lo sobrescriben, para no perder el error original con fallos en cascada.
+   * llamadas posteriores no lo sobrescriben, para no perder el error original con fallos en
+   * cascada.
    */
   public static void capturarError(String msg) {
     if ((descripcionError == null || descripcionError.isEmpty())

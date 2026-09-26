@@ -94,14 +94,14 @@ public class ReportHooks {
     }
 
     WordAppium.generarReporte(
-            scenario.getName(),
-            pasosEjecutados.toArray(new String[0]),
-            lineaUsada,
-            duracionFormato,
-            pasoFallido,
-            estadoFinal,
-            idEscenario,   // 🟢 NUEVO
-            lineaPlan);    // 🟢 NUEVO
+        scenario.getName(),
+        pasosEjecutados.toArray(new String[0]),
+        lineaUsada,
+        duracionFormato,
+        pasoFallido,
+        estadoFinal,
+        idEscenario, // 🟢 NUEVO
+        lineaPlan); // 🟢 NUEVO
 
     System.out.println("══════════════════════════════════════════════════════");
     System.out.println("🏁 Escenario finalizado: " + scenario.getName());

@@ -24,8 +24,8 @@ import models.User;
  * plantilla {@code {{correoPrueba}}}, {@code {{lineaPrueba}}}, {@code {{cuentaPrueba}}}.
  *
  * <p>Un archivo por escenario (y no uno compartido) a proposito: el build corre con {@code
- * maxParallelForks}, y varios JVM escribiendo el mismo archivo se pisarian. Ademas, si la corrida se
- * cae a la mitad, lo ya escrito sobrevive.
+ * maxParallelForks}, y varios JVM escribiendo el mismo archivo se pisarian. Ademas, si la corrida
+ * se cae a la mitad, lo ya escrito sobrevive.
  *
  * <p>REGLA: aqui NO se escriben contrasenas (ni password, ni contrasena, ni passwordClaroMusica).
  * Este archivo viaja a Smart Tester y su contenido termina en mensajes de WhatsApp/Teams.

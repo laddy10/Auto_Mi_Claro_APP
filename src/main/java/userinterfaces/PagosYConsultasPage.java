@@ -165,13 +165,12 @@ public class PagosYConsultasPage {
           .located(By.xpath("//*[@text='Elegir otro medio de pago']"));
 
   public static final Target BTN_VER_MAS_PAGOS_Y_CONSULTAS =
-          Target.the("Botón Ver más - módulo Pagos y consultas")
-                  .located(
-                          By.xpath(
-                                  "//*[contains(@text,'Hazlo todo en línea')]/following::*[contains(@text,'Ver más')][1]"));
+      Target.the("Botón Ver más - módulo Pagos y consultas")
+          .located(
+              By.xpath(
+                  "//*[contains(@text,'Hazlo todo en línea')]/following::*[contains(@text,'Ver más')][1]"));
   public static final Target LBL_PAGA_TU_FACTURA =
-          Target.the("Texto Paga tu factura")
-                  .located(By.xpath("//*[contains(@text,'factura')]"));
+      Target.the("Texto Paga tu factura").located(By.xpath("//*[contains(@text,'factura')]"));
 
   public static final Target CUADRO_RESUMEN =
       Target.the("Cuadro de ver resumen del paquete")
@@ -192,11 +191,14 @@ public class PagosYConsultasPage {
                       + "\")"));
 
   public static final Target BTN_PSE_NEQUI =
-          Target.the("Botón PSE y nequi")
-                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View[2]/android.view.View"));
+      Target.the("Botón PSE y nequi")
+          .located(
+              By.xpath(
+                  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View[2]/android.view.View"));
 
-
-public static final Target BTN_PAGAR_PAGA_FACTURA =
-        Target.the("Botón pagar en paga tu factura")
-                .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.widget.Button[2]"));
+  public static final Target BTN_PAGAR_PAGA_FACTURA =
+      Target.the("Botón pagar en paga tu factura")
+          .located(
+              By.xpath(
+                  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.widget.Button[2]"));
 }

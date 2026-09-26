@@ -4,10 +4,11 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static userinterfaces.PagosYConsultasPage.*;
 import static utils.Constants.*;
+
 import interactions.validations.ValidarTextoQueContengaX;
-import java.util.List;
 import interactions.validations.ValidateInformationText;
 import interactions.wait.WaitForResponse;
+import java.util.List;
 import models.User;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.Actor;
@@ -30,20 +31,17 @@ public class RedireccionPagarFactura implements Task {
 
       EvidenciaUtils.registrarCaptura(paso);
 
-      actor.attemptsTo(
-          Click.on(BTN_PAGAR_FACTURA),
-          WaitForResponse.withText(ELIGE_METODO_PAGO)
-          );
+      actor.attemptsTo(Click.on(BTN_PAGAR_FACTURA), WaitForResponse.withText(ELIGE_METODO_PAGO));
 
       EvidenciaUtils.registrarCaptura(paso2);
 
       actor.attemptsTo(
           ValidarTextoQueContengaX.elTextoContiene(TARJETA_C_D),
           ValidarTextoQueContengaX.elTextoContiene(BOTON_BANCOLOMBIA));
-          //ValidarTextoQueContengaX.elTextoContiene(PSE1));
-          //ValidarTextoQueContengaX.elTextoContiene(OTROS_MEDIOS));
+      // ValidarTextoQueContengaX.elTextoContiene(PSE1));
+      // ValidarTextoQueContengaX.elTextoContiene(OTROS_MEDIOS));
 
-     actor.should(seeThat(ValidateInformationText.validateInformationText(BTN_PSE_NEQUI)));
+      actor.should(seeThat(ValidateInformationText.validateInformationText(BTN_PSE_NEQUI)));
     }
   }
 

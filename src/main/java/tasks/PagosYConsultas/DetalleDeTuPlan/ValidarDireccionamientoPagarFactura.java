@@ -30,7 +30,7 @@ public class ValidarDireccionamientoPagarFactura implements Task {
         ValidarTextoQueContengaX.elTextoContiene(VALOR_A_PAGAR),
         ValidarTexto.validarTexto(PAGAR_FACTURA_BTN),
         ValidarTexto.validarTexto(PAGA_Y_CONOCE_TUS_SERVICIOS),
-            Scroll.scrollUnaVista(),
+        Scroll.scrollUnaVista(),
         ValidarTexto.validarTexto(DESCARGA_TU_FACTURA),
         ValidarTexto.validarTexto(PAGOS_AUTOMATICOS));
 

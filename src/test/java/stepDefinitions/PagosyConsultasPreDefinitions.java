@@ -6,7 +6,6 @@ import static userinterfaces.PagosYConsultasPage.*;
 import static utils.Constants.*;
 import static utils.ConstantsMiniVersiones.Versiones.MINI_VERSION_RECARGAS_Y_PAQUETES_PRE;
 
-
 import cucumber.api.java.ast.Y;
 import cucumber.api.java.es.Entonces;
 import hooks.ReportHooks;

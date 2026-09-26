@@ -32,7 +32,8 @@ public class ValidarInfoRecargas implements Task {
 
     EvidenciaUtils.registrarCaptura(paso);
 
-    actor.attemptsTo(VerificarVersionModulo.conLaEsperada(MINI_VERSION_RECARGAS_Y_PAQUETES_CONSTANT));
+    actor.attemptsTo(
+        VerificarVersionModulo.conLaEsperada(MINI_VERSION_RECARGAS_Y_PAQUETES_CONSTANT));
 
     actor.attemptsTo(Atras.irAtras());
   }

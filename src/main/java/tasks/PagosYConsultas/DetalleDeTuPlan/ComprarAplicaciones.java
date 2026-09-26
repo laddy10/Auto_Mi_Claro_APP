@@ -1,19 +1,15 @@
 package tasks.PagosYConsultas.DetalleDeTuPlan;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static userinterfaces.PagosYConsultasPage.CHECK_TIKTOK;
 import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarTexto;
-import interactions.validations.ValidarTextoQueContengaX;
-import interactions.wait.WaitFor;
 import interactions.wait.WaitForResponse;
 import models.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Click;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 

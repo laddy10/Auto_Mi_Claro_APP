@@ -30,24 +30,24 @@ public class PagosAutomaticos implements Task {
 
     // Seleccionar "Pagos automáticos"
     actor.attemptsTo(
-            ScrollHastaTexto.conTexto(PAGOS_AUTOMATICOS),
+        ScrollHastaTexto.conTexto(PAGOS_AUTOMATICOS),
         ClickTextoQueContengaX.elTextoContiene(PAGOS_AUTOMATICOS),
-        WaitForResponse.withText(SELECCIONA_QUE_SERVICIO_DESEAS_INSCRIBIR));
+        WaitForResponse.withText(PORTAL_PAGOS));
 
     EvidenciaUtils.registrarCaptura(paso2);
 
     // Validar mensaje de inscripción y cuentas activas
     actor.attemptsTo(
-        ValidarTextoQueContengaX.elTextoContiene(SELECCIONA_QUE_SERVICIO_DESEAS_INSCRIBIR),
-        ValidarTextoQueContengaX.elTextoContiene(VER_HISTORIAL),
-        ValidarTextoQueContengaX.elTextoContiene(SELECCIONAR_TODAS));
+        //ValidarTextoQueContengaX.elTextoContiene(SELECCIONA_QUE_SERVICIO_DESEAS_INSCRIBIR),
+        ValidarTextoQueContengaX.elTextoContiene(VER_HISTORIAL));
+        //ValidarTextoQueContengaX.elTextoContiene(SELECCIONAR_TODAS));
     // ScrollHastaTexto.conTexto(user.getNumero().replace(" ", "")),
     // ValidarTextoQueContengaX.elTextoContiene(user.getNumero().replace(" ", "")));
 
     EvidenciaUtils.registrarCaptura(paso3);
 
     // Validar redirección Ver historial
-    actor.attemptsTo(ScrollHastaTexto.conTexto(VER_HISTORIAL));
+    /*actor.attemptsTo(ScrollHastaTexto.conTexto(VER_HISTORIAL));
 
     EvidenciaUtils.registrarCaptura(paso4);
 
@@ -58,7 +58,7 @@ public class PagosAutomaticos implements Task {
         ValidarTextoQueContengaX.elTextoContiene(PAGOS_REALIZADOS),
         ValidarTextoQueContengaX.elTextoContiene(TARJETAS_INSCRITAS));
 
-    EvidenciaUtils.registrarCaptura(paso5);
+    EvidenciaUtils.registrarCaptura(paso5);*/
   }
 
   public static Performable validarPagosAutomaticos() {

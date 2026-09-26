@@ -1,7 +1,5 @@
 package utils;
 
-import net.serenitybdd.screenplay.targets.Target;
-
 public class Constants {
 
   public static final String CONTINUAR = "Continuar";
@@ -131,6 +129,7 @@ public class Constants {
   public static final String CONSULTA_LA_FACTURA_DE_TU_PLAN_POSTPAGO =
       "Consulta la factura de tu plan postpago";
   public static final String VER_FACTURA = "Ver factura";
+  public static final String VER_PAGAR_FACTURA = "Ver y pagar factura";
   public static final String TU_PLAN = "Tu Plan";
   public static final String DATOS = "Datos";
   public static final String TU_PLAN_INCLUYE = "Tu plan incluye";
@@ -471,7 +470,8 @@ public class Constants {
   public static final String TELEVISORES = "Televisores";
   public static final String LOS_MAS_VENDIDOS = "Los más vendidos";
   public static final String ESTO_ES_PARA_TI = "Esto es para ti";
-  public static final String ESTRENA_CELULARRES_TECNOLOGIA = "¡Estrena celulares y tecnología con el Aniversario Claro!";
+  public static final String ESTRENA_CELULARRES_TECNOLOGIA =
+      "¡Estrena celulares y tecnología con el Aniversario Claro!";
 
   // Constantes para eSIM Claro
   public static final String ESIM_CLARO = "eSIM Claro";
@@ -528,7 +528,7 @@ public class Constants {
   // Portal de pagos y recargas
   public static final String SELECCIONA_TU_SERVICIO = "Selecciona tu servicio";
   public static final String PAGO_DE_FACTURAS = "Pago de Facturas";
-
+  public static final String PORTAL_PAGOS = "Portal de PAGOS Y RECARGAS";
   // Equipos financiados
   public static final String PARA_CONTINUAR_DILIGENCIA =
       "Para continuar diligencia las siguientes datos";
@@ -612,8 +612,7 @@ public class Constants {
   public static final String HOTGO = "HotGo";
   public static final String RED_NOTICIAS = "RED + NOTICIAS";
   public static final String CUPONES = "Cupones";
-  public static final String PRECIO_STANDAR = "36.900/mes\n" +
-          "IVA incluido";
+  public static final String PRECIO_STANDAR = "36.900/mes\n" + "IVA incluido";
   public static final String TIENDA_CLARO = "Tienda Claro";
   public static final String PERMITIR = "Permitir";
 
@@ -782,19 +781,19 @@ public class Constants {
   public static final String CODIGO_6_DIGITOS_DAVIPLATA =
       "Ingresa el codigo de 6 dígitos que DaviPlata envió a tu número de celular. No compartas esta información con nadie";
 
-
   public static final String TU_LUGAR_PARA_FUTBOL = "Tu lugar para vivir el fútbol";
   public static final String CADA_PARTIDO = "Cada partido, cada gol, cada emoción";
   public static final String OFERTAS_IMPERDIBLES = "Ofertas imperdibles de nuestros aliados";
-  public static final String CELULARES_TECNOLOGIA = "Celulares y Tecnología | Golazo es estrenar con Claro";
+  public static final String CELULARES_TECNOLOGIA =
+      "Celulares y Tecnología | Golazo es estrenar con Claro";
 
   // Constantes medios de pago para paga tu factua
   public static final String PAGO_PSE = "Pago PSE";
   public static final String IR_A_PSE = "Ir a PSE";
   public static final String INGRESO_BANCO = "Ingresa para realizar tu pago PSE";
   public static final String REALIZA_PAGO_EN_LINEA = "Realiza el pago en línea";
-  public static final String INGRESO_BANCO1 = "Bienvenido a nuestro nuevo portal de pagos de servicios electrónicos.";
+  public static final String INGRESO_BANCO1 =
+      "Bienvenido a nuestro nuevo portal de pagos de servicios electrónicos.";
   public static final String IR_A_CINE = "Ir a cine";
   public static final String PAGOS_EN_LINEA = "Pagos en Línea y PSE";
-
 }

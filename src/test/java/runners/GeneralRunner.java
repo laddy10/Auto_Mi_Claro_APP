@@ -11,12 +11,11 @@ import utils.DataToFeature;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features",
-        glue = {"stepDefinitions", "utils", "hooks", "listeners"},
-        snippets = SnippetType.CAMELCASE,
-        plugin = {"pretty"},
-        tags = "@SA006")
-
+    features = "src/test/resources/features",
+    glue = {"stepDefinitions", "utils", "hooks", "listeners"},
+    snippets = SnippetType.CAMELCASE,
+    plugin = {"pretty"},
+    tags = "@SA076")
 public class GeneralRunner {
   @BeforeSuite
   public static void generateFeatureFiles() throws InvalidFormatException, IOException {

@@ -78,7 +78,7 @@ public class OllamaStepListener implements StepListener {
   public void stepFailed(StepFailure failure) {
     // Reporte Word: guardar la descripción del error (siempre, aunque Ollama esté apagado)
     utils.EstadoPrueba.capturarError(
-            (failure.getException() != null) ? failure.getException().getMessage() : null);
+        (failure.getException() != null) ? failure.getException().getMessage() : null);
 
     if (!OLLAMA_ENABLED || !ollamaAvailable) {
       return;

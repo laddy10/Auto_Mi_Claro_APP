@@ -37,13 +37,11 @@ public class ValidarPaginaClaro implements Task {
       EvidenciaUtils.registrarCaptura(paso1);
     }
 
-    actor.attemptsTo(
-        ScrollHastaTexto.conTexto(COMPRA_POR_CATEGORIA));
+    actor.attemptsTo(ScrollHastaTexto.conTexto(COMPRA_POR_CATEGORIA));
 
     EvidenciaUtils.registrarCaptura(paso2);
 
-    actor.attemptsTo(
-            ScrollHastaTexto.conTexto(ESTO_ES_PARA_TI));
+    actor.attemptsTo(ScrollHastaTexto.conTexto(ESTO_ES_PARA_TI));
   }
 
   public static Performable validarRedireccionamiento() {

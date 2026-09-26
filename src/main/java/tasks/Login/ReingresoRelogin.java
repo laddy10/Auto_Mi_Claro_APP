@@ -1,13 +1,10 @@
 package tasks.Login;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotPresent;
 import static userinterfaces.LoginPage.*;
 import static utils.Constants.*;
 
 import interactions.Click.ClickElementByText;
-import interactions.wait.WaitFor;
 import io.appium.java_client.android.AndroidDriver;
 import models.User;
 import net.serenitybdd.screenplay.Actor;
@@ -18,7 +15,6 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.questions.Presence;
 import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.targets.Target;
-import net.serenitybdd.screenplay.waits.WaitUntil;
 import utils.AndroidObject;
 import utils.CuentaManager;
 import utils.EvidenciaUtils;
@@ -62,14 +58,19 @@ public class ReingresoRelogin implements Task {
     boolean recordadaEsObjetivo = recordada != null && recordada.equalsIgnoreCase(objetivo);
 
     EvidenciaUtils.registrarCaptura(
-        "Reingreso | cuenta recordada: " + recordada + " | objetivo: " + objetivo
-            + " | ¿coincide?: " + recordadaEsObjetivo);
+        "Reingreso | cuenta recordada: "
+            + recordada
+            + " | objetivo: "
+            + objetivo
+            + " | ¿coincide?: "
+            + recordadaEsObjetivo);
 
     abrirRelogin(actor);
     EvidenciaUtils.registrarCaptura("Correo recordado en pantalla: " + leerReloginAccount(actor));
 
     if (recordadaEsObjetivo) {
-      EvidenciaUtils.registrarCaptura("La cuenta recordada es la objetivo. Continuar y login normal.");
+      EvidenciaUtils.registrarCaptura(
+          "La cuenta recordada es la objetivo. Continuar y login normal.");
       actor.attemptsTo(IngresoSuperApp.ingresoSuperApp());
       return;
     }
@@ -80,7 +81,10 @@ public class ReingresoRelogin implements Task {
 
   // ─────────────────────────── pasos ───────────────────────────
 
-  /** Clic en "Iniciar sesión" (popup y luego home) hasta llegar a la pantalla de bienvenida/documento. */
+  /**
+   * Clic en "Iniciar sesión" (popup y luego home) hasta llegar a la pantalla de
+   * bienvenida/documento.
+   */
   private <T extends Actor> void abrirRelogin(T actor) {
     for (int i = 0; i < 6; i++) {
       if (enRelogin(actor)) {
@@ -110,7 +114,8 @@ public class ReingresoRelogin implements Task {
       clickOtraCuenta(actor);
       esperarCualquiera(actor, 12000, BTN_OTROS_METODOS_INGRESO, TXT_USERNAME);
     } else {
-      EvidenciaUtils.registrarCaptura("No hay 'Ingresar con otra cuenta'; se continúa a Otros métodos.");
+      EvidenciaUtils.registrarCaptura(
+          "No hay 'Ingresar con otra cuenta'; se continúa a Otros métodos.");
     }
 
     // 2) Otros métodos de ingreso -> Correo electrónico.
@@ -143,10 +148,10 @@ public class ReingresoRelogin implements Task {
   }
 
   /**
-   * Espera tras la contraseña. Cubre los dos caminos y espera el HOME (no depende del logo "Espera un
-   * momento"). Solo maneja lo que puede aparecer en un REINGRESO (sin reinicio): el popup "sesión
-   * abierta en otro dispositivo" y la publicidad. Los permisos/condiciones NO aplican aquí (esos solo
-   * salen tras un reinicio limpio, y esos flujos usan IngresoSuperApp/PreparacionApp).
+   * Espera tras la contraseña. Cubre los dos caminos y espera el HOME (no depende del logo "Espera
+   * un momento"). Solo maneja lo que puede aparecer en un REINGRESO (sin reinicio): el popup
+   * "sesión abierta en otro dispositivo" y la publicidad. Los permisos/condiciones NO aplican aquí
+   * (esos solo salen tras un reinicio limpio, y esos flujos usan IngresoSuperApp/PreparacionApp).
    */
   private static final long ESPERA_INGRESO_MS = 60_000L;
 
@@ -187,25 +192,26 @@ public class ReingresoRelogin implements Task {
       // Home confirmado (señal real de éxito).
       if (enHome(xml)) {
         EvidenciaUtils.registrarCaptura(
-                "Login exitoso. Home confirmado para: " + CuentaManager.getIdCuentaActiva());
+            "Login exitoso. Home confirmado para: " + CuentaManager.getIdCuentaActiva());
         return;
       }
 
       dormir(1000);
     }
 
-    EvidenciaUtils.registrarCaptura("No se confirmó el ingreso al home tras la contraseña (timeout).");
+    EvidenciaUtils.registrarCaptura(
+        "No se confirmó el ingreso al home tras la contraseña (timeout).");
     throw new IllegalStateException(
-            "ReingresoRelogin: no se confirmó el home tras la contraseña para '"
-                    + CuentaManager.getIdCuentaActiva()
-                    + "'. Revisa modales post-login (velocidad / sesión abierta) o el locator del home.");
+        "ReingresoRelogin: no se confirmó el home tras la contraseña para '"
+            + CuentaManager.getIdCuentaActiva()
+            + "'. Revisa modales post-login (velocidad / sesión abierta) o el locator del home.");
   }
 
   private boolean enHome(String xml) {
     return contiene(xml, ":id/home_user_name_tv")
-            || contiene(xml, ":id/iv_menu")
-            || contiene(xml, ":id/card_mini_program_title_tv")
-            || contiene(xml, "Tus servicios favoritos");
+        || contiene(xml, ":id/iv_menu")
+        || contiene(xml, ":id/card_mini_program_title_tv")
+        || contiene(xml, "Tus servicios favoritos");
   }
 
   private String pageSource(Actor actor) {

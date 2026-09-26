@@ -10,21 +10,19 @@ import utils.AndroidObject;
 
 public class ClickElementById extends AndroidObject implements Interaction {
 
-    private final String resourceId;
+  private final String resourceId;
 
-    public ClickElementById(String resourceId) {
-        this.resourceId = resourceId;
-    }
+  public ClickElementById(String resourceId) {
+    this.resourceId = resourceId;
+  }
 
-    @Override
-    @Step("Busca el elemento con id '#resourceId' y le da click.")
-    public <T extends Actor> void performAs(T actor) {
-        androidDriver(actor)
-                .findElement(MobileBy.id(resourceId))
-                .click();
-    }
+  @Override
+  @Step("Busca el elemento con id '#resourceId' y le da click.")
+  public <T extends Actor> void performAs(T actor) {
+    androidDriver(actor).findElement(MobileBy.id(resourceId)).click();
+  }
 
-    public static Interaction clickElementById(String resourceId) {
-        return instrumented(ClickElementById.class, resourceId);
-    }
+  public static Interaction clickElementById(String resourceId) {
+    return instrumented(ClickElementById.class, resourceId);
+  }
 }

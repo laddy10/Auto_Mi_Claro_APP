@@ -69,7 +69,10 @@ public class ResumenCompra implements Task {
         Click.on(BTN_PAGAR),
         WaitFor.aTime(5000),
         WaitForTextContains.withAnyTextContains(
-            PORTAL_PAGOS_CLARO, OPERACION_EXITOSA, CODIGO_SEGURIDAD_SMS, AUTENTICACION_BANCOLOMBIA));
+            PORTAL_PAGOS_CLARO,
+            OPERACION_EXITOSA,
+            CODIGO_SEGURIDAD_SMS,
+            AUTENTICACION_BANCOLOMBIA));
   }
 
   public static Performable validar() {

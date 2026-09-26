@@ -4,7 +4,6 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static userinterfaces.PagosYConsultasPage.*;
 import static utils.Constants.*;
 
-
 import cucumber.api.java.ast.Y;
 import cucumber.api.java.es.Entonces;
 import hooks.ReportHooks;
@@ -45,11 +44,11 @@ public class PagosYConsultasDefinitions {
     final String paso = "Menu Pagos y consultas";
 
     theActorInTheSpotlight()
-            .attemptsTo(
-                    ScrollHastaTexto.conTexto(HAZLO_TODO_EN_LINEA),
-                    ScrollHastaTexto.conTexto(DISFRUTA_DE_TIEMPO_CON_MICLARO),
-                    Scroll.scrollMediaVista(),
-                    ClickTextoQueContengaX.elTextoContiene(VER_MAS));
+        .attemptsTo(
+            ScrollHastaTexto.conTexto(HAZLO_TODO_EN_LINEA),
+            ScrollHastaTexto.conTexto(DISFRUTA_DE_TIEMPO_CON_MICLARO),
+            Scroll.scrollMediaVista(),
+            ClickTextoQueContengaX.elTextoContiene(VER_MAS));
 
     EvidenciaUtils.registrarCaptura(paso);
   }
@@ -114,7 +113,7 @@ public class PagosYConsultasDefinitions {
               ValidarTexto.validarTexto(ELEGIR_OTRO_MEDIO_PAGO),
               ValidarTextoQueContengaX.elTextoContiene(TARJETA_C_D),
               ValidarTextoQueContengaX.elTextoContiene(BOTON_BANCOLOMBIA),
-              //ValidarTextoQueContengaX.elTextoContiene(PSE1),
+              // ValidarTextoQueContengaX.elTextoContiene(PSE1),
               ValidarTextoQueContengaX.elTextoContiene(OTROS_MEDIOS));
 
       EvidenciaUtils.registrarCaptura(paso5);
@@ -508,26 +507,23 @@ public class PagosYConsultasDefinitions {
 
   @Y("^SELECCIONA METODO DE PAGO PSE$")
   public void botonPseNequi() {
-    theActorInTheSpotlight().attemptsTo(
-            Click.on(BTN_PSE_NEQUI),
-            WaitFor.aTime(2000),
-            Click.on(BTN_PAGAR)
-    );
+    theActorInTheSpotlight()
+        .attemptsTo(Click.on(BTN_PSE_NEQUI), WaitFor.aTime(2000), Click.on(BTN_PAGAR));
   }
+
   @Y("^SELECCIONA METODO DE PAGO TARJETA$")
   public void botonPagoTajeta() {
-    theActorInTheSpotlight().attemptsTo(
-            ClickTextoQueContengaX.elTextoContiene(TARJETA_C_D),
-            WaitFor.aTime(2000)
-    );
+    theActorInTheSpotlight()
+        .attemptsTo(ClickTextoQueContengaX.elTextoContiene(TARJETA_C_D), WaitFor.aTime(2000));
   }
+
   @Y("^SELECCIONA METODO DE PAGO BANCOLOMBIA$")
   public void botonPagoBancolombia() {
-    theActorInTheSpotlight().attemptsTo(
+    theActorInTheSpotlight()
+        .attemptsTo(
             ClickTextoQueContengaX.elTextoContiene(BOTON_BANCOLOMBIA),
             WaitFor.aTime(2000),
-            Click.on(BTN_PAGAR)
-    );
+            Click.on(BTN_PAGAR));
   }
 
   @Entonces("^VALIDA REDIRECCION A PSE$")

@@ -25,7 +25,8 @@ import utils.TestDataProvider;
 public class DetalleTuPlan implements Task {
   private static final User user = TestDataProvider.getRealUser();
   private static final String paso1 = "Seleccionar Detalle de tu plan";
-  private static final String paso2 = "Seleccionar línea postpago " + user.getNumeroFamiliayAmigos();
+  private static final String paso2 =
+      "Seleccionar línea postpago " + user.getNumeroFamiliayAmigos();
   private static final String paso3 = "Validar versión de miniprograma";
   private static final String paso4 = "Validar información detalle del plan";
   private static final String paso5 = "Validar opciones disponibles";
@@ -43,7 +44,8 @@ public class DetalleTuPlan implements Task {
     EvidenciaUtils.registrarCaptura(paso2);
 
     // Seleccionar línea postpago
-    AndroidObject.scrollCorto2(actor, LINEA + " " + user.getNumeroFamiliayAmigos() + " " + VER_DETALLE);
+    AndroidObject.scrollCorto2(
+        actor, LINEA + " " + user.getNumeroFamiliayAmigos() + " " + VER_DETALLE);
 
     actor.attemptsTo(
         ClickTextoQueContengaX.elTextoContiene(user.getNumeroFamiliayAmigos()),
@@ -69,14 +71,14 @@ public class DetalleTuPlan implements Task {
         Atras.irAtras(),
         WaitFor.aTime(4000),
         ValidarTexto.validarTexto(CONSULTA_LA_FACTURA_DE_TU_PLAN_POSTPAGO),
-        ValidarTexto.validarTexto(VER_FACTURA),
-        //ValidarTexto.validarTexto(TU_PLAN),
-        //ValidarTextoQueContengaX.elTextoContiene(CARGO_FIJO_MENSUAL_IVA_INCLUIDO),
+        ValidarTexto.validarTexto(VER_PAGAR_FACTURA),
+        // ValidarTexto.validarTexto(TU_PLAN),
+        // ValidarTextoQueContengaX.elTextoContiene(CARGO_FIJO_MENSUAL_IVA_INCLUIDO),
 
         // Validar datos del plan
         ValidarTexto.validarTexto(DATOS),
-        //ValidarTextoQueContengaX.elTextoContiene(TU_PLAN_INCLUYE),
-        //ValidarTextoQueContengaX.elTextoContiene(VER_DETALLE_DE_REDES),
+        // ValidarTextoQueContengaX.elTextoContiene(TU_PLAN_INCLUYE),
+        // ValidarTextoQueContengaX.elTextoContiene(VER_DETALLE_DE_REDES),
 
         // Validar voz
         ValidarTexto.validarTexto(VOZ),
@@ -90,7 +92,7 @@ public class DetalleTuPlan implements Task {
         Scroll.scrollUnaVista(),
 
         // Validar Larga Distancia Internacional
-        //ValidarTexto.validarTexto(LARGA_DISTANCIA_INTERNACIONAL),
+        // ValidarTexto.validarTexto(LARGA_DISTANCIA_INTERNACIONAL),
 
         // Validar texto botones
         Scroll.scrollUnaVista(),

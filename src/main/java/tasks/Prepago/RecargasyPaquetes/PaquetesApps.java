@@ -1,8 +1,6 @@
 package tasks.Prepago.RecargasyPaquetes;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static userinterfaces.PagosyConsultasPrePage.LBL_VER_DETALLE_2;
-import static userinterfaces.PagosyConsultasPrePage.LBL_VER_DETALLE_3;
 import static utils.Constants.*;
 import static utils.ConstantsPaquetes.*;
 import static utils.ConstantsPaquetes.PAQUETES_APPS;
@@ -17,7 +15,6 @@ import models.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Click;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
@@ -39,7 +36,7 @@ public class PaquetesApps implements Task {
         ClickTextoQueContengaX.elTextoContiene(PAQUETES_APPS),
         WaitForResponse.withText(ELIGE_TU_PAQUETE_IDEAL),
         ValidarTextoQueContengaX.elTextoContiene(user.getNumeroPrepago()),
-        ValidarTexto.validarTexto(PAQUETES_APPS));/*
+        ValidarTexto.validarTexto(PAQUETES_APPS)); /*
 
     // PAQUETE 1: Validar primer paquete $3.500 (Salud en línea)
 

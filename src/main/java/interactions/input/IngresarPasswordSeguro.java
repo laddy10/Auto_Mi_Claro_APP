@@ -19,26 +19,26 @@ import utils.AndroidObject;
  */
 public class IngresarPasswordSeguro extends AndroidObject implements Interaction {
 
-    private final Target campo;
-    private final String valor;
+  private final Target campo;
+  private final String valor;
 
-    public IngresarPasswordSeguro(Target campo, String valor) {
-        this.campo = campo;
-        this.valor = valor;
-    }
+  public IngresarPasswordSeguro(Target campo, String valor) {
+    this.campo = campo;
+    this.valor = valor;
+  }
 
-    @Override
-    @Step("El actor ingresa la contraseña de forma segura (valor oculto).")
-    public <T extends Actor> void performAs(T actor) {
-        WebElementFacade elemento = campo.resolveFor(actor);
-        elemento.waitUntilEnabled();
-        elemento.clear();
-        // Escribe sobre el WebElementFacade sin pasar por la interacción Enter,
-        // por lo que Serenity NO registra el valor en el árbol de pasos del reporte.
-        elemento.sendKeys(valor);
-    }
+  @Override
+  @Step("El actor ingresa la contraseña de forma segura (valor oculto).")
+  public <T extends Actor> void performAs(T actor) {
+    WebElementFacade elemento = campo.resolveFor(actor);
+    elemento.waitUntilEnabled();
+    elemento.clear();
+    // Escribe sobre el WebElementFacade sin pasar por la interacción Enter,
+    // por lo que Serenity NO registra el valor en el árbol de pasos del reporte.
+    elemento.sendKeys(valor);
+  }
 
-    public static IngresarPasswordSeguro en(Target campo, String valor) {
-        return instrumented(IngresarPasswordSeguro.class, campo, valor);
-    }
+  public static IngresarPasswordSeguro en(Target campo, String valor) {
+    return instrumented(IngresarPasswordSeguro.class, campo, valor);
+  }
 }

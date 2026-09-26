@@ -37,9 +37,9 @@ import utils.TestDataProvider;
  *       PreparacionApp} y reintenta.
  * </ul>
  *
- * <p>Si tras el presupuesto ({@code DEADLINE_MS} / {@code MAX_PASADAS}) no se reconoce ningún estado,
- * lanza una excepción clara en vez de colgarse: así el escenario falla en segundos, dispara el
- * error.png y la sección "RESULTADO: FALLIDO" del reporte Word.
+ * <p>Si tras el presupuesto ({@code DEADLINE_MS} / {@code MAX_PASADAS}) no se reconoce ningún
+ * estado, lanza una excepción clara en vez de colgarse: así el escenario falla en segundos, dispara
+ * el error.png y la sección "RESULTADO: FALLIDO" del reporte Word.
  *
  * <p>La detección se hace por page source (una lectura por pasada) y NO depende del implicitWait,
  * que Serenity re-aplica por interacción y hace que cada búsqueda ausente cueste el valor completo.
@@ -54,8 +54,7 @@ public class GestionCuenta implements Task {
   private static final int MAX_PASADAS = 12; // tope de iteraciones del orquestador
 
   private static final Target BTN_CERRAR_MENU =
-      Target.the("Cerrar menú del perfil")
-          .located(By.id("com.clarocolombia.miclaro:id/iv_close"));
+      Target.the("Cerrar menú del perfil").located(By.id("com.clarocolombia.miclaro:id/iv_close"));
 
   @Override
   public <T extends Actor> void performAs(T actor) {
@@ -134,7 +133,9 @@ public class GestionCuenta implements Task {
 
   // ─────────────────────────── detección por page source ───────────────────────────
 
-  /** Home logueado: encabezado del usuario, ícono de menú, "Tus servicios favoritos" o el saludo. */
+  /**
+   * Home logueado: encabezado del usuario, ícono de menú, "Tus servicios favoritos" o el saludo.
+   */
   private boolean esHomeLogueado(String xml) {
     return contieneAlguno(
         xml,

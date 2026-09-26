@@ -39,7 +39,9 @@ public class EntretenimientoPage {
 
   public static final Target BTN_ELEGIR_PLAN_PREMIUM =
       Target.the("Botón para elegir plan")
-          .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button"));
+          .located(
+              By.xpath(
+                  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.Button"));
 
   public static final Target BTN_ELEGIR_PLAN_ESTANDAR =
       Target.the("Segundo botón 'Elegir plan'")
@@ -359,39 +361,40 @@ public class EntretenimientoPage {
       Target.the("Texto ¿Permitir que Claro música te envíe notificaciones?")
           .located(By.xpath("//*[@text='¿Permitir que Claro música te envíe notificaciones?']"));
   public static final Target TXT_ABRIR_CON =
-          Target.the("Texto Abrir con")
-                  .located(By.xpath("//*[@text='abrir con']"));
+      Target.the("Texto Abrir con").located(By.xpath("//*[@text='abrir con']"));
   public static final Target TXT_DESINSTALAR =
-          Target.the("Texto desinstalar")
-                  .located(By.xpath("//*[@text='desinstalar']"));
-  public static final Target TXT_ABRIR=
-          Target.the("Texto Abrir")
-                  .located(By.xpath("//*[@text='ABRIR']"));
-  public static final Target TXT_BIENVENIDO=
-          Target.the("Texto ¡Bienvenido al nuevo Claro música!")
-                  .located(By.xpath("//*[@text='¡Bienvenido al nuevo Claro música!']"));
-  public static final Target TXT_ENTRAR=
-          Target.the("Texto entrar")
-                  .located(By.xpath("//*[@text='Entrar']"));
-  public static final Target TXT_INGRESA_CON_NUMERO=
-          Target.the("Texto entrar")
-                  .located(By.xpath("//*[@text='Ingresa con tu número Claro']"));
-  public static final Target BTN_CORREO=
-          Target.the("Botón correo electrónico")
-                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]"));
-  public static final Target TBX_CORREO=
-          Target.the("Textbox correo")
-                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText"));
-  public static final Target BTN_ENTRAR_CLARO_MUSICA=
-          Target.the("Botón entrar con correo en claro música")
-                  .located(By.id("password_confirm_button"));
+      Target.the("Texto desinstalar").located(By.xpath("//*[@text='desinstalar']"));
+  public static final Target TXT_ABRIR =
+      Target.the("Texto Abrir").located(By.xpath("//*[@text='ABRIR']"));
+  public static final Target TXT_BIENVENIDO =
+      Target.the("Texto ¡Bienvenido al nuevo Claro música!")
+          .located(By.xpath("//*[@text='¡Bienvenido al nuevo Claro música!']"));
+  public static final Target TXT_ENTRAR =
+      Target.the("Texto entrar").located(By.xpath("//*[@text='Entrar']"));
+  public static final Target TXT_INGRESA_CON_NUMERO =
+      Target.the("Texto entrar").located(By.xpath("//*[@text='Ingresa con tu número Claro']"));
+  public static final Target BTN_CORREO =
+      Target.the("Botón correo electrónico")
+          .located(
+              By.xpath(
+                  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]"));
+  public static final Target TBX_CORREO =
+      Target.the("Textbox correo")
+          .located(
+              By.xpath(
+                  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText"));
+  public static final Target BTN_ENTRAR_CLARO_MUSICA =
+      Target.the("Botón entrar con correo en claro música")
+          .located(By.id("password_confirm_button"));
   public static final Target TBX_CONTRASENA =
-          Target.the("Textbox contraseña claro música")
-                  .located(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText"));
-  public static final Target TXT_BIENVENIDO_GRATIS=
-          Target.the("Texto ¡Bienvenido al nuevo Claro música Grátis!")
-                  .located(By.xpath("//*[@text='¡Bienvenido al nuevo Claro música Grátis!']"));
-  public static final Target TXT_BIENVENIDO_ILIMITADO=
-          Target.the("Texto ¡Bienvenido a Ilimitado!")
-                  .located(By.xpath("//*[@text='¡Bienvenido a Ilimitado!']"));
+      Target.the("Textbox contraseña claro música")
+          .located(
+              By.xpath(
+                  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText"));
+  public static final Target TXT_BIENVENIDO_GRATIS =
+      Target.the("Texto ¡Bienvenido al nuevo Claro música Grátis!")
+          .located(By.xpath("//*[@text='¡Bienvenido al nuevo Claro música Grátis!']"));
+  public static final Target TXT_BIENVENIDO_ILIMITADO =
+      Target.the("Texto ¡Bienvenido a Ilimitado!")
+          .located(By.xpath("//*[@text='¡Bienvenido a Ilimitado!']"));
 }
