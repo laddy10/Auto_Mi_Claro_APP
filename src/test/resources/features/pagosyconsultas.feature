@@ -429,7 +429,7 @@ Característica: Ingresar al modulo pagos y consultas
     Entonces  VALIDA VIGENCIA Y PLANES ROAMING
 
 
-  @SA091 @cuenta_secundaria
+  @SA091
   Escenario: Ingresar a paga tu factura y Validar redireccionamiento a medio de pago PSE
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -439,7 +439,7 @@ Característica: Ingresar al modulo pagos y consultas
     Y   SELECCIONA METODO DE PAGO PSE
     Entonces VALIDA REDIRECCION A PSE
 
-  @SA092 @cuenta_secundaria
+  @SA092
   Escenario: Ingresar a paga tu factura y Validar redireccionamiento a medio de pago con tarjetas
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -449,7 +449,7 @@ Característica: Ingresar al modulo pagos y consultas
     Y   SELECCIONA METODO DE PAGO TARJETA
     Entonces  VALIDA REDIRECCION A PAGO CON TARJETA
 
-  @SA093 @cuenta_secundaria
+  @SA093
   Escenario: Ingresar a paga tu factura y Validar redireccionamiento a medio de pago botón Bancolombia
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO

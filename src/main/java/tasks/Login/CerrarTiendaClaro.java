@@ -5,6 +5,7 @@ import static userinterfaces.LoginPage.*;
 import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
+import interactions.comunes.Atras;
 import interactions.wait.WaitFor;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -30,7 +31,7 @@ public class CerrarTiendaClaro extends AndroidObject implements Task {
 
   @Override
   public <T extends Actor> void performAs(T actor) {
-    /*if (!tiendaVisible(actor)) {
+    if (!tiendaVisible(actor)) {
         return; // No hay tienda: no interrumpe el flujo normal
     }
 
@@ -44,7 +45,7 @@ public class CerrarTiendaClaro extends AndroidObject implements Task {
         }
     }
 
-    EvidenciaUtils.registrarCaptura(paso);*/
+    EvidenciaUtils.registrarCaptura(paso);
 
     /* //Validación si direcciona a entetenimiento después de
     if (!entetenimientoVisible(actor)) {

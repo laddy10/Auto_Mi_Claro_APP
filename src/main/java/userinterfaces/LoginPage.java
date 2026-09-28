@@ -191,11 +191,11 @@ public class LoginPage {
       Target.the("Texto Tecnología que te transforma (Tienda Claro)")
           .located(
               By.xpath(
-                  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.widget.TextView[3]"));
+                  "//android.widget.TextView[@text=\"Tecnología que te transforma\"]"));
 
   public static final Target BTN_CERRAR_TIENDA_CLARO =
       Target.the("Botón X para cerrar la Tienda Claro")
-          .located(By.xpath("//android.widget.TextView[@content-desc=\"Cerrar\"]"));
+          .located(By.xpath("//android.widget.TextView[@content-desc=\" \" and @text=\"\uE902\"]"));
 
   public static final Target LBL_ENTRETENIMIENTO =
       Target.the("Texto Hecho para ti (Entretenimiento)")
