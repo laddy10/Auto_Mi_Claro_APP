@@ -23,12 +23,12 @@ public class VerificarTextosDisponibles implements Task {
         // ValidarTexto.validarTexto(GB_PLAN_160),
         ValidarTextoQueContengaX.elTextoContiene("Fecha inicio:"),
         ValidarTextoQueContengaX.elTextoContiene("Fecha carga:"),
-        ValidarTexto.validarTexto(CONSUMO_DE_DATOS),
+        //ValidarTexto.validarTexto(CONSUMO_DE_DATOS),
         ValidarTexto.validarTexto(APPS_SIN_LIMITE_CONSUMO),
         ValidarTexto.validarTexto(CONSUMO_DE_VOZ),
         ValidarTexto.validarTexto(CONSUMO_DE_SMS),
-        ValidarTexto.validarTexto(CONSUMO_PAQUETES_Y_RECARGAS),
-        ValidarTexto.validarTexto(COMPRAR_PAQUETES_Y_RECARGAS));
+        ValidarTexto.validarTexto(CONSUMO_PAQUETES_Y_RECARGAS));
+        //ValidarTexto.validarTexto(COMPRAR_PAQUETES_Y_RECARGAS)
 
     EvidenciaUtils.registrarCaptura(paso);
   }

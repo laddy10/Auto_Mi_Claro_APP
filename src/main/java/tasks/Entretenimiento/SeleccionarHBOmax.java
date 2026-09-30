@@ -24,7 +24,7 @@ public class SeleccionarHBOmax implements Task {
   @Override
   public <T extends Actor> void performAs(T actor) {
     actor.attemptsTo(
-        ScrollHastaTexto.conTexto(TUS_PLATAFORMAS_FAVORITAS),
+        //ScrollHastaTexto.conTexto(TUS_PLATAFORMAS_FAVORITAS),
         ClickTextoQueContengaX.elTextoContiene(HBOMAX),
         WaitFor.aTime(3000));
 

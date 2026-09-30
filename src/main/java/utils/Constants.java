@@ -596,7 +596,7 @@ public class Constants {
   public static final String EL_MEJOR_CONTENIDO_UN_SOLO_LUGAR =
       "El mejor contenido en un solo lugar";
   public static final String NETFLIX = "Netflix";
-  public static final String HBOMAX = "HBOmax";
+  public static final String HBOMAX = "HBO Max";
   public static final String AMAZON_PRIME = "Amazon Prime";
 
   // Titulos Entretenimiento
