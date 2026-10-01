@@ -60,6 +60,8 @@ public class GestionCuenta implements Task {
   public <T extends Actor> void performAs(T actor) {
     // EMERGENCIA: cerrar Tienda Claro si se abrió sobre el home
     actor.attemptsTo(CerrarTiendaClaro.cerrarTiendaClaro());
+    // Si la app abrió en Claro Empresas (home o login), volver a Personas
+    actor.attemptsTo(CambiarAPersonas.cambiarAPersonas());
     AndroidDriver driver = obtenerDriver(actor);
     setImplicit(driver, IMPLICIT_LOGIN);
     try {
@@ -101,6 +103,13 @@ public class GestionCuenta implements Task {
         reiniciarYEntrar(actor);
         CuentaManager.setUltimaCuentaLogueada(targetId);
         return;
+      }
+
+      // 1.5) Login de Claro Empresas -> pasar a Personas y reevaluar.
+      if (CambiarAPersonas.esLoginEmpresas(xml)) {
+        actor.attemptsTo(CambiarAPersonas.cambiarAPersonas());
+        dormir(600);
+        continue;
       }
 
       // 2) Relogin (sesión cerrada / bienvenida / home deslogueado) -> reingreso sin reinicio.

@@ -87,6 +87,8 @@ public class ReingresoRelogin implements Task {
    */
   private <T extends Actor> void abrirRelogin(T actor) {
     for (int i = 0; i < 6; i++) {
+      // "Iniciar sesión" desde Claro Empresas abre el login de Empresas -> pasar a Personas
+      actor.attemptsTo(CambiarAPersonas.cambiarAPersonas());
       if (enRelogin(actor)) {
         return;
       }

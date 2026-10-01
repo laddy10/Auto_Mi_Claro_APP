@@ -36,7 +36,9 @@ public class LoginDefinitions {
         .attemptsTo(
             WaitUntil.the(LOADING_SPLASH, isNotPresent()),
             WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(40).seconds(),
-            WaitFor.aTime(2000));
+            WaitFor.aTime(2000),
+            // Algunos dispositivos abren en la pestaña Claro Empresas -> volver a Personas
+            CambiarAPersonas.cambiarAPersonas());
   }
 
   /*@Cuando("^REALIZA EL INGRESO$")

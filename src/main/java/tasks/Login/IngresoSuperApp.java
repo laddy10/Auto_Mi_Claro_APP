@@ -40,6 +40,8 @@ public class IngresoSuperApp implements Task {
 
     // Cierra el banner publicitario si aparece, antes de cualquier otra validación
     maybeCerrarPublicidad(actor);
+    // Si la app está en Claro Empresas (home o login), volver a Personas
+    actor.attemptsTo(CambiarAPersonas.cambiarAPersonas());
 
     // Manejo del popup de sesión abierta en otro dispositivo
     if (isVisibleFast(actor, LBL_SESION_ABIERTA)) {
@@ -68,7 +70,7 @@ public class IngresoSuperApp implements Task {
 
     } else if (isVisible(actor, LBL_INICIAR_SESION)) {
       EvidenciaUtils.registrarCaptura("Ruta: botón iniciar sesión visible");
-      actor.attemptsTo(Click.on(LBL_INICIAR_SESION));
+      actor.attemptsTo(Click.on(LBL_INICIAR_SESION), CambiarAPersonas.cambiarAPersonas());
       loginViaIniciar(actor);
       System.out.println("pasa por aquí 4 🚩🚩🚩");
     } else if (isVisible(actor, LBL_NOS_ALEGRA_TENERTE_DE_VUELTA)) {
@@ -162,6 +164,7 @@ public class IngresoSuperApp implements Task {
     if (isVisible(actor, LBL_INICIAR_SESION)) {
       actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(INICIAR_SESION));
     }
+    actor.attemptsTo(CambiarAPersonas.cambiarAPersonas());
     System.out.println("pasa por aquí 13 🚩🚩🚩");
     if (isVisible(actor, BTN_CONTINUAR)) {
       actor.attemptsTo(
@@ -201,7 +204,9 @@ public class IngresoSuperApp implements Task {
     if (isVisibleFast(actor, LBL_PERMISO_ACCESO_UBICACION)) {
       actor.attemptsTo(ClickElementByText.clickElementByText(ACEPTAR_2));
     }
-    actor.attemptsTo(ClickElementByText.clickElementByText(INICIAR_SESION));
+    actor.attemptsTo(
+        ClickElementByText.clickElementByText(INICIAR_SESION),
+        CambiarAPersonas.cambiarAPersonas());
 
     ValidarTextoQueContengaX.elTextoContiene(VERSION);
     if (isValidEmail(user.getEmail())) {

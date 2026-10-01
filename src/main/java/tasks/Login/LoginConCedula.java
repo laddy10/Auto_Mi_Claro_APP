@@ -35,6 +35,8 @@ public class LoginConCedula implements Task {
 
     // EMERGENCIA: cerrar Tienda Claro si se abrió sobre el home
     actor.attemptsTo(CerrarTiendaClaro.cerrarTiendaClaro());
+    // Si la app está en Claro Empresas (home o login), volver a Personas
+    actor.attemptsTo(CambiarAPersonas.cambiarAPersonas());
 
     if (isVisible(actor, LBL_ENCABEZADO_USUARIO)) {
       String textoVisible =
@@ -69,7 +71,7 @@ public class LoginConCedula implements Task {
     }
 
     if (isVisible(actor, LBL_INICIAR_SESION)) {
-      actor.attemptsTo(Click.on(LBL_INICIAR_SESION));
+      actor.attemptsTo(Click.on(LBL_INICIAR_SESION), CambiarAPersonas.cambiarAPersonas());
       iniciarSesion(actor);
       validarLogin(actor);
       EvidenciaUtils.registrarCaptura(paso);
@@ -121,6 +123,7 @@ public class LoginConCedula implements Task {
   private <T extends Actor> void loginDesdeCero(T actor) {
     actor.attemptsTo(
         ClickElementByText.clickElementByText(INICIAR_SESION),
+        CambiarAPersonas.cambiarAPersonas(),
         ValidarTextoQueContengaX.elTextoContiene(VERSION),
         Enter.theValue(user.getCedula()).into(TXT_USERNAME),
         ClickElementByText.clickElementByText(CONTINUAR),

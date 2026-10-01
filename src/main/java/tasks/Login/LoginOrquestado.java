@@ -44,6 +44,9 @@ public class LoginOrquestado implements Task {
   @Override
   public <T extends Actor> void performAs(T actor) {
 
+    // (0) Si la app abrió en Claro Empresas, volver a Personas
+    actor.attemptsTo(CambiarAPersonas.cambiarAPersonas());
+
     // (1) Si hay sesión abierta → cerrar
     asegurarSesionCerrada(actor);
 
@@ -95,6 +98,8 @@ public class LoginOrquestado implements Task {
       // Seguridad: algunos builds requieren scroll
       actor.attemptsTo(Scroll.to(LBL_INICIAR_SESION).andAlignToTop(), Click.on(LBL_INICIAR_SESION));
     }
+    // "Iniciar sesión" desde Claro Empresas abre el login de Empresas -> pasar a Personas
+    actor.attemptsTo(CambiarAPersonas.cambiarAPersonas());
   }
 
   // ---------------------------
