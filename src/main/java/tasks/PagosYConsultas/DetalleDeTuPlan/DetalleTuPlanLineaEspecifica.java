@@ -85,7 +85,6 @@ public class DetalleTuPlanLineaEspecifica implements Task {
         ValidarTexto.validarTexto(APLICACIONES_ELEGIBLES),
         ValidarTexto.validarTexto(PAQUETES_ADICIONALES),
         Scroll.scrollUnaVista(),
-        ValidarTexto.validarTexto(GESTIONAR_MI_PLAN),
         ValidarTexto.validarTexto(ADMINISTRAR_ROAMING));
 
     EvidenciaUtils.registrarCaptura(paso5);

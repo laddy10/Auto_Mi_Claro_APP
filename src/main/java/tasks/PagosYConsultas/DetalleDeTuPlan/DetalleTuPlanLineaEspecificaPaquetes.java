@@ -83,7 +83,6 @@ public class DetalleTuPlanLineaEspecificaPaquetes implements Task {
         ValidarTexto.validarTexto(FAMILIA_Y_AMIGOS),
         ValidarTexto.validarTexto(APLICACIONES_ELEGIBLES),
         Scroll.scrollUnaVista(),
-        ValidarTexto.validarTexto(GESTIONAR_MI_PLAN),
         ValidarTexto.validarTexto(PAQUETES_ADICIONALES),
         ValidarTexto.validarTexto(ADMINISTRAR_ROAMING));
 

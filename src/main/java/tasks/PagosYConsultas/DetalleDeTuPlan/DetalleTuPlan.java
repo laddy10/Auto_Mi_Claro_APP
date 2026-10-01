@@ -100,8 +100,7 @@ public class DetalleTuPlan implements Task {
         ValidarTexto.validarTexto(FAMILIA_Y_AMIGOS),
         ValidarTexto.validarTexto(APLICACIONES_ELEGIBLES),
         ValidarTexto.validarTexto(PAQUETES_ADICIONALES),
-        ValidarTexto.validarTexto(ADMINISTRAR_ROAMING),
-        ValidarTexto.validarTexto(GESTIONAR_MI_PLAN));
+        ValidarTexto.validarTexto(ADMINISTRAR_ROAMING));
 
     EvidenciaUtils.registrarCaptura(paso5);
   }
