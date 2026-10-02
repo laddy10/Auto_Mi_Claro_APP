@@ -66,6 +66,7 @@ public class GestionCuenta implements Task {
     setImplicit(driver, IMPLICIT_LOGIN);
     try {
       ejecutar(actor);
+      actor.attemptsTo(CerrarTiendaClaro.cerrarTiendaClaro());
     } finally {
       setImplicit(driver, IMPLICIT_NORMAL);
     }
