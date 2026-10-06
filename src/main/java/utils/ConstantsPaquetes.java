@@ -81,11 +81,11 @@ public class ConstantsPaquetes {
   public static final String SALUD_EN_LINEA_30DIAS_2BENEFICIARIOS =
       "Salud en línea te conecta con grupo Mok tu médico virtual, disfruta de consultas médicas para ti y un beneficiario, agenda tu cita telefónica al 5800838 vigencia 30 días.";
   public static final String SALUD_EN_LINEA_30DIAS_4BENEFICIARIOS =
-      "Salud en línea te conecta con grupo Mok tu médico virtual, disfruta de consultas médicas para ti y 3 beneficiarios, agenda tu cita telefónica al 5800838 vigencia 30 días.";
+      "Paquete salud en linea con 4 beneficiario, 30 dias.";
 
   // PAQUETE DE VOZ
   public static final String PAQUETE_300M_1DIA = "Paquete 300 Minutos Vig 1 dia";
-  public static final String PAQUETE_1000M_20DIAS = "Paquete 1000 Minutos Vig 20 dias";
+  public static final String PAQUETE_1000M_20DIAS = "Paquete 20 dias, 1000 minutos ilimitados.";
   public static final String PAQUETE_300M_2DIAS = "Paquete 300 Minutos Vig 2 dias";
 
   // PAQUETE RELEVO COMUNIDAD SORDA
