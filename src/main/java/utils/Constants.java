@@ -583,10 +583,15 @@ public class Constants {
   public static final String ELIGE_PAQUETE_PREFIERAS = "Elige el paquete que prefieras";
   public static final String VOZ_Y_DATOS = "Voz y datos";
   public static final String PAISES_DESTINO_BELGICA = "Países de destino";
+  public static final String PAISES_DESTINO_USA = "Países de destino";
   public static final String TIPO_PAQUETE_DATOS = "Tipo de paquete";
+  public static final String TIPO_PAQUETE1 = "Tipo de paquete";
   public static final String PAQUETE_ROAMING = "PAQUETE ROAMING";
   public static final String DISFRUTA_DE_TIEMPO_CON_MICLARO =
       "Disfruta más de tu tiempo con Mi Claro";
+  public static final String $8900 = "$ 8.900";
+  public static final String ACTIVAR_PAQUETE = "Activar Paquete";
+  public static final String PAQUETE_ACTIVADO = "Tu paquete ha sido activado con éxito";
 
   // ENTRETENIMIENTO
 

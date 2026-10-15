@@ -32,6 +32,9 @@ import tasks.PagosYConsultas.eSIM.MiniprogramaEsim;
 import tasks.PagosYConsultas.eSIM.SeleccionarLineaPostEsim;
 import tasks.PagosYConsultas.eSIM.ValidarOpcionesEsim;
 import tasks.Prepago.RecargasyPaquetes.SeleccionLineaPrepago;
+import tasks.Roaming.CompraPaqueteAmerica;
+import tasks.Roaming.CompraPaqueteDatos;
+import tasks.Roaming.CompraPaqueteVozDatos;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
 
@@ -540,4 +543,21 @@ public class PagosYConsultasDefinitions {
   public void validaDireccionamientoTarjetaPagaTuFactura() {
     theActorInTheSpotlight().attemptsTo(TarjetasPagaTuFactura.validarRedireccion());
   }
+
+  @Entonces("COMPRA PAQUETE PASAPORTE AMERICAS")
+  public void compraPaquetePasaporteAmericas() {
+    theActorInTheSpotlight().attemptsTo(CompraPaqueteAmerica.comprarPaquetePasaporteAmericas());
+  }
+
+  @Entonces("COMPRA PAQUETE VOZ Y DATOS")
+  public void compraPaquetePVozDatos() {
+    theActorInTheSpotlight().attemptsTo(CompraPaqueteVozDatos.CompraPaqueteVozDatos());
+  }
+
+
+  @Entonces("COMPRA PAQUETE DATOS")
+  public void compraPaqueteDatos() {
+    theActorInTheSpotlight().attemptsTo(CompraPaqueteDatos.CompraPaqueteDatos());
+  }
+
 }
