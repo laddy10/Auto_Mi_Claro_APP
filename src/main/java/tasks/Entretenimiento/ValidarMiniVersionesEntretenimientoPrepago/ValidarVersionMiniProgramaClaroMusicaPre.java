@@ -12,6 +12,7 @@ import static utils.ConstantsMiniVersiones.Versiones.MINI_VERSION_CLARO_MUSICA_C
 
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarTextoQueContengaX;
+import interactions.validations.VerificarVersionModulo;
 import interactions.wait.WaitForResponse;
 import models.User;
 import net.serenitybdd.screenplay.Actor;
@@ -46,7 +47,7 @@ public class ValidarVersionMiniProgramaClaroMusicaPre implements Task {
     actor.attemptsTo(
         WaitForResponse.withText("Ver"),
         ValidarTextoQueContengaX.elTextoContiene(CLARO_MUSICA),
-        ValidarTextoQueContengaX.elTextoContiene(MINI_VERSION_CLARO_MUSICA_CONSTANT));
+        VerificarVersionModulo.conLaEsperada(MINI_VERSION_CLARO_MUSICA_CONSTANT));
     EvidenciaUtils.registrarCaptura(paso3);
     // **********************************************************************************
     actor.attemptsTo(Click.on(BTN_VOLVER));
