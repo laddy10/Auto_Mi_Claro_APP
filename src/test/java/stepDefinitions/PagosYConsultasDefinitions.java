@@ -259,7 +259,7 @@ public class PagosYConsultasDefinitions {
     theActorInTheSpotlight().attemptsTo(ComprarAplicacionesNoPermitido.ingresarYValidar());
   }
 
-  @Y("INGRESA MEJORAR PLAN")
+    @Y("INGRESA MEJORAR PLAN")
   public void ingresaMejorarPlan() {
     EvidenciaUtils.registrarCaptura("Ingresar opción Gestionar mi plan - Mejorar plan");
 
