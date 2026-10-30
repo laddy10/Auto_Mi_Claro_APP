@@ -48,7 +48,7 @@ public class CerrarTiendaClaro extends AndroidObject implements Task {
   private static final String TXT_TIENDA_CLARO = "Tecnología que te transforma";
 
   /** Texto ancla de la pestaña Comercios (título tv_title de la primera tarjeta). */
-  private static final String TXT_COMERCIOS = "¿Qué quieres hoy?";
+  private static final String TXT_COMERCIOS = "Nuestras Categorías";
 
   /** Texto ancla de la pestaña Entretenimiento (título de la sección principal). */
   private static final String TXT_ENTRETENIMIENTO = "Hecho para ti";
@@ -119,7 +119,7 @@ public class CerrarTiendaClaro extends AndroidObject implements Task {
    * está el encabezado del usuario, que solo pinta el home.
    */
   private boolean enComercios(String xml) {
-    boolean anclaComercios = contiene(xml, TXT_COMERCIOS) || contiene(xml, IR_A_CINE);
+    boolean anclaComercios = contiene(xml, TXT_COMERCIOS) || contiene(xml, PROTECCION);
     return anclaComercios && !contiene(xml, ID_HOME_USUARIO);
   }
 
