@@ -516,6 +516,7 @@ public class Constants {
   public static final String ENTENDIDO = "Entendido";
   public static final String PERSONAS = "Personas";
   public static final String CARRO_CONECTADO = "Carro Conectado, Seguimiento";
+  public static final String TIENDA_CLARO1 = "Tienda Claro B2C";
 
   // Constantes para Pagos
   public static final String PAGOS = "Pagos";

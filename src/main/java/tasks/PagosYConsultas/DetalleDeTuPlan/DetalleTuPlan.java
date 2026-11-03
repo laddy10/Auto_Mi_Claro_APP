@@ -1,6 +1,7 @@
 package tasks.PagosYConsultas.DetalleDeTuPlan;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static userinterfaces.PagosYConsultasPage.BTN_DETALLE_DE_TU_PLAN;
 import static userinterfaces.PagosYConsultasPage.BTN_TRES_PUNTOS_MAS;
 import static utils.Constants.*;
 import static utils.ConstantsMiniVersiones.Versiones.MINI_VERSION_DETALLE_DE_TU_PLAN_CONSTANT;
@@ -18,6 +19,8 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import utils.AndroidObject;
 import utils.EvidenciaUtils;
 import utils.TestDataProvider;
@@ -37,9 +40,14 @@ public class DetalleTuPlan implements Task {
     EvidenciaUtils.registrarCaptura(paso1);
 
     // Seleccionar "Detalle de tu plan"
+      WaitFor.aTime(2000);
+  if(isElementoVisible(actor, DETALLE_DE_TU_PLAN)) {
     actor.attemptsTo(
-        ClickTextoQueContengaX.elTextoContiene(DETALLE_DE_TU_PLAN),
-        WaitForResponse.withText(POSTPAGO));
+            ClickTextoQueContengaX.elTextoContiene(DETALLE_DE_TU_PLAN),
+            WaitForResponse.withText(POSTPAGO));
+  }else{
+    actor.attemptsTo(Click.on(BTN_DETALLE_DE_TU_PLAN));
+  }
 
     EvidenciaUtils.registrarCaptura(paso2);
 
@@ -104,6 +112,18 @@ public class DetalleTuPlan implements Task {
 
     EvidenciaUtils.registrarCaptura(paso5);
   }
+
+    // 🔹 Método auxiliar para validar si un texto está visible en pantalla
+    private boolean isElementoVisible(Actor actor, String texto) {
+      try {
+        WebElement elemento =
+                AndroidObject.androidDriver(actor)
+                        .findElement(By.xpath("//*[contains(@text,'" + texto + "')]"));
+        return elemento.isDisplayed();
+      } catch (Exception e) {
+        return false;
+      }
+    }
 
   public static Performable validarDetalleTuPlan() {
     return instrumented(DetalleTuPlan.class);
