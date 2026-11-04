@@ -2,7 +2,6 @@ package tasks.PagosYConsultas.DetalleDeTuPlan;
 
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.validations.ValidarTextoQueContengaX;
-import interactions.wait.WaitFor;
 import interactions.wait.WaitForResponse;
 import models.User;
 import net.serenitybdd.screenplay.Actor;
@@ -15,7 +14,6 @@ import utils.TestDataProvider;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static userinterfaces.PagosyConsultasPrePage.BTON_ACTIVAR_ROAMING;
-import static userinterfaces.PagosyConsultasPrePage.BTON_DESACTIVAR_ROAMING;
 import static utils.Constants.*;
 import static utils.Constants.ADMINISTRAR;
 import static utils.Constants.SERVICIO_ROAMING;
@@ -74,14 +72,7 @@ public class ActivarServicioRoaming implements Task {
         EvidenciaUtils.registrarCaptura(paso8); //Confirmacion de compra de paquete
         actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene("Aceptar"));
         EvidenciaUtils.registrarCaptura(paso9); //Pantalla de confirmacion de roaming activado
-        actor.attemptsTo(
-                Click.on(BTON_ACTIVAR_ROAMING),
-                WaitFor.aTime(5000),
-                Click.on(BTON_DESACTIVAR_ROAMING),
-                WaitFor.aTime(5000),
-                WaitForResponse.withText("Servicio Roaming")
-
-        );
+        actor.attemptsTo(DesactivarServicioRoaming.desactivarServicioRoaming());
 
     }
 

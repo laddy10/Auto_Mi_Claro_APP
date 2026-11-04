@@ -13,56 +13,56 @@ public class PagosyConsultasPrePage {
                   .located(By.xpath("//android.widget.Button[@text=\"Desactivar\"]"));
 
   public static final Target BTON_ACTIVAR_ROAMING =
-          Target.the("Boton activar roaming")
-                  .located(By.xpath("//android.widget.ToggleButton/android.widget.TextView"));
+          Target.the("Interruptor del servicio Roaming")
+                  .located(By.xpath("//android.widget.ToggleButton"));
 
   public static final Target DROPDOWN_DURACION =
-      Target.the("Dropdown duración")
-          .located(By.xpath("//android.widget.Button[@text=\"0 días\"]"));
+          Target.the("Dropdown duración")
+                  .located(By.xpath("//android.widget.Button[@text=\"0 días\"]"));
 
   public static final Target DROPDOWN_DATOS =
-      Target.the("Dropdown datos").located(By.xpath("//android.widget.Button[@text=\"0 GB\"]"));
+          Target.the("Dropdown datos").located(By.xpath("//android.widget.Button[@text=\"0 GB\"]"));
 
   public static final Target LBL_VER_DETALLE_1 =
-      Target.the("Texto Ver detalle del paquete 1")
-          .located(By.xpath("(//android.widget.Button[@text=\"Ver detalle del paquete\"])[1]"));
+          Target.the("Texto Ver detalle del paquete 1")
+                  .located(By.xpath("(//android.widget.Button[@text=\"Ver detalle del paquete\"])[1]"));
 
   public static final Target LBL_VER_DETALLE_2 =
-      Target.the("Texto Ver detalle del paquete 2")
-          .located(By.xpath("(//android.widget.Button[@text=\"Ver detalle del paquete\"])[2]"));
+          Target.the("Texto Ver detalle del paquete 2")
+                  .located(By.xpath("(//android.widget.Button[@text=\"Ver detalle del paquete\"])[2]"));
   public static final Target LBL_VER_DETALLE_3 =
-      Target.the("Texto Ver detalle del paquete 3")
-          .located(By.xpath("(//android.widget.Button[@text=\"Ver detalle del paquete\"])[3]"));
+          Target.the("Texto Ver detalle del paquete 3")
+                  .located(By.xpath("(//android.widget.Button[@text=\"Ver detalle del paquete\"])[3]"));
   public static final Target LBL_VER_DETALLE_4 =
-      Target.the("Texto Ver detalle del paquete 3")
-          .located(
-              By.xpath(
-                  "public static final Target LBL_VER_DETALLE_3 =\n"
-                      + "      Target.the(\"Texto Ver detalle del paquete 3\")\n"
-                      + "          .located(By.xpath(\"(//android.widget.Button[@text=\\\"Ver detalle del paquete\\\"])[3]\"));"));
+          Target.the("Texto Ver detalle del paquete 3")
+                  .located(
+                          By.xpath(
+                                  "public static final Target LBL_VER_DETALLE_3 =\n"
+                                          + "      Target.the(\"Texto Ver detalle del paquete 3\")\n"
+                                          + "          .located(By.xpath(\"(//android.widget.Button[@text=\\\"Ver detalle del paquete\\\"])[3]\"));"));
   public static final Target LBL_MENSAJE_COOKIES =
-      Target.the("Texto Información importante")
-          .located(By.xpath("//android.widget.TextView[@text=\"Información importante\"]"));
+          Target.the("Texto Información importante")
+                  .located(By.xpath("//android.widget.TextView[@text=\"Información importante\"]"));
 
   public static final Target LBL_DOCUMENTO_TERMINOS_Y_CONDICIONES =
-      Target.the("Texto documento de terminos y condiciones")
-          .located(
-              By.xpath(
-                  "(//android.widget.ImageView[@resource-id=\"com.clarocolombia.miclaro:id/page\"])[1]"));
+          Target.the("Texto documento de terminos y condiciones")
+                  .located(
+                          By.xpath(
+                                  "(//android.widget.ImageView[@resource-id=\"com.clarocolombia.miclaro:id/page\"])[1]"));
 
   public static final Target BTN_CERRAR_POPUP =
-      Target.the("Botón X para cerrar popup")
-          .located(By.xpath("//android.widget.Button[@content-desc=\"Cerrar\"]"));
+          Target.the("Botón X para cerrar popup")
+                  .located(By.xpath("//android.widget.Button[@content-desc=\"Cerrar\"]"));
 
   private static final User user = TestDataProvider.getRealUser();
 
   public static final Target LBL_LINEA_ELEGIR =
-      Target.the("Linea prepago")
-          .located(
-              MobileBy.AndroidUIAutomator(
-                  "new UiSelector()"
-                      + ".resourceId(\"btn_account\")"
-                      + ".textContains(\""
-                      + user.getNumeroPrepago()
-                      + "\")"));
+          Target.the("Linea prepago")
+                  .located(
+                          MobileBy.AndroidUIAutomator(
+                                  "new UiSelector()"
+                                          + ".resourceId(\"btn_account\")"
+                                          + ".textContains(\""
+                                          + user.getNumeroPrepago()
+                                          + "\")"));
 }

@@ -22,6 +22,10 @@ public class ErrorScreenshotHooks {
 
   @Before(order = 5)
   public void limpiarCarpetaError(Scenario scenario) {
+    if (Boolean.getBoolean("error.screenshots.preserve")) {
+      System.out.println("[ErrorScreenshot] Se conservan las evidencias existentes de Error/.");
+      return;
+    }
     Path errorPath = Paths.get(ERROR_FOLDER);
     if (!Files.exists(errorPath)) {
       return;
@@ -64,8 +68,12 @@ public class ErrorScreenshotHooks {
 
       Files.createDirectories(Paths.get(ERROR_FOLDER));
       byte[] bytes = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-      Files.write(Paths.get(ERROR_FOLDER, FILENAME), bytes);
-      System.out.println("[ErrorScreenshot] 📸 Captura guardada: " + ERROR_FOLDER + "/" + FILENAME);
+      String filename =
+          Boolean.getBoolean("error.screenshots.preserve")
+              ? "error-" + System.currentTimeMillis() + ".png"
+              : FILENAME;
+      Files.write(Paths.get(ERROR_FOLDER, filename), bytes);
+      System.out.println("[ErrorScreenshot] 📸 Captura guardada: " + ERROR_FOLDER + "/" + filename);
 
     } catch (Exception e) {
       System.err.println("[ErrorScreenshot] ⚠️  Error al capturar: " + e.getMessage());

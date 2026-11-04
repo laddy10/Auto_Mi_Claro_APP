@@ -17,7 +17,6 @@ import utils.TestDataProvider;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static userinterfaces.PagosyConsultasPrePage.BTON_ACTIVAR_ROAMING;
-import static userinterfaces.PagosyConsultasPrePage.BTON_DESACTIVAR_ROAMING;
 import static utils.Constants.*;
 
 public class ActivarServicioRoamingVigenciaDefinida implements Task {
@@ -68,7 +67,7 @@ public class ActivarServicioRoamingVigenciaDefinida implements Task {
                 WaitForResponse.withText("Fecha")
         );
         actor.attemptsTo(
-        ValidarTextoQueContengaX.elTextoContiene("Ver paquetes"));
+                ValidarTextoQueContengaX.elTextoContiene("Ver paquetes"));
         EvidenciaUtils.registrarCaptura(paso6); // Deseas comprar mas paquetes
         actor.attemptsTo(
 
@@ -79,14 +78,7 @@ public class ActivarServicioRoamingVigenciaDefinida implements Task {
         EvidenciaUtils.registrarCaptura(paso8); //Confirmacion de compra de paquete
         actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene("Aceptar"));
         EvidenciaUtils.registrarCaptura(paso9); //Pantalla de confirmacion de roaming activado
-        actor.attemptsTo(
-                Click.on(BTON_ACTIVAR_ROAMING),
-                WaitFor.aTime(5000),
-                Click.on(BTON_DESACTIVAR_ROAMING),
-                WaitFor.aTime(3000),
-                WaitForResponse.withText("Servicio Roaming")
-
-        );
+        actor.attemptsTo(DesactivarServicioRoaming.desactivarServicioRoaming());
 
     }
 
