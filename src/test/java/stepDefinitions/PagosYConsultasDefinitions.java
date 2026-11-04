@@ -560,4 +560,12 @@ public class PagosYConsultasDefinitions {
     theActorInTheSpotlight().attemptsTo(CompraPaqueteDatos.CompraPaqueteDatos());
   }
 
+  @Entonces("ACTIVA ROAMING CON SERVICIO DESACTIVADO Y VIGENCIA INDEFINIDA")
+  public void activarServicioRoaming() {
+    theActorInTheSpotlight().attemptsTo(ActivarServicioRoaming.activarServicioRoaming());
+  }
+  @Entonces("ACTIVA ROAMING CON SERVICIO DESACTIVADO Y VIGENCIA DEFINIDA")
+  public void activarServicioRoamingVigenciaDefinida() {
+    theActorInTheSpotlight().attemptsTo(ActivarServicioRoamingVigenciaDefinida.activarServicioRoamingVigenciaDefinida());
+  }
 }

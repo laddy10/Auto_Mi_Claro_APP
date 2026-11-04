@@ -8,6 +8,14 @@ import utils.TestDataProvider;
 
 public class PagosyConsultasPrePage {
 
+  public static final Target BTON_DESACTIVAR_ROAMING =
+          Target.the("Boton desactivar roaming")
+                  .located(By.xpath("//android.widget.Button[@text=\"Desactivar\"]"));
+
+  public static final Target BTON_ACTIVAR_ROAMING =
+          Target.the("Boton activar roaming")
+                  .located(By.xpath("//android.widget.ToggleButton/android.widget.TextView"));
+
   public static final Target DROPDOWN_DURACION =
       Target.the("Dropdown duración")
           .located(By.xpath("//android.widget.Button[@text=\"0 días\"]"));

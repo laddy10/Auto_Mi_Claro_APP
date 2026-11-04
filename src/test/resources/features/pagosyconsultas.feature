@@ -501,3 +501,23 @@ Característica: Ingresar al modulo pagos y consultas
     Y   ADMINISTRAR ROAMING SERVICIO ACTIVO
     Entonces COMPRA PAQUETE DATOS
 
+  @SA097
+  Escenario: ADMINISTRAR ROAMING - No tenga Servicio activo-Activar servicio con vigencia indefinida
+    Dado EL USUARIO ABRE LA SUPER APP
+    Cuando  REALIZA EL INGRESO
+    Y   INGRESA AL MENU PAGOS Y CONSULTAS
+    Entonces ACTIVA ROAMING CON SERVICIO DESACTIVADO Y VIGENCIA INDEFINIDA
+
+  @SA098
+  Escenario: ADMINISTRAR ROAMING - No tenga Servicio activo- Activar servicio coon vigencia definida
+    Dado EL USUARIO ABRE LA SUPER APP
+    Cuando  REALIZA EL INGRESO
+    Y   INGRESA AL MENU PAGOS Y CONSULTAS
+    Entonces ACTIVA ROAMING CON SERVICIO DESACTIVADO Y VIGENCIA DEFINIDA
+
+  @SA099
+  Escenario: ADMINISTRAR ROAMING - No tenga Servicio activo- Activar servicio coon vigencia definida
+    Dado EL USUARIO ABRE LA SUPER APP
+    Cuando  REALIZA EL INGRESO
+    Y   INGRESA AL MENU PAGOS Y CONSULTAS
+    Entonces ACTIVA ROAMING CON SERVICIO DESACTIVADO Y VIGENCIA DEFINIDA
