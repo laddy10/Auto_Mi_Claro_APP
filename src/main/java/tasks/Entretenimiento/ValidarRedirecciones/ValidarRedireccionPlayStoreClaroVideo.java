@@ -26,7 +26,7 @@ public class ValidarRedireccionPlayStoreClaroVideo implements Task {
     driver.activateApp("com.android.vending");*/
 
     // Esperar unos segundos para que la Play Store cargue
-    WaitFor.aTime(10000);
+    WaitFor.aTime(25000);
 
     // Validar textos visibles en Play Store
     actor.attemptsTo(ValidarTexto.validarTexto("Claro video"));
