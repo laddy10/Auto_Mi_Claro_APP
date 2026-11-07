@@ -206,5 +206,10 @@ public class PagosYConsultasPage {
                   .located(
                           By.xpath(
                                   "//android.widget.GridView[@resource-id=\"com.clarocolombia.miclaro:id/mini_program_manager_favorite_items_rv\"]/android.widget.RelativeLayout[3]/android.widget.TextView[@resource-id=\"com.clarocolombia.miclaro:id/tv_name\"]"));
+  public static final Target LINEA_PAGA_FACTURA =
+          Target.the("Línea para paga tu factura")
+                  .located(
+                          By.xpath(
+                                  "//android.widget.Button[@resource-id=\"btn_account\" and @text=\"Línea 310 263 9171 Ver detalle\"]"));
 
 }

@@ -19,6 +19,7 @@ public class User {
   private String referencia;
   private String emailClaroMusica;
   private String passwordClaroMusica;
+  private String numeroPagaTuFactura;
 
   public String getEmail() {
     return email;
@@ -150,6 +151,14 @@ public class User {
 
   public void SetpasswordClaroMusica(String passwordClaroMusica) {
     this.passwordClaroMusica = passwordClaroMusica;
+  }
+
+  public String getNumeroPagaTuFactura() {
+    return numeroPagaTuFactura;
+  }
+
+  public void setNumeroPagaTuFactura(String numeroPagaTuFactura) {
+    this.numeroPagaTuFactura = numeroPagaTuFactura;
   }
 
   public User() {}

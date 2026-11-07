@@ -302,7 +302,7 @@ public class AndroidObject extends Excepciones {
     System.out.println("📌 Ajustando texto suavemente: " + movimiento + " píxeles");
 
     if (Math.abs(movimiento) > 20) { // Evitamos movimientos muy pequeños
-      swipeVertical(actor, 0.5, 0.5 + (movimiento / (double) screenHeight), 0.3);
+      swipeVertical(actor, 0.6, 0.6 + (movimiento / (double) screenHeight), 0.3);
     }
   }
 
