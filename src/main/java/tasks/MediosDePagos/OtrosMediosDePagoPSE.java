@@ -1,8 +1,7 @@
 package tasks.MediosDePagos;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static userinterfaces.MediosPagoPage.BTN_MEDIO_PSE;
-import static userinterfaces.MediosPagoPage.DROPDOWN_MEDIO_PAGO;
+import static userinterfaces.MediosPagoPage.*;
 import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
@@ -37,15 +36,23 @@ public class OtrosMediosDePagoPSE implements Task {
 
     EvidenciaUtils.registrarCaptura(paso1);
 
-    actor.attemptsTo(Click.on(BTN_MEDIO_PSE), WaitFor.aTime(3000));
+    try {
+      actor.attemptsTo(Click.on(BTN_OPCION_PSE_DROPDOWN), WaitFor.aTime(2000));
+    } catch (Exception e) {
+      try {
+        actor.attemptsTo(Click.on(BTN_MEDIO_PSE), WaitFor.aTime(2000));
+      } catch (Exception e2) {
+        actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene("PSE"), WaitFor.aTime(2000));
+      }
+    }
 
     EvidenciaUtils.registrarCaptura(PASO_PSE);
 
     actor.attemptsTo(
         Scroll.scrollMediaVista(),
         ClickTextoQueContengaX.elTextoContiene(CONTINUAR),
-        WaitFor.aTime(10000),
-        PSE.validarRedireccion());
+        WaitFor.aTime(6000),
+        DiligenciarFormularioPSEBancoPopular.diligenciar());
   }
 
   public static Performable validarOtrosMediosPSE() {

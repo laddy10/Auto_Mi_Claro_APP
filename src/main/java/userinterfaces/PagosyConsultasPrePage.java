@@ -46,6 +46,28 @@ public class PagosyConsultasPrePage {
       Target.the("Botón X para cerrar popup")
           .located(By.xpath("//android.widget.Button[@content-desc=\"Cerrar\"]"));
 
+  public static final Target BTN_COMPRAR_1 =
+      Target.the("Botón Comprar 1")
+          .located(By.xpath("(//android.widget.Button[@text=\"Comprar\"])[1]"));
+
+  public static final Target BTN_COMPRAR_2 =
+      Target.the("Botón Comprar 2")
+          .located(By.xpath("(//android.widget.Button[@text=\"Comprar\"])[2]"));
+
+  public static final Target BTN_COMPRAR_3 =
+      Target.the("Botón Comprar 3")
+          .located(By.xpath("(//android.widget.Button[@text=\"Comprar\"])[3]"));
+
+  public static final Target PAG_TERMINOS_Y_CONDICIONES =
+      Target.the("Página términos y condiciones")
+          .located(
+              By.xpath(
+                  "(//android.widget.ImageView[@resource-id=\"com.clarocolombia.miclaro:id/page\"])[1]"));
+
+  public static final Target CHK_ACEPTAR_TERMINOS_PAQUETES =
+      Target.the("Checkbox aceptar términos y condiciones")
+          .located(By.xpath("//android.widget.CheckBox"));
+
   private static final User user = TestDataProvider.getRealUser();
 
   public static final Target LBL_LINEA_ELEGIR =

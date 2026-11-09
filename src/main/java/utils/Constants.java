@@ -63,6 +63,8 @@ public class Constants {
   public static final String BIENVENIDA = "Te damos la bienvenida";
   public static final String USUARIO = "Usuario";
   public static final String AUTENTICACION_BANCOLOMBIA = "Autenticación Bancolombia";
+  public static final String BANCOLOMBIA_BIENVENIDA = "Te damos la bienvenida";
+  public static final String CLAVE_PRINCIPAL = "Clave principal";
   public static final String PAGO_FACTURA_MOVIL_POST = "Pago Factura Móvil Postpago";
   public static final String ESCOGE_MEDIO_PAGO = "Escoge tu medio de pago";
   public static final String PAGO_PARCIAL = "Pago parcial";
@@ -801,4 +803,13 @@ public class Constants {
       "Bienvenido a nuestro nuevo portal de pagos de servicios electrónicos.";
   public static final String IR_A_CINE = "Ir a cine";
   public static final String PAGOS_EN_LINEA = "Pagos en Línea y PSE";
+
+  // Constantes paquete navegación y transacción tarjeta crédito
+  public static final String TOTAL = "Total";
+  public static final String NUMERO_TARJETA_FICTICIO = "5306 9156 7890 1234";
+  public static final String NOMBRE_FICTICIO = "Pepito Perez";
+  public static final String NUMERO_CEDULA_FICTICIO = "12345674";
+  public static final String FECHA_EXPIRACION_FICTICIA = "12/28";
+  public static final String CVC_FICTICIO = "123";
+  public static final String CORREO_FICTICIO = "pepitoperez@gmail.com";
 }
