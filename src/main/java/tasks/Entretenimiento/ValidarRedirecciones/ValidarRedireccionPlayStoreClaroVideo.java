@@ -4,6 +4,7 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static userinterfaces.EntretenimientoPage.*;
 
 import interactions.validations.ValidarTexto;
+import interactions.wait.WaitFor;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -25,11 +26,7 @@ public class ValidarRedireccionPlayStoreClaroVideo implements Task {
     driver.activateApp("com.android.vending");*/
 
     // Esperar unos segundos para que la Play Store cargue
-    try {
-      Thread.sleep(10000);
-    } catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-    }
+    WaitFor.aTime(25000);
 
     // Validar textos visibles en Play Store
     actor.attemptsTo(ValidarTexto.validarTexto("Claro video"));

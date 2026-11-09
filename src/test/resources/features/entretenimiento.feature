@@ -81,19 +81,19 @@ Característica: Ingresar al módulo de entretenimiento
   ############################################################## pospago prioridad por tus servicios favoritos
 
   @SA082 
-  Escenario: Validar redireccion Claro Video ingresYo por tus servicios favoritos
+  Escenario: Validar redireccion Claro Video ingresando por tus servicios favoritos
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
-    Y   SELECCIONA EL BOTON VER MAS EN SECCION TUS SERVCICOS FAVORITOS
+    Y   SELECCIONA EL BOTON VER MAS EN SECCION TUS SERVICIOS FAVORITOS
     Y   SELECCIONA EL BOTON CLARO VIDEO
     Y   VALIDA VERSION DE MINIPROGRAMA CLARO VIDEO
     Entonces  VALIDA REDIRECCION APP STORE CLARO VIDEO
 
   @SA083
-  Escenario: Validar redireccion Claro Musica ingresYo por tus servicios favoritos
+  Escenario: Validar redireccion Claro Musica ingresando por tus servicios favoritos
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
-    Y   SELECCIONA EL BOTON VER MAS EN SECCION TUS SERVCICOS FAVORITOS
+    Y   SELECCIONA EL BOTON VER MAS EN SECCION TUS SERVICIOS FAVORITOS
     Y   SELECCIONA EL BOTON CLARO MUSICA
     Y   VALIDA VERSION DE MINIPROGRAMA CLARO MUSICA
     Entonces  VALIDA REDIRECCION CLARO MUSICA APP
@@ -146,36 +146,22 @@ Característica: Ingresar al módulo de entretenimiento
     Entonces  VALIDA REDIRECCION CLARO MUSICA APP
 
   @PRE112
-  Escenario: Validar redireccion Claro Video ingresYo por tus servicios favoritos Prepago
+  Escenario: Validar redireccion Claro Video ingresando por tus servicios favoritos Prepago
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
-    Y   SELECCIONA EL BOTON VER MAS EN SECCION TUS SERVCICOS FAVORITOS
+    Y   SELECCIONA EL BOTON VER MAS EN SECCION TUS SERVICIOS FAVORITOS
     Y   SELECCIONA EL BOTON CLARO VIDEO
     Y   VALIDA VERSION DE MINIPROGRAMA PRE CLARO VIDEO
     Entonces  VALIDA REDIRECCION APP STORE CLARO VIDEO
 
   @PRE111 
-  Escenario: Validar redireccion Claro Musica ingresYo por tus servicios favoritos Prepago
+  Escenario: Validar redireccion Claro Musica ingresando por tus servicios favoritos Prepago
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
-    Y   SELECCIONA EL BOTON VER MAS EN SECCION TUS SERVCICOS FAVORITOS
+    Y   SELECCIONA EL BOTON VER MAS EN SECCION TUS SERVICIOS FAVORITOS
     Y   SELECCIONA EL BOTON CLARO MUSICA
     Y   VALIDA VERSION DE MINIPROGRAMA PRE CLARO MUSICA
     Entonces  VALIDA REDIRECCION CLARO MUSICA APP
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   #******* NO ESTA DENTRO DEL CONTINUOS *************
     @SA068

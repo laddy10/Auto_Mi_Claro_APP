@@ -7,6 +7,7 @@ import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.ScrollHastaTexto;
+import interactions.validations.ValidarTextoQueContengaX;
 import interactions.wait.WaitFor;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -37,7 +38,7 @@ public class ValidarPaginaClaro implements Task {
       EvidenciaUtils.registrarCaptura(paso1);
     }
 
-    actor.attemptsTo(ScrollHastaTexto.conTexto(COMPRA_POR_CATEGORIA));
+    actor.attemptsTo(ValidarTextoQueContengaX.elTextoContiene(TIENDA_CLARO1));
 
     EvidenciaUtils.registrarCaptura(paso2);
 

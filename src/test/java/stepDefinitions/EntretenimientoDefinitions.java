@@ -42,7 +42,7 @@ public class EntretenimientoDefinitions {
     EvidenciaUtils.registrarCaptura("Menú mundial");
   }
 
-  @Cuando("^SELECCIONA EL BOTON VER MAS EN SECCION TUS SERVCICOS FAVORITOS$")
+  @Cuando("^SELECCIONA EL BOTON VER MAS EN SECCION TUS SERVICIOS FAVORITOS$")
   public void seleccionaVerMasEnTusServiciosFavoritos() {
     theActorInTheSpotlight().attemptsTo(AccederVerMasTusServiciosFavoritos.acceder());
   }

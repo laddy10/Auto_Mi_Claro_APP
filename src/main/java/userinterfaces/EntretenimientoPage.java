@@ -63,7 +63,7 @@ public class EntretenimientoPage {
       Target.the("Botón Red + TV en vivo").located(By.xpath("//*[@text='Red + TV en vivo']"));
 
   public static final Target BTN_CLARO_VIDEO =
-      Target.the("Botón Claro Video").located(By.xpath("//*[@text='Claro Video']"));
+      Target.the("Botón Claro Video").located(By.xpath("//android.widget.TextView[@resource-id=\"com.clarocolombia.miclaro:id/tv_name\" and @text=\"Claro Video\"]"));
 
   public static final Target BTN_CLARO_MUSICA =
       Target.the("Botón Claro Música").located(By.xpath("//*[@text='Claro Música']"));

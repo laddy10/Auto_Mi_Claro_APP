@@ -21,6 +21,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.actions.Click;
 import tasks.MediosDePagos.Bancolombia;
 import tasks.MediosDePagos.PSEPagaTuFactura;
+import tasks.MediosDePagos.SeleccionarNumero;
 import tasks.MediosDePagos.TarjetasPagaTuFactura;
 import tasks.PagosYConsultas.*;
 import tasks.PagosYConsultas.AdquirirProductos.MiniprogramaAdquirirProductos;
@@ -49,8 +50,7 @@ public class PagosYConsultasDefinitions {
     theActorInTheSpotlight()
         .attemptsTo(
             ScrollHastaTexto.conTexto(HAZLO_TODO_EN_LINEA),
-            ScrollHastaTexto.conTexto(DISFRUTA_DE_TIEMPO_CON_MICLARO),
-            Scroll.scrollMediaVista(),
+            Scroll.scrollUnaVista(),
             ClickTextoQueContengaX.elTextoContiene(VER_MAS));
 
     EvidenciaUtils.registrarCaptura(paso);
@@ -64,6 +64,11 @@ public class PagosYConsultasDefinitions {
   @Y("^VALIDAR REDIRECCION BOTON PAGAR FACTURA$")
   public void botonPagarFactura() {
     theActorInTheSpotlight().attemptsTo(RedireccionPagarFactura.redireccionPagarFactura());
+  }
+
+  @Y("^REDIRIGE A PAGA TU FACTURA$")
+  public void pagaTuFactura() {
+    theActorInTheSpotlight().attemptsTo(SeleccionarNumero.seleccionarNumero());
   }
 
   @Y("INGRESA AL PORTAL DE RECARGAS Y PAQUETES")

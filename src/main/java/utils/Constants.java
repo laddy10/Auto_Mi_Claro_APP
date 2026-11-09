@@ -518,6 +518,7 @@ public class Constants {
   public static final String ENTENDIDO = "Entendido";
   public static final String PERSONAS = "Personas";
   public static final String CARRO_CONECTADO = "Carro Conectado, Seguimiento";
+  public static final String TIENDA_CLARO1 = "Tienda Claro B2C";
 
   // Constantes para Pagos
   public static final String PAGOS = "Pagos";
@@ -804,6 +805,7 @@ public class Constants {
   public static final String IR_A_CINE = "Ir a cine";
   public static final String PAGOS_EN_LINEA = "Pagos en Línea y PSE";
 
+
   // Constantes paquete navegación y transacción tarjeta crédito
   public static final String TOTAL = "Total";
   public static final String NUMERO_TARJETA_FICTICIO = "5306 9156 7890 1234";
@@ -812,4 +814,6 @@ public class Constants {
   public static final String FECHA_EXPIRACION_FICTICIA = "12/28";
   public static final String CVC_FICTICIO = "123";
   public static final String CORREO_FICTICIO = "pepitoperez@gmail.com";
+  public static final String PROTECCION = "Protección";
+
 }
