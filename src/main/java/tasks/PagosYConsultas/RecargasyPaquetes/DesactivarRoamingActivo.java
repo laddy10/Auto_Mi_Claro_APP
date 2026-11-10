@@ -25,11 +25,6 @@ public class DesactivarRoamingActivo implements Task {
     private static final String paso2 = "Ingreso a menu activa roaming";
     private static final String paso3 = "Validacion de servicio de roaming activo de la linea " + NUMERO_LINEA;
     private static final String paso4 = "Desactivar Roaming";
-    private static final String paso5 = "";
-    private static final String paso6 = "";
-    private static final String paso7 = "";
-    private static final String paso8 = "";
-    private static final String paso9 = "";
 
 
     @Override

@@ -568,4 +568,8 @@ public class PagosYConsultasDefinitions {
   public void activarServicioRoamingVigenciaDefinida() {
     theActorInTheSpotlight().attemptsTo(ActivarServicioRoamingVigenciaDefinida.activarServicioRoamingVigenciaDefinida());
   }
+  @Entonces("DESACTIVA ROAMING ACTIVO")
+  public void desactivarRoamingActivo() {
+    theActorInTheSpotlight().attemptsTo(DesactivarRoamingActivo.desactivarRoamingActivo());
+  }
 }

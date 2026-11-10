@@ -516,8 +516,8 @@ Característica: Ingresar al modulo pagos y consultas
     Entonces ACTIVA ROAMING CON SERVICIO DESACTIVADO Y VIGENCIA DEFINIDA
 
   @SA099
-  Escenario: ADMINISTRAR ROAMING - No tenga Servicio activo- Activar servicio coon vigencia definida
+  Escenario: ADMINISTRAR ROAMING - Servicio activo - Desactivar servicio de Roaming
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
     Y   INGRESA AL MENU PAGOS Y CONSULTAS
-    Entonces ACTIVA ROAMING CON SERVICIO DESACTIVADO Y VIGENCIA DEFINIDA
+    Entonces DESACTIVA ROAMING ACTIVO
