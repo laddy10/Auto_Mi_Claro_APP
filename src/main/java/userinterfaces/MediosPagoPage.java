@@ -270,4 +270,24 @@ public class MediosPagoPage {
   public static final Target BTN_CONTINUAR_PORTAL_PAGOS =
       Target.the("Botón Continuar en Portal Pagos Claro")
           .located(By.xpath("//android.widget.Button[contains(@text, 'Continuar')]"));
+
+  public static final Target TXT_NUMERO_DOCUMENTO_BANCO_BOGOTA =
+      Target.the("Campo número de documento Banco de Bogotá")
+          .located(By.xpath("//android.widget.EditText[@resource-id=\"sp-at-input\"]"));
+
+  public static final Target BTN_CONTINUAR_BANCO_BOGOTA =
+      Target.the("Botón Continuar Banco de Bogotá")
+          .located(By.xpath("//android.widget.Button[@text=\"Continuar\" or contains(@text, 'Continuar')]"));
+
+  public static final Target LBL_MODAL_VERIFICA_DATOS_BANCO_BOGOTA =
+      Target.the("Modal Verifica los datos que ingresaste")
+          .located(
+              By.xpath(
+                  "//*[contains(@text, 'Verifica los datos que ingresaste') or contains(@content-desc, 'Verifica los datos que ingresaste')]"));
+
+  public static final Target BTN_REINTENTAR_BANCO_BOGOTA =
+      Target.the("Botón Reintentar Banco de Bogotá")
+          .located(
+              By.xpath(
+                  "//*[contains(@text, 'Reintentar') or contains(@content-desc, 'Reintentar')]"));
 }

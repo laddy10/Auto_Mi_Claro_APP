@@ -447,10 +447,30 @@ public class AndroidObject extends Excepciones {
   }
 
   public void ElTextoContiene(Actor actor, String text) {
-    androidDriver(actor)
-        .findElement(
-            new MobileBy.ByAndroidUIAutomator(("new UiSelector().textContains(\"" + text + "\")")))
-        .isDisplayed();
+    try {
+      androidDriver(actor)
+          .findElement(
+              new MobileBy.ByAndroidUIAutomator(("new UiSelector().textContains(\"" + text + "\")")))
+          .isDisplayed();
+    } catch (Exception e) {
+      try {
+        androidDriver(actor)
+            .findElement(
+                new MobileBy.ByAndroidUIAutomator(
+                    ("new UiSelector().descriptionContains(\"" + text + "\")")))
+            .isDisplayed();
+      } catch (Exception ex) {
+        androidDriver(actor)
+            .findElement(
+                By.xpath(
+                    "//*[contains(@text, '"
+                        + text
+                        + "') or contains(@content-desc, '"
+                        + text
+                        + "')]"))
+            .isDisplayed();
+      }
+    }
   }
 
   public void ValidarTexto(Actor actor, String text) {

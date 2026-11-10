@@ -6,6 +6,7 @@ import java.util.List;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class WaitForTextContains implements Interaction {
@@ -27,6 +28,7 @@ public class WaitForTextContains implements Interaction {
     while ((System.currentTimeMillis() - startTime) < timeout * 1000 && !found) {
       try {
         for (String partialText : partialTexts) {
+          // 1. Búsqueda por textContains en UiAutomator
           String uiAutomatorQuery =
               String.format("new UiSelector().textContains(\"%s\")", partialText);
           List<WebElement> elements =
@@ -37,6 +39,40 @@ public class WaitForTextContains implements Interaction {
           if (!elements.isEmpty()) {
             found = true;
             break;
+          }
+
+          // 2. Búsqueda por descriptionContains en UiAutomator (común en WebViews y Custom Tabs)
+          try {
+            String uiDescQuery =
+                String.format("new UiSelector().descriptionContains(\"%s\")", partialText);
+            elements =
+                BrowseTheWeb.as(actor)
+                    .getDriver()
+                    .findElements(MobileBy.AndroidUIAutomator(uiDescQuery));
+            if (!elements.isEmpty()) {
+              found = true;
+              break;
+            }
+          } catch (Exception ignored) {
+          }
+
+          // 3. Búsqueda por XPath (@text o @content-desc)
+          try {
+            elements =
+                BrowseTheWeb.as(actor)
+                    .getDriver()
+                    .findElements(
+                        By.xpath(
+                            "//*[contains(@text, '"
+                                + partialText
+                                + "') or contains(@content-desc, '"
+                                + partialText
+                                + "')]"));
+            if (!elements.isEmpty()) {
+              found = true;
+              break;
+            }
+          } catch (Exception ignored) {
           }
         }
 

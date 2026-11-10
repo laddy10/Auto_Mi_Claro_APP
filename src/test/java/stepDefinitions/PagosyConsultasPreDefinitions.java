@@ -7,6 +7,7 @@ import static utils.Constants.*;
 import static utils.ConstantsMiniVersiones.Versiones.MINI_VERSION_RECARGAS_Y_PAQUETES_PRE;
 
 import cucumber.api.java.ast.Y;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.es.Entonces;
 import hooks.ReportHooks;
 import interactions.Click.ClickElementByText;
@@ -218,8 +219,28 @@ public class PagosyConsultasPreDefinitions {
         .attemptsTo(Click.on(CBX_TIPO_PAQUETE_RECARGAS), WaitForResponse.withText(TIPO_PAQUETE));
   }
 
-  @Entonces("^SELECCIONAR EL TIPO DE PAQUETE TODO INCLUIDO CON REDES$")
-  public void seleccionarPaqueteTodoIncluidoRedes() {
+  @Then("^COMPRA DEL PAQUETE TODO INCLUIDO 6 DIAS CON MINUTOS ILIMITADOS 1.4GB$")
+  public void compraPaqueteTodoIncluido6DiasMinutosIlim14GB() {
+    theActorInTheSpotlight()
+        .attemptsTo(TodoIncluido6DiasMinutosIlim14GB.todoIncluido6DiasMinutosIlim14GB());
+  }
+
+  @Then("^COMPRA DEL PAQUETE TODO INCLUIDO 30 DIAS CON MINUTOS ILIMITADOS 30GB NO INCLUYE REDES$")
+  public void compraPaqueteTodoIncluido30DiasMinIlim30GBNoIncluyeRedes() {
+    theActorInTheSpotlight()
+        .attemptsTo(
+            TodoIncluido30DiasMinIlim30GBNoIncluyeRedes
+                .todoIncluido30DiasMinIlim30GBNoIncluyeRedes());
+  }
+
+  @Then("^SELECCIONAR EL TIPO DE PAQUETE TODO INCLUIDO CON REDES$")
+  public void seleccionarPaqueteTodoIncluidoConRedes() {
+    theActorInTheSpotlight()
+        .attemptsTo(PaqueteTodoIncluidoConRedes.paqueteTodoIncluidoConRedes());
+  }
+
+  @Entonces("^(?:REALIZA LA VALIDACIÓN DE PAQUETES TODO INCLUIDO CON REDES|VALIDAR PAQUETES TODO INCLUIDO CON REDES)$")
+  public void validarPaquetesTodoIncluidoConRedes() {
     theActorInTheSpotlight().attemptsTo(TodoIncluidoConRedes.validar());
   }
 
@@ -307,6 +328,14 @@ public class PagosyConsultasPreDefinitions {
       "^(?:VALIDAR DIRECCIONAMIENTO Y DILIGENCIAR FORMULARIO DE PAGO PSE BANCO POPULAR|Validar direccionamiento y diligenciar formulario de pago PSE Banco Popular)$")
   public void validarDireccionamientoYDiligenciarFormularioPSEBancoPopular() {
     theActorInTheSpotlight().attemptsTo(DiligenciarFormularioPSEBancoPopular.diligenciar());
+
+    ReportHooks.setLinea(user.getNumeroPrepago());
+  }
+
+  @Entonces(
+      "^(?:VALIDAR DIRECCIONAMIENTO Y DILIGENCIAR FORMULARIO DE PAGO PSE BANCO DE BOGOTA|VALIDAR DIRECCIONAMIENTO Y DILIGENCIAR FORMULARIO DE PAGO PSE BANCO DE BOGOTÁ|Validar direccionamiento y diligenciar formulario de pago PSE Banco de Bogotá|Validar direccionamiento y diligenciar formulario de pago PSE Banco de Bogota)$")
+  public void validarDireccionamientoYDiligenciarFormularioPSEBancoBogota() {
+    theActorInTheSpotlight().attemptsTo(DiligenciarFormularioPSEBancoBogota.diligenciar());
 
     ReportHooks.setLinea(user.getNumeroPrepago());
   }
