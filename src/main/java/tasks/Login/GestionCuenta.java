@@ -98,6 +98,7 @@ public class GestionCuenta implements Task {
 
   private boolean sesionCerrada;
   private boolean avisoSinSesion;
+  private boolean avisoSesionCerrada;
   private boolean correoDigitado;
   private boolean ingresoConCuentaRecordada;
   private boolean evitarCuentaRecordada;
@@ -288,6 +289,9 @@ public class GestionCuenta implements Task {
     if (ahora() < cargandoHasta) {
       estado("cargando tras el ingreso", ESPERA_TRAS_CLAVE_MS);
     } else {
+      if (!"pantalla no reconocida".equals(estadoActual)) {
+        log("pantalla no reconocida: " + textosVisibles(xml));
+      }
       estado("pantalla no reconocida", LIMITE_DESCONOCIDO_MS);
     }
     dormir(PAUSA_MS);
@@ -421,11 +425,24 @@ public class GestionCuenta implements Task {
       return "ingreso biométrico";
     }
 
-    if (xml.contains("sesión se ha cerrado por seguridad")) {
-      if (!pantalla.tocarTexto("Aceptar", "ACEPTAR")) {
+    // Otro celular ingresó con la misma cuenta y la app cerró esta sesión: "Por seguridad, hemos
+    // cerrado tu sesión en Mi Claro. Ingresa de nuevo para administrar tus servicios" [Iniciar
+    // sesión]. Variante vieja: "Tu sesión se ha cerrado por seguridad" [Aceptar].
+    if (tiene(
+        xml,
+        "hemos cerrado tu sesi",
+        "Ingresa de nuevo para administrar",
+        "sesión se ha cerrado por seguridad")) {
+      if (!avisoSesionCerrada) {
+        avisoSesionCerrada = true;
+        evidencia(
+            "La app cerró la sesión por seguridad (otro celular ingresó con la misma cuenta):"
+                + " se vuelve a ingresar");
+      }
+      if (!pantalla.tocarTexto("Iniciar sesión", "Aceptar", "ACEPTAR")) {
         pantalla.tocarId("bt_top");
       }
-      dormir(600);
+      dormir(1000);
       return "sesión cerrada por seguridad";
     }
 
@@ -757,6 +774,7 @@ public class GestionCuenta implements Task {
       fallar(motivo + " (ya se había reiniciado la app una vez)", pantalla.fuente());
     }
     reinicioUsado = true;
+    log("respaldo (" + motivo + "). En pantalla: " + textosVisibles(pantalla.fuente()));
     evidencia("Respaldo: " + motivo + ". Se reinicia la app con datos limpios");
     try {
       AppReset.reiniciarApp(pantalla.driver());
