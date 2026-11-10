@@ -38,9 +38,26 @@ public class AppReset {
       }
       System.out.println("\u267B\uFE0F [AppReset] App reiniciada con resetApp() (sesion limpia).");
     } catch (Throwable t) {
+      // Un fallo suelto de UiAutomator2 ("unknown server-side error"): se reintenta una vez.
       System.err.println(
-          "\u26A0\uFE0F [AppReset] resetApp() fallo (" + t.getMessage() + "). Reinstalando...");
-      reinstalar(driver);
+          "\u26A0\uFE0F [AppReset] resetApp() fallo (" + t.getMessage() + "). Reintentando...");
+      try {
+        Thread.sleep(3000);
+        driver.resetApp();
+        try {
+          driver.activateApp(PACKAGE);
+        } catch (Throwable ignore) {
+          // resetApp normalmente relanza la app
+        }
+        System.out.println(
+            "\u267B\uFE0F [AppReset] App reiniciada con resetApp() al segundo intento.");
+      } catch (Throwable t2) {
+        System.err.println(
+            "\u26A0\uFE0F [AppReset] resetApp() volvio a fallar ("
+                + t2.getMessage()
+                + "). Reinstalando...");
+        reinstalar(driver);
+      }
     }
   }
 
@@ -63,6 +80,13 @@ public class AppReset {
     String app =
         System.getProperty(
             "app", System.getProperty("user.dir") + "/src/test/resources/app/mi-claro.apk");
+    // Sin el APK NO se desinstala: el celular quedaria sin Mi Claro. El APK ya no se
+    // guarda en el repo (la app instalada la mantiene al dia el orquestador).
+    if (app == null || app.trim().isEmpty() || !new java.io.File(app).isFile()) {
+      throw new RuntimeException(
+          "No se pudo limpiar la app (resetApp fallo dos veces) y no hay APK para"
+              + " reinstalarla (" + app + "). La app instalada no se toco.");
+    }
     try {
       if (driver.isAppInstalled(PACKAGE)) {
         driver.removeApp(PACKAGE);
