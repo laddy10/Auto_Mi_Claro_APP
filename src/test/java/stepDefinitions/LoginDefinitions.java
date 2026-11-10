@@ -2,7 +2,6 @@ package stepDefinitions;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotPresent;
 import static userinterfaces.LoginPage.*;
 import static utils.Constants.*;
 
@@ -11,11 +10,9 @@ import cucumber.api.java.Before;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
-import interactions.wait.WaitFor;
 import models.User;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
-import net.serenitybdd.screenplay.waits.WaitUntil;
 import tasks.Login.*;
 import utils.*;
 
@@ -34,9 +31,7 @@ public class LoginDefinitions {
   public void abrirSuperApp() {
     theActorCalled("actor")
         .attemptsTo(
-            WaitUntil.the(LOADING_SPLASH, isNotPresent()),
-            WaitUntil.the(LOADING_ESPERA_UN_MOMENTO, isNotPresent()).forNoMoreThan(40).seconds(),
-            WaitFor.aTime(2000),
+            EsperarArranque.deLaApp(),
             // Algunos dispositivos abren en la pestaña Claro Empresas -> volver a Personas
             CambiarAPersonas.cambiarAPersonas());
   }
