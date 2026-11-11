@@ -194,6 +194,21 @@ public class CerrarTiendaClaro extends AndroidObject implements Task {
 
   // ─────────────────────────── utilidades ───────────────────────────
 
+  /**
+   * ¿La pantalla es la Tienda, Comercios o Entretenimiento (hay que volver al home)? Mismas
+   * reglas que la task, para decidir sin ejecutarla.
+   */
+  public static boolean hayQueVolverAlHome(String xml) {
+    if (xml == null) {
+      return false;
+    }
+    boolean sinEncabezado = !xml.contains(ID_HOME_USUARIO);
+    return xml.contains(TXT_TIENDA_CLARO)
+            || ((xml.contains(TXT_COMERCIOS) || xml.contains(PROTECCION)) && sinEncabezado)
+            || (xml.contains(TXT_ENTRETENIMIENTO) && sinEncabezado);
+  }
+
+
   private String pageSource(Actor actor) {
     try {
       AndroidDriver driver = androidDriver(actor);

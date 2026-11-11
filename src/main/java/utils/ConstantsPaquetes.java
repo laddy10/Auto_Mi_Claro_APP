@@ -58,7 +58,9 @@ public class ConstantsPaquetes {
   public static final String TODO_INCLUIDO_30DIAS_30GB =
       "Paquete 30 Dias, minutos Ilimitados, mensajes Ilimitados, 30GB de navegacion, No incluye redes, Prime Video Móvil + Win Sports";
   public static final String TODO_INCLUIDO_7DIAS_10GB_WIN =
-      "Paquete 7 Dias, minutos Ilimitados, mensajes Ilimitados, 10GB de navegacion, No incluye redes, Prime Video Móvil + Win Sports";
+      "Paquete 7 dias, minutos y mensajes ilimitados, 10 GB de navegacion, WhatsApp, Facebook y X No incluidos. Prime Video Movil y Win sports consumen datos del paquete.";
+  public static final String TODO_INCLUIDO_7DIAS_10GB_WINSPORTS = TODO_INCLUIDO_7DIAS_10GB_WIN;
+  public static final String PRECIO_$15000_WIN = "$ 15.000";
   public static final String TODO_INCLUIDO_15DIAS_20GBTD =
       "Paquete 15 Dias, minutos Ilimitados, mensajes Ilimitados, 20GB de navegacion, No incluye redes y Win Sports";
   public static final String TODO_INCLUIDO_30DIAS_30GBTD =
@@ -73,6 +75,8 @@ public class ConstantsPaquetes {
   public static final String NAVEGACION_800MB_3DIAS =
       "Navegación 800MB+WhatsApp, Facebook y Twitter sin descontar de la capacidad incluida, Vigencia 3 Días";
   public static final String NAVEGACION_2GB_7DIAS =
+      "Paquete 7 dias, 2 GB de navegacion, WhatsApp, Facebook y X incluidos.";
+  public static final String NAVEGACION_2GB_7DIAS_ANTERIOR =
       "Navegación 2GB+WhatsApp, Facebook y Twitter sin descontar de la capacidad incluida, Vigencia 7 Dias";
 
   // PAQUETES DE APPS
@@ -123,4 +127,7 @@ public class ConstantsPaquetes {
   public static final String PRECIO_$16500 = "$ 16.500";
   public static final String PRECIO_$31500 = "$ 31.500";
   public static final String PRECIO_$3500 = "$ 3.500";
+
+  public static final String VIGENCIA_7_DIAS = "7 días";
+  public static final String DATOS_2_GB = "2 GB";
 }

@@ -140,6 +140,11 @@ public class CuentaManager {
     return pool().get(id == null ? CUENTA_POR_DEFECTO : id.trim().toLowerCase());
   }
 
+  /** Ids de todas las cuentas de real-user.json, en el orden del archivo. */
+  public static java.util.Set<String> getIdsCuentas() {
+    return new java.util.LinkedHashSet<>(pool().keySet());
+  }
+
   // ─── Registro de la última cuenta logueada (identificación confiable) ───
 
   public static void setUltimaCuentaLogueada(String id) {

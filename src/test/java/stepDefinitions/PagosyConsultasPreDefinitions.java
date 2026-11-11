@@ -151,19 +151,35 @@ public class PagosyConsultasPreDefinitions {
             WaitForResponse.withText(RESUMEN_COMPRA));
   }
 
-  @Y("^INGRESAR A OTROS MEDIOS DE PAGO$")
+  @Y("^(?:INGRESAR A OTROS MEDIOS DE PAGO|ELEGIR MEDIO DE PAGO OTROS MEDIOS DE PAGO|Elegir medio de pago Otros medios de pago)$")
   public void ingresarOtrosMediosDePago() {
-    EvidenciaUtils.registrarCaptura("Seleccionar medio de pago: Otros medios de pago");
-
-    theActorInTheSpotlight()
-        .attemptsTo(
-            ClickTextoQueContengaX.elTextoContiene(OTROS_MEDIOS),
-            WaitForResponse.withText(RESUMEN_COMPRA));
+    theActorInTheSpotlight().attemptsTo(ElegirMedioPagoOtrosMedios.elegir());
   }
 
   @Y("^DIRECCIONAMIENTO OTROS MEDIOS DE PAGO PSE$")
+  public void direccionamientoOtrosMediosDePagoPSEY() {
+    theActorInTheSpotlight().attemptsTo(OtrosMediosDePagoPSE.validarOtrosMediosPSE());
+
+    ReportHooks.setLinea(user.getNumeroPrepago());
+  }
+
+  @Entonces("^VALIDAR DIRECCIONAMIENTO OTROS MEDIOS DE PAGO PSE$")
   public void direccionamientoOtrosMediosDePagoPSE() {
     theActorInTheSpotlight().attemptsTo(OtrosMediosDePagoPSE.validarOtrosMediosPSE());
+
+    ReportHooks.setLinea(user.getNumeroPrepago());
+  }
+
+  @Entonces("^(?:VALIDAR DIRECCIONAMIENTO OTROS MEDIOS DE PAGO TARJETA DE CREDITO|VALIDAR DIRECCIONAMIENTO OTROS MEDIOS DE PAGO TARJETA DE CRÉDITO)$")
+  public void direccionamientoOtrosMediosDePagoTC() {
+    theActorInTheSpotlight().attemptsTo(OtrosMediosDePagoTC.validarOtrosMediosTC());
+
+    ReportHooks.setLinea(user.getNumeroPrepago());
+  }
+
+  @Entonces("^VALIDAR DIRECCIONAMIENTO OTROS MEDIOS DE PAGO BANCOLOMBIA$")
+  public void direccionamientoOtrosMediosDePagoBancolombia() {
+    theActorInTheSpotlight().attemptsTo(OtrosMediosDePagoBancolombia.validarOtrosMediosBancolombia());
 
     ReportHooks.setLinea(user.getNumeroPrepago());
   }
@@ -173,6 +189,16 @@ public class PagosyConsultasPreDefinitions {
     theActorInTheSpotlight().attemptsTo(OtrosMediosDePago.validarOtrosMedios());
 
     ReportHooks.setLinea(user.getNumeroPrepago());
+  }
+
+  @Y("^(?:SELECCIONAR EL TIPO DE PAQUETE TODO INCLUIDO SIN REDES|SELECCIONAR EL PAQUETE TODO INCLUIDO SIN REDES)$")
+  public void seleccionarTipoPaqueteTodoIncluidoSinRedes() {
+    theActorInTheSpotlight().attemptsTo(SeleccionarPaqueteTodoIncluidoSinRedes.seleccionar());
+  }
+
+  @Y("^(?:COMPRA DEL PAQUETE TODO INCLUIDO 7 DIAS CON MINUTOS ILIMITADOS 10GB WIN SPORTS|COMPRA DE PAQUETE TODO INCLUIDO 7 DIAS CON MINUTOS ILIMITADOS 10GB WIN SPORTS)$")
+  public void compraPaqueteTodoIncluido7DiasWinSports() {
+    theActorInTheSpotlight().attemptsTo(CompraPaqueteTodoIncluido7DiasWinSports.comprar());
   }
 
   @Y("^SELECCIONAR EL MENU PAQUETES$")
@@ -225,6 +251,109 @@ public class PagosyConsultasPreDefinitions {
   @Y("^SELECCIONAR LA LINEA EN PREPAGO$")
   public void seleccionarLineaEnPrepago() {
     theActorInTheSpotlight().attemptsTo(SeleccionarLaLineaEnPrepago.seleccionar());
+
+    ReportHooks.setLinea(user.getNumeroPrepago());
+  }
+
+  @Y("^SELECCIONAR EL PAQUETE DE DATOS$")
+  public void seleccionarElPaqueteDeDatos() {
+    theActorInTheSpotlight().attemptsTo(SeleccionarPaqueteDeDatos.seleccionar());
+  }
+
+  @Y("^COMPRA DEL PAQUETE NAVEGACIÓN 2GB WHATSAPP FACEBOOK TWITTER 7 DIAS$")
+  public void compraDelPaqueteNavegacion2GB() {
+    theActorInTheSpotlight()
+        .attemptsTo(
+            Navegacion2GBWhatsappFacebookTwitter7Dias
+                .navegacion2GBWhatsappFacebookTwitter7Dias());
+  }
+
+  @Y(
+      "^(?:ELEGIR MEDIO DE PAGO TARJETA DE CRÉDITO/DÉBITO|ELEGIR MEDIO DE PAGO TARJETA DE CREDITO/DEBITO|ELEGIR MEDIO DE PAGO Tarjeta de crédito/débito)$")
+  public void elegirMedioPagoTarjetaCredito() {
+    theActorInTheSpotlight().attemptsTo(ElegirMedioPagoTarjetaCredito.elegir());
+  }
+
+  @Y(
+      "^(?:VALIDAR EL RESUMEN DE LA COMPRA DE PAQUETE DE DATOS|VALIDAR EL RESUMEN DE LA COMPRA DEL PAQUETE DE DATOS)$")
+  public void validarElResumenDeLaCompraPaqueteDeDatos() {
+    theActorInTheSpotlight().attemptsTo(ValidarResumenCompraPaqueteDatos.validar());
+  }
+
+  @Y("^TERMINOS Y CONDICIONES$")
+  public void terminosYCondiciones() {
+    theActorInTheSpotlight().attemptsTo(TerminosYCondicionesPaquetes.validarTerminosYAceptar());
+  }
+
+  @Y("^(?:Clic boton pagar|CLIC BOTON PAGAR)$")
+  public void clicBotonPagar() {
+    theActorInTheSpotlight().attemptsTo(ClicBotonPagar.pagar());
+  }
+
+  @Entonces(
+      "^(?:Validar direccionamiento y diligenciar formulario de pago de T\\.C|VALIDAR DIRECCIONAMIENTO Y DILIGENCIAR FORMULARIO DE PAGO DE T\\.C)$")
+  public void validarDireccionamientoYDiligenciarFormularioTC() {
+    theActorInTheSpotlight().attemptsTo(DiligenciarFormularioTarjetaCredito.diligenciar());
+
+    ReportHooks.setLinea(user.getNumeroPrepago());
+  }
+
+  @Y("^(?:ELEGIR MEDIO DE PAGO PSE|Elegir medio de pago PSE)$")
+  public void elegirMedioPagoPSE() {
+    theActorInTheSpotlight().attemptsTo(ElegirMedioPagoPSE.elegir());
+  }
+
+  @Entonces(
+      "^(?:VALIDAR DIRECCIONAMIENTO Y DILIGENCIAR FORMULARIO DE PAGO PSE BANCO POPULAR|Validar direccionamiento y diligenciar formulario de pago PSE Banco Popular)$")
+  public void validarDireccionamientoYDiligenciarFormularioPSEBancoPopular() {
+    theActorInTheSpotlight().attemptsTo(DiligenciarFormularioPSEBancoPopular.diligenciar());
+
+    ReportHooks.setLinea(user.getNumeroPrepago());
+  }
+
+  @Y("^(?:SELECCIONAR EL PAQUETE DE VOZ|SELECCIONA EL PAQUETE DE VOZ)$")
+  public void seleccionarElPaqueteDeVoz() {
+    theActorInTheSpotlight().attemptsTo(SeleccionarPaqueteDeVoz.seleccionar());
+  }
+
+  @Y("^(?:COMPRA DEL PAQUETE 1000 MINUTOS|COMPRA DE PAQUETE 1000 MINUTOS)$")
+  public void compraDelPaquete1000Minutos() {
+    theActorInTheSpotlight().attemptsTo(CompraPaquete1000Minutos.comprar());
+  }
+
+  @Y("^(?:ELEGIR MEDIO DE PAGO BANCOLOMBIA|Elegir medio de pago Bancolombia)$")
+  public void elegirMedioPagoBancolombia() {
+    theActorInTheSpotlight().attemptsTo(ElegirMedioPagoBancolombia.elegir());
+  }
+
+  @Entonces(
+      "^(?:VALIDAR DIRECCIONAMIENTO Y DILIGENCIAR FORMULARIO DE PAGO BANCOLOMBIA|Validar direccionamiento y diligenciar formulario de pago Bancolombia)$")
+  public void validarDireccionamientoYDiligenciarFormularioBancolombia() {
+    theActorInTheSpotlight().attemptsTo(DiligenciarFormularioBancolombia.diligenciar());
+
+    ReportHooks.setLinea(user.getNumeroPrepago());
+  }
+
+  @Y("^(?:SELECCIONAR EL PAQUETE DE APPS|SELECCIONA EL PAQUETE DE APPS)$")
+  public void seleccionarElPaqueteDeApps() {
+    theActorInTheSpotlight().attemptsTo(SeleccionarPaqueteDeApps.seleccionar());
+  }
+
+  @Y(
+      "^(?:COMPRA DEL PAQUETE SALUD EN LINEA 4 BENEFICIARIOS VIG 30 DIAS|COMPRA DE PAQUETE SALUD EN LINEA 4 BENEFICIARIOS VIG 30 DIAS)$")
+  public void compraDelPaqueteSalud4Beneficiarios() {
+    theActorInTheSpotlight().attemptsTo(CompraPaqueteSalud4Beneficiarios.comprar());
+  }
+
+  @Y("^(?:ELEGIR MEDIO DE PAGO DAVIPLATA|Elegir medio de pago Daviplata)$")
+  public void elegirMedioPagoDaviplata() {
+    theActorInTheSpotlight().attemptsTo(ElegirMedioPagoDaviplata.elegir());
+  }
+
+  @Entonces(
+      "^(?:VALIDAR DIRECCIONAMIENTO Y DILIGENCIAR FORMULARIO DE PAGO DAVIPLATA|Validar direccionamiento y diligenciar formulario de pago Daviplata)$")
+  public void validarDireccionamientoYDiligenciarFormularioDaviplata() {
+    theActorInTheSpotlight().attemptsTo(DiligenciarFormularioDaviplata.diligenciar());
 
     ReportHooks.setLinea(user.getNumeroPrepago());
   }
