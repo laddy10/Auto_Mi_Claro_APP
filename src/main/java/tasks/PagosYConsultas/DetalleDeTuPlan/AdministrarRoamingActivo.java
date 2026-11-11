@@ -13,7 +13,7 @@ import utils.EvidenciaUtils;
 
 public class AdministrarRoamingActivo implements Task {
 
-  private static final String NUMERO_LINEA = "310 262 9612";
+  private static final String NUMERO_LINEA = "310 262 8443";
   private static final String paso1 = "Hacer clic en Administrar Roaming";
   private static final String paso2 = "Seleccionar línea para administrar Roaming " + NUMERO_LINEA;
 

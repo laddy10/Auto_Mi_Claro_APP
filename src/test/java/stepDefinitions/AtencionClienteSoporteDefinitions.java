@@ -72,7 +72,9 @@ public class AtencionClienteSoporteDefinitions {
 
   @Y("^SELECCIONA LA OPCION VER MAS$")
   public void seleccionaLaOpcionVerMas() {
-    theActorInTheSpotlight().attemptsTo(ClickTextoQueContengaX.elTextoContiene(VER_MAS));
+    theActorInTheSpotlight().attemptsTo(
+            Scroll.scrollUnaVista(),
+            ClickTextoQueContengaX.elTextoContiene(VER_MAS));
     EvidenciaUtils.registrarCaptura("Seleccionar opción Ver más");
   }
 
