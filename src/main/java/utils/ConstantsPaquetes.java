@@ -43,6 +43,8 @@ public class ConstantsPaquetes {
       "Paquete 30 Dias, minutos Ilimitados, mensajes Ilimitados, 18GB de navegacion, WFX No consumen datos, Prime Video Móvil + Win Sports";
   public static final String TODO_INCLUIDO_20DIAS_7_5GB2 =
       "Paquete 20 Dias, minutos Ilimitados, mensajes Ilimitados, 7.5GB de navegacion, WFX No consumen datos, Prime Video Móvil + Win Sports";
+  public static final String TODO_INCLUIDO_20DIAS_7_5GB_REDES =
+      "Paquete 20 dias, minutos y mensajes ilimitados, 7.5 GB de navegacion, WhatsApp, Facebook y X incluidos. Prime Video Movil y Win sports consumen datos del paquete.";
   public static final String TODO_INCLUIDO_30DIAS_18GB2 =
       "Paquete 30 Dias, minutos Ilimitados, mensajes Ilimitados, 18GB de navegacion, WFX No consumen datos y Win Sports";
   public static final String TODO_INCLUIDO_30DIAS_12GB =
@@ -55,6 +57,8 @@ public class ConstantsPaquetes {
       "Este paquete incluye 10GB+ Minutos y SMS ilimitados todo destino, No incluye redes sociales. Vig 7 dias";
   public static final String TODO_INCLUIDO_15DIAS_20GB =
       "Paquete 15 Dias, minutos Ilimitados, mensajes Ilimitados, 20GB de navegacion, No incluye redes, Prime Video Móvil + Win Sports";
+  public static final String TODO_INCLUIDO_15DIAS_20GB_SIN_REDES =
+      "Paquete 15 dias, minutos y mensajes ilimitados, 20 GB de navegacion, WhatsApp, Facebook y X No incluidos. Prime Video Movil y Win sports consumen datos del paquete.";
   public static final String TODO_INCLUIDO_30DIAS_30GB =
       "Paquete 30 dias, minutos y mensajes ilimitados, 30 GB de navegacion, WhatsApp, Facebook y X No incluidos. Prime Video Movil y Win sports consumen datos del paquete.";
   public static final String TODO_INCLUIDO_7DIAS_10GB_WIN =

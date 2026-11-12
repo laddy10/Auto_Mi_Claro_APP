@@ -33,6 +33,7 @@ public class CompraPaqueteSalud4Beneficiarios extends AndroidObject implements T
     // 1. Scroll para ubicar el paquete de $6.500 (Salud en línea 4 beneficiarios)
     actor.attemptsTo(
         Scroll.scrollUnaVista(),
+        Scroll.scrollUnaVista(),
         WaitFor.aTime(1000));
 
     // 2. Validar precio en catálogo

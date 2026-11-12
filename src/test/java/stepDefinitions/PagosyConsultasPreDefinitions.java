@@ -197,9 +197,16 @@ public class PagosyConsultasPreDefinitions {
     theActorInTheSpotlight().attemptsTo(SeleccionarPaqueteTodoIncluidoSinRedes.seleccionar());
   }
 
-  @Y("^(?:COMPRA DEL PAQUETE TODO INCLUIDO 7 DIAS CON MINUTOS ILIMITADOS 10GB WIN SPORTS|COMPRA DE PAQUETE TODO INCLUIDO 7 DIAS CON MINUTOS ILIMITADOS 10GB WIN SPORTS)$")
+  @Y(
+      "^(?:COMPRA DEL PAQUETE TODO INCLUIDO 7 DIAS CON MINUTOS ILIMITADOS 10GB WIN SPORTS|COMPRA DE PAQUETE TODO INCLUIDO 7 DIAS CON MINUTOS ILIMITADOS 10GB WIN SPORTS|COMPRA DEL PAQUETE TODO INCLUIDO 10GB.*|COMPRA DEL PAQUETE 10GB.*|COMPRA DEL PAQUETE 10 GB.*)$")
   public void compraPaqueteTodoIncluido7DiasWinSports() {
     theActorInTheSpotlight().attemptsTo(CompraPaqueteTodoIncluido7DiasWinSports.comprar());
+  }
+
+  @Y(
+      "^(?:COMPRA DEL PAQUETE TODO INCLUIDO 15 DIAS CON MINUTOS ILIMITADOS 20GB|COMPRA DE PAQUETE TODO INCLUIDO 15 DIAS CON MINUTOS ILIMITADOS 20GB|COMPRA DEL PAQUETE TODO INCLUIDO 15 DIAS 20GB.*|COMPRA DEL PAQUETE TODO INCLUIDO 20GB.*|COMPRA DEL PAQUETE 20GB.*|COMPRA DEL PAQUETE 20 GB.*)$")
+  public void compraPaqueteTodoIncluido15Dias20GB() {
+    theActorInTheSpotlight().attemptsTo(CompraPaqueteTodoIncluido15Dias20GB.comprar());
   }
 
   @Y("^SELECCIONAR EL MENU PAQUETES$")
@@ -231,6 +238,18 @@ public class PagosyConsultasPreDefinitions {
         .attemptsTo(
             TodoIncluido30DiasMinIlim30GBNoIncluyeRedes
                 .todoIncluido30DiasMinIlim30GBNoIncluyeRedes());
+  }
+
+  @Y(
+      "^(?:COMPRA DEL PAQUETE TODO INCLUIDO 7 DIAS CON MINUTOS ILIMITADOS 2GB|COMPRA DEL PAQUETE TODO INCLUIDO 2GB CON MINUTOS ILIMITADOS|COMPRA DEL PAQUETE TODO INCLUIDO 2GB.*|COMPRA DEL PAQUETE 2GB.*)$")
+  public void compraPaqueteTodoIncluido7Dias2GB() {
+    theActorInTheSpotlight().attemptsTo(CompraPaqueteTodoIncluido7Dias2GB.comprar());
+  }
+
+  @Y(
+      "^(?:COMPRA DEL PAQUETE TODO INCLUIDO 20 DIAS CON MINUTOS ILIMITADOS 7\\.5GB|COMPRA DE PAQUETE TODO INCLUIDO 20 DIAS CON MINUTOS ILIMITADOS 7\\.5GB|COMPRA DEL PAQUETE TODO INCLUIDO 20 DIAS 7\\.5GB.*|COMPRA DEL PAQUETE TODO INCLUIDO 7\\.5GB.*|COMPRA DEL PAQUETE 7\\.5GB.*)$")
+  public void compraPaqueteTodoIncluido20Dias7_5GB() {
+    theActorInTheSpotlight().attemptsTo(CompraPaqueteTodoIncluido20Dias7_5GB.comprar());
   }
 
   @Then("^SELECCIONAR EL TIPO DE PAQUETE TODO INCLUIDO CON REDES$")
@@ -383,6 +402,14 @@ public class PagosyConsultasPreDefinitions {
       "^(?:VALIDAR DIRECCIONAMIENTO Y DILIGENCIAR FORMULARIO DE PAGO DAVIPLATA|Validar direccionamiento y diligenciar formulario de pago Daviplata)$")
   public void validarDireccionamientoYDiligenciarFormularioDaviplata() {
     theActorInTheSpotlight().attemptsTo(DiligenciarFormularioDaviplata.diligenciar());
+
+    ReportHooks.setLinea(user.getNumeroPrepago());
+  }
+
+  @Entonces(
+      "^(?:VALIDAR DIRECCIONAMIENTO Y DILIGENCIAR FORMULARIO DE PAGO PSE BANCO DAVIVIENDA|Validar direccionamiento y diligenciar formulario de pago PSE Banco Davivienda)$")
+  public void validarDireccionamientoYDiligenciarFormularioPSEBancoDavivienda() {
+    theActorInTheSpotlight().attemptsTo(DiligenciarFormularioPSEDavivienda.diligenciar());
 
     ReportHooks.setLinea(user.getNumeroPrepago());
   }

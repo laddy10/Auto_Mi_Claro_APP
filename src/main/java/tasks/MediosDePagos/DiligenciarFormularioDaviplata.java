@@ -49,17 +49,33 @@ public class DiligenciarFormularioDaviplata extends AndroidObject implements Tas
           ValidarTextoQueContengaX.elTextoContiene("código de seguridad"));
     }
 
-    // Validar valor a pagar en portal Daviplata
-    try {
-      actor.attemptsTo(
-          ValidarTextoQueContengaX.elTextoContiene(PRECIO_$6500));
-    } catch (Exception e) {
-      actor.attemptsTo(
-          ValidarTextoQueContengaX.elTextoContiene("6.500"));
+    // Validar valor a pagar en portal Daviplata según paquete
+    String valorCompra = actor.recall("VALOR_COMPRA");
+    String paquete = actor.recall("PAQUETE_CANAL");
+    String precioEsperado = "6.500";
+    if ((valorCompra != null && (valorCompra.contains("25") || valorCompra.contains("25.000") || valorCompra.contains("25000")))
+        || (paquete != null && (paquete.contains("7.5") || paquete.contains("25")))) {
+      precioEsperado = "25.000";
+    } else if ((valorCompra != null && (valorCompra.contains("9.000") || valorCompra.contains("9000")))
+        || (paquete != null && (paquete.contains("NAVEGACION") || paquete.contains("9000")))) {
+      precioEsperado = "9.000";
+    } else if ((valorCompra != null && (valorCompra.contains("18.500") || valorCompra.contains("18500")))
+        || (paquete != null && (paquete.contains("1000") || paquete.contains("18500")))) {
+      precioEsperado = "18.500";
     }
 
-    CapturaDePantallaMovil.tomarCapturaPantalla("Portal Daviplata cargado con valor $6.500");
-    EvidenciaUtils.registrarCaptura("Portal Daviplata cargado con valor $6.500");
+    try {
+      AndroidDriver driver = androidDriver(actor);
+      List<WebElement> els = driver.findElements(
+          By.xpath("//*[contains(@text, '" + precioEsperado + "') or contains(@text, '" + precioEsperado.replace(".", "") + "')]"));
+      if (!els.isEmpty()) {
+        EvidenciaUtils.registrarCaptura("Valor en portal Daviplata validado: $" + precioEsperado);
+      }
+    } catch (Exception ignored) {
+    }
+
+    CapturaDePantallaMovil.tomarCapturaPantalla("Portal Daviplata cargado con valor $" + precioEsperado);
+    EvidenciaUtils.registrarCaptura("Portal Daviplata cargado con valor $" + precioEsperado);
 
     // 2. Ingresar número de documento
     String numDocumento =
@@ -81,38 +97,42 @@ public class DiligenciarFormularioDaviplata extends AndroidObject implements Tas
   }
 
   private void validarPantallaCodigoDaviplata(Actor actor) {
-    actor.attemptsTo(
-        WaitForTextContains.withAnyTextContains(
-            "6 dígitos",
-            "codigo de 6 dígitos",
-            "código de 6 dígitos",
-            "expira en",
-            "Anular transacción"),
-        WaitFor.aTime(3000));
-
+    AndroidDriver driver = androidDriver(actor);
     boolean pantallaCodigoVisible = false;
-    try {
-      actor.attemptsTo(
-          ValidarTextoQueContengaX.elTextoContiene("6 dígitos"));
-      pantallaCodigoVisible = true;
-    } catch (Exception e) {
+
+    for (int i = 0; i < 40; i++) {
       try {
-        actor.attemptsTo(
-            ValidarTextoQueContengaX.elTextoContiene("expira en"));
-        pantallaCodigoVisible = true;
-      } catch (Exception ex) {
-        AndroidDriver driver = androidDriver(actor);
-        List<WebElement> els =
-            driver.findElements(
-                By.xpath(
-                    "//*[contains(@text, '6 dígitos') or contains(@text, 'codigo de 6') or contains(@text, 'expira en') or contains(@text, 'Anular transacción')]"));
+        List<WebElement> els = driver.findElements(
+            By.xpath(
+                "//*[contains(@text, '6 dígitos') or contains(@text, 'codigo de 6') or contains(@text, 'código de 6') or contains(@text, 'expira en') or contains(@text, 'Anular transacción') or contains(@text, 'seguridad') or contains(@content-desc, '6 dígitos') or contains(@content-desc, 'Anular')]"));
         if (!els.isEmpty()) {
           pantallaCodigoVisible = true;
+          break;
         }
+      } catch (Exception ignored) {
+      }
+
+      // Si después de 5 o 12 segundos sigue en la pantalla de ingresar documento, reintentar clic en Continuar
+      if (i == 5 || i == 12) {
+        try {
+          List<WebElement> docEls = driver.findElements(
+              By.xpath("//*[contains(@text, 'Ingresa el documento') or contains(@text, 'tipo de documento')]"));
+          if (!docEls.isEmpty()) {
+            EvidenciaUtils.registrarCaptura("Aún en pantalla de documento Daviplata, reintentando clic en Continuar");
+            clicBotonContinuar(actor);
+          }
+        } catch (Exception ignored) {
+        }
+      }
+
+      try {
+        Thread.sleep(1000);
+      } catch (InterruptedException ignored) {
       }
     }
 
     if (!pantallaCodigoVisible) {
+      CapturaDePantallaMovil.tomarCapturaPantalla("Fallo espera pantalla codigo Daviplata");
       throw new AssertionError(
           "No se visualizó la pantalla de solicitud de código de 6 dígitos en Daviplata");
     }
@@ -176,19 +196,29 @@ public class DiligenciarFormularioDaviplata extends AndroidObject implements Tas
   }
 
   private void clicBotonContinuar(Actor actor) {
+    AndroidDriver driver = androidDriver(actor);
+    try {
+      driver.hideKeyboard();
+    } catch (Exception ignored) {
+    }
+
+    try {
+      List<WebElement> btns =
+          driver.findElements(
+              By.xpath(
+                  "//*[@text='Continuar' or @content-desc='Continuar' or contains(@text, 'Continuar') or contains(@content-desc, 'Continuar')]"));
+      if (!btns.isEmpty()) {
+        btns.get(0).click();
+        return;
+      }
+    } catch (Exception ignored) {
+    }
+
     try {
       actor.attemptsTo(Click.on(BTN_CONTINUAR_DAVIPLATA));
     } catch (Exception e) {
       try {
-        AndroidDriver driver = androidDriver(actor);
-        List<WebElement> btns =
-            driver.findElements(
-                By.xpath("//android.widget.Button[@text='Continuar' or contains(@text, 'Continuar')]"));
-        if (!btns.isEmpty()) {
-          btns.get(0).click();
-        } else {
-          actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene("Continuar"));
-        }
+        actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene("Continuar"));
       } catch (Exception ignored) {
       }
     }

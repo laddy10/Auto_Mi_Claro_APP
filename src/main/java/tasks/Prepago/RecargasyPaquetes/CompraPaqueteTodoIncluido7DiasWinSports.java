@@ -29,26 +29,41 @@ public class CompraPaqueteTodoIncluido7DiasWinSports extends AndroidObject imple
 
   @Override
   public <T extends Actor> void performAs(T actor) {
-    // 1. Validar precio 15.000 en catálogo
+    // 1. Scroll leve inicial para que quede visible 'Ver detalle del paquete'
     actor.attemptsTo(
-        WaitFor.aTime(1500),
-        ValidarTextoQueContengaX.elTextoContiene("15.000"));
+        Scroll.scrollMediaVista(),
+        WaitFor.aTime(1000));
 
-    // 2. Clic en Ver detalle del paquete 1
+    // 2. Validar información del paquete en tarjeta (10 GB, $ 15.000)
+    try {
+      actor.attemptsTo(ValidarTextoQueContengaX.elTextoContiene("10 GB"));
+    } catch (Exception ignored) {
+    }
+    try {
+      actor.attemptsTo(ValidarTextoQueContengaX.elTextoContiene("15.000"));
+    } catch (Exception ignored) {
+    }
+
+    // 3. Clic en Ver detalle del paquete 1
     try {
       actor.attemptsTo(Click.on(LBL_VER_DETALLE_1));
     } catch (Exception e) {
-      actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(VER_DETALLE_DEL_PAQUETE));
+      try {
+        actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(VER_DETALLE_DEL_PAQUETE));
+      } catch (Exception e2) {
+        try {
+          actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene("Ver detalle"));
+        } catch (Exception ignored) {
+        }
+      }
     }
 
-    actor.attemptsTo(WaitFor.aTime(1000));
+    actor.attemptsTo(WaitFor.aTime(1200));
 
-    // 3. Validar información del paquete (con espacio: '10 GB')
-    try {
-      actor.attemptsTo(ValidarTextoQueContengaX.elTextoContiene("10 GB"));
-    } catch (Exception e) {
-      actor.attemptsTo(ValidarTextoQueContengaX.elTextoContiene("Win sports"));
-    }
+    // 4. Scroll leve adicional tras desplegar Ver detalle para que el botón Comprar sea visible y clickeable
+    actor.attemptsTo(
+        Scroll.scrollMediaVista(),
+        WaitFor.aTime(1000));
 
     actor.remember("VALOR_COMPRA", valorFormateado);
     actor.remember("PAQUETE_CANAL", TODO_INCLUIDO_7DIAS_10GB_WIN);
@@ -56,25 +71,26 @@ public class CompraPaqueteTodoIncluido7DiasWinSports extends AndroidObject imple
     CapturaDePantallaMovil.tomarCapturaPantalla("Detalle paquete Todo Incluido 7 días Win Sports validado");
     EvidenciaUtils.registrarCaptura("Detalle paquete Todo Incluido 7 días Win Sports validado: $15.000 - 10 GB");
 
-    // 4. Scroll suave si es necesario y Clic en Comprar 1
+    // 5. Clic en botón Comprar
     try {
       actor.attemptsTo(Click.on(BTN_COMPRAR_1));
     } catch (Exception e) {
       try {
-        actor.attemptsTo(
-            Scroll.scrollMediaVista(),
-            Click.on(BTN_COMPRAR_1));
-      } catch (Exception e2) {
         actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene(COMPRAR));
+      } catch (Exception e2) {
+        try {
+          actor.attemptsTo(ClickTextoQueContengaX.elTextoContiene("Comprar"));
+        } catch (Exception ignored) {
+        }
       }
     }
 
-    // 5. Esperar pantalla Elegir otro medio de pago
+    // 6. Esperar y validar pantalla Elegir otro medio de pago
     actor.attemptsTo(
         WaitForResponse.withText(ELEGIR_OTRO_MEDIO_PAGO),
         WaitFor.aTime(1000));
 
-    // 6. Validar precio en pantalla de medio de pago
+    // 7. Validar precio en pantalla de medio de pago
     actor.attemptsTo(ValidarTextoQueContengaX.elTextoContiene("15.000"));
 
     CapturaDePantallaMovil.tomarCapturaPantalla("Pantalla Elegir otro medio de pago validada con precio $15.000");

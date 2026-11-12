@@ -98,7 +98,7 @@ public class MediosPagoPage {
       Target.the("Boton Por medio de PSE")
           .located(
               By.xpath(
-                  "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View[2]/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]"));
+                  "//android.view.ViewGroup[@resource-id=\"com.clarocolombia.miclaro:id/griver_layout_refresh\"]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View[2]/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]"));
   public static final Target TXT_INGRESAR_NUMERO_DOCUMENTO_DAVIPLATA =
       Target.the("Caja de texto ingresar documento")
           .located(By.xpath("//android.widget.TextView[@text=\"Escribe el número de documento\"]"));
@@ -257,7 +257,9 @@ public class MediosPagoPage {
 
   public static final Target BTN_OPCION_PSE_DROPDOWN =
       Target.the("Opción PSE en dropdown medios de pago online")
-          .located(By.xpath("//*[contains(@text, 'PSE')]"));
+          .located(
+              By.xpath(
+                  "//android.view.ViewGroup[@resource-id=\"com.clarocolombia.miclaro:id/griver_layout_refresh\"]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View[2]/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]"));
 
   public static final Target BTN_OPCION_TARJETA_DROPDOWN =
       Target.the("Opción Tarjeta Crédito/Débito en dropdown medios de pago online")
@@ -290,4 +292,35 @@ public class MediosPagoPage {
           .located(
               By.xpath(
                   "//*[contains(@text, 'Reintentar') or contains(@content-desc, 'Reintentar')]"));
+
+  // Elementos Davivienda PSE
+  public static final Target BTN_CANAL_PERSONA_NATURAL_DAVIVIENDA =
+      Target.the("Opción Persona Natural Davivienda")
+          .located(
+              By.xpath(
+                  "//*[contains(@text, 'Persona Natural') or contains(@content-desc, 'Persona Natural')]"));
+
+  public static final Target TXT_NUMERO_DOCUMENTO_DAVIVIENDA =
+      Target.the("Campo número de documento Davivienda")
+          .located(
+              By.xpath(
+                  "//android.widget.EditText[@resource-id=\"viewns_Z7_KQ84HOK0298RE0688624FQ3GI0_:formAutenticar:numeroDocumento\" or contains(@resource-id, 'numeroDocumento')]"));
+
+  public static final Target BTN_CONTINUAR_DAVIVIENDA =
+      Target.the("Botón Continuar Davivienda")
+          .located(
+              By.xpath(
+                  "//android.widget.Button[@text='Continuar' or contains(@text, 'Continuar')]"));
+
+  public static final Target TXT_CLAVE_VIRTUAL_DAVIVIENDA =
+      Target.the("Campo Clave virtual Davivienda")
+          .located(
+              By.xpath(
+                  "//android.widget.EditText[@resource-id=\"viewns_Z7_KQ84HOK0298RE0688624FQ3GI0_:formAutenticar:claveVirtualMask\" or contains(@resource-id, 'claveVirtual')]"));
+
+  public static final Target LBL_ACCESO_DENEGADO_DAVIVIENDA =
+      Target.the("Mensaje Acceso denegado Davivienda")
+          .located(
+              By.xpath(
+                  "//*[contains(@text, 'Acceso denegado') or contains(@content-desc, 'Acceso denegado')]"));
 }

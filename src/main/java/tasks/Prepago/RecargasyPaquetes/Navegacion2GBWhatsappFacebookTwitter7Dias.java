@@ -33,6 +33,7 @@ public class Navegacion2GBWhatsappFacebookTwitter7Dias extends AndroidObject imp
         actor.attemptsTo(
                 Scroll.scrollUnaVista(),
                 Scroll.scrollUnaVista(),
+                Scroll.scrollUnaVista(),
                 ClickTextoQueContengaX.elTextoContiene(ULTIMO));
 
         actor.attemptsTo(

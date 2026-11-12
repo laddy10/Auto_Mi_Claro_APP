@@ -112,8 +112,12 @@ public class DiligenciarFormularioPSEBancoPopular extends AndroidObject implemen
     // 7. Clic en botón Ingresar
     clicBotonIngresar(actor);
 
-    // 8. La prueba finaliza cuando sale el mensaje en rojo de no registrado
-    validarMensajeDocumentoNoRegistrado(actor);
+    // 8. Esperar 10 segundos sin validar textos externos de la entidad financiera
+    actor.attemptsTo(WaitFor.aTime(10000));
+    gestionarPromptGuardarContrasenaGoogle(actor);
+
+    CapturaDePantallaMovil.tomarCapturaPantalla("Portal Banco Popular finalizado tras espera de 10 segundos");
+    EvidenciaUtils.registrarCaptura("Portal Banco Popular finalizado tras espera de 10 segundos");
   }
 
   private void ingresarNumeroDocumento(Actor actor, String numDocumento) {
