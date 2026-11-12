@@ -35,7 +35,9 @@ public class ValidarRedireccionPlayStoreClaroVideo implements Task {
       actor.attemptsTo(ValidarTexto.validarTexto("Desinstalar"));
     } else if (isVisible(actor, TXT_ABRIR)) {
       actor.attemptsTo(ValidarTexto.validarTexto("ABRIR"));
-    }
+    } else if (isVisible(actor, TXT_ABRIR)) {
+    actor.attemptsTo(ValidarTexto.validarTexto("Instalar"));
+  }
 
     EvidenciaUtils.registrarCaptura(paso);
   }

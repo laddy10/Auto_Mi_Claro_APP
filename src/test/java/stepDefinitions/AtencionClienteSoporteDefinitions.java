@@ -28,8 +28,8 @@ public class AtencionClienteSoporteDefinitions {
   public void desplazaHastaAtencionClienteSoporte() {
     theActorInTheSpotlight()
         .attemptsTo(
-            ScrollHastaTexto.conTexto(ATENCION_AL_CLIENTE),
-            Scroll.scrollMediaVista());
+            ScrollHastaTexto.conTexto("Consulta el estado de tus servicios"),
+                Scroll.scrollMediaVista());
     EvidenciaUtils.registrarCaptura("Desplazarse hasta Atención al cliente y soporte");
   }
 
@@ -72,7 +72,9 @@ public class AtencionClienteSoporteDefinitions {
 
   @Y("^SELECCIONA LA OPCION VER MAS$")
   public void seleccionaLaOpcionVerMas() {
-    theActorInTheSpotlight().attemptsTo(ClickTextoQueContengaX.elTextoContiene(VER_MAS));
+    theActorInTheSpotlight().attemptsTo(
+            Scroll.scrollUnaVista(),
+            ClickTextoQueContengaX.elTextoContiene(VER_MAS));
     EvidenciaUtils.registrarCaptura("Seleccionar opción Ver más");
   }
 
