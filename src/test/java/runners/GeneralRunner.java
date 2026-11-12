@@ -19,7 +19,6 @@ import utils.DataToFeature;
         plugin = {"pretty"},
         tags = "@PRE140")
 
-
 public class GeneralRunner {
     @BeforeSuite
     public static void generateFeatureFiles() throws InvalidFormatException, IOException {
