@@ -28,8 +28,8 @@ public class AtencionClienteSoporteDefinitions {
   public void desplazaHastaAtencionClienteSoporte() {
     theActorInTheSpotlight()
         .attemptsTo(
-            ScrollHastaTexto.conTexto(ATENCION_AL_CLIENTE),
-            Scroll.scrollMediaVista());
+            ScrollHastaTexto.conTexto("Consulta el estado de tus servicios"),
+                Scroll.scrollMediaVista());
     EvidenciaUtils.registrarCaptura("Desplazarse hasta Atención al cliente y soporte");
   }
 
