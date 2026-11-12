@@ -28,7 +28,7 @@ public class ValidarVersionMiniprogramaEstadoServiciosTecnicos implements Task {
   private static final String paso1 = "Esperar desaparición del texto 'Espera un momento'";
   private static final String paso2 = "Ingresar al menú de tres puntos y seleccionar 'Acerca de'";
   private static final String paso3 =
-      "Validar versión de mini programa Estado de servicios tècnicos";
+      "Validar versión de mini programa Estado de servicios técnicos";
 
   @Override
   public <T extends Actor> void performAs(T actor) {

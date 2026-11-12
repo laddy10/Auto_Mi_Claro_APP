@@ -29,7 +29,7 @@ public class AtencionClienteSoporteDefinitions {
     theActorInTheSpotlight()
         .attemptsTo(
             ScrollHastaTexto.conTexto("Consulta el estado de tus servicios"),
-                Scroll.scrollMediaVista());
+                Scroll.scrollCuartoVista());
     EvidenciaUtils.registrarCaptura("Desplazarse hasta Atención al cliente y soporte");
   }
 

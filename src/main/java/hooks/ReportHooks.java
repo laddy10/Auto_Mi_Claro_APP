@@ -5,7 +5,7 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import java.util.ArrayList;
 import java.util.List;
-import listeners.OllamaStepListener;
+import listeners.ErrorStepListener;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.thucydides.core.steps.StepEventBus;
@@ -16,7 +16,7 @@ import utils.WordAppium;
 /**
  * Hooks consolidados de Cucumber.
  *
- * <p>Responsabilidades: inicializar actores de Serenity, registrar OllamaStepListener, generar
+ * <p>Responsabilidades: inicializar actores de Serenity, registrar ErrorStepListener, generar
  * reportes Word y tracking de pasos/estado.
  */
 public class ReportHooks {
@@ -49,12 +49,12 @@ public class ReportHooks {
 
     if (!listenerRegistrado) {
       try {
-        OllamaStepListener ollamaListener = new OllamaStepListener();
-        StepEventBus.getEventBus().registerListener(ollamaListener);
+        ErrorStepListener errorListener = new ErrorStepListener();
+        StepEventBus.getEventBus().registerListener(errorListener);
         listenerRegistrado = true;
-        System.out.println("✅ [OLLAMA] Listener registrado correctamente");
+        System.out.println("✅ [LISTENER] ErrorStepListener registrado correctamente");
       } catch (Exception e) {
-        System.err.println("❌ [OLLAMA] Error al registrar listener: " + e.getMessage());
+        System.err.println("❌ [LISTENER] Error al registrar listener: " + e.getMessage());
         e.printStackTrace();
       }
     }

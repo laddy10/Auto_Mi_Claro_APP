@@ -66,16 +66,6 @@ public class LoginDefinitions {
     theActorInTheSpotlight().attemptsTo(LoginOrquestado.con(LoginOrquestado.Metodo.PIN));
   }
 
-  /* @Cuando("verifico los siguientes localizadores o textos {string} contra el page source {string}")
-  public void verificoLosLocalizadoresContraElPageSource(String locatorsOrTexts, String xmlFileName) {
-      // Leer maxLocatorsToSend desde serenity.properties si prefieres (por ejemplo 100)
-      int maxLocatorsToSend = 100; // ajustable o configurable
-
-      OnStage.theActorInTheSpotlight().attemptsTo(
-              ValidateLocatorsWithOllama.using(xmlFileName, locatorsOrTexts, maxLocatorsToSend)
-      );
-  }*/
-
   // STEP DEFINITIONS para src/test/java/stepDefinitions/LoginDefinitions.java  (Cucumber antiguo ->
   // regex)
   //
