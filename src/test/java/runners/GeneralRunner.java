@@ -17,7 +17,7 @@ import utils.DataToFeature;
         glue = {"stepDefinitions", "utils", "hooks", "listeners"},
         snippets = SnippetType.CAMELCASE,
         plugin = {"pretty"},
-        tags = "@PRE140")
+        tags = "@PRE130")
 
 public class GeneralRunner {
     @BeforeSuite
