@@ -8,7 +8,6 @@ import cucumber.api.java.ast.Y;
 import cucumber.api.java.es.Entonces;
 import hooks.ReportHooks;
 import interactions.Click.ClickTextoQueContengaX;
-import interactions.Scroll.Scroll;
 import interactions.Scroll.ScrollHastaTexto;
 import interactions.comunes.Atras;
 import interactions.validations.ValidarTexto;
@@ -44,16 +43,8 @@ public class PagosYConsultasDefinitions {
 
   @Y("^INGRESA AL MENU PAGOS Y CONSULTAS$")
   public void menuPagosYConsultas() {
-    final String paso = "Menu Pagos y consultas";
-
     theActorInTheSpotlight()
-        .attemptsTo(
-            ScrollHastaTexto.conTexto(HAZLO_TODO_EN_LINEA),
-            ScrollHastaTexto.conTexto(DISFRUTA_DE_TIEMPO_CON_MICLARO),
-            Scroll.scrollMediaVista(),
-            ClickTextoQueContengaX.elTextoContiene(VER_MAS));
-
-    EvidenciaUtils.registrarCaptura(paso);
+        .attemptsTo(tasks.PagosYConsultas.AccederMenuPagosYConsultas.acceder());
   }
 
   @Y("^INGRESA A OPCION DE PAGA TU FACTURA$")
