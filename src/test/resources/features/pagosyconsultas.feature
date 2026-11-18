@@ -501,7 +501,7 @@ Característica: Ingresar al modulo pagos y consultas
     Y   ADMINISTRAR ROAMING SERVICIO ACTIVO
     Entonces COMPRA PAQUETE DATOS
 
-  @SA097 @cuenta_secundaria
+  @SA097
   Escenario: Administrar Roaming - No tenga Servicio activo - Activar servicio con vigencia indefinida
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -509,21 +509,21 @@ Característica: Ingresar al modulo pagos y consultas
     Entonces ACTIVA ROAMING CON SERVICIO DESACTIVADO Y VIGENCIA INDEFINIDA
 
 
-  @SA098 @cuenta_secundaria
+  @SA098
   Escenario: Administrar Roaming - Servicio activo - Desactivar servicio de Roaming
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
     Y   INGRESA AL MENU PAGOS Y CONSULTAS
     Entonces DESACTIVA ROAMING ACTIVO
 
-  @SA099 @cuenta_secundaria
+  @SA099
   Escenario: Administrar Roaming - No tenga Servicio activo - Activar servicio con vigencia definida
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
     Y   INGRESA AL MENU PAGOS Y CONSULTAS
     Entonces ACTIVA ROAMING CON SERVICIO DESACTIVADO Y VIGENCIA DEFINIDA
 
-  @SA100 @cuenta_secundaria
+  @SA100
   Escenario: Administrar Roaming - Servicio activo - Desactivar servicio de Roaming
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
