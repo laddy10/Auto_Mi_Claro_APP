@@ -595,6 +595,10 @@ public class Constants {
   public static final String $8900 = "$ 8.900";
   public static final String ACTIVAR_PAQUETE = "Activar Paquete";
   public static final String PAQUETE_ACTIVADO = "Tu paquete ha sido activado con éxito";
+  public static final String PAQUETE_ACTIVADO2 = "El servicio de Roaming internacional ha sido activado con éxito";
+  public static final String NO_GRACIAS = "No, gracias";
+  public static final String ACTIVAR_POR_TIEMPO_DEFINIDO = "Activar con fecha límite";
+  public static final String ELIGE_FECHA = "ELIGE LA FECHA FINAL DE COBERTURA PRUEBA";
 
   // ENTRETENIMIENTO
 
