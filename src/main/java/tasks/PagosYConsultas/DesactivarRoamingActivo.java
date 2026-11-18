@@ -1,10 +1,9 @@
-package tasks.PagosYConsultas.RecargasyPaquetes;
+package tasks.PagosYConsultas;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static utils.Constants.*;
 
 import interactions.Click.ClickTextoQueContengaX;
-import interactions.Click.TocarBotonSecundarioModalWebView;
 import interactions.Click.TocarElementoVentanaWebView;
 import interactions.Click.TocarSwitchWebView;
 import interactions.wait.WaitFor;
@@ -12,9 +11,6 @@ import interactions.wait.WaitForResponse;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import tasks.PagosYConsultas.DetalleDeTuPlan.DesactivarServicioRoaming;
-import tasks.PagosYConsultas.DetalleDeTuPlan.RoamingTestLines;
-import tasks.PagosYConsultas.DetalleDeTuPlan.RoamingScreen;
 import utils.AndroidObject;
 import utils.EvidenciaUtils;
 
