@@ -19,4 +19,16 @@ public class RoamingPage {
 
     public static final Target BTN_DATOS = Target.the("Botón datos")
             .located(By.xpath("(//android.view.View[@resource-id=\"__react-content\"]/android.view.View/android.widget.TextView[@text=\"\uE6B8\"])[2]"));
+
+    public static final Target SW_ROAMING = Target.the("Switch activar y desactivar roaming")
+            .located(By.xpath("(//android.widget.Switch/android.widget.TextView"));
+
+    public static final Target BTN_NO_GRACIAS = Target.the("Botón no, gracias")
+            .located(By.xpath("//android.widget.Button[@text=\"No, gracias\"]"));
+
+    public static final Target BTN_CONTINUAR = Target.the("Botón Continua")
+            .located(By.xpath("//android.widget.TextView[@text=\"Continuar\"]"));
+
+    public static final Target BTN_DESACTIVAR = Target.the("Botón Desactivar")
+            .located(By.xpath("//android.widget.Button[@text=\"Desactivar\"]"));
 }
