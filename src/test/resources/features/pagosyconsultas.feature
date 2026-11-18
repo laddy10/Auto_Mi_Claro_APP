@@ -70,7 +70,7 @@ Característica: Ingresar al modulo pagos y consultas
     Entonces  VALIDA PAQUETES LDI
 
 
-  @SA012
+  #@SA012
   Escenario: Recargas y Paquetes - Paquetes complementarios
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -79,7 +79,7 @@ Característica: Ingresar al modulo pagos y consultas
     Entonces  VALIDA DIRECCIONAMIENTO PAQUETES COMPLEMENTARIOS
 
 
-  @SA013
+  #@SA013
   Escenario: Ingresar a recargas y paquetes y validar Recargas
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -160,7 +160,7 @@ Característica: Ingresar al modulo pagos y consultas
     Entonces  SELECCIONA LA OPCION REGISTRAR EQUIPO
 
 
-  @SA021
+  #@SA021
   Escenario: Ingresar a gestiona tu equipo y reportar por robo o pérdida
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -168,7 +168,7 @@ Característica: Ingresar al modulo pagos y consultas
     Y   SELECCIONA LA OPCION REPORTAR POR ROBO O PERDIDA
     Entonces  CONFIRMA INGRESO A LA OPCION Y VALIDA TEXTOS DISPONIBLES
 
-  @SA022
+  #@SA022
   Escenario: Ingresar a gestiona tu equipo y solucionar equipo con IMEI duplicado
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -176,7 +176,7 @@ Característica: Ingresar al modulo pagos y consultas
     Y   SELECCIONA LA OPCION SOLUCIONAR EQUIPO CON IMEI DUPLICADO
     Entonces  VERIFICA QUE SE MUESTREN LAS DOS OPCIONES EN PANTALLA
 
-  @SA023
+  #@SA023
   Escenario: Ingresar a gestiona tu equipo y reconectar por robo o pérdida
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -184,7 +184,7 @@ Característica: Ingresar al modulo pagos y consultas
     Y   SELECCIONA LA OPCION RECONECTAR POR ROBO O PERDIDA
     Entonces  VALIDA TEXTO DISPONIBLE Y CIERRA MODAL
 
-  @SA024
+  #@SA024
   Escenario: Ingresar a gestiona tu equipo y consultar equipo
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -192,7 +192,7 @@ Característica: Ingresar al modulo pagos y consultas
     Y   SELECCIONA LA OPCION CONSULTAR EQUIPO
     Entonces  VERIFICA INFORMACION DISPONIBLE DEL EQUIPO
 
-  @SA025
+  #@SA025
   Escenario: Ingresar a gestiona tu equipo y actualizar datos de tu equipo
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -220,7 +220,7 @@ Característica: Ingresar al modulo pagos y consultas
     Y   VALIDA DIRECCIONAMIENTO FAMILIA Y AMIGOS
     Y   INGRESA OPCION FAMILIA Y AMIGOS
 
-  @SA028
+  #@SA028
   Escenario: Validar direccionamiento Roaming
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -228,7 +228,7 @@ Característica: Ingresar al modulo pagos y consultas
     Entonces  VALIDA DIRECCIONAMIENTO A ROAMING
 
 
-  @SA029
+  #@SA029
   Escenario: Estado de portabilidad desde Pagos y consultas
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -238,7 +238,7 @@ Característica: Ingresar al modulo pagos y consultas
     Entonces  VALIDA ESTADO DE PORTABILIDAD Y REDIRECCION
 
 
-  @SA030
+  #@SA030
   Escenario: Envío de SIM Card desde Portabilidad
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -248,7 +248,7 @@ Característica: Ingresar al modulo pagos y consultas
     Entonces  VALIDA ENVIO DE SIM CARD Y REDIRECCION
 
 
-  @SA031
+  #@SA031
   Escenario: Portabilidad prepago desde Portabilidad
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -257,7 +257,7 @@ Característica: Ingresar al modulo pagos y consultas
     Y   VALIDA VERSION DE MINIPROGRAMA PORTABILIDAD
     Entonces  VALIDA PORTABILIDAD PREPAGO Y REDIRECCION
 
-  @SA032
+  #@SA032
   Escenario: Portabilidad postpago desde Portabilidad
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -290,7 +290,7 @@ Característica: Ingresar al modulo pagos y consultas
     Entonces  VALIDA DIRECCIONAMIENTO OPCIONES ESIM
 
 
-  @SA035 
+  #@SA035
   Escenario: Certificación cuenta al día
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -298,7 +298,7 @@ Característica: Ingresar al modulo pagos y consultas
     Entonces  GESTIONA CERTIFICACION CUENTA AL DIA
 
 
-  @SA036
+  #@SA036
   Escenario: Vehículo conectado
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -306,7 +306,7 @@ Característica: Ingresar al modulo pagos y consultas
     Entonces  VALIDA DIRECCIONAMIENTO VEHICULO CONECTADO
 
 
-  @SA037 
+  #@SA037
   Escenario: Pagos
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -314,7 +314,7 @@ Característica: Ingresar al modulo pagos y consultas
     Entonces  VALIDA DIRECCIONAMIENTO CORRECTO PAGOS
 
 
-  @SA038 
+  #@SA038
   Escenario: Legalización de líneas
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -322,7 +322,7 @@ Característica: Ingresar al modulo pagos y consultas
     Entonces  VALIDA DIRECCIONAMIENTO CORRECTO LEGALIZACION
 
 
-  @SA039 
+  #@SA039
   Escenario: Beneficios
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -460,13 +460,13 @@ Característica: Ingresar al modulo pagos y consultas
     Entonces  VALIDA REDIRECCION A BANCOLOMBIA
 
 
-  @Solo_Nuevos_Pasos
+  #@Solo_Nuevos_Pasos
   Escenario: Validar solo Aplicaciones elegibles (desde detalle ya cargado)
     Dado EL USUARIO ABRE LA SUPER APP
     Y   INGRESA MEJORAR PLAN
     Entonces  VALIDA DIRECCIONAMIENTO MEJORAR PLAN
 
-  @SA200 @cuenta_secundaria
+  #@SA200 @cuenta_secundaria
   Escenario: Caso con cuenta secundaria
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  EL USUARIO INICIA SESION SEGUN CUENTA

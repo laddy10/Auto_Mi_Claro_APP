@@ -15,7 +15,7 @@ import utils.AndroidObject;
 import utils.EvidenciaUtils;
 
 public class ActivarServicioRoamingVigenciaDefinida implements Task {
-  private static final String NUMERO_LINEA = "310 263 5965";
+  private static final String NUMERO_LINEA = "322 278 6448";
   private static final String paso1 = "Hacer clic en Activar Roaming";
   private static final String paso2 = "Seleccionar línea para administrar Roaming " + NUMERO_LINEA;
   private static final String paso3 = "Activar Roaming con vigencia definida";

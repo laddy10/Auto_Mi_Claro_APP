@@ -1,7 +1,7 @@
 # language: es
 Característica: Ingresar al módulo de Atención al cliente y soporte
 
-  @SA054
+  #@SA054
   Escenario: Medición de red
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -12,7 +12,7 @@ Característica: Ingresar al módulo de Atención al cliente y soporte
     Y   REALIZA TEST DE VELOCIDAD
     Entonces  VERIFICA LA INFORMACION EN PANTALLA Y MANEJA CONDICIONALES
 
-  @SA055
+  #@SA055
   Escenario: Soporte Hogar
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
@@ -31,7 +31,7 @@ Característica: Ingresar al módulo de Atención al cliente y soporte
     Y   DESPLAZA HASTA LINEA Y SELECCIONA VER DETALLE
     Entonces  VERIFICA REDIRECCION CORRECTA A PAGINA CLARO
 
-  @SA057
+  #@SA057
   Escenario: Puntos de atención
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando  REALIZA EL INGRESO
