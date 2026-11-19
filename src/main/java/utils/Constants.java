@@ -807,7 +807,7 @@ public class Constants {
   public static final String INGRESO_BANCO1 =
       "Bienvenido a nuestro nuevo portal de pagos de servicios electrónicos.";
   public static final String IR_A_CINE = "Ir a cine";
-  public static final String PAGOS_EN_LINEA = "Pagos en Línea y PSE";
+  public static final String PAGOS_EN_LINEA = "Pagos PSE Davivienda";
 
 
   // Constantes paquete navegación y transacción tarjeta crédito
