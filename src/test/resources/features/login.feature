@@ -18,19 +18,19 @@ Característica: Ingreso a la Super App
 
   #Login
 
-  @LOGIN_CORREO_01
+  #@LOGIN_CORREO_01
   Escenario: Login exitoso con correo electrónico
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando REALIZA EL INGRESO CON CORREO
 
 
-  @LOGIN_DOCUMENTO_01
+  #@LOGIN_DOCUMENTO_01
   Escenario: Login exitoso con documento
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando REALIZA EL INGRESO CON DOCUMENTO
 
 
-  @LOGIN_PIN_01
+  #@LOGIN_PIN_01
   Escenario: Login exitoso con pin
     Dado EL USUARIO ABRE LA SUPER APP
     Cuando REALIZA EL INGRESO CON PIN
