@@ -50,7 +50,7 @@ public class PagosYConsultasDefinitions {
     theActorInTheSpotlight()
         .attemptsTo(
             ScrollHastaTexto.conTexto(HAZLO_TODO_EN_LINEA),
-            Scroll.scrollMediaVista(),
+            Scroll.scrollUnaVista(),
             ClickTextoQueContengaX.elTextoContiene(VER_MAS));
 
     EvidenciaUtils.registrarCaptura(paso);
