@@ -34,6 +34,7 @@ import tasks.PagosYConsultas.eSIM.MiniprogramaEsim;
 import tasks.PagosYConsultas.eSIM.SeleccionarLineaPostEsim;
 import tasks.PagosYConsultas.eSIM.ValidarOpcionesEsim;
 import tasks.Prepago.RecargasyPaquetes.SeleccionLineaPrepago;
+import tasks.Roaming.AdministrarRoamingDetalle;
 import tasks.Roaming.CompraPaqueteAmerica;
 import tasks.Roaming.CompraPaqueteDatos;
 import tasks.Roaming.CompraPaqueteVozDatos;
@@ -308,9 +309,14 @@ public class PagosYConsultasDefinitions {
     theActorInTheSpotlight().attemptsTo(AdministrarRoaming.ingresarRoaming());
   }
 
-  @Y("ADMINISTRAR ROAMING SERVICIO ACTIVO")
+  @Y("INGRESA A ADMINISTRAR ROAMING SERVICIO ACTIVO")
   public void administrarRoaServActivo() {
     theActorInTheSpotlight().attemptsTo(AdministrarRoamingActivo.ingresarRoaming());
+  }
+
+  @Y("INGRESA A ADMINISTRAR ROAMING EN DETALLE")
+  public void administrarRoamingDetalle() {
+    theActorInTheSpotlight().attemptsTo(AdministrarRoamingDetalle.administrarRoamingDetalle());
   }
 
   @Entonces("VALIDA DIRECCIONAMIENTO ROAMING")

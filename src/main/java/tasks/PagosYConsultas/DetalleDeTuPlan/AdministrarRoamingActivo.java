@@ -13,7 +13,7 @@ import utils.EvidenciaUtils;
 
 public class AdministrarRoamingActivo implements Task {
 
-  private static final String NUMERO_LINEA = "310 262 9612";
+  private static final String NUMERO_LINEA = "322 278 7180";
   private static final String paso1 = "Hacer clic en Administrar Roaming";
   private static final String paso2 = "Seleccionar línea para administrar Roaming " + NUMERO_LINEA;
 
@@ -23,7 +23,7 @@ public class AdministrarRoamingActivo implements Task {
     EvidenciaUtils.registrarCaptura(paso1);
 
     actor.attemptsTo(
-        ClickTextoQueContengaX.elTextoContiene(ADMINISTRAR_ROAMING),
+        ClickTextoQueContengaX.elTextoContiene(ACTIVAR_ROAMING),
         WaitForResponse.withText(ACTIVA_ROAMING));
 
     // Seleccionar la línea específica del usuario

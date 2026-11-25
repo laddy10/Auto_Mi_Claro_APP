@@ -366,6 +366,8 @@ public class EntretenimientoPage {
       Target.the("Texto desinstalar").located(By.xpath("//*[@text='desinstalar']"));
   public static final Target TXT_ABRIR =
       Target.the("Texto Abrir").located(By.xpath("//*[@text='ABRIR']"));
+  public static final Target TXT_INSTALAR =
+          Target.the("Texto Abrir").located(By.xpath("//*[@text='INSTALAR']"));
   public static final Target TXT_BIENVENIDO =
       Target.the("Texto ¡Bienvenido al nuevo Claro música!")
           .located(By.xpath("//*[@text='¡Bienvenido al nuevo Claro música!']"));
