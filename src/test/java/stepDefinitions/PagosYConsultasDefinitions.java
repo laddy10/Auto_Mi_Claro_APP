@@ -7,6 +7,7 @@ import static utils.Constants.*;
 import cucumber.api.java.ast.Y;
 import cucumber.api.java.es.Entonces;
 import hooks.ReportHooks;
+import interactions.Click.ClickOpcionDelModulo;
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.Scroll;
 import interactions.Scroll.ScrollHastaTexto;
@@ -43,7 +44,7 @@ public class PagosYConsultasDefinitions {
 
   private final User user = TestDataProvider.getRealUser();
 
-  @Y("^INGRESA AL MENU PAGOS Y CONSULTAS$")
+  /*@Y("^INGRESA AL MENU PAGOS Y CONSULTAS$")
   public void menuPagosYConsultas() {
     final String paso = "Menu Pagos y consultas";
 
@@ -53,6 +54,14 @@ public class PagosYConsultasDefinitions {
             Scroll.scrollMediaVista(),
             ClickTextoQueContengaX.elTextoContiene(VER_MAS));
 
+    EvidenciaUtils.registrarCaptura(paso);
+  }*/
+
+  @Y("^INGRESA AL MENU PAGOS Y CONSULTAS$")
+  public void menuPagosYConsultas() {
+    final String paso = "Menu Pagos y consultas";
+    theActorInTheSpotlight().attemptsTo(
+            ClickOpcionDelModulo.verMasDe(PAGOS_Y_CONSULTAS));
     EvidenciaUtils.registrarCaptura(paso);
   }
 

@@ -6,6 +6,7 @@ import static utils.Constants.*;
 
 import cucumber.api.java.ast.Y;
 import cucumber.api.java.es.Entonces;
+import interactions.Click.ClickOpcionDelModulo;
 import interactions.Click.ClickTextoQueContengaX;
 import interactions.Scroll.Scroll;
 import interactions.Scroll.ScrollHastaTexto;
@@ -31,6 +32,14 @@ public class AtencionClienteSoporteDefinitions {
             ScrollHastaTexto.conTexto("Consulta el estado de tus servicios"),
                 Scroll.scrollCuartoVista());
     EvidenciaUtils.registrarCaptura("Desplazarse hasta Atención al cliente y soporte");
+  }
+
+  @Y("^INGRESA AL MENU ATENCION AL CLIENTE Y SOPORTE$")
+  public void menuAtencionAlCliente() {
+    final String paso = "Menu Atención al cliente y soporte";
+    theActorInTheSpotlight().attemptsTo(
+            ClickOpcionDelModulo.verMasDe(ATENCION_AL_CLIENTE));
+    EvidenciaUtils.registrarCaptura(paso);
   }
 
   @Y("^INGRESA AL BOTON MEDICION DE RED$")
